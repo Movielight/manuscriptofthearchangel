@@ -67,6 +67,12 @@ export default {
         sacred: {
           glow: "hsl(var(--sacred-glow))",
         },
+        manuscript: {
+          dark: "hsl(var(--manuscript-dark))",
+          light: "hsl(var(--manuscript-light))",
+          gold: "hsl(var(--manuscript-gold))",
+          purple: "hsl(var(--manuscript-purple))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
