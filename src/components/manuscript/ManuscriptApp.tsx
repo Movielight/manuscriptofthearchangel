@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useManuscriptProgress } from '@/hooks/useManuscriptProgress';
+import { useCelebration } from '@/hooks/useCelebration';
 import { BottomNavigation, AppView } from './BottomNavigation';
 import { Dashboard } from './Dashboard';
 import { ReadingView } from './ReadingView';
 import { PracticeView } from './PracticeView';
 import { JournalView } from './JournalView';
 import { SettingsPanel } from './SettingsPanel';
+import { CelebrationOverlay } from './CelebrationOverlay';
 
 export const ManuscriptApp = () => {
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
@@ -21,6 +23,8 @@ export const ManuscriptApp = () => {
     setTheme,
     resetProgress,
   } = useManuscriptProgress();
+
+  const { celebration, closeCelebration } = useCelebration(progress);
 
   // Get theme class based on progress.theme
   const getThemeClass = () => {
@@ -96,6 +100,15 @@ export const ManuscriptApp = () => {
       </div>
       
       <BottomNavigation currentView={currentView} onViewChange={setCurrentView} />
+      
+      {/* Celebration overlay for badges and milestones */}
+      <CelebrationOverlay
+        isVisible={celebration.isVisible}
+        type={celebration.type}
+        title={celebration.title}
+        message={celebration.message}
+        onClose={closeCelebration}
+      />
     </div>
   );
 };
