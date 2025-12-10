@@ -18,31 +18,42 @@ const navItems: { view: AppView; icon: typeof Home; label: string }[] = [
 
 export const BottomNavigation = ({ currentView, onViewChange }: BottomNavigationProps) => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-manuscript-dark/95 backdrop-blur-lg border-t border-manuscript-gold/20">
-      <div className="flex justify-around items-center h-16 max-w-lg mx-auto px-2">
+    <nav className="fixed bottom-0 left-0 right-0 z-50">
+      {/* Gradient blur background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-manuscript-dark via-manuscript-dark/98 to-manuscript-dark/90 backdrop-blur-xl" />
+      
+      {/* Top border glow */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-manuscript-gold/40 to-transparent" />
+      
+      <div className="relative flex justify-around items-center h-20 max-w-lg mx-auto px-2 pb-2">
         {navItems.map(({ view, icon: Icon, label }) => {
           const isActive = currentView === view;
           return (
             <button
               key={view}
               onClick={() => onViewChange(view)}
-              className="relative flex flex-col items-center justify-center w-16 h-full transition-colors"
+              className="relative flex flex-col items-center justify-center w-16 h-full transition-all duration-200"
             >
               {isActive && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-x-2 top-1 h-1 bg-manuscript-gold rounded-full"
+                  className="absolute -top-1 w-10 h-1 bg-gradient-to-r from-manuscript-gold/50 via-manuscript-gold to-manuscript-gold/50 rounded-full shadow-lg"
+                  style={{ boxShadow: '0 0 20px hsl(43 80% 55% / 0.5)' }}
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
               )}
-              <Icon
-                className={`w-5 h-5 transition-colors ${
-                  isActive ? 'text-manuscript-gold' : 'text-manuscript-light/60'
-                }`}
-              />
+              <div className={`p-2 rounded-xl transition-all duration-200 ${
+                isActive ? 'bg-manuscript-gold/15' : ''
+              }`}>
+                <Icon
+                  className={`w-5 h-5 transition-all duration-200 ${
+                    isActive ? 'text-manuscript-gold scale-110' : 'text-manuscript-light/60'
+                  }`}
+                />
+              </div>
               <span
-                className={`text-xs mt-1 font-body transition-colors ${
-                  isActive ? 'text-manuscript-gold' : 'text-manuscript-light/60'
+                className={`text-xs mt-1 font-body transition-all duration-200 ${
+                  isActive ? 'text-manuscript-gold font-medium' : 'text-manuscript-light/60'
                 }`}
               >
                 {label}
