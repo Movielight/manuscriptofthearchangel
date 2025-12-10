@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { useCelebration } from '@/hooks/useCelebration';
@@ -9,9 +9,14 @@ import { PracticeView } from './PracticeView';
 import { JournalView } from './JournalView';
 import { SettingsPanel } from './SettingsPanel';
 import { CelebrationOverlay } from './CelebrationOverlay';
+import { OnboardingTutorial } from './OnboardingTutorial';
+
+const ONBOARDING_KEY = 'sacred-manuscript-onboarding-complete';
 
 export const ManuscriptApp = () => {
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  
   const {
     progress,
     completeSection,
@@ -25,6 +30,19 @@ export const ManuscriptApp = () => {
   } = useManuscriptProgress();
 
   const { celebration, closeCelebration } = useCelebration(progress);
+
+  // Check if onboarding should be shown
+  useEffect(() => {
+    const hasCompletedOnboarding = localStorage.getItem(ONBOARDING_KEY);
+    if (!hasCompletedOnboarding) {
+      setShowOnboarding(true);
+    }
+  }, []);
+
+  const handleOnboardingComplete = () => {
+    localStorage.setItem(ONBOARDING_KEY, 'true');
+    setShowOnboarding(false);
+  };
 
   // Get theme class based on progress.theme
   const getThemeClass = () => {
@@ -79,6 +97,11 @@ export const ManuscriptApp = () => {
         return <Dashboard progress={progress} onNavigate={setCurrentView} />;
     }
   };
+
+  // Show onboarding for new users
+  if (showOnboarding) {
+    return <OnboardingTutorial onComplete={handleOnboardingComplete} />;
+  }
 
   return (
     <div className={`min-h-screen bg-manuscript-dark ${getThemeClass()} ${getFontSizeClass()}`}>
