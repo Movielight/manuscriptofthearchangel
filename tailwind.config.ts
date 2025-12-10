@@ -66,6 +66,7 @@ export default {
         },
         sacred: {
           glow: "hsl(var(--sacred-glow))",
+          teal: "hsl(var(--sacred-teal))",
         },
         manuscript: {
           dark: "hsl(var(--manuscript-dark))",

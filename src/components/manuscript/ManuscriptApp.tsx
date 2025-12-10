@@ -22,6 +22,24 @@ export const ManuscriptApp = () => {
     resetProgress,
   } = useManuscriptProgress();
 
+  // Get theme class based on progress.theme
+  const getThemeClass = () => {
+    switch (progress.theme) {
+      case 'sepia': return 'theme-sepia';
+      case 'dark': return 'theme-dark';
+      default: return 'theme-default';
+    }
+  };
+
+  // Get font size class
+  const getFontSizeClass = () => {
+    switch (progress.fontSize) {
+      case 'small': return 'font-size-small';
+      case 'large': return 'font-size-large';
+      default: return 'font-size-medium';
+    }
+  };
+
   const renderView = () => {
     switch (currentView) {
       case 'dashboard':
@@ -59,18 +77,23 @@ export const ManuscriptApp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-manuscript-dark via-manuscript-dark to-manuscript-purple/10">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentView}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-        >
-          {renderView()}
-        </motion.div>
-      </AnimatePresence>
+    <div className={`min-h-screen bg-manuscript-dark ${getThemeClass()} ${getFontSizeClass()}`}>
+      {/* Background gradient overlay */}
+      <div className="fixed inset-0 bg-gradient-to-b from-manuscript-dark via-manuscript-dark to-manuscript-purple/20 pointer-events-none" />
+      
+      <div className="relative z-10">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentView}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            {renderView()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
       
       <BottomNavigation currentView={currentView} onViewChange={setCurrentView} />
     </div>

@@ -18,11 +18,11 @@ interface JournalViewProps {
   onDeleteEntry: (id: string) => void;
 }
 
-const entryTypes: { type: JournalEntry['type']; label: string; icon: typeof Sparkles; color: string; placeholder: string }[] = [
-  { type: 'intention', label: 'Daily Intention', icon: Sparkles, color: 'text-manuscript-gold', placeholder: 'What is your intention for today?' },
-  { type: 'sign', label: 'Divine Sign', icon: Eye, color: 'text-manuscript-purple', placeholder: 'Describe the sign you received...' },
-  { type: 'gratitude', label: 'Gratitude', icon: Heart, color: 'text-rose-400', placeholder: 'What are you grateful for today?' },
-  { type: 'reflection', label: 'Reflection', icon: BookOpen, color: 'text-sacred-teal', placeholder: 'Share your thoughts and insights...' },
+const entryTypes: { type: JournalEntry['type']; label: string; icon: typeof Sparkles; color: string; bgColor: string; placeholder: string }[] = [
+  { type: 'intention', label: 'Daily Intention', icon: Sparkles, color: 'text-manuscript-gold', bgColor: 'bg-manuscript-gold/20', placeholder: 'What is your intention for today?' },
+  { type: 'sign', label: 'Divine Sign', icon: Eye, color: 'text-manuscript-purple', bgColor: 'bg-manuscript-purple/20', placeholder: 'Describe the sign you received...' },
+  { type: 'gratitude', label: 'Gratitude', icon: Heart, color: 'text-rose-400', bgColor: 'bg-rose-400/20', placeholder: 'What are you grateful for today?' },
+  { type: 'reflection', label: 'Reflection', icon: BookOpen, color: 'text-sacred-teal', bgColor: 'bg-sacred-teal/20', placeholder: 'Share your thoughts and insights...' },
 ];
 
 export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalViewProps) => {
@@ -58,17 +58,21 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
   };
 
   return (
-    <div className="min-h-screen pb-24 px-4 pt-6">
+    <div className="min-h-screen pb-24 px-4 pt-8">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <h1 className="font-heading text-3xl text-manuscript-gold mb-2">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-sacred-teal/20 border border-sacred-teal/40 rounded-full mb-4">
+          <BookOpen className="w-4 h-4 text-sacred-teal" />
+          <span className="text-sacred-teal text-sm font-body">Your Journey</span>
+        </div>
+        <h1 className="font-heading text-4xl text-manuscript-gold mb-3">
           Spiritual Journal
         </h1>
-        <p className="text-manuscript-light/70 font-body text-sm">
+        <p className="text-manuscript-light font-body">
           Record your sacred journey
         </p>
       </motion.div>
@@ -80,32 +84,34 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-manuscript-dark/95 px-4 pt-6 pb-24 overflow-auto"
+            className="fixed inset-0 z-50 bg-manuscript-dark/98 backdrop-blur-sm px-4 pt-8 pb-24 overflow-auto"
           >
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="font-heading text-xl text-manuscript-gold">New Entry</h2>
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="font-heading text-2xl text-manuscript-gold">New Entry</h2>
               <button
                 onClick={() => setIsAdding(false)}
-                className="p-2 rounded-full hover:bg-manuscript-gold/10"
+                className="p-3 rounded-xl hover:bg-manuscript-gold/10 transition-colors"
               >
-                <X className="w-5 h-5 text-manuscript-light/60" />
+                <X className="w-6 h-6 text-manuscript-light" />
               </button>
             </div>
 
             {/* Type Selection */}
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {entryTypes.map(({ type, label, icon: Icon, color }) => (
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {entryTypes.map(({ type, label, icon: Icon, color, bgColor }) => (
                 <button
                   key={type}
                   onClick={() => setSelectedType(type)}
-                  className={`p-4 rounded-xl border transition-all text-left ${
+                  className={`p-5 rounded-2xl border-2 transition-all duration-200 text-left ${
                     selectedType === type
-                      ? 'border-manuscript-gold bg-manuscript-gold/10'
-                      : 'border-manuscript-gold/10 bg-manuscript-dark/50'
+                      ? 'border-manuscript-gold bg-manuscript-gold/10 shadow-lg'
+                      : 'border-manuscript-gold/20 bg-manuscript-dark/60 hover:border-manuscript-gold/40'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${color} mb-2`} />
-                  <p className="text-manuscript-light font-body text-sm">{label}</p>
+                  <div className={`${bgColor} w-10 h-10 rounded-xl flex items-center justify-center mb-3`}>
+                    <Icon className={`w-5 h-5 ${color}`} />
+                  </div>
+                  <p className="text-manuscript-light font-body font-medium">{label}</p>
                 </button>
               ))}
             </div>
@@ -115,14 +121,14 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder={getTypeConfig(selectedType).placeholder}
-              className="w-full h-40 bg-manuscript-dark/50 border border-manuscript-gold/10 rounded-xl p-4 text-manuscript-light font-body resize-none focus:outline-none focus:border-manuscript-gold/30"
+              className="w-full h-48 bg-manuscript-dark/60 border-2 border-manuscript-gold/20 rounded-2xl p-5 text-manuscript-light font-body resize-none focus:outline-none focus:border-manuscript-gold/50 transition-colors placeholder:text-manuscript-light/50"
             />
 
             {/* Submit Button */}
             <button
               onClick={handleSubmit}
               disabled={!content.trim()}
-              className="w-full mt-4 py-4 rounded-xl bg-manuscript-gold text-manuscript-dark font-body flex items-center justify-center gap-2 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-manuscript-gold/90 transition-colors"
+              className="w-full mt-6 py-4 rounded-2xl bg-gradient-to-r from-manuscript-gold to-manuscript-gold/90 text-manuscript-dark font-body font-medium flex items-center justify-center gap-3 disabled:opacity-30 disabled:cursor-not-allowed hover:shadow-lg transition-all duration-200"
             >
               <Send className="w-5 h-5" />
               Save Entry
@@ -136,25 +142,25 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         onClick={() => setIsAdding(true)}
-        className="w-full bg-gradient-to-r from-manuscript-gold/20 to-manuscript-purple/20 rounded-2xl p-5 mb-6 border border-manuscript-gold/30 flex items-center gap-4 hover:border-manuscript-gold/50 transition-colors"
+        className="w-full bg-gradient-to-r from-manuscript-gold/20 via-manuscript-gold/10 to-sacred-teal/20 rounded-2xl p-5 mb-6 border border-manuscript-gold/40 flex items-center gap-4 hover:border-manuscript-gold/60 hover:shadow-lg transition-all duration-300 group"
       >
-        <div className="bg-manuscript-gold/20 p-3 rounded-full">
+        <div className="bg-manuscript-gold/30 p-4 rounded-xl group-hover:scale-105 transition-transform">
           <Plus className="w-6 h-6 text-manuscript-gold" />
         </div>
         <div className="text-left">
-          <p className="text-manuscript-light font-heading">New Journal Entry</p>
-          <p className="text-manuscript-light/50 text-sm">Record your thoughts and experiences</p>
+          <p className="text-manuscript-light font-heading text-lg">New Journal Entry</p>
+          <p className="text-manuscript-light/80 font-body">Record your thoughts and experiences</p>
         </div>
       </motion.button>
 
       {/* Filter Tabs */}
-      <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+      <div className="flex gap-3 mb-6 overflow-x-auto pb-2 -mx-4 px-4">
         <button
           onClick={() => setFilter('all')}
-          className={`px-4 py-2 rounded-full text-sm font-body whitespace-nowrap transition-colors ${
+          className={`px-5 py-2.5 rounded-full font-body whitespace-nowrap transition-all duration-200 ${
             filter === 'all'
-              ? 'bg-manuscript-gold text-manuscript-dark'
-              : 'bg-manuscript-dark/50 text-manuscript-light/60'
+              ? 'bg-manuscript-gold text-manuscript-dark font-medium shadow-md'
+              : 'bg-manuscript-dark/60 text-manuscript-light/80 border border-manuscript-gold/20'
           }`}
         >
           All ({progress.journalEntries.length})
@@ -165,10 +171,10 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
             <button
               key={type}
               onClick={() => setFilter(type)}
-              className={`px-4 py-2 rounded-full text-sm font-body whitespace-nowrap transition-colors ${
+              className={`px-5 py-2.5 rounded-full font-body whitespace-nowrap transition-all duration-200 ${
                 filter === type
-                  ? 'bg-manuscript-gold text-manuscript-dark'
-                  : 'bg-manuscript-dark/50 text-manuscript-light/60'
+                  ? 'bg-manuscript-gold text-manuscript-dark font-medium shadow-md'
+                  : 'bg-manuscript-dark/60 text-manuscript-light/80 border border-manuscript-gold/20'
               }`}
             >
               {label} ({count})
@@ -182,14 +188,16 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center py-12"
+          className="text-center py-16"
         >
-          <BookOpen className="w-12 h-12 text-manuscript-gold/30 mx-auto mb-3" />
-          <p className="text-manuscript-light/50 font-body">No entries yet</p>
-          <p className="text-manuscript-light/30 text-sm mt-1">Start recording your spiritual journey</p>
+          <div className="bg-manuscript-gold/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <BookOpen className="w-10 h-10 text-manuscript-gold/50" />
+          </div>
+          <p className="text-manuscript-light font-body text-lg">No entries yet</p>
+          <p className="text-manuscript-light/70 mt-2">Start recording your spiritual journey</p>
         </motion.div>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-4">
           {filteredEntries.map((entry, index) => {
             const config = getTypeConfig(entry.type);
             const Icon = config.icon;
@@ -200,24 +208,26 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-manuscript-dark/50 rounded-xl p-4 border border-manuscript-gold/10"
+                className="bg-gradient-to-r from-manuscript-dark/80 to-manuscript-dark/60 rounded-2xl p-5 border border-manuscript-gold/15 shadow-sm"
               >
-                <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <Icon className={`w-4 h-4 ${config.color}`} />
-                    <span className="text-manuscript-light/60 text-xs font-body">{config.label}</span>
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className={`${config.bgColor} p-2 rounded-lg`}>
+                      <Icon className={`w-4 h-4 ${config.color}`} />
+                    </div>
+                    <span className="text-manuscript-light/80 font-body text-sm">{config.label}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-manuscript-light/40 text-xs">{formatDate(entry.date)}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-manuscript-light/60 text-sm">{formatDate(entry.date)}</span>
                     <button
                       onClick={() => onDeleteEntry(entry.id)}
-                      className="p-1 rounded hover:bg-rose-500/10 transition-colors"
+                      className="p-2 rounded-lg hover:bg-rose-500/15 transition-colors"
                     >
-                      <Trash2 className="w-3 h-3 text-rose-400/60 hover:text-rose-400" />
+                      <Trash2 className="w-4 h-4 text-rose-400/70 hover:text-rose-400" />
                     </button>
                   </div>
                 </div>
-                <p className="text-manuscript-light/90 font-body text-sm leading-relaxed">
+                <p className="text-manuscript-light font-body leading-relaxed">
                   {entry.content}
                 </p>
               </motion.div>
