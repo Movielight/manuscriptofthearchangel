@@ -37,7 +37,7 @@ The Sacred Manuscript serves as a guide in this exploration. It does not offer r
 In this introductory lesson, we establish the foundations for everything that follows. You will learn to cultivate the appropriate mental disposition - a combination of openness, humility, and critical discernment. This disposition is more important than any specific technique.
 
 Remember: the value of this journey is not in accumulating information, but in transforming your relationship with yourself and with life.`,
-    videoUrl: null
+    videoUrl: "https://youtu.be/Xa7abA-3w2o"
   },
   {
     id: "lesson-2",
