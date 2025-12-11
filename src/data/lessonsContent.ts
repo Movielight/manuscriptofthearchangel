@@ -133,7 +133,7 @@ In this lesson, we offer safe and non-religious practices:
 These practices are suggestions. We encourage you to adapt them to your context and create your own meaningful rituals.
 
 Important: We do not promise that these practices will bring specific results. Their value lies in the process, not in outcome guarantees.`,
-    videoUrl: null
+    videoUrl: "https://youtu.be/d_nAiwgSlhk"
   },
   {
     id: "lesson-5",
