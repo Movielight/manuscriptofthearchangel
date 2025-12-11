@@ -1,5 +1,5 @@
-// Conteúdo completo do Manuscrito Sagrado Premium
-// Educacional, reflexivo e em conformidade com políticas da Cartpanda
+// Complete content of the Sacred Manuscript Premium
+// Educational, reflective and compliant with Cartpanda policies
 
 export interface ModuleSection {
   id: string;
@@ -23,620 +23,620 @@ export interface Module {
 }
 
 export const welcomeContent = {
-  title: "Bem-vindo ao Manuscrito Sagrado",
-  subtitle: "Uma jornada de autoconhecimento e clareza interior",
-  purpose: `O Manuscrito Sagrado é um guia educacional e reflexivo, criado para auxiliar você em sua jornada de autoconhecimento. Este não é um caminho de promessas ou milagres, mas sim de trabalho interno consciente.
+  title: "Welcome to the Sacred Manuscript",
+  subtitle: "A journey of self-discovery and inner clarity",
+  purpose: `The Sacred Manuscript is an educational and reflective guide, created to assist you on your journey of self-discovery. This is not a path of promises or miracles, but one of conscious inner work.
 
-Aqui você encontrará ferramentas práticas de introspecção, reflexões filosóficas profundas e exercícios que podem contribuir para sua clareza mental e equilíbrio emocional.
+Here you will find practical introspection tools, deep philosophical reflections, and exercises that can contribute to your mental clarity and emotional balance.
 
-Cada módulo foi desenvolvido com base em tradições filosóficas e práticas contemplativas reconhecidas, adaptadas para o contexto contemporâneo.`,
-  howToNavigate: `A navegação é simples e intuitiva:
+Each module was developed based on recognized philosophical traditions and contemplative practices, adapted for the contemporary context.`,
+  howToNavigate: `Navigation is simple and intuitive:
 
-• **Módulos**: Acesse o conteúdo principal organizado em 5 módulos progressivos
-• **Aulas**: Assista às videoaulas complementares que aprofundam cada tema
-• **Práticas**: Encontre meditações guiadas e exercícios práticos
-• **Jornada**: Acompanhe seu progresso, escreva em seu diário e siga planos estruturados`,
-  symbolicApproach: `Este material utiliza uma abordagem simbólica. Os símbolos são ferramentas poderosas para comunicar conceitos que transcendem a linguagem comum.
+• **Modules**: Access the main content organized into 5 progressive modules
+• **Lessons**: Watch complementary video lessons that deepen each topic
+• **Practices**: Find guided meditations and practical exercises
+• **Journey**: Track your progress, write in your journal, and follow structured plans`,
+  symbolicApproach: `This material uses a symbolic approach. Symbols are powerful tools for communicating concepts that transcend ordinary language.
 
-Ao longo desta jornada, você encontrará referências a arquétipos universais, metáforas e simbolismos que servem como espelhos para sua própria experiência interior.
+Throughout this journey, you will encounter references to universal archetypes, metaphors, and symbolism that serve as mirrors for your own inner experience.
 
-Não se trata de crenças religiosas ou promessas sobrenaturais, mas de uma linguagem que permite acessar camadas mais profundas de compreensão sobre si mesmo.`,
+This is not about religious beliefs or supernatural promises, but a language that allows access to deeper layers of understanding about yourself.`,
 };
 
 export const introductionContent = {
-  title: "Introdução ao Manuscrito",
-  historicalContext: `Os manuscritos espirituais têm uma história que remonta a milhares de anos. Desde os textos védicos da Índia antiga até os pergaminhos dos mosteiros medievais, a humanidade sempre buscou registrar suas descobertas sobre a natureza da consciência e do ser.
+  title: "Introduction to the Manuscript",
+  historicalContext: `Spiritual manuscripts have a history that dates back thousands of years. From the Vedic texts of ancient India to the scrolls of medieval monasteries, humanity has always sought to record its discoveries about the nature of consciousness and being.
 
-Estas tradições, embora diversas em suas expressões culturais, compartilham um fio condutor: a busca pela compreensão de si mesmo e do lugar do ser humano no cosmos.
+These traditions, though diverse in their cultural expressions, share a common thread: the search for understanding of oneself and the place of human beings in the cosmos.
 
-O Manuscrito Sagrado que você tem em mãos é uma síntese contemporânea dessas sabedorias ancestrais, traduzida para a linguagem e os desafios do nosso tempo.`,
-  symbolicInterpretation: `A interpretação simbólica é uma habilidade que se desenvolve com a prática. Ao ler os textos deste manuscrito, considere as seguintes orientações:
+The Sacred Manuscript you hold is a contemporary synthesis of these ancestral wisdoms, translated for the language and challenges of our time.`,
+  symbolicInterpretation: `Symbolic interpretation is a skill that develops with practice. When reading the texts of this manuscript, consider the following guidelines:
 
-**Primeira Leitura**: Permita que as palavras fluam sem análise excessiva. Note quais passagens ressoam com você.
+**First Reading**: Allow the words to flow without excessive analysis. Note which passages resonate with you.
 
-**Segunda Leitura**: Observe os símbolos e metáforas. Pergunte-se: "O que isso representa em minha própria vida?"
+**Second Reading**: Observe the symbols and metaphors. Ask yourself: "What does this represent in my own life?"
 
-**Reflexão**: Reserve um momento para contemplar. O significado muitas vezes emerge não da análise, mas do silêncio que segue a leitura.
+**Reflection**: Reserve a moment for contemplation. Meaning often emerges not from analysis, but from the silence that follows reading.
 
-**Aplicação**: Considere como os insights podem ser integrados em sua vida cotidiana.`,
-  howToJourney: `Esta jornada é pessoal e única. Não há ritmo certo ou errado. Algumas orientações podem ajudar:
+**Application**: Consider how the insights can be integrated into your daily life.`,
+  howToJourney: `This journey is personal and unique. There is no right or wrong pace. Some guidelines may help:
 
-• **Regularidade**: Estabeleça um horário consistente para sua prática, mesmo que seja breve
-• **Ambiente**: Crie um espaço tranquilo, livre de distrações
-• **Diário**: Registre suas reflexões e insights - eles são seu mapa pessoal
-• **Paciência**: A transformação genuína é gradual e sutil
-• **Compaixão**: Seja gentil consigo mesmo durante o processo`,
+• **Regularity**: Establish a consistent time for your practice, even if brief
+• **Environment**: Create a quiet space, free from distractions
+• **Journal**: Record your reflections and insights - they are your personal map
+• **Patience**: Genuine transformation is gradual and subtle
+• **Compassion**: Be gentle with yourself during the process`,
 };
 
 export const modules: Module[] = [
   {
     id: "module-1",
     number: 1,
-    title: "A Origem dos Manuscritos Espirituais",
-    subtitle: "História, contexto e significado simbólico",
+    title: "The Origin of Spiritual Manuscripts",
+    subtitle: "History, context, and symbolic meaning",
     icon: "scroll",
-    introduction: `Ao longo da história humana, diferentes civilizações desenvolveram tradições de sabedoria que foram preservadas em manuscritos sagrados. Estes textos não são meras palavras no papel - são testemunhos de descobertas profundas sobre a natureza da consciência humana.
+    introduction: `Throughout human history, different civilizations developed wisdom traditions that were preserved in sacred manuscripts. These texts are not mere words on paper - they are testimonies of profound discoveries about the nature of human consciousness.
 
-Este módulo explora as raízes históricas dessas tradições e estabelece as bases para sua jornada de autoconhecimento.`,
+This module explores the historical roots of these traditions and establishes the foundations for your journey of self-discovery.`,
     sections: [
       {
         id: "1-1",
-        title: "As Primeiras Tradições de Sabedoria",
-        content: `As tradições de sabedoria mais antigas que conhecemos surgiram há mais de 5.000 anos, em diferentes partes do mundo simultaneamente. Na Índia, os Vedas e Upanishads exploravam a natureza do Ser. Na China, Lao Tzu e Confúcio estabeleciam caminhos de harmonia. No Egito, os textos herméticos falavam da correspondência entre o céu e a terra.
+        title: "The First Wisdom Traditions",
+        content: `The oldest wisdom traditions we know of emerged more than 5,000 years ago, in different parts of the world simultaneously. In India, the Vedas and Upanishads explored the nature of Being. In China, Lao Tzu and Confucius established paths of harmony. In Egypt, Hermetic texts spoke of the correspondence between heaven and earth.
 
-O que une essas tradições é uma observação comum: existe uma dimensão da experiência humana que transcende o pensamento comum. Esta dimensão - chamada de Atman, Tao, ou Nous, dependendo da tradição - é acessível através de práticas contemplativas e auto-observação.
+What unites these traditions is a common observation: there exists a dimension of human experience that transcends ordinary thought. This dimension - called Atman, Tao, or Nous, depending on the tradition - is accessible through contemplative practices and self-observation.
 
-Os manuscritos que chegaram até nós são mapas deixados por aqueles que exploraram este território interior. Não são verdades absolutas a serem aceitas cegamente, mas convites para sua própria investigação.`
+The manuscripts that have reached us are maps left by those who explored this inner territory. They are not absolute truths to be blindly accepted, but invitations for your own investigation.`
       },
       {
         id: "1-2",
-        title: "A Linguagem Simbólica Universal",
-        content: `Uma característica marcante dos manuscritos espirituais é o uso de símbolos. O sol representa a consciência iluminada. A água simboliza as emoções e o fluxo da vida. A montanha representa a estabilidade e a transcendência.
+        title: "The Universal Symbolic Language",
+        content: `A striking characteristic of spiritual manuscripts is the use of symbols. The sun represents illuminated consciousness. Water symbolizes emotions and the flow of life. The mountain represents stability and transcendence.
 
-Esta linguagem simbólica não é arbitrária. Ela emerge de observações universais da psique humana. Carl Jung, o renomado psicólogo, identificou estes como "arquétipos" - padrões primordiais presentes no inconsciente coletivo de toda a humanidade.
+This symbolic language is not arbitrary. It emerges from universal observations of the human psyche. Carl Jung, the renowned psychologist, identified these as "archetypes" - primordial patterns present in the collective unconscious of all humanity.
 
-Ao estudar símbolos, você não está aprendendo um código secreto, mas reconectando-se com uma linguagem que já existe em sua própria psique. Por isso, certos símbolos "falam" conosco de maneira profunda, mesmo quando não conseguimos explicar racionalmente.`
+When studying symbols, you are not learning a secret code, but reconnecting with a language that already exists in your own psyche. This is why certain symbols "speak" to us deeply, even when we cannot explain it rationally.`
       },
       {
         id: "1-3",
-        title: "O Propósito dos Textos Sagrados",
-        content: `Os textos sagrados não foram escritos para entreter ou informar no sentido comum. Seu propósito é transformar a consciência do leitor. São ferramentas para despertar insights que já estão latentes em você.
+        title: "The Purpose of Sacred Texts",
+        content: `Sacred texts were not written to entertain or inform in the common sense. Their purpose is to transform the reader's consciousness. They are tools for awakening insights that are already latent within you.
 
-Considere a diferença entre ler um manual de instruções e ler poesia. O manual transmite informação objetiva. A poesia evoca uma experiência. Os manuscritos sagrados funcionam mais como a poesia - eles trabalham em níveis múltiplos simultaneamente.
+Consider the difference between reading an instruction manual and reading poetry. The manual transmits objective information. Poetry evokes an experience. Sacred manuscripts function more like poetry - they work on multiple levels simultaneously.
 
-Por isso, a releitura é essencial. Cada vez que você retorna a um texto sagrado com nova experiência de vida, novos significados emergem. O texto permanece o mesmo, mas você mudou.`
+This is why rereading is essential. Each time you return to a sacred text with new life experience, new meanings emerge. The text remains the same, but you have changed.`
       },
       {
         id: "1-4",
-        title: "Como Este Manuscrito Foi Construído",
-        content: `O Manuscrito Sagrado que você está explorando foi construído como uma síntese de múltiplas tradições, traduzidas para a sensibilidade contemporânea. Ele não pertence a nenhuma religião específica e não exige crenças prévias.
+        title: "How This Manuscript Was Built",
+        content: `The Sacred Manuscript you are exploring was built as a synthesis of multiple traditions, translated for contemporary sensibility. It does not belong to any specific religion and does not require prior beliefs.
 
-A estrutura segue um caminho progressivo: dos fundamentos históricos (este módulo) até práticas aplicáveis em seu dia a dia (módulos finais). Cada etapa prepara o terreno para a próxima.
+The structure follows a progressive path: from historical foundations (this module) to practices applicable in your daily life (final modules). Each step prepares the ground for the next.
 
-Lembre-se: este é um material educacional e reflexivo. Não fazemos promessas de resultados garantidos. O que oferecemos são ferramentas que podem contribuir para seu desenvolvimento pessoal, dependendo de como você as utiliza.`
+Remember: this is educational and reflective material. We make no promises of guaranteed results. What we offer are tools that can contribute to your personal development, depending on how you use them.`
       }
     ],
     practicalExercise: {
-      title: "Exercício: Mapeando Suas Raízes",
+      title: "Exercise: Mapping Your Roots",
       instructions: [
-        "Reserve 10-15 minutos em um ambiente tranquilo",
-        "Reflita sobre as tradições de sabedoria que influenciaram sua vida - seja através da família, cultura ou escolhas pessoais",
-        "Em seu diário, escreva brevemente sobre 2-3 fontes de sabedoria que você respeita e por quê",
-        "Considere: O que essas tradições têm em comum? O que você busca neste manuscrito?",
-        "Encerre com uma respiração profunda e um momento de silêncio"
+        "Set aside 10-15 minutes in a quiet environment",
+        "Reflect on the wisdom traditions that have influenced your life - whether through family, culture, or personal choices",
+        "In your journal, briefly write about 2-3 sources of wisdom you respect and why",
+        "Consider: What do these traditions have in common? What are you seeking in this manuscript?",
+        "End with a deep breath and a moment of silence"
       ]
     },
-    finalReflection: `A jornada de autoconhecimento não começa do zero. Você traz consigo toda uma história de influências, experiências e anseios. Reconhecer esse pano de fundo é o primeiro passo para uma exploração consciente.
+    finalReflection: `The journey of self-discovery does not start from zero. You bring with you an entire history of influences, experiences, and yearnings. Recognizing this background is the first step toward conscious exploration.
 
-Os manuscritos antigos nos lembram que a busca pela sabedoria é uma herança humana universal. Você faz parte desta linhagem de buscadores.`
+Ancient manuscripts remind us that the search for wisdom is a universal human heritage. You are part of this lineage of seekers.`
   },
   {
     id: "module-2",
     number: 2,
-    title: "A Simbologia dos Arcanjos",
-    subtitle: "Filosofia, arquétipos e reflexões",
+    title: "The Symbolism of Archangels",
+    subtitle: "Philosophy, archetypes, and reflections",
     icon: "wings",
-    introduction: `Os arcanjos são figuras que aparecem em múltiplas tradições culturais e religiosas. Neste módulo, exploramos não a crença literal nessas figuras, mas seu significado arquetípico - o que eles representam como símbolos da psique humana.
+    introduction: `Archangels are figures that appear in multiple cultural and religious traditions. In this module, we explore not the literal belief in these figures, but their archetypal meaning - what they represent as symbols of the human psyche.
 
-Esta é uma abordagem filosófica e educacional, não religiosa. Você não precisa acreditar em anjos para se beneficiar da sabedoria contida nesses arquétipos.`,
+This is a philosophical and educational approach, not religious. You do not need to believe in angels to benefit from the wisdom contained in these archetypes.`,
     sections: [
       {
         id: "2-1",
-        title: "Arquétipos e a Psique Humana",
-        content: `Carl Jung definiu arquétipos como padrões universais de comportamento e imagem que residem no inconsciente coletivo. Eles se manifestam em mitos, sonhos, arte e religião de todas as culturas.
+        title: "Archetypes and the Human Psyche",
+        content: `Carl Jung defined archetypes as universal patterns of behavior and image that reside in the collective unconscious. They manifest in myths, dreams, art, and religion across all cultures.
 
-Os arcanjos podem ser compreendidos como arquétipos poderosos: representações simbólicas de qualidades e capacidades que existem potencialmente em cada ser humano. Miguel representa a força e proteção. Gabriel representa a comunicação e revelação. Rafael representa a cura e restauração.
+Archangels can be understood as powerful archetypes: symbolic representations of qualities and capacities that exist potentially in every human being. Michael represents strength and protection. Gabriel represents communication and revelation. Raphael represents healing and restoration.
 
-Quando trabalhamos com esses arquétipos, não estamos invocando entidades externas. Estamos ativando e integrando aspectos de nossa própria psique que podem estar dormentes ou subdesenvolvidos.`
+When we work with these archetypes, we are not invoking external entities. We are activating and integrating aspects of our own psyche that may be dormant or underdeveloped.`
       },
       {
         id: "2-2",
-        title: "Miguel: O Arquétipo da Força Interior",
-        content: `O arcanjo Miguel é tradicionalmente representado como um guerreiro de luz, enfrentando dragões e forças das trevas. Filosoficamente, ele representa nossa capacidade de enfrentar nossos medos e desafios internos.
+        title: "Michael: The Archetype of Inner Strength",
+        content: `Archangel Michael is traditionally represented as a warrior of light, confronting dragons and forces of darkness. Philosophically, he represents our ability to face our fears and internal challenges.
 
-O "dragão" que Miguel enfrenta pode ser interpretado como nossos padrões destrutivos, medos paralisantes ou aspectos sombrios que preferimos ignorar. A "espada" de Miguel é a clareza da consciência que discerne entre o que nos serve e o que nos prejudica.
+The "dragon" that Michael confronts can be interpreted as our destructive patterns, paralyzing fears, or shadow aspects we prefer to ignore. Michael's "sword" is the clarity of consciousness that discerns between what serves us and what harms us.
 
-Cultivar a energia de Miguel significa desenvolver coragem moral - a capacidade de fazer o que é certo mesmo quando é difícil. Não é agressividade, mas firmeza serena diante dos desafios.
+Cultivating Michael's energy means developing moral courage - the ability to do what is right even when it is difficult. It is not aggression, but serene firmness in the face of challenges.
 
-Pergunte-se: Onde em minha vida preciso exercitar mais coragem e firmeza?`
+Ask yourself: Where in my life do I need to exercise more courage and firmness?`
       },
       {
         id: "2-3",
-        title: "Gabriel: O Arquétipo da Clareza",
-        content: `Gabriel é conhecido como o mensageiro, aquele que traz revelações e insights. Na tradição, é Gabriel quem anuncia nascimentos e novos começos.
+        title: "Gabriel: The Archetype of Clarity",
+        content: `Gabriel is known as the messenger, the one who brings revelations and insights. In tradition, it is Gabriel who announces births and new beginnings.
 
-Simbolicamente, Gabriel representa nossa capacidade de receber insights e comunicá-los claramente. É a intuição que rompe através da confusão mental, trazendo clareza.
+Symbolically, Gabriel represents our ability to receive insights and communicate them clearly. It is intuition breaking through mental confusion, bringing clarity.
 
-O "novo nascimento" que Gabriel anuncia pode ser entendido como momentos de renovação interior - quando compreendemos algo de maneira nova, quando um padrão antigo se dissolve e um novo modo de ser emerge.
+The "new birth" that Gabriel announces can be understood as moments of inner renewal - when we understand something in a new way, when an old pattern dissolves and a new way of being emerges.
 
-Cultivar a energia de Gabriel significa desenvolver nossa capacidade de escutar a voz interior e expressá-la autenticamente. É sobre comunicação verdadeira - consigo mesmo e com os outros.
+Cultivating Gabriel's energy means developing our capacity to listen to the inner voice and express it authentically. It is about true communication - with ourselves and with others.
 
-Pergunte-se: Estou ouvindo minha intuição? Estou comunicando minha verdade?`
+Ask yourself: Am I listening to my intuition? Am I communicating my truth?`
       },
       {
         id: "2-4",
-        title: "Rafael: O Arquétipo da Cura",
-        content: `Rafael é associado à cura em todas as suas formas - física, emocional e espiritual. Seu nome significa "Deus cura" em hebraico.
+        title: "Raphael: The Archetype of Healing",
+        content: `Raphael is associated with healing in all its forms - physical, emotional, and spiritual. His name means "God heals" in Hebrew.
 
-Filosoficamente, Rafael representa nossa capacidade inata de restauração e equilíbrio. O corpo tem mecanismos de autocura. A psique também tende naturalmente ao equilíbrio quando damos as condições adequadas.
+Philosophically, Raphael represents our innate capacity for restoration and balance. The body has self-healing mechanisms. The psyche also naturally tends toward balance when given the right conditions.
 
-A "cura" de Rafael não é mágica ou instantânea. É o processo gradual de reconhecer onde estamos fragmentados e trabalhar conscientemente para integração. Pode envolver perdão, aceitação, mudança de hábitos ou busca de ajuda profissional.
+Raphael's "healing" is not magical or instantaneous. It is the gradual process of recognizing where we are fragmented and consciously working toward integration. It may involve forgiveness, acceptance, changing habits, or seeking professional help.
 
-Cultivar a energia de Rafael significa tornar-se um agente ativo em seu próprio processo de cura. É assumir responsabilidade por seu bem-estar sem cair em perfeccionismo ou autoexigência.
+Cultivating Raphael's energy means becoming an active agent in your own healing process. It is taking responsibility for your well-being without falling into perfectionism or self-demand.
 
-Pergunte-se: O que em mim precisa de cura? Que passos posso dar nessa direção?`
+Ask yourself: What in me needs healing? What steps can I take in that direction?`
       },
       {
         id: "2-5",
-        title: "Integrando os Arquétipos",
-        content: `Os três arcanjos principais representam aspectos complementares de uma psique integrada: força (Miguel), clareza (Gabriel) e cura (Rafael).
+        title: "Integrating the Archetypes",
+        content: `The three main archangels represent complementary aspects of an integrated psyche: strength (Michael), clarity (Gabriel), and healing (Raphael).
 
-Um indivíduo equilibrado precisa de todos esses aspectos em harmonia. Força sem clareza pode se tornar brutalidade. Clareza sem força pode se tornar passividade. Cura sem as outras qualidades pode se tornar escapismo ou vitimização.
+A balanced individual needs all these aspects in harmony. Strength without clarity can become brutality. Clarity without strength can become passivity. Healing without the other qualities can become escapism or victimization.
 
-O trabalho com arquétipos não é sobre "invocar" energias externas, mas sobre reconhecer e desenvolver potencialidades que já existem em você. É uma forma de autoconhecimento através de símbolos.
+Working with archetypes is not about "invoking" external energies, but about recognizing and developing potentials that already exist in you. It is a form of self-knowledge through symbols.
 
-À medida que você avança nesta jornada, observe qual desses arquétipos parece mais desenvolvido em você e qual precisa de mais atenção. Este autoconhecimento é valioso para seu crescimento.`
+As you progress on this journey, observe which of these archetypes seems most developed in you and which needs more attention. This self-knowledge is valuable for your growth.`
       }
     ],
     practicalExercise: {
-      title: "Exercício: Diálogo com os Arquétipos",
+      title: "Exercise: Dialogue with the Archetypes",
       instructions: [
-        "Reserve 15-20 minutos em ambiente tranquilo",
-        "Escolha um dos três arquétipos que mais ressoa com você neste momento",
-        "Em seu diário, escreva uma carta para esse arquétipo, expressando o que você precisa desenvolver",
-        "Em seguida, escreva uma resposta imaginária desse arquétipo para você",
-        "Observe que insights surgem através deste exercício de escrita criativa",
-        "Não se trata de canalização espiritual, mas de acessar sua própria sabedoria interior através de símbolos"
+        "Set aside 15-20 minutes in a quiet environment",
+        "Choose one of the three archetypes that most resonates with you at this moment",
+        "In your journal, write a letter to this archetype, expressing what you need to develop",
+        "Then, write an imaginary response from this archetype to you",
+        "Observe what insights arise through this creative writing exercise",
+        "This is not spiritual channeling, but accessing your own inner wisdom through symbols"
       ]
     },
-    finalReflection: `Os arquétipos são espelhos que nos ajudam a ver aspectos de nós mesmos que podem estar ocultos. Ao trabalhar com os símbolos de Miguel, Gabriel e Rafael, você está na verdade desenvolvendo força, clareza e capacidade de cura em si mesmo.
+    finalReflection: `Archetypes are mirrors that help us see aspects of ourselves that may be hidden. By working with the symbols of Michael, Gabriel, and Raphael, you are actually developing strength, clarity, and healing capacity in yourself.
 
-Lembre-se: esta é uma jornada de autoconhecimento, não de dependência de forças externas. O poder sempre esteve em você.`
+Remember: this is a journey of self-discovery, not dependence on external forces. The power has always been within you.`
   },
   {
     id: "module-3",
     number: 3,
-    title: "Caminho da Clareza Interior",
-    subtitle: "Ferramentas práticas de introspecção",
+    title: "Path of Inner Clarity",
+    subtitle: "Practical introspection tools",
     icon: "eye",
-    introduction: `A clareza interior é a capacidade de ver a si mesmo e às situações da vida com lucidez, livre de distorções emocionais ou cognitivas. Não é um estado permanente que se alcança uma vez, mas uma habilidade que se cultiva continuamente.
+    introduction: `Inner clarity is the ability to see yourself and life situations with lucidity, free from emotional or cognitive distortions. It is not a permanent state to be achieved once, but a skill that is continuously cultivated.
 
-Este módulo oferece ferramentas práticas para desenvolver essa clareza através da introspecção consciente.`,
+This module offers practical tools for developing this clarity through conscious introspection.`,
     sections: [
       {
         id: "3-1",
-        title: "O Que Obscurece Nossa Visão",
-        content: `Antes de buscar clareza, é útil compreender o que a obscurece. Várias tradições identificaram obstáculos semelhantes:
+        title: "What Obscures Our Vision",
+        content: `Before seeking clarity, it is useful to understand what obscures it. Various traditions have identified similar obstacles:
 
-**Reatividade Emocional**: Quando estamos dominados por emoções intensas - raiva, medo, ansiedade, desejo - nossa percepção se estreita. Vemos apenas o que a emoção quer que vejamos.
+**Emotional Reactivity**: When we are dominated by intense emotions - anger, fear, anxiety, desire - our perception narrows. We see only what the emotion wants us to see.
 
-**Padrões Mentais**: Crenças não examinadas, preconceitos e suposições automáticas filtram nossa experiência antes mesmo de termos consciência dela.
+**Mental Patterns**: Unexamined beliefs, prejudices, and automatic assumptions filter our experience before we are even aware of it.
 
-**Identificação Excessiva**: Quando nos identificamos demais com nossos pensamentos, emoções, papéis sociais ou posses, perdemos a perspectiva mais ampla.
+**Excessive Identification**: When we identify too much with our thoughts, emotions, social roles, or possessions, we lose the broader perspective.
 
-**Distração Constante**: A mente saltando de pensamento em pensamento, sem capacidade de foco, não consegue ver com profundidade.
+**Constant Distraction**: A mind jumping from thought to thought, without the ability to focus, cannot see with depth.
 
-Reconhecer esses obstáculos em você mesmo é o primeiro passo para superá-los.`
+Recognizing these obstacles in yourself is the first step to overcoming them.`
       },
       {
         id: "3-2",
-        title: "A Arte da Auto-Observação",
-        content: `A auto-observação é a prática fundamental para desenvolver clareza. Consiste em observar seus próprios pensamentos, emoções e comportamentos como se fosse uma testemunha imparcial.
+        title: "The Art of Self-Observation",
+        content: `Self-observation is the fundamental practice for developing clarity. It consists of observing your own thoughts, emotions, and behaviors as if you were an impartial witness.
 
-**Como Praticar:**
+**How to Practice:**
 
-1. **Pausas Conscientes**: Várias vezes ao dia, pause brevemente e observe: O que estou pensando? O que estou sentindo? O que estou fazendo?
+1. **Conscious Pauses**: Several times a day, pause briefly and observe: What am I thinking? What am I feeling? What am I doing?
 
-2. **Sem Julgamento**: Observe sem classificar como "bom" ou "ruim". Apenas note.
+2. **Without Judgment**: Observe without classifying as "good" or "bad." Just note.
 
-3. **Registro**: Ao final do dia, registre brevemente os padrões que observou.
+3. **Recording**: At the end of the day, briefly record the patterns you observed.
 
-4. **Perguntas-Chave**: "Por que reagi dessa forma?" "Qual crença está por trás desse comportamento?" "O que essa emoção está tentando me dizer?"
+4. **Key Questions**: "Why did I react this way?" "What belief is behind this behavior?" "What is this emotion trying to tell me?"
 
-Com prática consistente, você começará a notar padrões que antes eram invisíveis. Este conhecimento é poder - o poder de escolher conscientemente em vez de reagir automaticamente.`
+With consistent practice, you will begin to notice patterns that were previously invisible. This knowledge is power - the power to choose consciously instead of reacting automatically.`
       },
       {
         id: "3-3",
-        title: "O Silêncio Como Ferramenta",
-        content: `O silêncio externo e interno é um poderoso catalisador de clareza. A maioria de nós vive em ambientes saturados de estímulos - sons, informações, demandas. A mente espelha essa agitação.
+        title: "Silence as a Tool",
+        content: `External and internal silence is a powerful catalyst for clarity. Most of us live in environments saturated with stimuli - sounds, information, demands. The mind mirrors this agitation.
 
-**Silêncio Externo**: Reserve momentos do dia para estar em ambientes calmos, sem música, sem dispositivos, sem conversas. Mesmo 10 minutos podem fazer diferença.
+**External Silence**: Set aside moments of the day to be in calm environments, without music, devices, or conversations. Even 10 minutes can make a difference.
 
-**Silêncio Interno**: Mais desafiador, este é o silêncio da mente tagarela. Não se trata de forçar os pensamentos a parar, mas de não se envolver com cada pensamento que surge.
+**Internal Silence**: More challenging, this is the silence of the chattering mind. It is not about forcing thoughts to stop, but about not engaging with every thought that arises.
 
-**Prática do Silêncio**:
-- Sente-se confortavelmente
-- Feche os olhos
-- Observe os pensamentos como nuvens passando no céu
-- Você é o céu, não as nuvens
-- Retorne gentilmente a esta perspectiva quando se perder em pensamentos
+**Silence Practice**:
+- Sit comfortably
+- Close your eyes
+- Observe thoughts like clouds passing in the sky
+- You are the sky, not the clouds
+- Gently return to this perspective when you get lost in thoughts
 
-O silêncio revela o que estava oculto pelo ruído. Muitos insights surgem não durante a agitação, mas nos momentos de quietude que seguem.`
+Silence reveals what was hidden by noise. Many insights arise not during agitation, but in the moments of quietude that follow.`
       },
       {
         id: "3-4",
-        title: "Questionamento Socrático",
-        content: `Sócrates, o filósofo grego, desenvolveu um método de questionamento que leva à clareza através de perguntas bem formuladas. Este método permanece poderoso até hoje.
+        title: "Socratic Questioning",
+        content: `Socrates, the Greek philosopher, developed a method of questioning that leads to clarity through well-formulated questions. This method remains powerful today.
 
-**O Método**:
+**The Method**:
 
-1. **Identifique uma crença ou suposição**: Por exemplo, "Eu preciso da aprovação dos outros para me sentir bem."
+1. **Identify a belief or assumption**: For example, "I need others' approval to feel good."
 
-2. **Questione**: "Isso é realmente verdade? Sempre? Em todas as situações?"
+2. **Question**: "Is this really true? Always? In all situations?"
 
-3. **Explore consequências**: "Se eu mantiver essa crença, aonde ela me leva? Quais são os custos?"
+3. **Explore consequences**: "If I maintain this belief, where does it lead me? What are the costs?"
 
-4. **Busque evidências contrárias**: "Houve momentos em que me senti bem sem aprovação externa?"
+4. **Seek contrary evidence**: "Were there moments when I felt good without external approval?"
 
-5. **Reformule**: "Uma perspectiva mais equilibrada seria..."
+5. **Reformulate**: "A more balanced perspective would be..."
 
-Este método não é sobre negatividade ou ceticismo, mas sobre não aceitar automaticamente o que a mente diz. Muitas de nossas crenças foram formadas na infância e nunca foram examinadas. O questionamento socrático traz luz a essas zonas obscuras.`
+This method is not about negativity or skepticism, but about not automatically accepting what the mind says. Many of our beliefs were formed in childhood and have never been examined. Socratic questioning brings light to these dark zones.`
       },
       {
         id: "3-5",
-        title: "Clareza na Tomada de Decisões",
-        content: `A clareza interior tem aplicações práticas, especialmente na tomada de decisões. Quando estamos confusos, tendemos a procrastinar, decidir impulsivamente ou deixar que outros decidam por nós.
+        title: "Clarity in Decision Making",
+        content: `Inner clarity has practical applications, especially in decision making. When we are confused, we tend to procrastinate, decide impulsively, or let others decide for us.
 
-**Práticas para Decisões Claras**:
+**Practices for Clear Decisions**:
 
-1. **Espere a Emoção Baixar**: Se você está emocionalmente agitado, não é o momento de decidir algo importante. Espere até recuperar o equilíbrio.
+1. **Wait for Emotion to Subside**: If you are emotionally agitated, it is not the time to decide something important. Wait until you regain balance.
 
-2. **Escreva as Opções**: Ver as alternativas no papel clareia a mente.
+2. **Write Down Options**: Seeing alternatives on paper clears the mind.
 
-3. **Consulte Valores**: Qual opção está mais alinhada com seus valores essenciais? Se você não tem clareza sobre seus valores, este é um trabalho preparatório importante.
+3. **Consult Values**: Which option is most aligned with your core values? If you lack clarity about your values, this is important preparatory work.
 
-4. **Projete Consequências**: Imagine-se daqui a um ano, cinco anos. Qual escolha você agradeceria ter feito?
+4. **Project Consequences**: Imagine yourself a year from now, five years. Which choice would you be grateful to have made?
 
-5. **Ouça o Corpo**: Muitas vezes, o corpo sabe antes da mente. Ao considerar uma opção, observe as sensações corporais que surgem.
+5. **Listen to the Body**: Often, the body knows before the mind. When considering an option, observe the bodily sensations that arise.
 
-Lembre-se: nem toda decisão precisa ser perfeita. Clareza não é onisciência. É agir conscientemente com a melhor informação disponível.`
+Remember: not every decision needs to be perfect. Clarity is not omniscience. It is acting consciously with the best available information.`
       }
     ],
     practicalExercise: {
-      title: "Exercício: Inventário de Clareza",
+      title: "Exercise: Clarity Inventory",
       instructions: [
-        "Reserve 20 minutos sem interrupções",
-        "Divida uma página em três colunas: Área da Vida | O Que Está Claro | O Que Está Confuso",
-        "Liste as principais áreas: relacionamentos, trabalho, saúde, propósito, finanças, espiritualidade",
-        "Para cada área, preencha honestamente o que você vê com clareza e o que permanece nebuloso",
-        "Escolha uma área confusa e aplique o questionamento socrático",
-        "Registre qualquer insight que surgir"
+        "Set aside 20 minutes without interruptions",
+        "Divide a page into three columns: Life Area | What Is Clear | What Is Confused",
+        "List the main areas: relationships, work, health, purpose, finances, spirituality",
+        "For each area, honestly fill in what you see clearly and what remains foggy",
+        "Choose one confused area and apply Socratic questioning",
+        "Record any insight that arises"
       ]
     },
-    finalReflection: `A clareza não é um destino, mas um caminho. Cada dia oferece oportunidades para ver mais claramente - a si mesmo, aos outros, às situações. As ferramentas deste módulo são simples, mas poderosas quando aplicadas consistentemente.
+    finalReflection: `Clarity is not a destination, but a path. Each day offers opportunities to see more clearly - yourself, others, situations. The tools in this module are simple but powerful when applied consistently.
 
-Não espere resultados imediatos. A neblina que se acumulou ao longo de anos não se dissipa em uma sessão. Mas com prática regular, você notará uma diferença progressiva na qualidade de sua percepção e decisões.`
+Do not expect immediate results. The fog that accumulated over years does not dissipate in one session. But with regular practice, you will notice a progressive difference in the quality of your perception and decisions.`
   },
   {
     id: "module-4",
     number: 4,
-    title: "Virtudes e Equilíbrio Emocional",
-    subtitle: "Texto educativo e prático",
+    title: "Virtues and Emotional Balance",
+    subtitle: "Educational and practical text",
     icon: "balance",
-    introduction: `As virtudes não são conceitos abstratos, mas capacidades práticas que podem ser desenvolvidas. O equilíbrio emocional não significa ausência de emoções, mas a capacidade de experimentá-las plenamente sem ser dominado por elas.
+    introduction: `Virtues are not abstract concepts, but practical capacities that can be developed. Emotional balance does not mean the absence of emotions, but the ability to experience them fully without being dominated by them.
 
-Este módulo explora virtudes clássicas e oferece orientações práticas para cultivá-las em sua vida.`,
+This module explores classical virtues and offers practical guidance for cultivating them in your life.`,
     sections: [
       {
         id: "4-1",
-        title: "O Que São Virtudes",
-        content: `Aristóteles definiu virtude como o ponto médio entre dois extremos. Coragem, por exemplo, é o meio-termo entre covardia e temeridade. Generosidade está entre avareza e desperdício.
+        title: "What Are Virtues",
+        content: `Aristotle defined virtue as the midpoint between two extremes. Courage, for example, is the middle ground between cowardice and recklessness. Generosity lies between avarice and wastefulness.
 
-Esta visão é prática: as virtudes não são ideais inatingíveis, mas estados equilibrados que podemos cultivar conscientemente.
+This view is practical: virtues are not unattainable ideals, but balanced states we can consciously cultivate.
 
-**Características das Virtudes**:
+**Characteristics of Virtues**:
 
-1. **São hábitos**: Não nascemos virtuosos; tornamo-nos virtuosos através da prática repetida.
+1. **They are habits**: We are not born virtuous; we become virtuous through repeated practice.
 
-2. **São contextuais**: A ação virtuosa depende das circunstâncias. Às vezes, falar é corajoso; às vezes, o silêncio é.
+2. **They are contextual**: Virtuous action depends on circumstances. Sometimes, speaking is courageous; sometimes, silence is.
 
-3. **Formam um sistema**: As virtudes se apoiam mutuamente. Coragem sem prudência pode ser destrutiva.
+3. **They form a system**: Virtues support each other. Courage without prudence can be destructive.
 
-4. **Levam à eudaimonia**: Este termo grego significa "florescimento" ou "bem-viver" - não prazer momentâneo, mas uma vida genuinamente boa.`
+4. **They lead to eudaimonia**: This Greek term means "flourishing" or "well-living" - not momentary pleasure, but a genuinely good life.`
       },
       {
         id: "4-2",
-        title: "Compaixão: A Virtude do Coração",
-        content: `Compaixão é a capacidade de reconhecer o sofrimento - em si mesmo e nos outros - e responder com cuidado. Não é pena, que olha de cima para baixo, mas conexão horizontal com a experiência humana compartilhada.
+        title: "Compassion: The Virtue of the Heart",
+        content: `Compassion is the ability to recognize suffering - in oneself and in others - and respond with care. It is not pity, which looks down from above, but horizontal connection with the shared human experience.
 
-**Desenvolvendo Compaixão**:
+**Developing Compassion**:
 
-1. **Comece consigo**: Muitas pessoas são mais duras consigo mesmas do que com os outros. Pratique autocompaixão quando falhar ou sofrer.
+1. **Start with yourself**: Many people are harder on themselves than on others. Practice self-compassion when you fail or suffer.
 
-2. **Reconheça a humanidade comum**: Todos sofrem. Todos cometem erros. Todos querem ser felizes. Esta percepção dissolve o julgamento.
+2. **Recognize common humanity**: Everyone suffers. Everyone makes mistakes. Everyone wants to be happy. This perception dissolves judgment.
 
-3. **Pratique a escuta ativa**: Quando alguém compartilha um problema, resista ao impulso de consertar. Às vezes, presença atenta é o que mais ajuda.
+3. **Practice active listening**: When someone shares a problem, resist the urge to fix it. Sometimes, attentive presence is what helps most.
 
-4. **Ações compassivas**: A compaixão não é apenas sentimento; expressa-se em ações. Identifique uma ação compassiva que você pode realizar esta semana.
+4. **Compassionate actions**: Compassion is not just feeling; it expresses itself in actions. Identify one compassionate action you can practice this week.
 
-A compaixão não significa tolerar comportamentos prejudiciais. Às vezes, a resposta mais compassiva é estabelecer limites claros.`
+Compassion does not mean tolerating harmful behaviors. Sometimes, the most compassionate response is to set clear boundaries.`
       },
       {
         id: "4-3",
-        title: "Paciência: A Virtude do Tempo",
-        content: `Em uma cultura de gratificação instantânea, a paciência se tornou rara e preciosa. Ela é a capacidade de manter a calma e persistir diante de atrasos, obstáculos ou dificuldades.
+        title: "Patience: The Virtue of Time",
+        content: `In a culture of instant gratification, patience has become rare and precious. It is the ability to remain calm and persist in the face of delays, obstacles, or difficulties.
 
-**A Natureza da Paciência**:
+**The Nature of Patience**:
 
-A paciência não é passividade. É uma força ativa - a escolha consciente de não reagir impulsivamente quando as coisas não acontecem no nosso tempo desejado.
+Patience is not passivity. It is an active force - the conscious choice not to react impulsively when things do not happen in our desired time.
 
-Ela reconhece que muitos processos importantes - crescimento pessoal, relacionamentos profundos, habilidades complexas - requerem tempo. Tentar apressá-los é contraproducente.
+It recognizes that many important processes - personal growth, deep relationships, complex skills - require time. Trying to rush them is counterproductive.
 
-**Cultivando Paciência**:
+**Cultivating Patience**:
 
-1. **Identifique gatilhos**: O que testa sua paciência? Trânsito? Filas? Pessoas? Saber isso ajuda a se preparar.
+1. **Identify triggers**: What tests your patience? Traffic? Lines? People? Knowing this helps you prepare.
 
-2. **Pratique em doses pequenas**: Use pequenos inconvenientes como oportunidades de treino.
+2. **Practice in small doses**: Use small inconveniences as training opportunities.
 
-3. **Respire antes de reagir**: Três respirações profundas podem ser suficientes para evitar uma reação impulsiva.
+3. **Breathe before reacting**: Three deep breaths can be enough to avoid an impulsive reaction.
 
-4. **Perspectiva temporal**: Pergunte-se: "Isso importará daqui a um ano?" Muitas frustrações são triviais a longo prazo.
+4. **Time perspective**: Ask yourself: "Will this matter a year from now?" Many frustrations are trivial in the long run.
 
-5. **Aceite a incerteza**: Muita impaciência vem da ilusão de controle. Aceitar que nem tudo está em nossas mãos traz paz.`
+5. **Accept uncertainty**: Much impatience comes from the illusion of control. Accepting that not everything is in our hands brings peace.`
       },
       {
         id: "4-4",
-        title: "Equilíbrio Emocional na Prática",
-        content: `Equilíbrio emocional não significa ser frio ou reprimido. Significa experimentar emoções plenamente sem ser arrastado por elas. É a diferença entre sentir raiva e agir destrutivamente a partir da raiva.
+        title: "Emotional Balance in Practice",
+        content: `Emotional balance does not mean being cold or repressed. It means experiencing emotions fully without being swept away by them. It is the difference between feeling anger and acting destructively from anger.
 
-**Princípios do Equilíbrio Emocional**:
+**Principles of Emotional Balance**:
 
-1. **Todas as emoções são válidas**: Não existem emoções "ruins" - apenas maneiras mais ou menos hábeis de lidar com elas.
+1. **All emotions are valid**: There are no "bad" emotions - only more or less skillful ways of dealing with them.
 
-2. **Emoções são transitórias**: Nenhuma emoção dura para sempre. Esta percepção ajuda durante estados difíceis.
+2. **Emotions are transitory**: No emotion lasts forever. This perception helps during difficult states.
 
-3. **Você não é suas emoções**: Há uma diferença entre "Estou com raiva" e "Há raiva presente em mim". A segunda formulação preserva espaço para escolha.
+3. **You are not your emotions**: There is a difference between "I am angry" and "There is anger present in me." The second formulation preserves space for choice.
 
-**Práticas de Regulação**:
+**Regulation Practices**:
 
-1. **Nomear a emoção**: Pesquisas mostram que simplesmente nomear uma emoção reduz sua intensidade. "Isto é ansiedade."
+1. **Name the emotion**: Research shows that simply naming an emotion reduces its intensity. "This is anxiety."
 
-2. **Localizar no corpo**: Onde você sente esta emoção? Coração apertado? Estômago tenso? Focalize a sensação.
+2. **Locate it in the body**: Where do you feel this emotion? Tight heart? Tense stomach? Focus on the sensation.
 
-3. **Respirar através dela**: Direcione a respiração para a área de tensão. Não para mudar, mas para acompanhar.
+3. **Breathe through it**: Direct breath to the area of tension. Not to change, but to accompany.
 
-4. **Expressão saudável**: Encontre formas construtivas de expressar emoções - movimento, arte, conversa, escrita.`
+4. **Healthy expression**: Find constructive ways to express emotions - movement, art, conversation, writing.`
       },
       {
         id: "4-5",
-        title: "Integridade e Autenticidade",
-        content: `Integridade significa que suas ações estão alinhadas com seus valores. Autenticidade significa que você se apresenta ao mundo como realmente é, sem máscaras excessivas.
+        title: "Integrity and Authenticity",
+        content: `Integrity means that your actions are aligned with your values. Authenticity means that you present yourself to the world as you really are, without excessive masks.
 
-Estas virtudes são fundamentais porque sem elas, todas as outras podem ser fachada. Uma pessoa pode aparentar compaixão enquanto esconde segundas intenções. Integridade é o que torna as virtudes genuínas.
+These virtues are fundamental because without them, all others can be a facade. A person can appear compassionate while hiding ulterior motives. Integrity is what makes virtues genuine.
 
-**Sinais de Integridade**:
-- Fazer o certo mesmo quando ninguém está olhando
-- Cumprir compromissos, mesmo os pequenos
-- Admitir erros e buscar repará-los
-- Ser consistente em diferentes contextos
+**Signs of Integrity**:
+- Doing the right thing even when no one is watching
+- Keeping commitments, even small ones
+- Admitting mistakes and seeking to repair them
+- Being consistent across different contexts
 
-**Cultivando Autenticidade**:
+**Cultivating Authenticity**:
 
-1. **Conheça seus valores**: O que realmente importa para você? Não o que deveria importar, mas o que de fato importa.
+1. **Know your values**: What really matters to you? Not what should matter, but what actually does.
 
-2. **Observe suas máscaras**: Todos usamos máscaras sociais. Observe quando você está sendo performático versus genuíno.
+2. **Observe your masks**: We all use social masks. Observe when you are being performative versus genuine.
 
-3. **Risque seguro**: Comece a ser mais autêntico em contextos seguros. A autenticidade é um músculo que se fortalece com a prática.
+3. **Take safe risks**: Start being more authentic in safe contexts. Authenticity is a muscle that strengthens with practice.
 
-4. **Aceite a vulnerabilidade**: Ser autêntico significa aceitar que nem todos vão gostar de você. E está tudo bem.`
+4. **Accept vulnerability**: Being authentic means accepting that not everyone will like you. And that is okay.`
       }
     ],
     practicalExercise: {
-      title: "Exercício: Mapa de Virtudes",
+      title: "Exercise: Virtue Map",
       instructions: [
-        "Liste as virtudes mencionadas: compaixão, paciência, equilíbrio emocional, integridade, autenticidade",
-        "Para cada uma, avalie honestamente em uma escala de 1-10 onde você está atualmente",
-        "Identifique a virtude com menor pontuação - esta é sua área de crescimento prioritária",
-        "Defina uma ação concreta que você pode praticar esta semana para desenvolvê-la",
-        "Ao final da semana, reflita sobre os desafios e aprendizados"
+        "List the mentioned virtues: compassion, patience, emotional balance, integrity, authenticity",
+        "For each, honestly assess on a scale of 1-10 where you currently are",
+        "Identify the virtue with the lowest score - this is your priority growth area",
+        "Define one concrete action you can practice this week to develop it",
+        "At the end of the week, reflect on the challenges and learnings"
       ]
     },
-    finalReflection: `As virtudes são o fundamento de uma vida bem vivida. Elas não são restrições que limitam sua liberdade, mas estruturas que a ampliam. Uma pessoa dominada por impulsos não é livre - é refém de suas reações.
+    finalReflection: `Virtues are the foundation of a well-lived life. They are not restrictions that limit your freedom, but structures that expand it. A person dominated by impulses is not free - they are hostage to their reactions.
 
-O caminho das virtudes é gradual e requer paciência consigo mesmo. Cada pequena escolha consciente fortalece o hábito virtuoso. Com o tempo, o que era difícil se torna natural.`
+The path of virtues is gradual and requires patience with yourself. Each small conscious choice strengthens the virtuous habit. Over time, what was difficult becomes natural.`
   },
   {
     id: "module-5",
     number: 5,
-    title: "Práticas de Reconexão e Consciência",
-    subtitle: "Exercícios aplicáveis diariamente",
+    title: "Practices of Reconnection and Consciousness",
+    subtitle: "Exercises applicable daily",
     icon: "lotus",
-    introduction: `Este módulo final oferece práticas concretas que você pode integrar em seu cotidiano. Não são rituais complexos ou esotéricos, mas exercícios simples que, aplicados consistentemente, podem contribuir para uma vida mais consciente e conectada.
+    introduction: `This final module offers concrete practices you can integrate into your daily life. These are not complex or esoteric rituals, but simple exercises that, applied consistently, can contribute to a more conscious and connected life.
 
-O objetivo é que você termine este manuscrito com ferramentas práticas, não apenas conceitos.`,
+The goal is that you finish this manuscript with practical tools, not just concepts.`,
     sections: [
       {
         id: "5-1",
-        title: "Rotina Matinal de Consciência",
-        content: `Como você começa o dia define o tom para tudo que segue. Uma rotina matinal consciente pode transformar sua experiência diária.
+        title: "Morning Consciousness Routine",
+        content: `How you start the day sets the tone for everything that follows. A conscious morning routine can transform your daily experience.
 
-**Elementos de uma Manhã Consciente**:
+**Elements of a Conscious Morning**:
 
-1. **Antes do celular**: Os primeiros minutos são preciosos. Resista ao impulso de checar notificações imediatamente.
+1. **Before the phone**: The first minutes are precious. Resist the urge to check notifications immediately.
 
-2. **Gratidão Matinal**: Ainda na cama, identifique três coisas pelas quais você é grato. Podem ser simples.
+2. **Morning Gratitude**: Still in bed, identify three things you are grateful for. They can be simple.
 
-3. **Respiração Intencional**: 5-10 respirações profundas, conscientes. Isso ativa o sistema nervoso parassimpático.
+3. **Intentional Breathing**: 5-10 deep, conscious breaths. This activates the parasympathetic nervous system.
 
-4. **Intenção para o Dia**: Defina uma intenção simples. Não é uma lista de tarefas, mas uma qualidade que você quer cultivar. "Hoje pratico paciência."
+4. **Intention for the Day**: Set a simple intention. It is not a to-do list, but a quality you want to cultivate. "Today I practice patience."
 
-5. **Movimento Gentil**: Alongamentos simples ajudam a acordar o corpo com gentileza.
+5. **Gentle Movement**: Simple stretches help wake the body gently.
 
-**Não precisa ser longo**: 10-15 minutos são suficientes. A consistência importa mais que a duração.`
+**It doesn't need to be long**: 10-15 minutes are sufficient. Consistency matters more than duration.`
       },
       {
         id: "5-2",
-        title: "Pausas Conscientes ao Longo do Dia",
-        content: `A consciência não deve ficar confinada a práticas formais. O verdadeiro desafio é trazer presença para as atividades ordinárias.
+        title: "Conscious Pauses Throughout the Day",
+        content: `Consciousness should not be confined to formal practices. The real challenge is bringing presence to ordinary activities.
 
-**A Prática das Pausas**:
+**The Practice of Pauses**:
 
-Defina lembretes para pausar brevemente ao longo do dia - pode ser a cada hora ou em momentos de transição (antes de uma reunião, ao entrar no carro, antes de comer).
+Set reminders to pause briefly throughout the day - it can be every hour or at moments of transition (before a meeting, when getting in the car, before eating).
 
-Durante a pausa (1-2 minutos):
-- Feche os olhos ou suavize o olhar
-- Tome três respirações conscientes
-- Pergunte: "Como estou agora?" (corpo, mente, emoções)
-- Retome a atividade com renovada presença
+During the pause (1-2 minutes):
+- Close your eyes or soften your gaze
+- Take three conscious breaths
+- Ask: "How am I now?" (body, mind, emotions)
+- Resume the activity with renewed presence
 
-**Atividades Cotidianas como Prática**:
+**Everyday Activities as Practice**:
 
-- **Comer**: Uma refeição por dia feita em silêncio, saboreando cada mordida
-- **Caminhar**: Perceber os pés tocando o chão, o ritmo da respiração
-- **Ouvir**: Em conversas, ouvir verdadeiramente, sem planejar a resposta
+- **Eating**: One meal a day in silence, savoring each bite
+- **Walking**: Feeling the feet touching the ground, the rhythm of breathing
+- **Listening**: In conversations, truly listening, without planning the response
 
-Estas práticas informais são tão importantes quanto a meditação formal. Elas integram a consciência na vida real.`
+These informal practices are as important as formal meditation. They integrate consciousness into real life.`
       },
       {
         id: "5-3",
-        title: "Prática da Revisão Noturna",
-        content: `Antes de dormir, reserve alguns minutos para uma revisão consciente do dia. Esta prática, utilizada em diversas tradições, promove autoconhecimento e prepara para um sono reparador.
+        title: "Evening Review Practice",
+        content: `Before sleeping, set aside a few minutes for a conscious review of the day. This practice, used in various traditions, promotes self-knowledge and prepares for restorative sleep.
 
-**Estrutura da Revisão (10-15 minutos)**:
+**Review Structure (10-15 minutes)**:
 
-1. **Acomode-se confortavelmente**, sentado ou deitado
+1. **Settle comfortably**, seated or lying down
 
-2. **Rebobine o dia** mentalmente, do momento atual até o despertar. Observe os eventos principais como um filme.
+2. **Rewind the day** mentally, from the present moment to waking up. Observe the main events like a movie.
 
-3. **Identifique momentos positivos**: Onde você agiu de acordo com seus valores? O que correu bem?
+3. **Identify positive moments**: Where did you act according to your values? What went well?
 
-4. **Identifique desafios**: Houve momentos de reatividade, impaciência, inconsciência? Observe sem julgamento.
+4. **Identify challenges**: Were there moments of reactivity, impatience, unconsciousness? Observe without judgment.
 
-5. **Agradeça e perdoe**: Agradeça pelo dia. Perdoe a si mesmo e aos outros por falhas.
+5. **Thank and forgive**: Be grateful for the day. Forgive yourself and others for failures.
 
-6. **Solte o dia**: Mentalmente, "feche" o dia. O que passou, passou.
+6. **Release the day**: Mentally, "close" the day. What has passed, has passed.
 
-Esta prática melhora a qualidade do sono e aumenta a autoconsciência progressivamente. Os padrões que você não percebia começam a ficar visíveis.`
+This practice improves sleep quality and progressively increases self-awareness. Patterns you did not perceive begin to become visible.`
       },
       {
         id: "5-4",
-        title: "Práticas de Reconexão com a Natureza",
-        content: `A natureza tem um efeito comprovado de restauração psicológica. Mesmo em ambientes urbanos, é possível cultivar conexão com o mundo natural.
+        title: "Practices of Reconnection with Nature",
+        content: `Nature has a proven effect of psychological restoration. Even in urban environments, it is possible to cultivate connection with the natural world.
 
-**Práticas Simples**:
+**Simple Practices**:
 
-1. **Banho de Floresta (Shinrin-yoku)**: Tempo em áreas verdes, caminhando lentamente, usando todos os sentidos. Se possível, 20 minutos por semana já mostra benefícios.
+1. **Forest Bathing (Shinrin-yoku)**: Time in green areas, walking slowly, using all senses. If possible, 20 minutes per week already shows benefits.
 
-2. **Observação do Céu**: Reserve momentos para olhar o céu - as nuvens, as estrelas. Isso naturalmente expande a perspectiva.
+2. **Sky Observation**: Set aside moments to look at the sky - clouds, stars. This naturally expands perspective.
 
-3. **Contato com Elementos**: Água corrente, terra, sol na pele. Mesmo tocar uma planta em casa pode ser uma reconexão.
+3. **Contact with Elements**: Flowing water, earth, sun on the skin. Even touching a plant at home can be a reconnection.
 
-4. **Ritmos Naturais**: Observe o nascer e pôr do sol quando possível. Alinhamos nossos ritmos internos com os externos.
+4. **Natural Rhythms**: Observe sunrise and sunset when possible. We align our internal rhythms with external ones.
 
-5. **Silêncio na Natureza**: Mesmo em parques urbanos, há momentos de quietude. Busque-os.
+5. **Silence in Nature**: Even in urban parks, there are moments of quietude. Seek them.
 
-A natureza não exige nada de nós. Essa ausência de demanda é profundamente restauradora em um mundo que constantemente pede nossa atenção.`
+Nature demands nothing from us. This absence of demand is profoundly restorative in a world that constantly asks for our attention.`
       },
       {
         id: "5-5",
-        title: "Integrando as Práticas em Sua Vida",
-        content: `O maior desafio não é aprender práticas, mas integrá-las consistentemente. Aqui estão orientações para tornar isso mais provável:
+        title: "Integrating Practices into Your Life",
+        content: `The greatest challenge is not learning practices, but integrating them consistently. Here are guidelines to make this more likely:
 
-**Comece Pequeno**: É melhor praticar 5 minutos diariamente do que 1 hora esporadicamente. Construa o hábito antes de expandir.
+**Start Small**: It is better to practice 5 minutes daily than 1 hour sporadically. Build the habit before expanding.
 
-**Vincule a Gatilhos**: Associe a prática a algo que você já faz. "Depois do café da manhã, faço minha prática matinal."
+**Link to Triggers**: Associate practice with something you already do. "After breakfast, I do my morning practice."
 
-**Tenha Flexibilidade**: Se perder um dia, não desista. Retome no dia seguinte sem drama.
+**Have Flexibility**: If you miss a day, don't give up. Resume the next day without drama.
 
-**Rastreie Sem Obsecar**: Um simples registro (praticou/não praticou) ajuda na consistência. Mas não se torture se houver lacunas.
+**Track Without Obsessing**: A simple record (practiced/didn't practice) helps with consistency. But don't torture yourself if there are gaps.
 
-**Adapte**: As práticas oferecidas são sugestões. Modifique-as para seu contexto e preferências.
+**Adapt**: The practices offered are suggestions. Modify them for your context and preferences.
 
-**Seja Paciente**: Mudanças genuínas levam tempo. Não espere transformações imediatas. Comprometa-se com o processo, não com resultados específicos.
+**Be Patient**: Genuine changes take time. Don't expect immediate transformations. Commit to the process, not specific outcomes.
 
-**Busque Comunidade**: Se possível, encontre outros que compartilham dessa jornada. Prática em grupo fortalece a motivação individual.`
+**Seek Community**: If possible, find others who share this journey. Group practice strengthens individual motivation.`
       }
     ],
     practicalExercise: {
-      title: "Exercício: Plano de Prática Pessoal",
+      title: "Exercise: Personal Practice Plan",
       instructions: [
-        "Reveja todas as práticas apresentadas neste módulo",
-        "Escolha UMA prática de cada categoria: matinal, diária (pausas), noturna, natureza",
-        "Crie um cronograma realista para sua semana",
-        "Defina lembretes no celular se necessário",
-        "Ao final da semana, avalie: O que funcionou? O que precisa de ajuste?",
-        "Continue refinando seu plano nas semanas seguintes"
+        "Review all practices presented in this module",
+        "Choose ONE practice from each category: morning, daily (pauses), evening, nature",
+        "Create a realistic schedule for your week",
+        "Set phone reminders if necessary",
+        "At the end of the week, evaluate: What worked? What needs adjustment?",
+        "Continue refining your plan in the following weeks"
       ]
     },
-    finalReflection: `Este módulo encerra o conteúdo principal do Manuscrito Sagrado. Você agora possui um conjunto de ferramentas práticas para sua jornada de autoconhecimento.
+    finalReflection: `This module concludes the main content of the Sacred Manuscript. You now possess a set of practical tools for your journey of self-discovery.
 
-Lembre-se: o manuscrito não é o destino, mas um mapa. O território é sua própria vida. A verdadeira prática acontece quando você fecha este app e retorna às suas atividades cotidianas.
+Remember: the manuscript is not the destination, but a map. The territory is your own life. True practice happens when you close this app and return to your everyday activities.
 
-Que as práticas aqui oferecidas sirvam como sementes que você cultiva com paciência e dedicação. Os frutos virão no tempo certo.`
+May the practices offered here serve as seeds that you cultivate with patience and dedication. The fruits will come in due time.`
   }
 ];
 
 export const conclusionContent = {
-  title: "Conclusão da Jornada",
-  mainText: `Você chegou ao final deste Manuscrito Sagrado. Mas, como toda jornada verdadeira de autoconhecimento, este é mais um início do que um fim.
+  title: "Conclusion of the Journey",
+  mainText: `You have reached the end of this Sacred Manuscript. But, like every true journey of self-discovery, this is more a beginning than an end.
 
-Os conceitos explorados, os exercícios praticados e as reflexões registradas são ferramentas que agora fazem parte do seu repertório. Eles não perdem valor com o tempo - ao contrário, aprofundam-se à medida que você os revisita com nova experiência de vida.`,
-  encouragement: `Encorajamos você a:
+The concepts explored, the exercises practiced, and the reflections recorded are tools that are now part of your repertoire. They do not lose value over time - on the contrary, they deepen as you revisit them with new life experience.`,
+  encouragement: `We encourage you to:
 
-• **Revisitar os módulos** periodicamente. Você encontrará novos significados a cada leitura.
+• **Revisit the modules** periodically. You will find new meanings with each reading.
 
-• **Manter a prática regular**. A consistência é mais importante que a intensidade.
+• **Maintain regular practice**. Consistency is more important than intensity.
 
-• **Usar o diário** como seu companheiro de jornada. Ele é o registro de sua evolução.
+• **Use the journal** as your journey companion. It is the record of your evolution.
 
-• **Ser paciente** consigo mesmo. A transformação genuína é gradual e nem sempre linear.
+• **Be patient** with yourself. Genuine transformation is gradual and not always linear.
 
-• **Compartilhar** o que aprendeu de maneiras que respeitem sua experiência única.`,
-  finalWords: `O Manuscrito Sagrado foi criado como um guia educacional e reflexivo. Não prometemos milagres ou resultados garantidos. O que oferecemos são ferramentas que, quando aplicadas com sinceridade e consistência, podem contribuir para uma vida mais consciente e significativa.
+• **Share** what you learned in ways that respect your unique experience.`,
+  finalWords: `The Sacred Manuscript was created as an educational and reflective guide. We do not promise miracles or guaranteed results. What we offer are tools that, when applied with sincerity and consistency, can contribute to a more conscious and meaningful life.
 
-A verdadeira sabedoria não está nestas páginas - está em você. Este manuscrito é apenas um espelho que ajuda você a ver o que já existe.
+True wisdom is not in these pages - it is in you. This manuscript is only a mirror that helps you see what already exists.
 
-Que sua jornada continue com clareza, propósito e paz interior.`
+May your journey continue with clarity, purpose, and inner peace.`
 };
 
 export const creditsContent = {
-  title: "Créditos e Referências",
+  title: "Credits and References",
   culturalReferences: [
     {
-      tradition: "Filosofia Grega",
-      description: "Sócrates, Platão e Aristóteles contribuíram com os fundamentos da ética das virtudes e do autoconhecimento ocidental. O método socrático de questionamento e a ética aristotélica informam várias práticas deste manuscrito."
+      tradition: "Greek Philosophy",
+      description: "Socrates, Plato, and Aristotle contributed the foundations of virtue ethics and Western self-knowledge. The Socratic method of questioning and Aristotelian ethics inform various practices in this manuscript."
     },
     {
-      tradition: "Tradições Contemplativas Orientais",
-      description: "O Budismo, Hinduísmo e Taoísmo desenvolveram ao longo de milênios práticas de meditação e auto-observação. Conceitos como atenção plena (mindfulness) e compaixão têm raízes nessas tradições."
+      tradition: "Eastern Contemplative Traditions",
+      description: "Buddhism, Hinduism, and Taoism developed over millennia practices of meditation and self-observation. Concepts like mindfulness and compassion have roots in these traditions."
     },
     {
-      tradition: "Psicologia Profunda",
-      description: "Carl Jung, com seu trabalho sobre arquétipos e inconsciente coletivo, oferece uma ponte entre simbolismo tradicional e psicologia moderna. Suas ideias informam nossa abordagem dos símbolos."
+      tradition: "Depth Psychology",
+      description: "Carl Jung, with his work on archetypes and the collective unconscious, offers a bridge between traditional symbolism and modern psychology. His ideas inform our approach to symbols."
     },
     {
-      tradition: "Hermetismo e Tradições Esotéricas",
-      description: "Os textos herméticos do Egito helenístico e tradições subsequentes exploram a correspondência entre macrocosmo e microcosmo. Sua linguagem simbólica ecoa em nossa abordagem."
+      tradition: "Hermeticism and Esoteric Traditions",
+      description: "Hermetic texts from Hellenistic Egypt and subsequent traditions explore the correspondence between macrocosm and microcosm. Their symbolic language echoes in our approach."
     },
     {
-      tradition: "Estoicismo",
-      description: "Marco Aurélio, Sêneca e Epicteto desenvolveram práticas de autodisciplina e aceitação que permanecem relevantes. A revisão diária e o foco no que está sob nosso controle vêm desta tradição."
+      tradition: "Stoicism",
+      description: "Marcus Aurelius, Seneca, and Epictetus developed practices of self-discipline and acceptance that remain relevant. Daily review and focus on what is under our control come from this tradition."
     }
   ],
-  disclaimer: `Este material é educacional e reflexivo. Não substitui tratamento médico, psicológico ou psiquiátrico quando necessário. As práticas aqui descritas são seguras para a maioria das pessoas, mas se você tiver condições de saúde mental, consulte um profissional antes de iniciar.
+  disclaimer: `This material is educational and reflective. It does not replace medical, psychological, or psychiatric treatment when necessary. The practices described here are safe for most people, but if you have mental health conditions, consult a professional before starting.
 
-Não fazemos promessas de resultados específicos. O impacto das práticas depende de múltiplos fatores, incluindo seu engajamento e circunstâncias individuais.
+We make no promises of specific results. The impact of practices depends on multiple factors, including your engagement and individual circumstances.
 
-Os símbolos e arquétipos utilizados são ferramentas psicológicas, não afirmações literais sobre entidades sobrenaturais. Respeitamos todas as crenças, mas nosso conteúdo é fundamentalmente educacional e não-religioso.`,
-  team: "O Manuscrito Sagrado foi desenvolvido com cuidado, combinando sabedoria de múltiplas tradições em uma linguagem acessível e contemporânea. Nosso compromisso é com qualidade, integridade e valor real para você."
+The symbols and archetypes used are psychological tools, not literal claims about supernatural entities. We respect all beliefs, but our content is fundamentally educational and non-religious.`,
+  team: "The Sacred Manuscript was developed with care, combining wisdom from multiple traditions in an accessible and contemporary language. Our commitment is to quality, integrity, and real value for you."
 };

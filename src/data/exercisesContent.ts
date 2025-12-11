@@ -1,4 +1,4 @@
-// Conteúdo dos Exercícios Práticos do Manuscrito Sagrado
+// Practical Exercise Content for the Sacred Manuscript
 
 export interface Exercise {
   id: string;
@@ -22,340 +22,339 @@ export interface Exercise {
 export const exercises: Exercise[] = [
   {
     id: "exercise-breathing",
-    title: "Técnica de Respiração Consciente",
-    subtitle: "A base de toda prática contemplativa",
-    duration: "5-10 minutos",
+    title: "Conscious Breathing Technique",
+    subtitle: "The foundation of all contemplative practice",
+    duration: "5-10 minutes",
     icon: "wind",
-    overview: `A respiração é a única função corporal que é tanto automática quanto voluntária. Por isso, ela serve como ponte entre o consciente e o inconsciente.
+    overview: `Breathing is the only bodily function that is both automatic and voluntary. That's why it serves as a bridge between the conscious and the unconscious.
 
-A Técnica de Respiração Consciente aqui apresentada combina elementos de práticas tradicionais com compreensão moderna da fisiologia. Quando praticada regularmente, pode ajudar na regulação do sistema nervoso e na redução de ansiedade.`,
+The Conscious Breathing Technique presented here combines elements of traditional practices with modern understanding of physiology. When practiced regularly, it can help with nervous system regulation and anxiety reduction.`,
     benefits: [
-      "Ativa o sistema nervoso parassimpático, promovendo calma",
-      "Pode reduzir níveis de cortisol (hormônio do estresse)",
-      "Melhora a oxigenação e circulação",
-      "Cria um intervalo entre estímulo e resposta",
-      "Pode ser praticada em qualquer lugar, discretamente"
+      "Activates the parasympathetic nervous system, promoting calm",
+      "Can reduce cortisol levels (stress hormone)",
+      "Improves oxygenation and circulation",
+      "Creates an interval between stimulus and response",
+      "Can be practiced anywhere, discreetly"
     ],
     materials: [
-      "Um local onde possa sentar ou ficar em pé confortavelmente",
-      "Timer opcional para sessões mais longas"
+      "A place where you can sit or stand comfortably",
+      "Optional timer for longer sessions"
     ],
     steps: [
       {
         step: 1,
-        title: "Posição",
-        instruction: "Sente-se com a coluna ereta ou fique em pé com os pés na largura dos ombros. Se sentado, apoie as mãos confortavelmente sobre as coxas. Relaxe os ombros.",
-        tip: "Se estiver ansioso ou agitado, colocar uma mão no peito e outra no abdômen pode ajudar a perceber a respiração."
+        title: "Position",
+        instruction: "Sit with your spine erect or stand with feet shoulder-width apart. If seated, rest your hands comfortably on your thighs. Relax your shoulders.",
+        tip: "If you're anxious or agitated, placing one hand on your chest and another on your abdomen can help you feel the breath."
       },
       {
         step: 2,
-        title: "Respiração Natural",
-        instruction: "Antes de modificar sua respiração, simplesmente observe-a por alguns ciclos. Como ela está agora? Rápida, lenta, superficial, profunda? Não julgue, apenas note.",
+        title: "Natural Breathing",
+        instruction: "Before modifying your breath, simply observe it for a few cycles. How is it now? Fast, slow, shallow, deep? Don't judge, just note.",
       },
       {
         step: 3,
-        title: "Técnica 4-7-8",
-        instruction: "Inspire pelo nariz contando mentalmente até 4. Segure a respiração contando até 7. Expire pela boca (fazendo um leve som de 'shhh') contando até 8.",
-        tip: "Se os intervalos forem muito longos, comece com proporções menores (2-3-4) e aumente gradualmente."
+        title: "4-7-8 Technique",
+        instruction: "Inhale through the nose counting mentally to 4. Hold your breath counting to 7. Exhale through the mouth (making a gentle 'shhh' sound) counting to 8.",
+        tip: "If the intervals are too long, start with smaller proportions (2-3-4) and gradually increase."
       },
       {
         step: 4,
-        title: "Ciclos",
-        instruction: "Repita a sequência 4-7-8 por 4 ciclos inicialmente. Com a prática, você pode aumentar para 8 ciclos ou mais.",
+        title: "Cycles",
+        instruction: "Repeat the 4-7-8 sequence for 4 cycles initially. With practice, you can increase to 8 cycles or more.",
       },
       {
         step: 5,
-        title: "Retorno",
-        instruction: "Após completar os ciclos, permita que sua respiração retorne ao ritmo natural. Observe como você se sente comparado ao início.",
+        title: "Return",
+        instruction: "After completing the cycles, allow your breathing to return to its natural rhythm. Observe how you feel compared to the beginning.",
       }
     ],
     variations: [
-      "Respiração quadrada (4-4-4-4): inspire 4, segure 4, expire 4, segure 4",
-      "Respiração calmante simples: expire por mais tempo que inspira (ex: inspira 4, expira 6)",
-      "Respiração de coerência cardíaca: 5 segundos inspirando, 5 segundos expirando"
+      "Box breathing (4-4-4-4): inhale 4, hold 4, exhale 4, hold 4",
+      "Simple calming breath: exhale longer than you inhale (e.g., inhale 4, exhale 6)",
+      "Heart coherence breathing: 5 seconds inhaling, 5 seconds exhaling"
     ],
-    disclaimer: "Se você tem condições respiratórias, cardíacas ou está grávida, consulte um médico antes de praticar técnicas de respiração com retenção."
+    disclaimer: "If you have respiratory, cardiac conditions, or are pregnant, consult a doctor before practicing breath retention techniques."
   },
   {
     id: "exercise-journaling",
-    title: "Escrita Terapêutica",
-    subtitle: "Journaling guiado para autoconhecimento",
-    duration: "15-20 minutos",
+    title: "Therapeutic Writing",
+    subtitle: "Guided journaling for self-knowledge",
+    duration: "15-20 minutes",
     icon: "pen-tool",
-    overview: `A escrita terapêutica, ou journaling, é uma prática respaldada por pesquisa em psicologia. Estudos mostram que escrever sobre experiências emocionais pode melhorar bem-estar físico e psicológico.
+    overview: `Therapeutic writing, or journaling, is a practice supported by psychological research. Studies show that writing about emotional experiences can improve physical and psychological well-being.
 
-Este exercício oferece prompts estruturados para guiar sua escrita de forma produtiva. Não se trata de escrever bem ou de forma literária - trata-se de usar a escrita como ferramenta de processamento e autoconhecimento.`,
+This exercise offers structured prompts to guide your writing productively. It's not about writing well or literarily - it's about using writing as a tool for processing and self-knowledge.`,
     benefits: [
-      "Ajuda a processar emoções difíceis",
-      "Clarifica pensamentos confusos",
-      "Identifica padrões de comportamento e pensamento",
-      "Serve como registro de sua jornada de crescimento",
-      "Pode reduzir sintomas de estresse e ansiedade"
+      "Helps process difficult emotions",
+      "Clarifies confused thoughts",
+      "Identifies patterns of behavior and thinking",
+      "Serves as a record of your growth journey",
+      "Can reduce symptoms of stress and anxiety"
     ],
     materials: [
-      "Caderno ou papel (preferível a digital para este exercício)",
-      "Caneta que deslize confortavelmente",
-      "Ambiente privado e tranquilo",
-      "Timer (opcional)"
+      "Notebook or paper (preferable to digital for this exercise)",
+      "A pen that glides comfortably",
+      "Private and quiet environment",
+      "Timer (optional)"
     ],
     steps: [
       {
         step: 1,
-        title: "Preparação",
-        instruction: "Reserve 15-20 minutos sem interrupções. Sente-se confortavelmente com seu caderno. Respire fundo algumas vezes para fazer a transição do modo 'fazer' para o modo reflexivo.",
+        title: "Preparation",
+        instruction: "Set aside 15-20 minutes without interruptions. Sit comfortably with your notebook. Take a few deep breaths to transition from 'doing' mode to reflective mode.",
       },
       {
         step: 2,
-        title: "Escolha um Prompt",
-        instruction: "Escolha uma das seguintes perguntas para guiar sua escrita hoje:\n\n• O que está pesando em minha mente agora?\n• Que emoção tem sido mais presente para mim ultimamente? De onde ela vem?\n• Se eu pudesse mudar uma coisa em minha vida agora, o que seria e por quê?\n• O que eu preciso perdoar - em mim ou nos outros?\n• Que crença sobre mim mesmo está me limitando?",
-        tip: "Não precisa responder todas. Escolha a que ressoa mais ou a que você resiste mais - ambas são significativas."
+        title: "Choose a Prompt",
+        instruction: "Choose one of the following questions to guide your writing today:\n\n• What is weighing on my mind right now?\n• What emotion has been most present for me lately? Where does it come from?\n• If I could change one thing in my life now, what would it be and why?\n• What do I need to forgive - in myself or in others?\n• What belief about myself is limiting me?",
+        tip: "You don't need to answer all of them. Choose the one that resonates most or the one you resist most - both are significant."
       },
       {
         step: 3,
-        title: "Escrita Livre",
-        instruction: "Escreva continuamente por 10-15 minutos sem parar. Não se preocupe com gramática, ortografia ou coerência. Se ficar travado, escreva 'não sei o que escrever' até algo surgir. A caneta deve continuar se movendo.",
+        title: "Free Writing",
+        instruction: "Write continuously for 10-15 minutes without stopping. Don't worry about grammar, spelling, or coherence. If you get stuck, write 'I don't know what to write' until something emerges. The pen should keep moving.",
       },
       {
         step: 4,
-        title: "Releitura Reflexiva",
-        instruction: "Após escrever, releia o que escreveu. Sublinhe frases que pareçam especialmente verdadeiras ou surpreendentes. Não julgue, apenas observe.",
+        title: "Reflective Rereading",
+        instruction: "After writing, reread what you wrote. Underline phrases that seem especially true or surprising. Don't judge, just observe.",
       },
       {
         step: 5,
-        title: "Insight Final",
-        instruction: "Em uma ou duas frases, escreva: 'O insight principal de hoje é...' ou 'O que aprendi sobre mim é...'",
+        title: "Final Insight",
+        instruction: "In one or two sentences, write: 'The main insight today is...' or 'What I learned about myself is...'",
       }
     ],
     variations: [
-      "Carta não enviada: escreva para alguém (vivo ou não) o que você nunca disse",
-      "Diálogo interno: escreva uma conversa entre duas partes de você (ex: medo vs coragem)",
-      "Visualização escrita: descreva seu dia ideal em detalhes sensoriais",
-      "Gratidão profunda: escolha uma pessoa e escreva tudo pelo que é grato nela"
+      "Unsent letter: write to someone (living or not) what you never said",
+      "Internal dialogue: write a conversation between two parts of yourself (e.g., fear vs courage)",
+      "Written visualization: describe your ideal day in sensory detail",
+      "Deep gratitude: choose a person and write everything you're grateful for about them"
     ],
   },
   {
     id: "exercise-intention",
-    title: "Ritual Simbólico de Intenção",
-    subtitle: "Prática de foco e direcionamento consciente",
-    duration: "10-15 minutos",
+    title: "Symbolic Intention Ritual",
+    subtitle: "Practice of focus and conscious direction",
+    duration: "10-15 minutes",
     icon: "compass",
-    overview: `Este exercício utiliza elementos simbólicos para ajudar você a clarificar e fortalecer suas intenções. Não se trata de magia ou manifestação sobrenatural - é uma prática psicológica que utiliza o poder dos símbolos e rituais para focar a mente.
+    overview: `This exercise uses symbolic elements to help you clarify and strengthen your intentions. This is not about magic or supernatural manifestation - it's a psychological practice that uses the power of symbols and rituals to focus the mind.
 
-Rituais ajudam a marcar momentos importantes, criar comprometimento, e transitar de um estado mental para outro. Este ritual de intenção pode ser usado para iniciar projetos, marcar novos começos, ou clarificar direção de vida.`,
+Rituals help mark important moments, create commitment, and transition from one mental state to another. This intention ritual can be used to start projects, mark new beginnings, or clarify life direction.`,
     benefits: [
-      "Clarifica o que você realmente quer",
-      "Cria um senso de comprometimento",
-      "Utiliza símbolos para envolver camadas mais profundas da mente",
-      "Marca uma transição consciente de intenção",
-      "Pode ser adaptado para diferentes propósitos"
+      "Clarifies what you really want",
+      "Creates a sense of commitment",
+      "Uses symbols to engage deeper layers of the mind",
+      "Marks a conscious transition of intention",
+      "Can be adapted for different purposes"
     ],
     materials: [
-      "Um espaço tranquilo que possa ser seu 'espaço sagrado' temporário",
-      "Uma vela (opcional, mas recomendada)",
-      "Papel e caneta",
-      "Um pequeno objeto que represente sua intenção (opcional)"
+      "A quiet space that can be your temporary 'sacred space'",
+      "A candle (optional, but recommended)",
+      "Paper and pen",
+      "A small object that represents your intention (optional)"
     ],
     steps: [
       {
         step: 1,
-        title: "Criação do Espaço",
-        instruction: "Prepare seu ambiente. Se usar vela, acenda-a. Silencie dispositivos. Este é um momento dedicado - trate-o como especial sem ser excessivamente solene.",
+        title: "Creating the Space",
+        instruction: "Prepare your environment. If using a candle, light it. Silence devices. This is a dedicated moment - treat it as special without being overly solemn.",
       },
       {
         step: 2,
-        title: "Centrando-se",
-        instruction: "Sente-se confortavelmente. Feche os olhos e respire profundamente por alguns minutos. Deixe para trás as preocupações do dia. Você está aqui para um propósito específico.",
+        title: "Centering Yourself",
+        instruction: "Sit comfortably. Close your eyes and breathe deeply for a few minutes. Leave behind the worries of the day. You are here for a specific purpose.",
       },
       {
         step: 3,
-        title: "Clarificação da Intenção",
-        instruction: "Pergunte-se: 'O que eu realmente quero cultivar ou criar em minha vida agora?' Não se apresse. Deixe a resposta emergir. Pode ser uma qualidade (ex: coragem), uma mudança (ex: mais saúde), ou uma direção (ex: carreira criativa).",
-        tip: "Formule sua intenção de forma positiva (o que você quer, não o que não quer) e presente (como se já fosse verdade)."
+        title: "Clarifying the Intention",
+        instruction: "Ask yourself: 'What do I really want to cultivate or create in my life now?' Don't rush. Let the answer emerge. It can be a quality (e.g., courage), a change (e.g., more health), or a direction (e.g., creative career).",
+        tip: "Formulate your intention positively (what you want, not what you don't want) and in the present (as if it were already true)."
       },
       {
         step: 4,
-        title: "Registro Escrito",
-        instruction: "Escreva sua intenção no papel de forma clara e concisa. Exemplo: 'Eu cultivo coragem em minhas escolhas diárias' ou 'Eu nutro minha saúde com atenção e cuidado'.",
+        title: "Written Record",
+        instruction: "Write your intention on paper clearly and concisely. Example: 'I cultivate courage in my daily choices' or 'I nurture my health with attention and care'.",
       },
       {
         step: 5,
-        title: "Visualização",
-        instruction: "Feche os olhos e visualize-se vivendo esta intenção. Como seria sua vida com esta intenção realizada? Que sensações você teria no corpo? Permita-se sentir a realidade desta visão.",
+        title: "Visualization",
+        instruction: "Close your eyes and visualize yourself living this intention. What would your life be like with this intention realized? What sensations would you have in your body? Allow yourself to feel the reality of this vision.",
       },
       {
         step: 6,
-        title: "Declaração",
-        instruction: "Em voz alta ou mentalmente, declare sua intenção três vezes com convicção. Sinta o compromisso em suas palavras.",
+        title: "Declaration",
+        instruction: "Out loud or mentally, declare your intention three times with conviction. Feel the commitment in your words.",
       },
       {
         step: 7,
-        title: "Fechamento",
-        instruction: "Agradeça a si mesmo por este momento de clareza. Se usou vela, apague-a conscientemente. Guarde o papel escrito onde possa revisitá-lo (não precisa ser visível sempre, mas acessível).",
+        title: "Closing",
+        instruction: "Thank yourself for this moment of clarity. If you used a candle, extinguish it consciously. Keep the written paper where you can revisit it (it doesn't need to be always visible, but accessible).",
       }
     ],
     variations: [
-      "Ritual de lua nova: faça o ritual no início do ciclo lunar para novos começos",
-      "Ritual de liberação: escreva o que deseja soltar e (com segurança) queime o papel",
-      "Ritual de manhã: versão breve (5 min) para definir intenção do dia",
-      "Ritual compartilhado: faça com um parceiro ou grupo, compartilhando intenções"
+      "New moon ritual: perform the ritual at the beginning of the lunar cycle for new beginnings",
+      "Release ritual: write what you want to let go of and (safely) burn the paper",
+      "Morning ritual: brief version (5 min) to set the day's intention",
+      "Shared ritual: do it with a partner or group, sharing intentions"
     ],
-    disclaimer: "Este é um exercício psicológico que utiliza símbolos, não uma prática mágica. Os resultados dependem de suas ações subsequentes, não do ritual em si. Não garantimos resultados específicos."
+    disclaimer: "This is a psychological exercise that uses symbols, not a magical practice. Results depend on your subsequent actions, not on the ritual itself. We do not guarantee specific results."
   },
   {
     id: "exercise-observation",
-    title: "Exercício de Observação Interna",
-    subtitle: "Desenvolvendo a testemunha interior",
-    duration: "10-15 minutos",
+    title: "Internal Observation Exercise",
+    subtitle: "Developing the inner witness",
+    duration: "10-15 minutes",
     icon: "eye",
-    overview: `Este exercício desenvolve sua capacidade de auto-observação - a habilidade de observar seus próprios pensamentos, emoções e sensações sem se identificar completamente com eles.
+    overview: `This exercise develops your capacity for self-observation - the ability to observe your own thoughts, emotions, and sensations without completely identifying with them.
 
-Na psicologia, isso é chamado de 'metacognição' ou 'consciência testemunha'. É uma habilidade fundamental para autoconhecimento e regulação emocional, pois cria um espaço entre o que acontece em você e como você responde.`,
+In psychology, this is called 'metacognition' or 'witness consciousness.' It is a fundamental skill for self-knowledge and emotional regulation, as it creates space between what happens in you and how you respond.`,
     benefits: [
-      "Aumenta a consciência de padrões internos automáticos",
-      "Cria espaço para escolha consciente em vez de reação",
-      "Reduz identificação excessiva com estados mentais temporários",
-      "Desenvolve equanimidade diante de experiências difíceis",
-      "Fortalece a 'testemunha interior' - a parte de você que observa"
+      "Increases awareness of automatic internal patterns",
+      "Creates space for conscious choice instead of reaction",
+      "Reduces excessive identification with temporary mental states",
+      "Develops equanimity in the face of difficult experiences",
+      "Strengthens the 'inner witness' - the part of you that observes"
     ],
     materials: [
-      "Um local tranquilo para prática sentada",
-      "Timer para marcar o tempo",
-      "Diário para anotações pós-prática (opcional)"
+      "A quiet place for seated practice",
+      "Timer to mark time",
+      "Journal for post-practice notes (optional)"
     ],
     steps: [
       {
         step: 1,
-        title: "Posicionamento",
-        instruction: "Sente-se confortavelmente com a coluna ereta. Feche os olhos ou mantenha-os semicerrados, olhando suavemente para baixo.",
+        title: "Positioning",
+        instruction: "Sit comfortably with your spine erect. Close your eyes or keep them half-closed, looking gently downward.",
       },
       {
         step: 2,
-        title: "Estabelecendo a Observação",
-        instruction: "Imagine que há uma parte de você - uma consciência observadora - que pode observar tudo o que acontece internamente sem ser afetada por isso. Esta parte é como um cientista neutro, curioso, sem julgamento.",
+        title: "Establishing Observation",
+        instruction: "Imagine there is a part of you - an observing consciousness - that can observe everything happening internally without being affected by it. This part is like a neutral scientist, curious, without judgment.",
       },
       {
         step: 3,
-        title: "Observando Pensamentos",
-        instruction: "Volte sua atenção para seus pensamentos. Observe-os como se observasse nuvens passando no céu. Note: 'Ah, um pensamento sobre trabalho. Agora um pensamento sobre uma memória.' Não os siga, apenas observe e rotule.",
-        tip: "Se você se perder em um pensamento (acontece!), simplesmente note 'me perdi' e retorne à observação."
+        title: "Observing Thoughts",
+        instruction: "Turn your attention to your thoughts. Observe them as if watching clouds passing in the sky. Note: 'Ah, a thought about work. Now a thought about a memory.' Don't follow them, just observe and label.",
+        tip: "If you get lost in a thought (it happens!), simply note 'I got lost' and return to observation."
       },
       {
         step: 4,
-        title: "Observando Emoções",
-        instruction: "Agora, observe quaisquer emoções presentes. Onde você as sente no corpo? Qual a intensidade (1-10)? Qual seria o nome? Observe sem tentar mudar. 'Há ansiedade presente. Sinto como aperto no peito. Intensidade 5.'",
+        title: "Observing Emotions",
+        instruction: "Now, observe any emotions present. Where do you feel them in the body? What is the intensity (1-10)? What would be the name? Observe without trying to change. 'There is anxiety present. I feel it as tightness in the chest. Intensity 5.'",
       },
       {
         step: 5,
-        title: "Observando Sensações",
-        instruction: "Percorra seu corpo mentalmente, notando sensações físicas. Tensão, relaxamento, temperatura, formigamento. Observe cada área brevemente antes de seguir para a próxima.",
+        title: "Observing Sensations",
+        instruction: "Mentally scan your body, noticing physical sensations. Tension, relaxation, temperature, tingling. Observe each area briefly before moving to the next.",
       },
       {
         step: 6,
-        title: "Observador e Observado",
-        instruction: "Agora, pergunta-se: quem está observando? Você não é os pensamentos (você os observa). Você não é as emoções ou sensações (você as observa). O que você é, então? Permaneça nesta questão aberta.",
+        title: "Observer and Observed",
+        instruction: "Now, ask yourself: who is observing? You are not the thoughts (you observe them). You are not the emotions or sensations (you observe them). What are you, then? Remain in this open question.",
       },
       {
         step: 7,
-        title: "Retorno",
-        instruction: "Lentamente, expanda sua atenção para incluir o ambiente externo - sons, temperatura. Mova suavemente os dedos, e quando estiver pronto, abra os olhos.",
+        title: "Return",
+        instruction: "Slowly expand your attention to include the external environment - sounds, temperature. Gently move your fingers, and when ready, open your eyes.",
       }
     ],
     variations: [
-      "Observação na vida diária: pratique observar suas reações em situações cotidianas",
-      "Observação de uma emoção específica: escolha uma emoção recorrente e observe-a profundamente",
-      "Observação em movimento: pratique enquanto caminha, observando sensações e impulsos",
-      "Escrita observacional: após a prática, escreva o que observou sem interpretação"
+      "Observation in daily life: practice observing your reactions in everyday situations",
+      "Observation of a specific emotion: choose a recurring emotion and observe it deeply",
+      "Observation in movement: practice while walking, observing sensations and impulses",
+      "Observational writing: after practice, write what you observed without interpretation"
     ],
   },
   {
     id: "exercise-silence",
-    title: "Prática de Silêncio e Consciência",
-    subtitle: "Encontrando paz na quietude",
-    duration: "15-30 minutos",
+    title: "Silence and Consciousness Practice",
+    subtitle: "Finding peace in stillness",
+    duration: "15-30 minutes",
     icon: "moon",
-    overview: `O silêncio externo é raro em nossa era de estímulos constantes. O silêncio interno - a quietude da mente - é ainda mais raro. Esta prática cultiva ambos.
+    overview: `External silence is rare in our era of constant stimuli. Internal silence - the quietude of the mind - is even rarer. This practice cultivates both.
 
-A exposição regular ao silêncio tem benefícios documentados: redução de estresse, aumento de criatividade, e insights que emergem quando não estamos constantemente processando informação nova.
+Regular exposure to silence has documented benefits: stress reduction, increased creativity, and insights that emerge when we're not constantly processing new information.
 
-Esta prática pode ser desafiadora inicialmente - muitas pessoas sentem desconforto com o silêncio. Isso é normal e faz parte do processo.`,
+This practice can be challenging initially - many people feel discomfort with silence. This is normal and part of the process.`,
     benefits: [
-      "Oferece descanso para um sistema nervoso sobrecarregado",
-      "Permite que insights e criatividade emerjam naturalmente",
-      "Desenvolve conforto com a própria companhia",
-      "Reduz dependência de estímulos externos",
-      "Aprofunda a experiência meditativa"
+      "Offers rest for an overloaded nervous system",
+      "Allows insights and creativity to emerge naturally",
+      "Develops comfort with one's own company",
+      "Reduces dependence on external stimuli",
+      "Deepens the meditative experience"
     ],
     materials: [
-      "Um espaço o mais silencioso possível",
-      "Timer com alarme suave",
-      "Roupas confortáveis",
-      "Manta se necessário (o corpo pode esfriar)"
+      "The quietest space possible",
+      "Timer with gentle alarm",
+      "Comfortable clothing",
+      "Blanket if needed (the body may get cold)"
     ],
     steps: [
       {
         step: 1,
-        title: "Preparação do Ambiente",
-        instruction: "Encontre ou crie o ambiente mais silencioso possível. Desligue dispositivos (não apenas silencie). Informe outros que você não deve ser interrompido. Se necessário, use protetores auriculares.",
+        title: "Environment Preparation",
+        instruction: "Find or create the quietest environment possible. Turn off devices (don't just silence them). Inform others that you should not be interrupted. If necessary, use ear protectors.",
       },
       {
         step: 2,
-        title: "Posição Confortável",
-        instruction: "Sente-se ou deite-se de forma que possa permanecer imóvel pelo tempo da prática. A imobilidade corporal facilita a quietude mental.",
-        tip: "Se sentado, tenha apoio para as costas se necessário. Se deitado, mantenha alguma atenção para não adormecer."
+        title: "Comfortable Position",
+        instruction: "Sit or lie down in a way that you can remain still for the practice time. Bodily stillness facilitates mental quietude.",
+        tip: "If seated, have back support if needed. If lying down, maintain some attention so as not to fall asleep."
       },
       {
         step: 3,
-        title: "Transição para o Silêncio",
-        instruction: "Feche os olhos e respire naturalmente. Nos primeiros minutos, apenas faça a transição. Não tente ainda atingir qualquer estado. Apenas chegue.",
+        title: "Transition to Silence",
+        instruction: "Close your eyes and breathe naturally. In the first minutes, just make the transition. Don't try to achieve any state yet. Just arrive.",
       },
       {
         step: 4,
-        title: "Acolhendo Sons Residuais",
-        instruction: "Mesmo em ambientes silenciosos, haverá sons - sua respiração, batimentos cardíacos, sons distantes. Não lute contra eles. Acolha-os como parte do fundo sonoro.",
+        title: "Welcoming Residual Sounds",
+        instruction: "Even in silent environments, there will be sounds - your breathing, heartbeats, distant sounds. Don't fight them. Welcome them as part of the sound background.",
       },
       {
         step: 5,
-        title: "Permitindo a Mente se Aquietar",
-        instruction: "A mente provavelmente estará agitada inicialmente. Não force quietude. Simplesmente não alimente os pensamentos com atenção. Deixe-os surgir e passar, como ondas que vêm e vão.",
+        title: "Allowing the Mind to Quieten",
+        instruction: "The mind will probably be agitated initially. Don't force quietude. Simply don't feed thoughts with attention. Let them arise and pass, like waves coming and going.",
       },
       {
         step: 6,
-        title: "Repousando na Consciência",
-        instruction: "Quando momentos de quietude mental surgirem - mesmo breves - repouse neles. Não celebre (isso é um pensamento) nem analise (também é pensamento). Apenas repouse.",
+        title: "Resting in Consciousness",
+        instruction: "When moments of mental quietude arise - even brief ones - rest in them. Don't celebrate (that's a thought) or analyze (also a thought). Just rest.",
       },
       {
         step: 7,
-        title: "Período Principal",
-        instruction: "Permaneça no silêncio pelo tempo definido. Não há nada a fazer, atingir ou realizar. Apenas ser, em silêncio.",
+        title: "Main Period",
+        instruction: "Remain in silence for the defined time. There is nothing to do, achieve, or accomplish. Just be, in silence.",
       },
       {
         step: 8,
-        title: "Retorno Gradual",
-        instruction: "Quando o timer soar, não se levante imediatamente. Permaneça alguns minutos em transição. Gradualmente, reintroduza movimento e, eventualmente, retorne às atividades.",
+        title: "Gradual Return",
+        instruction: "When the timer sounds, don't get up immediately. Stay a few minutes in transition. Gradually reintroduce movement and eventually return to activities.",
       }
     ],
     variations: [
-      "Silêncio ao amanhecer: pratique nos primeiros minutos do dia, antes de falar ou consumir mídia",
-      "Retiro de silêncio: estenda para meio dia ou um dia inteiro, em ocasiões especiais",
-      "Silêncio em caminhada: caminhe em silêncio na natureza, sem fones ou companhia",
-      "Refeição em silêncio: faça uma refeição em completo silêncio, com atenção plena"
+      "Dawn silence: practice in the first minutes of the day, before speaking or consuming media",
+      "Silence retreat: extend to half a day or full day, on special occasions",
+      "Walking silence: walk in silence in nature, without headphones or company",
+      "Silent meal: have a meal in complete silence, with full attention"
     ],
-    disclaimer: "Se você tem tendência a pensamentos intrusivos ou condições de saúde mental, comece com períodos mais curtos e considere consultar um profissional."
+    disclaimer: "If you have a tendency toward intrusive thoughts or mental health conditions, start with shorter periods and consider consulting a professional."
   }
 ];
 
 export const exercisesIntroduction = {
-  title: "Exercícios Práticos",
-  subtitle: "Ferramentas para aplicação imediata",
-  description: `Os exercícios aqui reunidos são práticas que você pode aplicar imediatamente em sua vida. Cada um foi desenvolvido com base em tradições contemplativas e compreensão psicológica moderna.
+  title: "Practical Exercises",
+  subtitle: "Tools for immediate application",
+  description: `These exercises complement the meditations, offering more active and structured practices. While meditations focus on observation and silence, exercises involve specific actions for developing skills.
 
-Não são técnicas esotéricas ou mágicas - são ferramentas práticas de autoconhecimento e regulação. Seu valor está em como você os utiliza, não em promessas de resultados garantidos.`,
-  howToUse: [
-    "Leia as instruções completamente antes de praticar",
-    "Comece com os exercícios que mais ressoam com você",
-    "Pratique regularmente - frequência é mais importante que intensidade",
-    "Adapte as práticas ao seu contexto e necessidades",
-    "Registre suas experiências no diário para acompanhar sua evolução"
-  ],
-  safetyNote: "Estas práticas são seguras para a maioria das pessoas. Se você tem condições de saúde física ou mental específicas, consulte um profissional antes de iniciar."
+Each exercise can be practiced independently, but they gain power when combined into a regular practice routine.`,
+  tips: [
+    "Start with one exercise and master it before adding others",
+    "Adapt instructions to your context without losing the essence",
+    "Record your experiences in your journal",
+    "Consider which exercise best addresses your current needs",
+    "Consistency matters more than intensity"
+  ]
 };

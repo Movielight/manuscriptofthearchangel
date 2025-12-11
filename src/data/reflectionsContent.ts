@@ -1,5 +1,5 @@
-// Biblioteca de Reflexões Autorais do Manuscrito Sagrado
-// 10 textos profundos sobre temas essenciais
+// Reflection Library for the Sacred Manuscript
+// 10 deep texts on essential themes
 
 export interface Reflection {
   id: string;
@@ -12,204 +12,204 @@ export interface Reflection {
 export const reflections: Reflection[] = [
   {
     id: "reflection-1",
-    theme: "Propósito",
-    title: "O Chamado Silencioso",
-    content: `O propósito não grita. Ele sussurra.
+    theme: "Purpose",
+    title: "The Silent Call",
+    content: `Purpose does not shout. It whispers.
 
-Na cacofonia das expectativas alheias, das demandas do mercado, das definições pré-fabricadas de sucesso, o propósito genuíno fala baixo. Está nas atividades em que você se perde sem perceber. Nos problemas que você não consegue ignorar. Nas conversas que fazem seu coração acelerar não de ansiedade, mas de vida.
+In the cacophony of others' expectations, market demands, and prefabricated definitions of success, genuine purpose speaks softly. It's in the activities where you lose yourself without realizing. In the problems you cannot ignore. In the conversations that make your heart race not from anxiety, but from life.
 
-O propósito não é um destino que você alcança, mas uma direção que você sente. Não é uma resposta definitiva, mas uma pergunta que vale a pena viver.
+Purpose is not a destination you reach, but a direction you feel. It's not a definitive answer, but a question worth living.
 
-Muitos passam a vida esperando um grande chamado - uma voz trovejante que declare seu destino. Mas o chamado raramente vem assim. Ele está nas pequenas inclinações, nas preferências repetidas, nos momentos em que você se sente mais você mesmo.
+Many spend their lives waiting for a great calling - a thundering voice declaring their destiny. But the calling rarely comes that way. It's in the small inclinations, repeated preferences, moments when you feel most yourself.
 
-O propósito não precisa ser grandioso para ser verdadeiro. Pode ser criar beleza, aliviar sofrimento, ensinar, cuidar, construir. O tamanho da contribuição importa menos que sua autenticidade.
+Purpose doesn't need to be grandiose to be true. It can be creating beauty, relieving suffering, teaching, caring, building. The size of the contribution matters less than its authenticity.
 
-A pergunta não é "qual é meu grande propósito?", mas sim "o que a vida está pedindo de mim agora, e estou respondendo?"`,
-    author: "Manuscrito Sagrado"
+The question is not "what is my great purpose?", but rather "what is life asking of me now, and am I responding?"`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-2",
-    theme: "Clareza",
-    title: "Além da Neblina",
-    content: `A clareza não é ausência de complexidade - é ver a complexidade sem confusão.
+    theme: "Clarity",
+    title: "Beyond the Fog",
+    content: `Clarity is not the absence of complexity - it's seeing complexity without confusion.
 
-Vivemos em neblina na maior parte do tempo. Neblina de emoções reativas, suposições não examinadas, medos disfarçados de razão. A neblina é tão constante que a tomamos pela realidade.
+We live in fog most of the time. Fog of reactive emotions, unexamined assumptions, fears disguised as reason. The fog is so constant that we take it for reality.
 
-Momentos de clareza são raros e preciosos. São os instantes em que a neblina se dissipa e vemos as coisas como são, não como tememos ou esperamos que sejam.
+Moments of clarity are rare and precious. They are the instants when the fog dissipates and we see things as they are, not as we fear or hope them to be.
 
-A clareza não vem de pensar mais, mas de um pensamento diferente - mais direto, menos contaminado. Às vezes vem do silêncio que segue quando o pensamento se cansa. Às vezes vem de uma pergunta certeira que desmonta castelos de autoengano.
+Clarity doesn't come from thinking more, but from different thinking - more direct, less contaminated. Sometimes it comes from the silence that follows when thought tires. Sometimes it comes from a precise question that dismantles castles of self-deception.
 
-Clareza também requer coragem. Ver claramente pode significar reconhecer verdades desconfortáveis sobre si mesmo, sobre relacionamentos, sobre escolhas passadas. Por isso, inconscientemente, muitos preferem a neblina - ela é mais suave.
+Clarity also requires courage. Seeing clearly may mean recognizing uncomfortable truths about oneself, about relationships, about past choices. That's why, unconsciously, many prefer the fog - it's gentler.
 
-Mas a neblina tem seu custo. Decisões tomadas na neblina raramente nos servem bem. Vidas vividas na neblina carecem de direção e significado.
+But fog has its cost. Decisions made in fog rarely serve us well. Lives lived in fog lack direction and meaning.
 
-Busque a clareza, mesmo quando dói. A dor da verdade é curativa. A dor da ilusão é apenas dor.`,
-    author: "Manuscrito Sagrado"
+Seek clarity, even when it hurts. The pain of truth is healing. The pain of illusion is just pain.`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-3",
-    theme: "Consciência",
-    title: "O Observador que Observa",
-    content: `Você já notou que pode observar seus próprios pensamentos?
+    theme: "Consciousness",
+    title: "The Observer Who Observes",
+    content: `Have you ever noticed that you can observe your own thoughts?
 
-Há um pensamento - e há você, percebendo o pensamento. Esta distinção simples é a porta para a liberdade.
+There is a thought - and there is you, perceiving the thought. This simple distinction is the door to freedom.
 
-Se você fosse seus pensamentos, não poderia observá-los. O olho não vê a si mesmo. Mas você pode ver seus pensamentos surgindo, passando, desaparecendo. Você pode notar sua qualidade, sua velocidade, sua veracidade duvidosa.
+If you were your thoughts, you couldn't observe them. The eye doesn't see itself. But you can see your thoughts arising, passing, disappearing. You can note their quality, their speed, their dubious veracity.
 
-O que, então, é você? Não os pensamentos - eles mudam constantemente. Não as emoções - elas vêm e vão como ondas. Não o corpo - ele é diferente de dez anos atrás.
+What, then, are you? Not the thoughts - they change constantly. Not the emotions - they come and go like waves. Not the body - it's different from ten years ago.
 
-O que permanece é a consciência que observa todas essas mudanças. O espaço em que pensamentos, emoções e sensações aparecem. O palco em que a peça da vida acontece.
+What remains is the consciousness that observes all these changes. The space in which thoughts, emotions, and sensations appear. The stage on which the play of life happens.
 
-Reconhecer isso não é pensamento filosófico abstrato - é experiência direta, acessível agora. Observe um pensamento. Quem está observando?
+Recognizing this is not abstract philosophical thought - it's direct experience, accessible now. Observe a thought. Who is observing?
 
-Este reconhecimento muda tudo. Se você não é seus pensamentos, não precisa acreditar em todos eles. Se você não é suas emoções, não precisa ser arrastado por cada uma. Você é o espaço em que tudo isso acontece - e esse espaço é naturalmente livre.`,
-    author: "Manuscrito Sagrado"
+This recognition changes everything. If you are not your thoughts, you don't need to believe all of them. If you are not your emotions, you don't need to be dragged by each one. You are the space in which all this happens - and that space is naturally free.`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-4",
-    theme: "Equilíbrio",
-    title: "A Dança dos Opostos",
-    content: `A vida é feita de polaridades: ação e repouso, fala e silêncio, expansão e recolhimento. O equilíbrio não está em eliminar um polo, mas em honrar ambos em sua dança contínua.
+    theme: "Balance",
+    title: "The Dance of Opposites",
+    content: `Life is made of polarities: action and rest, speech and silence, expansion and withdrawal. Balance is not in eliminating one pole, but in honoring both in their continuous dance.
 
-Muitos buscam equilíbrio como se fosse um estado fixo a ser alcançado e mantido. Mas equilíbrio é dinâmico - é a capacidade de mover-se entre os polos conforme o momento pede.
+Many seek balance as if it were a fixed state to be achieved and maintained. But balance is dynamic - it's the ability to move between poles as the moment demands.
 
-Há tempo para esforço intenso e tempo para soltar. Há tempo para falar sua verdade e tempo para escutar. Há tempo para abraçar o mundo e tempo para abraçar a solidão.
+There is time for intense effort and time to let go. Time to speak your truth and time to listen. Time to embrace the world and time to embrace solitude.
 
-O desequilíbrio crônico cobra seu preço. Todo trabalho sem descanso leva à exaustão. Todo silêncio sem expressão leva à estagnação. Todo recolhimento sem conexão leva ao isolamento.
+Chronic imbalance takes its toll. All work without rest leads to exhaustion. All silence without expression leads to stagnation. All withdrawal without connection leads to isolation.
 
-O sábio não é aquele que encontrou o ponto fixo de equilíbrio, mas aquele que desenvolveu a sensibilidade para perceber quando está pendendo demais para um lado - e a flexibilidade para se mover.
+The wise one is not the one who found the fixed point of balance, but the one who developed the sensitivity to perceive when they're leaning too much to one side - and the flexibility to move.
 
-A pergunta diária não é "estou equilibrado?", mas "para que lado estou pendendo hoje, e o que preciso para me reequilibrar?"
+The daily question is not "am I balanced?", but "which way am I leaning today, and what do I need to rebalance?"
 
-O equilíbrio não é conquista, mas prática contínua. Uma dança, não uma pose.`,
-    author: "Manuscrito Sagrado"
+Balance is not an achievement, but continuous practice. A dance, not a pose.`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-5",
-    theme: "Introspecção",
-    title: "O Espelho Interior",
-    content: `A maioria das pessoas conhece o mundo exterior melhor do que a si mesmas. Sabemos a geografia de continentes distantes, mas não o território de nossa própria alma.
+    theme: "Introspection",
+    title: "The Inner Mirror",
+    content: `Most people know the outer world better than themselves. We know the geography of distant continents, but not the territory of our own soul.
 
-A introspecção é a arte de olhar para dentro. Não com julgamento, mas com curiosidade. Não para consertar, mas para compreender.
+Introspection is the art of looking inward. Not with judgment, but with curiosity. Not to fix, but to understand.
 
-Olhar para dentro pode ser desconfortável. Encontramos não apenas luz, mas também sombras - partes de nós que preferíamos não ver. Mas é precisamente nas sombras que está o material para nosso crescimento.
+Looking inward can be uncomfortable. We find not only light, but also shadows - parts of ourselves we'd rather not see. But it's precisely in the shadows that lies the material for our growth.
 
-O que não vemos em nós mesmos nos controla. O medo não examinado toma decisões por nós. A raiva não reconhecida vaza de formas indiretas. A ferida não olhada se repete em padrões.
+What we don't see in ourselves controls us. Unexamined fear makes decisions for us. Unrecognized anger leaks in indirect ways. The unwatched wound repeats in patterns.
 
-A introspecção requer honestidade - a disposição de ver o que está lá, não o que queremos ver. Requer também compaixão - a gentileza de não se destruir com o que encontra.
+Introspection requires honesty - the willingness to see what is there, not what we want to see. It also requires compassion - the gentleness not to destroy yourself with what you find.
 
-Não é um exercício de uma vez - é uma prática de toda a vida. A cada dia, novas camadas se revelam. A cada ano, mais profundidade é possível.
+It's not a one-time exercise - it's a lifelong practice. Each day, new layers reveal themselves. Each year, more depth is possible.
 
-Conhecer a si mesmo não é luxo ou indulgência. É a base de toda ação sábia, todo relacionamento autêntico, toda vida significativa.`,
-    author: "Manuscrito Sagrado"
+Knowing yourself is not luxury or indulgence. It's the foundation of all wise action, all authentic relationship, all meaningful life.`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-6",
-    theme: "Coragem",
-    title: "A Força do Coração",
-    content: `Coragem não é ausência de medo - é ação apesar do medo. O covarde e o corajoso sentem o mesmo medo. A diferença está no que fazem com ele.
+    theme: "Courage",
+    title: "The Strength of the Heart",
+    content: `Courage is not the absence of fear - it's action despite fear. The coward and the courageous feel the same fear. The difference lies in what they do with it.
 
-A palavra coragem vem do latim "cor" - coração. Coragem é agir do coração, não da cabeça calculadora que pesa riscos interminavelmente, nem do ego que busca aprovação.
+The word courage comes from the Latin "cor" - heart. Courage is acting from the heart, not from the calculating head that weighs risks endlessly, nor from the ego seeking approval.
 
-Há diferentes faces da coragem. A coragem de falar quando é mais fácil calar. A coragem de calar quando é tentador atacar. A coragem de começar algo novo. A coragem de terminar o que não serve mais.
+There are different faces of courage. The courage to speak when it's easier to be silent. The courage to be silent when it's tempting to attack. The courage to start something new. The courage to end what no longer serves.
 
-Às vezes a coragem é barulhenta - o ato heroico visível. Mais frequentemente, ela é silenciosa - a escolha repetida de viver com integridade quando ninguém está olhando.
+Sometimes courage is loud - the visible heroic act. More often, it's silent - the repeated choice to live with integrity when no one is watching.
 
-A coragem pode ser cultivada. Cada pequeno ato de coragem fortalece o músculo para o próximo. Cada vez que você enfrenta um medo menor, você se prepara para os maiores.
+Courage can be cultivated. Each small act of courage strengthens the muscle for the next. Each time you face a smaller fear, you prepare for the bigger ones.
 
-Mas a coragem não é temeridade - agir sem medo ou consideração. É ação consciente, com plena percepção do risco, e escolha deliberada de seguir mesmo assim, porque algo maior está em jogo.
+But courage is not recklessness - acting without fear or consideration. It's conscious action, with full awareness of risk, and deliberate choice to proceed anyway, because something greater is at stake.
 
-Que medo você está deixando governar sua vida? Que ato de coragem sua vida está pedindo de você agora?`,
-    author: "Manuscrito Sagrado"
+What fear are you letting govern your life? What act of courage is your life asking of you now?`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-7",
-    theme: "Paz Interior",
-    title: "O Olho do Furacão",
-    content: `A paz interior não depende de circunstâncias externas - se dependesse, seria apenas conforto temporário, não paz verdadeira.
+    theme: "Inner Peace",
+    title: "The Eye of the Hurricane",
+    content: `Inner peace doesn't depend on external circumstances - if it did, it would be only temporary comfort, not true peace.
 
-Haverá sempre tempestades. O mundo não vai parar de girar para que você encontre tranquilidade. A questão é: você pode encontrar paz no meio da tempestade?
+There will always be storms. The world won't stop spinning for you to find tranquility. The question is: can you find peace in the midst of the storm?
 
-O olho do furacão é perfeitamente calmo, mesmo enquanto ventos destrutivos giram ao redor. A paz interior é assim - um centro imóvel em você que não é abalado pelo movimento exterior.
+The eye of the hurricane is perfectly calm, even while destructive winds spin around. Inner peace is like this - a still center in you that is not shaken by external movement.
 
-Esta paz não é indiferença. Não é não se importar com o que acontece. É se importar profundamente, agir com todo o coração, e ainda assim manter um núcleo que não é arrastado pelo drama.
+This peace is not indifference. It's not not caring about what happens. It's caring deeply, acting with all your heart, and still maintaining a core that isn't dragged by drama.
 
-A paz interior vem do desapego - não dos resultados em si, mas da demanda de que os resultados sejam de certa forma. É fazer seu melhor e soltar a obsessão com o desfecho.
+Inner peace comes from detachment - not from results themselves, but from the demand that results be a certain way. It's doing your best and releasing the obsession with the outcome.
 
-Também vem da aceitação - não aceitação passiva do inaceitável, mas reconhecimento claro do que é, antes de agir para mudar. Resistir à realidade gasta energia; aceitar a realidade libera energia para ação efetiva.
+It also comes from acceptance - not passive acceptance of the unacceptable, but clear recognition of what is, before acting to change. Resisting reality wastes energy; accepting reality frees energy for effective action.
 
-A paz interior é sua natureza mais profunda. Você não precisa criá-la - precisa remover o que a obscurece: as narrativas incessantes, os medos imaginários, a resistência ao que é.`,
-    author: "Manuscrito Sagrado"
+Inner peace is your deepest nature. You don't need to create it - you need to remove what obscures it: the incessant narratives, imaginary fears, resistance to what is.`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-8",
-    theme: "Foco",
-    title: "A Arte da Atenção",
-    content: `Onde vai sua atenção, vai sua energia. Onde vai sua energia, vai sua vida. O foco é, portanto, a habilidade mestra - aquela que potencializa todas as outras.
+    theme: "Focus",
+    title: "The Art of Attention",
+    content: `Where your attention goes, your energy goes. Where your energy goes, your life goes. Focus is, therefore, the master skill - the one that empowers all others.
 
-Em uma era de distrações infinitas, o foco se tornou raro e precioso. Notificações, feeds, demandas - tudo conspira para fragmentar sua atenção em mil pedaços.
+In an era of infinite distractions, focus has become rare and precious. Notifications, feeds, demands - everything conspires to fragment your attention into a thousand pieces.
 
-Uma atenção fragmentada é uma vida fragmentada. Sem foco, não há profundidade - apenas superfície. Não há maestria - apenas amadorismo perpétuo. Não há presença verdadeira - apenas estar fisicamente presente enquanto a mente viaja.
+A fragmented attention is a fragmented life. Without focus, there is no depth - only surface. No mastery - only perpetual amateurism. No true presence - only being physically present while the mind travels.
 
-O foco é um músculo. Ele pode ser treinado. Cada vez que você percebe sua atenção vagar e gentilmente a traz de volta, você fortalece esse músculo.
+Focus is a muscle. It can be trained. Each time you notice your attention wandering and gently bring it back, you strengthen that muscle.
 
-Foco não é tensão - é um relaxamento vigilante. É como o arqueiro que não força a mira, mas alinha todo seu ser com o alvo. Esforço demais atrapalha; pouco esforço também.
+Focus is not tension - it's vigilant relaxation. It's like the archer who doesn't force the aim, but aligns their entire being with the target. Too much effort hinders; too little also.
 
-O que merece seu foco? Esta é uma pergunta de vida ou morte - porque o que você foca se torna sua experiência, e a soma de suas experiências se torna sua vida.
+What deserves your focus? This is a life-or-death question - because what you focus on becomes your experience, and the sum of your experiences becomes your life.
 
-Seja implacável em proteger sua atenção. Ela é seu recurso mais precioso.`,
-    author: "Manuscrito Sagrado"
+Be relentless in protecting your attention. It is your most precious resource.`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-9",
-    theme: "Intuição Simbólica",
-    title: "A Linguagem da Alma",
-    content: `Antes da palavra, havia o símbolo. Os sonhos falam em símbolos. Os mitos falam em símbolos. A alma fala em símbolos.
+    theme: "Symbolic Intuition",
+    title: "The Language of the Soul",
+    content: `Before the word, there was the symbol. Dreams speak in symbols. Myths speak in symbols. The soul speaks in symbols.
 
-A mente racional é uma ferramenta poderosa, mas limitada. Ela opera em lógica linear, em causa e efeito, em definições claras. Há territórios da experiência que ela não consegue mapear.
+The rational mind is a powerful tool, but limited. It operates in linear logic, cause and effect, clear definitions. There are territories of experience it cannot map.
 
-A intuição simbólica acessa esses territórios. Ela compreende o que não pode ser explicado, sente o que não pode ser argumentado, sabe o que não pode ser provado.
+Symbolic intuition accesses these territories. It understands what cannot be explained, feels what cannot be argued, knows what cannot be proven.
 
-Todos temos essa faculdade - ela é parte de nossa herança humana. Mas em muitos, ela está adormecida, negligenciada pela ênfase exclusiva no pensamento racional.
+We all have this faculty - it's part of our human heritage. But in many, it lies dormant, neglected by the exclusive emphasis on rational thought.
 
-Despertar a intuição simbólica não significa abandonar a razão. Significa complementá-la. A razão pergunta "o que é verdade?"; a intuição pergunta "o que isso significa?". Ambas as perguntas são válidas.
+Awakening symbolic intuition doesn't mean abandoning reason. It means complementing it. Reason asks "what is true?"; intuition asks "what does this mean?". Both questions are valid.
 
-Preste atenção em sincronicidades - coincidências significativas que parecem falar diretamente para você. Observe seus sonhos - eles são cartas da alma, em linguagem simbólica. Note quais símbolos atraem você repetidamente.
+Pay attention to synchronicities - meaningful coincidences that seem to speak directly to you. Observe your dreams - they are letters from the soul, in symbolic language. Note which symbols attract you repeatedly.
 
-A alma está sempre comunicando. A questão é: você está ouvindo?`,
-    author: "Manuscrito Sagrado"
+The soul is always communicating. The question is: are you listening?`,
+    author: "Sacred Manuscript"
   },
   {
     id: "reflection-10",
-    theme: "Jornada Pessoal",
-    title: "O Caminho Que Se Faz Caminhando",
-    content: `Não existe mapa pronto para sua vida. Você é único - uma configuração de experiências, talentos e feridas que nunca existiu antes e nunca existirá novamente.
+    theme: "Personal Journey",
+    title: "The Path Made by Walking",
+    content: `There is no ready-made map for your life. You are unique - a configuration of experiences, talents, and wounds that never existed before and will never exist again.
 
-Outros podem oferecer direções gerais - e é sábio aprender com quem já percorreu territórios similares. Mas no detalhe específico do seu caminho, você é pioneiro.
+Others can offer general directions - and it's wise to learn from those who have traveled similar territories. But in the specific detail of your path, you are a pioneer.
 
-Isso pode parecer assustador ou libertador - depende de como você olha. Assustador porque não há garantias, não há certezas, não há manual de instruções. Libertador porque você não precisa caber em moldes que não foram feitos para você.
+This can seem frightening or liberating - it depends on how you look at it. Frightening because there are no guarantees, no certainties, no instruction manual. Liberating because you don't need to fit into molds that weren't made for you.
 
-A jornada não é linha reta. Há voltas, retrocessos aparentes, becos sem saída que depois revelam portas escondidas. O que parece erro pode ser o desvio necessário para chegar onde você precisa.
+The journey is not a straight line. There are turns, apparent setbacks, dead ends that later reveal hidden doors. What seems like an error may be the necessary detour to get where you need to go.
 
-Não chegamos prontos ao final - nos tornamos quem somos através do caminho. Cada desafio nos molda. Cada escolha nos define. Cada queda nos ensina a levantar.
+We don't arrive ready at the end - we become who we are through the path. Each challenge shapes us. Each choice defines us. Each fall teaches us to rise.
 
-A pergunta não é "estou no caminho certo?" - como se houvesse um caminho pré-definido esperando ser encontrado. A pergunta é "estou caminhando com consciência, com coragem, com coração?"
+The question is not "am I on the right path?" - as if there were a pre-defined path waiting to be found. The question is "am I walking with consciousness, with courage, with heart?"
 
-O caminho se faz caminhando. E você é tanto o caminhante quanto o caminho.`,
-    author: "Manuscrito Sagrado"
+The path is made by walking. And you are both the walker and the path.`,
+    author: "Sacred Manuscript"
   }
 ];
 
 export const reflectionsIntroduction = {
-  title: "Biblioteca de Reflexões",
-  subtitle: "Textos para contemplação profunda",
-  description: `Estas reflexões foram escritas para serem lidas lentamente, contempladas, e revisitadas. Não são informações a serem consumidas rapidamente, mas sementes a serem plantadas na consciência.
+  title: "Reflection Library",
+  subtitle: "Texts for deep contemplation",
+  description: `These reflections were written to be read slowly, contemplated, and revisited. They are not information to be consumed quickly, but seeds to be planted in consciousness.
 
-Escolha uma reflexão que ressoe com seu momento atual. Leia uma vez para compreensão geral. Leia novamente, pausando onde algo fala mais forte. Deixe as palavras trabalharem em você.`,
+Choose a reflection that resonates with your current moment. Read once for general understanding. Read again, pausing where something speaks more strongly. Let the words work in you.`,
   howToUse: [
-    "Leia em um momento de quietude, não entre atividades",
-    "Permita-se ser tocado pelas palavras antes de analisá-las",
-    "Registre em seu diário o que emerge após a leitura",
-    "Revisites reflexões em diferentes momentos da vida - novos significados emergirão"
+    "Read in a moment of quietude, not between activities",
+    "Allow yourself to be touched by the words before analyzing them",
+    "Record in your journal what emerges after reading",
+    "Revisit reflections at different moments in life - new meanings will emerge"
   ]
 };
