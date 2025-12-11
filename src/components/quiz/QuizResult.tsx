@@ -174,7 +174,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
           </motion.div>
         </motion.div>
 
-        {/* Pricing Options */}
+        {/* Pricing Option */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -182,34 +182,35 @@ export const QuizResult = ({ result }: QuizResultProps) => {
           className="mb-10"
         >
           <h3 className="font-heading text-2xl text-center text-foreground mb-8">
-            Choose Your Path to Divine Access
+            Your Path to Divine Access
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* One-time payment */}
+          <div className="max-w-md mx-auto">
+            {/* Subscription */}
             <motion.div
               whileHover={{ y: -5 }}
               className="sacred-card sacred-glow text-center"
             >
               <div className="bg-primary/10 text-primary text-sm font-medium py-1 px-3 rounded-full inline-block mb-4">
-                Most Popular
+                Sacred Investment
               </div>
               <h4 className="font-heading text-2xl text-foreground mb-2">
-                Lifetime Access
+                Monthly Blessing
               </h4>
               <p className="text-muted-foreground mb-4">
-                One-time sacred investment
+                Unlock divine guidance each month
               </p>
               <div className="mb-6">
-                <span className="text-4xl font-heading text-primary">$47</span>
-                <span className="text-muted-foreground"> / forever</span>
+                <span className="text-4xl font-heading text-primary">$38.38</span>
+                <span className="text-muted-foreground"> / month</span>
               </div>
               <ul className="text-left space-y-3 mb-6">
                 {[
                   "Complete Sacred Manuscript access",
                   "All prayers, codes & rituals",
-                  "Lifetime updates included",
-                  "Immediate download",
+                  "Monthly new prayers & revelations",
+                  "Exclusive spiritual guidance",
+                  "Cancel anytime with grace",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 text-foreground/80">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -218,42 +219,6 @@ export const QuizResult = ({ result }: QuizResultProps) => {
                 ))}
               </ul>
               <button className="divine-button w-full">
-                Receive the Manuscript
-              </button>
-            </motion.div>
-
-            {/* Subscription */}
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="sacred-card text-center"
-            >
-              <div className="bg-secondary/20 text-secondary text-sm font-medium py-1 px-3 rounded-full inline-block mb-4">
-                Continuous Blessings
-              </div>
-              <h4 className="font-heading text-2xl text-foreground mb-2">
-                Monthly Blessing
-              </h4>
-              <p className="text-muted-foreground mb-4">
-                Support the sacred mission
-              </p>
-              <div className="mb-6">
-                <span className="text-4xl font-heading text-secondary">$19</span>
-                <span className="text-muted-foreground"> / month</span>
-              </div>
-              <ul className="text-left space-y-3 mb-6">
-                {[
-                  "Full manuscript access",
-                  "Monthly new prayers & revelations",
-                  "Exclusive spiritual guidance",
-                  "Cancel anytime with grace",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-foreground/80">
-                    <Check className="w-4 h-4 text-secondary flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="w-full px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 bg-secondary text-secondary-foreground hover:bg-secondary/90">
                 Join the Sacred Circle
               </button>
             </motion.div>
