@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Globe } from 'lucide-react';
 import { 
   Type, 
   Palette, 
@@ -11,11 +11,13 @@ import {
   Settings
 } from 'lucide-react';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
+import { Language, getTranslation } from '@/data/translations';
 
 interface SettingsPanelProps {
   progress: ManuscriptProgress;
   onSetFontSize: (size: ManuscriptProgress['fontSize']) => void;
   onSetTheme: (theme: ManuscriptProgress['theme']) => void;
+  onSetLanguage: (language: Language) => void;
   onResetProgress: () => void;
   onClose?: () => void;
 }
@@ -24,21 +26,28 @@ export const SettingsPanel = ({
   progress, 
   onSetFontSize, 
   onSetTheme, 
+  onSetLanguage,
   onResetProgress,
   onClose
 }: SettingsPanelProps) => {
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const t = getTranslation(progress.language).settings;
 
   const fontSizes: { value: ManuscriptProgress['fontSize']; label: string; sample: string }[] = [
-    { value: 'small', label: 'Small', sample: 'Aa' },
-    { value: 'medium', label: 'Medium', sample: 'Aa' },
-    { value: 'large', label: 'Large', sample: 'Aa' },
+    { value: 'small', label: t.small, sample: 'Aa' },
+    { value: 'medium', label: t.medium, sample: 'Aa' },
+    { value: 'large', label: t.large, sample: 'Aa' },
   ];
 
   const themes: { value: ManuscriptProgress['theme']; label: string; colors: string; description: string }[] = [
-    { value: 'default', label: 'Sacred Night', colors: 'from-indigo-900/50 via-purple-900/40 to-indigo-950/60', description: 'Mystical purple tones' },
-    { value: 'sepia', label: 'Ancient Parchment', colors: 'from-amber-900/50 via-amber-800/40 to-amber-950/60', description: 'Warm ancient tones' },
-    { value: 'dark', label: 'Deep Void', colors: 'from-gray-900/50 via-gray-800/40 to-gray-950/60', description: 'Pure darkness' },
+    { value: 'default', label: t.sacredNight, colors: 'from-indigo-900/50 via-purple-900/40 to-indigo-950/60', description: t.mysticalTones },
+    { value: 'sepia', label: t.ancientParchment, colors: 'from-amber-900/50 via-amber-800/40 to-amber-950/60', description: t.warmTones },
+    { value: 'dark', label: t.deepVoid, colors: 'from-gray-900/50 via-gray-800/40 to-gray-950/60', description: t.pureDarkness },
+  ];
+
+  const languages: { value: Language; label: string; flag: string }[] = [
+    { value: 'en', label: 'English', flag: '🇺🇸' },
+    { value: 'pt-BR', label: 'Português', flag: '🇧🇷' },
   ];
 
   const handleReset = () => {
@@ -55,7 +64,7 @@ export const SettingsPanel = ({
           className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span className="text-sm">Voltar</span>
+          <span className="text-sm">{t.back}</span>
         </button>
       )}
       <motion.div
@@ -65,17 +74,17 @@ export const SettingsPanel = ({
       >
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-manuscript-gold/10 border border-manuscript-gold/30 rounded-full mb-4">
           <Settings className="w-4 h-4 text-manuscript-gold" />
-          <span className="text-manuscript-gold text-sm font-body">Configurações</span>
+          <span className="text-manuscript-gold text-sm font-body">{t.title}</span>
         </div>
         <h1 className="font-heading text-4xl text-manuscript-gold mb-3">
-          Configurações
+          {t.title}
         </h1>
         <p className="text-manuscript-light font-body">
-          Personalize sua experiência
+          {t.personalize}
         </p>
       </motion.div>
 
-      {/* Font Size */}
+      {/* Language */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -83,9 +92,45 @@ export const SettingsPanel = ({
       >
         <div className="flex items-center gap-3 mb-5">
           <div className="bg-manuscript-gold/20 p-2 rounded-lg">
+            <Globe className="w-5 h-5 text-manuscript-gold" />
+          </div>
+          <h2 className="text-manuscript-light font-heading text-xl">{t.language}</h2>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          {languages.map(({ value, label, flag }) => (
+            <button
+              key={value}
+              onClick={() => onSetLanguage(value)}
+              className={`relative py-5 rounded-2xl border-2 transition-all duration-200 flex items-center justify-center gap-3 ${
+                progress.language === value
+                  ? 'border-manuscript-gold bg-manuscript-gold/15 shadow-lg'
+                  : 'border-manuscript-gold/20 bg-manuscript-dark/60 hover:border-manuscript-gold/40'
+              }`}
+            >
+              {progress.language === value && (
+                <div className="absolute top-2 right-2 bg-manuscript-gold rounded-full p-1">
+                  <Check className="w-3 h-3 text-manuscript-dark" />
+                </div>
+              )}
+              <span className="text-2xl">{flag}</span>
+              <span className="text-manuscript-light font-body">{label}</span>
+            </button>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Font Size */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="mb-8"
+      >
+        <div className="flex items-center gap-3 mb-5">
+          <div className="bg-manuscript-gold/20 p-2 rounded-lg">
             <Type className="w-5 h-5 text-manuscript-gold" />
           </div>
-          <h2 className="text-manuscript-light font-heading text-xl">Text Size</h2>
+          <h2 className="text-manuscript-light font-heading text-xl">{t.textSize}</h2>
         </div>
         <div className="grid grid-cols-3 gap-4">
           {fontSizes.map(({ value, label, sample }) => (
@@ -116,14 +161,14 @@ export const SettingsPanel = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
+        transition={{ delay: 0.2 }}
         className="mb-8"
       >
         <div className="flex items-center gap-3 mb-5">
           <div className="bg-manuscript-gold/20 p-2 rounded-lg">
             <Palette className="w-5 h-5 text-manuscript-gold" />
           </div>
-          <h2 className="text-manuscript-light font-heading text-xl">Theme</h2>
+          <h2 className="text-manuscript-light font-heading text-xl">{t.theme}</h2>
         </div>
         <div className="space-y-4">
           {themes.map(({ value, label, colors, description }) => (
@@ -155,43 +200,43 @@ export const SettingsPanel = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
+        transition={{ delay: 0.3 }}
         className="mb-8"
       >
         <div className="flex items-center gap-3 mb-5">
           <div className="bg-manuscript-gold/20 p-2 rounded-lg">
             <Info className="w-5 h-5 text-manuscript-gold" />
           </div>
-          <h2 className="text-manuscript-light font-heading text-xl">Your Journey</h2>
+          <h2 className="text-manuscript-light font-heading text-xl">{t.yourJourney}</h2>
         </div>
         <div className="bg-gradient-to-br from-manuscript-dark/80 to-manuscript-dark/60 rounded-2xl p-5 border border-manuscript-gold/20 space-y-4">
           <div className="flex justify-between items-center">
-            <span className="text-manuscript-light/80 font-body">Started</span>
+            <span className="text-manuscript-light/80 font-body">{t.started}</span>
             <span className="text-manuscript-light font-body font-medium">
-              {new Date(progress.firstVisit).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              {new Date(progress.firstVisit).toLocaleDateString(progress.language === 'pt-BR' ? 'pt-BR' : 'en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
             </span>
           </div>
           <div className="h-px bg-manuscript-gold/10" />
           <div className="flex justify-between items-center">
-            <span className="text-manuscript-light/80 font-body">Sections Completed</span>
+            <span className="text-manuscript-light/80 font-body">{t.sectionsCompleted}</span>
             <span className="text-manuscript-gold font-body font-medium">{progress.completedSections.length}/6</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-manuscript-light/80 font-body">Days Completed</span>
+            <span className="text-manuscript-light/80 font-body">{t.daysCompleted}</span>
             <span className="text-manuscript-purple font-body font-medium">{progress.completedDays.length}/7</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-manuscript-light/80 font-body">Journal Entries</span>
+            <span className="text-manuscript-light/80 font-body">{t.journalEntries}</span>
             <span className="text-sacred-teal font-body font-medium">{progress.journalEntries.length}</span>
           </div>
           <div className="h-px bg-manuscript-gold/10" />
           <div className="flex justify-between items-center">
-            <span className="text-manuscript-light/80 font-body">Badges Earned</span>
+            <span className="text-manuscript-light/80 font-body">{t.badgesEarned}</span>
             <span className="text-manuscript-gold font-body font-medium">{progress.badges.length}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-manuscript-light/80 font-body">Best Streak</span>
-            <span className="text-manuscript-gold font-body font-medium">{progress.longestStreak} days</span>
+            <span className="text-manuscript-light/80 font-body">{t.bestStreak}</span>
+            <span className="text-manuscript-gold font-body font-medium">{progress.longestStreak} {progress.language === 'pt-BR' ? 'dias' : 'days'}</span>
           </div>
         </div>
       </motion.div>
@@ -200,7 +245,7 @@ export const SettingsPanel = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
+        transition={{ delay: 0.4 }}
       >
         {!showResetConfirm ? (
           <button
@@ -208,7 +253,7 @@ export const SettingsPanel = ({
             className="w-full py-4 rounded-2xl border-2 border-rose-500/40 text-rose-400 font-body font-medium flex items-center justify-center gap-3 hover:bg-rose-500/10 transition-all duration-200"
           >
             <RotateCcw className="w-5 h-5" />
-            Reset All Progress
+            {t.resetProgress}
           </button>
         ) : (
           <div className="bg-rose-500/10 border-2 border-rose-500/40 rounded-2xl p-5">
@@ -217,9 +262,9 @@ export const SettingsPanel = ({
                 <AlertTriangle className="w-6 h-6 text-rose-400" />
               </div>
               <div>
-                <p className="text-rose-400 font-heading text-lg">Are you sure?</p>
+                <p className="text-rose-400 font-heading text-lg">{t.resetConfirmTitle}</p>
                 <p className="text-manuscript-light/80 font-body mt-1">
-                  This will delete all your progress, journal entries, and badges. This cannot be undone.
+                  {t.resetConfirmMessage}
                 </p>
               </div>
             </div>
@@ -228,13 +273,13 @@ export const SettingsPanel = ({
                 onClick={() => setShowResetConfirm(false)}
                 className="flex-1 py-3 rounded-xl border border-manuscript-gold/40 text-manuscript-light font-body hover:bg-manuscript-gold/10 transition-all duration-200"
               >
-                Cancel
+                {t.cancel}
               </button>
               <button
                 onClick={handleReset}
                 className="flex-1 py-3 rounded-xl bg-rose-500 text-white font-body font-medium hover:bg-rose-600 transition-all duration-200"
               >
-                Reset Everything
+                {t.resetEverything}
               </button>
             </div>
           </div>
@@ -243,7 +288,7 @@ export const SettingsPanel = ({
 
       {/* Version */}
       <p className="text-center text-manuscript-light/50 text-sm mt-10 font-body">
-        Sacred Manuscript App v1.0
+        {t.version}
       </p>
     </div>
   );

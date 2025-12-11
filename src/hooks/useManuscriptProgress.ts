@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Language } from '@/data/translations';
 
 export interface JournalEntry {
   id: string;
@@ -17,6 +18,7 @@ export interface ManuscriptProgress {
   bookmarks: string[];
   fontSize: 'small' | 'medium' | 'large';
   theme: 'default' | 'sepia' | 'dark';
+  language: Language;
   badges: string[];
   totalReadingTime: number;
   firstVisit: string;
@@ -32,6 +34,7 @@ const defaultProgress: ManuscriptProgress = {
   bookmarks: [],
   fontSize: 'medium',
   theme: 'default',
+  language: 'en',
   badges: [],
   totalReadingTime: 0,
   firstVisit: new Date().toISOString(),
@@ -152,6 +155,10 @@ export const useManuscriptProgress = () => {
     setProgress(prev => ({ ...prev, theme: theme }));
   }, []);
 
+  const setLanguage = useCallback((language: Language) => {
+    setProgress(prev => ({ ...prev, language }));
+  }, []);
+
   const resetProgress = useCallback(() => {
     setProgress({ ...defaultProgress, firstVisit: new Date().toISOString() });
   }, []);
@@ -165,6 +172,7 @@ export const useManuscriptProgress = () => {
     toggleBookmark,
     setFontSize,
     setTheme,
+    setLanguage,
     resetProgress,
   };
 };

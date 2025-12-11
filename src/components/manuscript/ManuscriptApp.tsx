@@ -28,6 +28,7 @@ export const ManuscriptApp = () => {
     toggleBookmark,
     setFontSize,
     setTheme,
+    setLanguage,
     resetProgress,
   } = useManuscriptProgress();
 
@@ -68,6 +69,7 @@ export const ManuscriptApp = () => {
           progress={progress}
           onSetFontSize={setFontSize}
           onSetTheme={setTheme}
+          onSetLanguage={setLanguage}
           onResetProgress={resetProgress}
           onClose={() => setShowSettings(false)}
         />
@@ -146,7 +148,7 @@ export const ManuscriptApp = () => {
       </div>
       
       {!showSettings && (
-        <BottomNavigation currentView={currentView} onViewChange={setCurrentView} />
+        <BottomNavigation currentView={currentView} onViewChange={setCurrentView} language={progress.language} />
       )}
       
       <CelebrationOverlay
