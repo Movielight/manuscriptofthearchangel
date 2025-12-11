@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Globe } from 'lucide-react';
+import { ArrowLeft, Globe, LogOut } from 'lucide-react';
 import { 
   Type, 
   Palette, 
@@ -10,7 +10,7 @@ import {
   AlertTriangle,
   Settings
 } from 'lucide-react';
-import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
+import { ManuscriptProgress } from '@/hooks/useCloudProgress';
 import { Language, getTranslation } from '@/data/translations';
 
 interface SettingsPanelProps {
@@ -19,6 +19,7 @@ interface SettingsPanelProps {
   onSetTheme: (theme: ManuscriptProgress['theme']) => void;
   onSetLanguage: (language: Language) => void;
   onResetProgress: () => void;
+  onSignOut?: () => void;
   onClose?: () => void;
 }
 
@@ -28,6 +29,7 @@ export const SettingsPanel = ({
   onSetTheme, 
   onSetLanguage,
   onResetProgress,
+  onSignOut,
   onClose
 }: SettingsPanelProps) => {
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -285,6 +287,24 @@ export const SettingsPanel = ({
           </div>
         )}
       </motion.div>
+
+      {/* Sign Out */}
+      {onSignOut && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mt-6"
+        >
+          <button
+            onClick={onSignOut}
+            className="w-full py-4 rounded-2xl border-2 border-manuscript-gold/30 text-manuscript-light font-body font-medium flex items-center justify-center gap-3 hover:bg-manuscript-gold/10 transition-all duration-200"
+          >
+            <LogOut className="w-5 h-5" />
+            {progress.language === 'pt-BR' ? 'Sair da conta' : 'Sign Out'}
+          </button>
+        </motion.div>
+      )}
 
       {/* Version */}
       <p className="text-center text-manuscript-light/50 text-sm mt-10 font-body">
