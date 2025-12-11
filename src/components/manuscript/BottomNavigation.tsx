@@ -24,7 +24,7 @@ export const BottomNavigation = ({ currentView, onViewChange, language }: Bottom
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50">
       {/* Gradient blur background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-manuscript-dark via-manuscript-dark/98 to-manuscript-dark/90 backdrop-blur-xl" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/98 to-white/90 backdrop-blur-xl border-t border-primary/10" />
       
       {/* Top border glow */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-manuscript-gold/40 to-transparent" />
@@ -51,13 +51,13 @@ export const BottomNavigation = ({ currentView, onViewChange, language }: Bottom
               }`}>
                 <Icon
                   className={`w-5 h-5 transition-all duration-200 ${
-                    isActive ? 'text-manuscript-gold scale-110' : 'text-manuscript-light/60'
+                    isActive ? 'text-manuscript-gold scale-110' : 'text-muted-foreground'
                   }`}
                 />
               </div>
               <span
                 className={`text-xs mt-1 font-body transition-all duration-200 ${
-                  isActive ? 'text-manuscript-gold font-medium' : 'text-manuscript-light/60'
+                  isActive ? 'text-manuscript-gold font-medium' : 'text-muted-foreground'
                 }`}
               >
                 {label}
