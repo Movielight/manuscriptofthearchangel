@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Home, BookOpen, Sparkles, NotebookPen, Settings } from 'lucide-react';
+import { Home, BookOpen, Video, Sparkles, Compass } from 'lucide-react';
 
-export type AppView = 'dashboard' | 'read' | 'practice' | 'journal' | 'settings';
+export type AppView = 'dashboard' | 'modules' | 'lessons' | 'practices' | 'journey' | 'settings';
 
 interface BottomNavigationProps {
   currentView: AppView;
@@ -9,11 +9,11 @@ interface BottomNavigationProps {
 }
 
 const navItems: { view: AppView; icon: typeof Home; label: string }[] = [
-  { view: 'dashboard', icon: Home, label: 'Home' },
-  { view: 'read', icon: BookOpen, label: 'Read' },
-  { view: 'practice', icon: Sparkles, label: 'Practice' },
-  { view: 'journal', icon: NotebookPen, label: 'Journal' },
-  { view: 'settings', icon: Settings, label: 'Settings' },
+  { view: 'dashboard', icon: Home, label: 'Início' },
+  { view: 'modules', icon: BookOpen, label: 'Módulos' },
+  { view: 'lessons', icon: Video, label: 'Aulas' },
+  { view: 'practices', icon: Sparkles, label: 'Práticas' },
+  { view: 'journey', icon: Compass, label: 'Jornada' },
 ];
 
 export const BottomNavigation = ({ currentView, onViewChange }: BottomNavigationProps) => {

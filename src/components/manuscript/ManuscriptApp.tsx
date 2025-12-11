@@ -4,9 +4,10 @@ import { useManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { useCelebration } from '@/hooks/useCelebration';
 import { BottomNavigation, AppView } from './BottomNavigation';
 import { Dashboard } from './Dashboard';
-import { ReadingView } from './ReadingView';
-import { PracticeView } from './PracticeView';
-import { JournalView } from './JournalView';
+import { ModulesView } from './ModulesView';
+import { LessonsView } from './LessonsView';
+import { PracticesHub } from './PracticesHub';
+import { JourneyHub } from './JourneyHub';
 import { SettingsPanel } from './SettingsPanel';
 import { CelebrationOverlay } from './CelebrationOverlay';
 import { OnboardingTutorial } from './OnboardingTutorial';
@@ -16,6 +17,7 @@ const ONBOARDING_KEY = 'sacred-manuscript-onboarding-complete';
 export const ManuscriptApp = () => {
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
   const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   
   const {
     progress,
@@ -31,7 +33,6 @@ export const ManuscriptApp = () => {
 
   const { celebration, closeCelebration } = useCelebration(progress);
 
-  // Check if onboarding should be shown
   useEffect(() => {
     const hasCompletedOnboarding = localStorage.getItem(ONBOARDING_KEY);
     if (!hasCompletedOnboarding) {
@@ -44,7 +45,6 @@ export const ManuscriptApp = () => {
     setShowOnboarding(false);
   };
 
-  // Get theme class based on progress.theme
   const getThemeClass = () => {
     switch (progress.theme) {
       case 'sepia': return 'theme-sepia';
@@ -53,7 +53,6 @@ export const ManuscriptApp = () => {
     }
   };
 
-  // Get font size class
   const getFontSizeClass = () => {
     switch (progress.fontSize) {
       case 'small': return 'font-size-small';
@@ -63,55 +62,79 @@ export const ManuscriptApp = () => {
   };
 
   const renderView = () => {
+    if (showSettings) {
+      return (
+        <SettingsPanel
+          progress={progress}
+          onSetFontSize={setFontSize}
+          onSetTheme={setTheme}
+          onResetProgress={resetProgress}
+          onClose={() => setShowSettings(false)}
+        />
+      );
+    }
+
     switch (currentView) {
       case 'dashboard':
-        return <Dashboard progress={progress} onNavigate={setCurrentView} />;
-      case 'read':
         return (
-          <ReadingView
-            progress={progress}
-            onCompleteSection={completeSection}
-            onToggleBookmark={toggleBookmark}
+          <Dashboard 
+            progress={progress} 
+            onNavigate={setCurrentView}
+            onOpenSettings={() => setShowSettings(true)}
           />
         );
-      case 'practice':
-        return <PracticeView progress={progress} onCompleteDay={completeDay} />;
-      case 'journal':
+      case 'modules':
         return (
-          <JournalView
+          <ModulesView
+            progress={progress}
+            onCompleteSection={completeSection}
+          />
+        );
+      case 'lessons':
+        return (
+          <LessonsView
+            progress={progress}
+            onCompleteLesson={completeSection}
+          />
+        );
+      case 'practices':
+        return (
+          <PracticesHub 
+            progress={progress} 
+            onCompleteDay={completeDay} 
+          />
+        );
+      case 'journey':
+        return (
+          <JourneyHub
             progress={progress}
             onAddEntry={addJournalEntry}
             onDeleteEntry={deleteJournalEntry}
           />
         );
-      case 'settings':
+      default:
         return (
-          <SettingsPanel
-            progress={progress}
-            onSetFontSize={setFontSize}
-            onSetTheme={setTheme}
-            onResetProgress={resetProgress}
+          <Dashboard 
+            progress={progress} 
+            onNavigate={setCurrentView}
+            onOpenSettings={() => setShowSettings(true)}
           />
         );
-      default:
-        return <Dashboard progress={progress} onNavigate={setCurrentView} />;
     }
   };
 
-  // Show onboarding for new users
   if (showOnboarding) {
     return <OnboardingTutorial onComplete={handleOnboardingComplete} />;
   }
 
   return (
     <div className={`min-h-screen bg-manuscript-dark ${getThemeClass()} ${getFontSizeClass()}`}>
-      {/* Background gradient overlay */}
       <div className="fixed inset-0 bg-gradient-to-b from-manuscript-dark via-manuscript-dark to-manuscript-purple/20 pointer-events-none" />
       
       <div className="relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentView}
+            key={showSettings ? 'settings' : currentView}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -122,9 +145,10 @@ export const ManuscriptApp = () => {
         </AnimatePresence>
       </div>
       
-      <BottomNavigation currentView={currentView} onViewChange={setCurrentView} />
+      {!showSettings && (
+        <BottomNavigation currentView={currentView} onViewChange={setCurrentView} />
+      )}
       
-      {/* Celebration overlay for badges and milestones */}
       <CelebrationOverlay
         isVisible={celebration.isVisible}
         type={celebration.type}
