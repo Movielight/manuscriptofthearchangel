@@ -5,10 +5,12 @@ import { meditations, meditationsIntroduction } from '@/data/meditationsContent'
 import { exercises, exercisesIntroduction } from '@/data/exercisesContent';
 import { MeditationTimer } from './MeditationTimer';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
+import { Language, getTranslation } from '@/data/translations';
 
 interface PracticesHubProps {
   progress: ManuscriptProgress;
   onCompleteDay: (day: number) => void;
+  language: Language;
 }
 
 const meditationIcons: { [key: string]: React.ReactNode } = {
@@ -27,12 +29,14 @@ const exerciseIcons: { [key: string]: React.ReactNode } = {
 
 type Tab = 'meditations' | 'exercises';
 
-export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => {
+export const PracticesHub = ({ progress, onCompleteDay, language }: PracticesHubProps) => {
   const [activeTab, setActiveTab] = useState<Tab>('meditations');
   const [selectedMeditation, setSelectedMeditation] = useState<string | null>(null);
   const [selectedExercise, setSelectedExercise] = useState<string | null>(null);
   const [showTimer, setShowTimer] = useState(false);
 
+  const t = getTranslation(language).practices;
+  const tMeditation = getTranslation(language).meditation;
   const currentMeditation = meditations.find(m => m.id === selectedMeditation);
   const currentExercise = exercises.find(e => e.id === selectedExercise);
 
@@ -44,6 +48,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
           <MeditationTimer
             duration={currentMeditation.duration}
             title={currentMeditation.title}
+            language={language}
             onComplete={() => {
               setShowTimer(false);
               onCompleteDay(new Date().getDate());
@@ -66,7 +71,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar</span>
+            <span className="text-sm">{t.back}</span>
           </button>
           
           <div className="flex items-center gap-3 mb-2">
@@ -75,7 +80,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
             </div>
             <div className="flex items-center gap-2 text-sm text-manuscript-light/60">
               <Clock className="w-4 h-4" />
-              <span>{currentMeditation.duration} min</span>
+              <span>{currentMeditation.duration} {tMeditation.min}</span>
             </div>
           </div>
           
@@ -88,17 +93,17 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
         {/* Content sections */}
         <div className="space-y-4 mb-6">
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="text-lg font-heading text-manuscript-light mb-3">Preparação</h3>
+            <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.preparation}</h3>
             <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">{currentMeditation.preparation}</p>
           </div>
           
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="text-lg font-heading text-manuscript-light mb-3">Propósito</h3>
+            <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.purpose}</h3>
             <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">{currentMeditation.purpose}</p>
           </div>
 
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="text-lg font-heading text-manuscript-light mb-3">Instruções</h3>
+            <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.instructions}</h3>
             <ul className="space-y-3">
               {currentMeditation.instructions.map((instruction, idx) => (
                 <li key={idx} className="flex items-start gap-3">
@@ -117,7 +122,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
           className="w-full py-4 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-manuscript-dark font-medium rounded-xl flex items-center justify-center gap-2"
         >
           <Play className="w-5 h-5" />
-          Iniciar Meditação
+          {t.startMeditation}
         </button>
       </motion.div>
     );
@@ -137,7 +142,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar</span>
+            <span className="text-sm">{t.back}</span>
           </button>
           
           <div className="flex items-center gap-3 mb-2">
@@ -158,12 +163,12 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
 
         <div className="space-y-4 mb-6">
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="text-lg font-heading text-manuscript-light mb-3">Visão Geral</h3>
+            <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.overview}</h3>
             <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">{currentExercise.overview}</p>
           </div>
 
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="text-lg font-heading text-manuscript-light mb-3">Benefícios</h3>
+            <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.benefits}</h3>
             <ul className="space-y-2">
               {currentExercise.benefits.map((benefit, idx) => (
                 <li key={idx} className="flex items-start gap-2">
@@ -175,7 +180,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
           </div>
 
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="text-lg font-heading text-manuscript-light mb-3">Passo a Passo</h3>
+            <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.stepByStep}</h3>
             <ul className="space-y-4">
               {currentExercise.steps.map((step) => (
                 <li key={step.step} className="space-y-2">
@@ -214,8 +219,8 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
             <Sparkles className="w-6 h-6 text-manuscript-gold" />
           </div>
           <div>
-            <h1 className="text-2xl font-heading text-manuscript-light">Práticas</h1>
-            <p className="text-manuscript-light/60 text-sm">Meditações e exercícios</p>
+            <h1 className="text-2xl font-heading text-manuscript-light">{t.title}</h1>
+            <p className="text-manuscript-light/60 text-sm">{t.subtitle}</p>
           </div>
         </div>
       </div>
@@ -230,7 +235,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
               : 'bg-manuscript-dark/30 text-manuscript-light/60'
           }`}
         >
-          Meditações
+          {t.meditations}
         </button>
         <button
           onClick={() => setActiveTab('exercises')}
@@ -240,7 +245,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
               : 'bg-manuscript-dark/30 text-manuscript-light/60'
           }`}
         >
-          Exercícios
+          {t.exercises}
         </button>
       </div>
 
@@ -263,7 +268,7 @@ export const PracticesHub = ({ progress, onCompleteDay }: PracticesHubProps) => 
                 </div>
                 <div className="flex-1">
                   <h3 className="font-heading text-manuscript-light">{meditation.title}</h3>
-                  <p className="text-manuscript-light/60 text-sm">{meditation.duration} min</p>
+                  <p className="text-manuscript-light/60 text-sm">{meditation.duration} {tMeditation.min}</p>
                 </div>
               </div>
             </motion.button>

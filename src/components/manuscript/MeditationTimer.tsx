@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Play, Pause, RotateCcw, CheckCircle2 } from 'lucide-react';
+import { Language, getTranslation } from '@/data/translations';
 
 interface MeditationTimerProps {
   duration?: number; // duration in minutes
   title?: string;
+  language: Language;
   onComplete?: () => void;
   onCancel?: () => void;
   onClose?: () => void;
@@ -14,7 +16,8 @@ type Phase = 'ready' | 'meditation' | 'complete';
 
 export const MeditationTimer = ({ 
   duration = 10, 
-  title = "Meditação",
+  title = "Meditation",
+  language,
   onComplete,
   onCancel,
   onClose 
@@ -23,6 +26,8 @@ export const MeditationTimer = ({
   const [seconds, setSeconds] = useState(duration * 60);
   const [isRunning, setIsRunning] = useState(false);
   const totalSeconds = duration * 60;
+
+  const t = getTranslation(language).meditation;
 
   useEffect(() => {
     if (!isRunning || phase !== 'meditation') return;
@@ -89,7 +94,7 @@ export const MeditationTimer = ({
       {/* Duration Info */}
       <div className="text-center mb-8">
         <p className="text-manuscript-light/60 text-sm font-body">
-          Duração: {duration} minutos
+          {t.duration}: {duration} {t.minutes}
         </p>
       </div>
 
@@ -131,8 +136,8 @@ export const MeditationTimer = ({
                   exit={{ opacity: 0, scale: 0.8 }}
                   className="text-center"
                 >
-                  <p className="text-manuscript-light/60 font-body mb-2">Pronto para começar</p>
-                  <p className="text-manuscript-gold font-heading text-lg">{duration} min</p>
+                  <p className="text-manuscript-light/60 font-body mb-2">{t.readyToStart}</p>
+                  <p className="text-manuscript-gold font-heading text-lg">{duration} {t.min}</p>
                 </motion.div>
               )}
               
@@ -145,8 +150,8 @@ export const MeditationTimer = ({
                   className="text-center"
                 >
                   <CheckCircle2 className="w-12 h-12 text-manuscript-gold mx-auto mb-2" />
-                  <p className="text-manuscript-gold font-heading text-xl">Concluído!</p>
-                  <p className="text-manuscript-light/60 text-sm mt-1">Prática finalizada</p>
+                  <p className="text-manuscript-gold font-heading text-xl">{t.completed}</p>
+                  <p className="text-manuscript-light/60 text-sm mt-1">{t.practiceFinished}</p>
                 </motion.div>
               )}
               
@@ -159,7 +164,7 @@ export const MeditationTimer = ({
                   className="text-center"
                 >
                   <p className="text-manuscript-gold font-heading text-lg mb-2">
-                    {isRunning ? 'Respire...' : 'Pausado'}
+                    {isRunning ? t.breathe : t.paused}
                   </p>
                   <p className="text-manuscript-light font-body text-5xl">
                     {formatTime(seconds)}
@@ -174,7 +179,7 @@ export const MeditationTimer = ({
       {/* Instructions */}
       <div className="bg-manuscript-dark/50 rounded-xl p-4 mb-6 border border-manuscript-gold/10">
         <p className="text-manuscript-light/70 text-sm font-body text-center">
-          Encontre uma posição confortável, feche os olhos e permita que sua respiração flua naturalmente.
+          {t.instruction}
         </p>
       </div>
 
@@ -186,7 +191,7 @@ export const MeditationTimer = ({
             className="flex-1 py-4 rounded-xl bg-manuscript-gold text-manuscript-dark font-body flex items-center justify-center gap-2 hover:bg-manuscript-gold/90 transition-colors"
           >
             <Play className="w-5 h-5" />
-            Iniciar Meditação
+            {t.startMeditation}
           </button>
         ) : phase === 'complete' ? (
           <button
@@ -194,7 +199,7 @@ export const MeditationTimer = ({
             className="flex-1 py-4 rounded-xl bg-manuscript-gold text-manuscript-dark font-body flex items-center justify-center gap-2 hover:bg-manuscript-gold/90 transition-colors"
           >
             <CheckCircle2 className="w-5 h-5" />
-            Finalizar
+            {t.finish}
           </button>
         ) : (
           <>
@@ -203,7 +208,7 @@ export const MeditationTimer = ({
               className="flex-1 py-4 rounded-xl border border-manuscript-gold/30 text-manuscript-gold font-body flex items-center justify-center gap-2 hover:bg-manuscript-gold/10 transition-colors"
             >
               {isRunning ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-              {isRunning ? 'Pausar' : 'Continuar'}
+              {isRunning ? t.pause : t.continue}
             </button>
             <button
               onClick={handleReset}

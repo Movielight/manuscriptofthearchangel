@@ -90,6 +90,7 @@ export const ManuscriptApp = () => {
           <ModulesView
             progress={progress}
             onCompleteSection={completeSection}
+            language={progress.language}
           />
         );
       case 'lessons':
@@ -97,13 +98,15 @@ export const ManuscriptApp = () => {
           <LessonsView
             progress={progress}
             onCompleteLesson={completeSection}
+            language={progress.language}
           />
         );
       case 'practices':
         return (
           <PracticesHub 
             progress={progress} 
-            onCompleteDay={completeDay} 
+            onCompleteDay={completeDay}
+            language={progress.language}
           />
         );
       case 'journey':
@@ -112,6 +115,7 @@ export const ManuscriptApp = () => {
             progress={progress}
             onAddEntry={addJournalEntry}
             onDeleteEntry={deleteJournalEntry}
+            language={progress.language}
           />
         );
       default:
@@ -126,7 +130,7 @@ export const ManuscriptApp = () => {
   };
 
   if (showOnboarding) {
-    return <OnboardingTutorial onComplete={handleOnboardingComplete} />;
+    return <OnboardingTutorial onComplete={handleOnboardingComplete} language={progress.language} />;
   }
 
   return (

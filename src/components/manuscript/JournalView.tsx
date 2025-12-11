@@ -11,25 +11,29 @@ import {
   Send
 } from 'lucide-react';
 import { ManuscriptProgress, JournalEntry } from '@/hooks/useManuscriptProgress';
+import { Language, getTranslation } from '@/data/translations';
 
 interface JournalViewProps {
   progress: ManuscriptProgress;
   onAddEntry: (type: JournalEntry['type'], content: string) => void;
   onDeleteEntry: (id: string) => void;
+  language: Language;
 }
 
-const entryTypes: { type: JournalEntry['type']; label: string; icon: typeof Sparkles; color: string; bgColor: string; placeholder: string }[] = [
-  { type: 'intention', label: 'Daily Intention', icon: Sparkles, color: 'text-manuscript-gold', bgColor: 'bg-manuscript-gold/20', placeholder: 'What is your intention for today?' },
-  { type: 'sign', label: 'Divine Sign', icon: Eye, color: 'text-manuscript-purple', bgColor: 'bg-manuscript-purple/20', placeholder: 'Describe the sign you received...' },
-  { type: 'gratitude', label: 'Gratitude', icon: Heart, color: 'text-rose-400', bgColor: 'bg-rose-400/20', placeholder: 'What are you grateful for today?' },
-  { type: 'reflection', label: 'Reflection', icon: BookOpen, color: 'text-sacred-teal', bgColor: 'bg-sacred-teal/20', placeholder: 'Share your thoughts and insights...' },
-];
-
-export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalViewProps) => {
+export const JournalView = ({ progress, onAddEntry, onDeleteEntry, language }: JournalViewProps) => {
   const [isAdding, setIsAdding] = useState(false);
   const [selectedType, setSelectedType] = useState<JournalEntry['type']>('intention');
   const [content, setContent] = useState('');
   const [filter, setFilter] = useState<JournalEntry['type'] | 'all'>('all');
+
+  const t = getTranslation(language).journal;
+
+  const entryTypes: { type: JournalEntry['type']; label: string; icon: typeof Sparkles; color: string; bgColor: string; placeholder: string }[] = [
+    { type: 'intention', label: t.intention, icon: Sparkles, color: 'text-manuscript-gold', bgColor: 'bg-manuscript-gold/20', placeholder: t.intentionPlaceholder },
+    { type: 'sign', label: t.sign, icon: Eye, color: 'text-manuscript-purple', bgColor: 'bg-manuscript-purple/20', placeholder: t.signPlaceholder },
+    { type: 'gratitude', label: t.gratitude, icon: Heart, color: 'text-rose-400', bgColor: 'bg-rose-400/20', placeholder: t.gratitudePlaceholder },
+    { type: 'reflection', label: t.reflection, icon: BookOpen, color: 'text-sacred-teal', bgColor: 'bg-sacred-teal/20', placeholder: t.reflectionPlaceholder },
+  ];
 
   const handleSubmit = () => {
     if (content.trim()) {
@@ -52,9 +56,9 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 1);
 
-    if (date.toDateString() === today.toDateString()) return 'Today';
-    if (date.toDateString() === yesterday.toDateString()) return 'Yesterday';
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    if (date.toDateString() === today.toDateString()) return t.today;
+    if (date.toDateString() === yesterday.toDateString()) return t.yesterday;
+    return date.toLocaleDateString(language === 'pt-BR' ? 'pt-BR' : 'en-US', { month: 'short', day: 'numeric' });
   };
 
   return (
@@ -67,13 +71,13 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
       >
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-sacred-teal/20 border border-sacred-teal/40 rounded-full mb-4">
           <BookOpen className="w-4 h-4 text-sacred-teal" />
-          <span className="text-sacred-teal text-sm font-body">Your Journey</span>
+          <span className="text-sacred-teal text-sm font-body">{t.yourJourney}</span>
         </div>
         <h1 className="font-heading text-4xl text-manuscript-gold mb-3">
-          Spiritual Journal
+          {t.spiritualJournal}
         </h1>
         <p className="text-manuscript-light font-body">
-          Record your sacred journey
+          {t.recordYourJourney}
         </p>
       </motion.div>
 
@@ -87,7 +91,7 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
             className="fixed inset-0 z-50 bg-manuscript-dark/98 backdrop-blur-sm px-4 pt-8 pb-24 overflow-auto"
           >
             <div className="flex items-center justify-between mb-8">
-              <h2 className="font-heading text-2xl text-manuscript-gold">New Entry</h2>
+              <h2 className="font-heading text-2xl text-manuscript-gold">{t.newEntry}</h2>
               <button
                 onClick={() => setIsAdding(false)}
                 className="p-3 rounded-xl hover:bg-manuscript-gold/10 transition-colors"
@@ -131,7 +135,7 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
               className="w-full mt-6 py-4 rounded-2xl bg-gradient-to-r from-manuscript-gold to-manuscript-gold/90 text-manuscript-dark font-body font-medium flex items-center justify-center gap-3 disabled:opacity-30 disabled:cursor-not-allowed hover:shadow-lg transition-all duration-200"
             >
               <Send className="w-5 h-5" />
-              Save Entry
+              {t.saveEntry}
             </button>
           </motion.div>
         )}
@@ -148,8 +152,8 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
           <Plus className="w-6 h-6 text-manuscript-gold" />
         </div>
         <div className="text-left">
-          <p className="text-manuscript-light font-heading text-lg">New Journal Entry</p>
-          <p className="text-manuscript-light/80 font-body">Record your thoughts and experiences</p>
+          <p className="text-manuscript-light font-heading text-lg">{t.newJournalEntry}</p>
+          <p className="text-manuscript-light/80 font-body">{t.recordThoughts}</p>
         </div>
       </motion.button>
 
@@ -163,7 +167,7 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
               : 'bg-manuscript-dark/60 text-manuscript-light/80 border border-manuscript-gold/20'
           }`}
         >
-          All ({progress.journalEntries.length})
+          {t.all} ({progress.journalEntries.length})
         </button>
         {entryTypes.map(({ type, label }) => {
           const count = progress.journalEntries.filter(e => e.type === type).length;
@@ -193,8 +197,8 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry }: JournalView
           <div className="bg-manuscript-gold/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <BookOpen className="w-10 h-10 text-manuscript-gold/50" />
           </div>
-          <p className="text-manuscript-light font-body text-lg">No entries yet</p>
-          <p className="text-manuscript-light/70 mt-2">Start recording your spiritual journey</p>
+          <p className="text-manuscript-light font-body text-lg">{t.noEntriesYet}</p>
+          <p className="text-manuscript-light/70 mt-2">{t.startRecording}</p>
         </motion.div>
       ) : (
         <div className="space-y-4">

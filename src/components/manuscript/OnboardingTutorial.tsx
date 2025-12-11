@@ -1,40 +1,44 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Sparkles, NotebookPen, Star, ArrowRight, X } from 'lucide-react';
+import { Language, getTranslation } from '@/data/translations';
 
 interface OnboardingTutorialProps {
   onComplete: () => void;
+  language: Language;
 }
 
-const steps = [
-  {
-    icon: Star,
-    title: 'Welcome, Seeker',
-    description: 'You have been chosen to receive the Sacred Manuscript of the Archangel. This app will guide you through your spiritual transformation.',
-    highlight: 'Your journey begins now.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Sacred Readings',
-    description: 'Discover the divine revelations, prayers, sacred code, and powerful rituals. Each section brings you closer to spiritual awakening.',
-    highlight: 'Read at your own pace.',
-  },
-  {
-    icon: Sparkles,
-    title: '7-Day Path',
-    description: 'Follow the guided 7-day transformation journey. Complete daily practices, meditations, and exercises to unlock your full potential.',
-    highlight: 'Build your spiritual streak.',
-  },
-  {
-    icon: NotebookPen,
-    title: 'Spiritual Journal',
-    description: 'Record your intentions, divine signs, gratitude, and reflections. Your journal becomes a sacred record of your transformation.',
-    highlight: 'Document your awakening.',
-  },
-];
-
-export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
+export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialProps) => {
   const [currentStep, setCurrentStep] = useState(0);
+
+  const t = getTranslation(language).onboarding;
+
+  const steps = [
+    {
+      icon: Star,
+      title: t.welcomeTitle,
+      description: t.welcomeDesc,
+      highlight: t.welcomeHighlight,
+    },
+    {
+      icon: BookOpen,
+      title: t.readingsTitle,
+      description: t.readingsDesc,
+      highlight: t.readingsHighlight,
+    },
+    {
+      icon: Sparkles,
+      title: t.pathTitle,
+      description: t.pathDesc,
+      highlight: t.pathHighlight,
+    },
+    {
+      icon: NotebookPen,
+      title: t.journalTitle,
+      description: t.journalDesc,
+      highlight: t.journalHighlight,
+    },
+  ];
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
@@ -167,7 +171,7 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
           onClick={handleNext}
           className="w-full py-4 px-6 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-manuscript-dark font-heading text-lg rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-manuscript-gold/20"
         >
-          {isLastStep ? 'Begin Your Journey' : 'Continue'}
+          {isLastStep ? t.beginJourney : t.continue}
           <ArrowRight className="w-5 h-5" />
         </motion.button>
 
@@ -180,7 +184,7 @@ export const OnboardingTutorial = ({ onComplete }: OnboardingTutorialProps) => {
             onClick={handleSkip}
             className="w-full mt-4 text-manuscript-light/60 font-body hover:text-manuscript-light transition-colors"
           >
-            Skip tutorial
+            {t.skipTutorial}
           </motion.button>
         )}
       </div>

@@ -4,10 +4,12 @@ import { Scroll, Feather, Eye, Scale, Flower2, ArrowLeft, CheckCircle, ChevronRi
 import { modules } from '@/data/manuscriptContent';
 import { Button } from '@/components/ui/button';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
+import { Language, getTranslation } from '@/data/translations';
 
 interface ModulesViewProps {
   progress: ManuscriptProgress;
   onCompleteSection: (sectionId: string) => void;
+  language: Language;
 }
 
 const iconMap: { [key: string]: React.ReactNode } = {
@@ -18,10 +20,11 @@ const iconMap: { [key: string]: React.ReactNode } = {
   lotus: <Flower2 className="w-6 h-6" />,
 };
 
-export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) => {
+export const ModulesView = ({ progress, onCompleteSection, language }: ModulesViewProps) => {
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   
+  const t = getTranslation(language).modules;
   const currentModule = modules.find(m => m.id === selectedModule);
   const completedModules = progress.completedSections.filter(s => s.startsWith('module-'));
 
@@ -46,14 +49,14 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar aos módulos</span>
+            <span className="text-sm">{t.backToModules}</span>
           </button>
           
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-xl bg-manuscript-gold/20 flex items-center justify-center text-manuscript-gold">
               {iconMap[currentModule.icon]}
             </div>
-            <span className="text-manuscript-gold font-medium">Módulo {currentModule.number}</span>
+            <span className="text-manuscript-gold font-medium">{t.module} {currentModule.number}</span>
           </div>
           
           <h1 className="text-2xl font-heading text-manuscript-light mb-2">
@@ -86,7 +89,7 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
           >
             {currentSectionIndex === 0 ? (
               <>
-                <h3 className="text-lg font-heading text-manuscript-light mb-4">Introdução</h3>
+                <h3 className="text-lg font-heading text-manuscript-light mb-4">{t.introduction}</h3>
                 <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">
                   {currentModule.introduction}
                 </p>
@@ -119,7 +122,7 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
               </>
             ) : (
               <>
-                <h3 className="text-lg font-heading text-manuscript-light mb-4">Reflexão Final</h3>
+                <h3 className="text-lg font-heading text-manuscript-light mb-4">{t.finalReflection}</h3>
                 <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line italic">
                   {currentModule.finalReflection}
                 </p>
@@ -136,7 +139,7 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
               onClick={() => setCurrentSectionIndex(prev => prev - 1)}
               className="flex-1 border-manuscript-gold/30 text-manuscript-light hover:bg-manuscript-gold/10"
             >
-              Anterior
+              {t.previous}
             </Button>
           )}
           
@@ -145,7 +148,7 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
               onClick={() => setCurrentSectionIndex(prev => prev + 1)}
               className="flex-1 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-manuscript-dark"
             >
-              Próximo
+              {t.next}
             </Button>
           ) : (
             <Button
@@ -157,7 +160,7 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
               disabled={isModuleCompleted}
               className="flex-1 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-manuscript-dark"
             >
-              {isModuleCompleted ? 'Módulo Concluído' : 'Concluir Módulo'}
+              {isModuleCompleted ? t.moduleCompleted : t.completeModule}
             </Button>
           )}
         </div>
@@ -174,8 +177,8 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
             <BookOpen className="w-6 h-6 text-manuscript-gold" />
           </div>
           <div>
-            <h1 className="text-2xl font-heading text-manuscript-light">Módulos do Manuscrito</h1>
-            <p className="text-manuscript-light/60 text-sm">5 módulos de sabedoria profunda</p>
+            <h1 className="text-2xl font-heading text-manuscript-light">{t.manuscriptModules}</h1>
+            <p className="text-manuscript-light/60 text-sm">{t.modulesOfWisdom}</p>
           </div>
         </div>
         
@@ -222,7 +225,7 @@ export const ModulesView = ({ progress, onCompleteSection }: ModulesViewProps) =
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs text-manuscript-gold/70">Módulo {module.number}</span>
+                    <span className="text-xs text-manuscript-gold/70">{t.module} {module.number}</span>
                   </div>
                   <h3 className="text-lg font-heading text-manuscript-light group-hover:text-manuscript-gold transition-colors">
                     {module.title}

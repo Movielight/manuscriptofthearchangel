@@ -5,20 +5,23 @@ import { JournalView } from './JournalView';
 import { reflections, reflectionsIntroduction } from '@/data/reflectionsContent';
 import { practicePlans, practicePlansIntroduction } from '@/data/practicePlansContent';
 import { ManuscriptProgress, JournalEntry } from '@/hooks/useManuscriptProgress';
+import { Language, getTranslation } from '@/data/translations';
 
 interface JourneyHubProps {
   progress: ManuscriptProgress;
   onAddEntry: (type: JournalEntry['type'], content: string) => void;
   onDeleteEntry: (id: string) => void;
+  language: Language;
 }
 
 type View = 'hub' | 'journal' | 'reflections' | 'plans';
 
-export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubProps) => {
+export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: JourneyHubProps) => {
   const [currentView, setCurrentView] = useState<View>('hub');
   const [selectedReflection, setSelectedReflection] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
+  const t = getTranslation(language).journey;
   const currentReflection = reflections.find(r => r.id === selectedReflection);
   const currentPlan = practicePlans.find(p => p.id === selectedPlan);
 
@@ -32,10 +35,10 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar</span>
+            <span className="text-sm">{t.back}</span>
           </button>
         </div>
-        <JournalView progress={progress} onAddEntry={onAddEntry} onDeleteEntry={onDeleteEntry} />
+        <JournalView progress={progress} onAddEntry={onAddEntry} onDeleteEntry={onDeleteEntry} language={language} />
       </div>
     );
   }
@@ -54,7 +57,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar às reflexões</span>
+            <span className="text-sm">{t.backToReflections}</span>
           </button>
           
           <div className="w-10 h-10 rounded-xl bg-manuscript-gold/20 flex items-center justify-center text-manuscript-gold mb-4">
@@ -89,7 +92,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar</span>
+            <span className="text-sm">{t.back}</span>
           </button>
           
           <h1 className="text-2xl font-heading text-manuscript-light">{reflectionsIntroduction.title}</h1>
@@ -131,14 +134,14 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar aos planos</span>
+            <span className="text-sm">{t.backToPlans}</span>
           </button>
           
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-xl bg-manuscript-purple/20 flex items-center justify-center">
               <Calendar className="w-5 h-5 text-manuscript-purple" />
             </div>
-            <span className="text-manuscript-purple font-medium">{currentPlan.duration} dias</span>
+            <span className="text-manuscript-purple font-medium">{currentPlan.duration} {t.days}</span>
           </div>
           
           <h1 className="text-2xl font-heading text-manuscript-light">{currentPlan.title}</h1>
@@ -147,17 +150,17 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
 
         <div className="space-y-4 mb-6">
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="font-heading text-manuscript-light mb-3">Sobre este plano</h3>
+            <h3 className="font-heading text-manuscript-light mb-3">{t.aboutThisPlan}</h3>
             <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">{currentPlan.introduction}</p>
           </div>
 
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="font-heading text-manuscript-light mb-3">Objetivo</h3>
+            <h3 className="font-heading text-manuscript-light mb-3">{t.objective}</h3>
             <p className="text-manuscript-light/70">{currentPlan.objective}</p>
           </div>
 
           <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="font-heading text-manuscript-light mb-3">O que você vai precisar</h3>
+            <h3 className="font-heading text-manuscript-light mb-3">{t.whatYouWillNeed}</h3>
             <ul className="space-y-2">
               {currentPlan.whatYouWillNeed.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
@@ -168,7 +171,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
             </ul>
           </div>
 
-          <h3 className="font-heading text-manuscript-light text-lg mt-6 mb-4">Cronograma Diário</h3>
+          <h3 className="font-heading text-manuscript-light text-lg mt-6 mb-4">{t.dailySchedule}</h3>
           
           {currentPlan.days.slice(0, 7).map((day) => (
             <div key={day.day} className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4">
@@ -186,7 +189,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
           
           {currentPlan.days.length > 7 && (
             <p className="text-manuscript-light/40 text-center text-sm">
-              + {currentPlan.days.length - 7} dias restantes...
+              + {currentPlan.days.length - 7} {t.daysRemaining}
             </p>
           )}
         </div>
@@ -204,7 +207,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar</span>
+            <span className="text-sm">{t.back}</span>
           </button>
           
           <h1 className="text-2xl font-heading text-manuscript-light">{practicePlansIntroduction.title}</h1>
@@ -226,7 +229,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-xl bg-manuscript-purple/20 flex flex-col items-center justify-center">
                   <span className="text-xl font-heading text-manuscript-purple">{plan.duration}</span>
-                  <span className="text-xs text-manuscript-purple/60">dias</span>
+                  <span className="text-xs text-manuscript-purple/60">{t.days}</span>
                 </div>
                 <div className="flex-1">
                   <h3 className="font-heading text-manuscript-light">{plan.title}</h3>
@@ -250,8 +253,8 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
             <Compass className="w-6 h-6 text-manuscript-gold" />
           </div>
           <div>
-            <h1 className="text-2xl font-heading text-manuscript-light">Sua Jornada</h1>
-            <p className="text-manuscript-light/60 text-sm">Diário, reflexões e planos</p>
+            <h1 className="text-2xl font-heading text-manuscript-light">{t.title}</h1>
+            <p className="text-manuscript-light/60 text-sm">{t.subtitle}</p>
           </div>
         </div>
       </div>
@@ -269,9 +272,9 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
               <BookOpen className="w-6 h-6 text-manuscript-gold" />
             </div>
             <div className="flex-1">
-              <h3 className="font-heading text-manuscript-light text-lg">Diário de Jornada</h3>
+              <h3 className="font-heading text-manuscript-light text-lg">{t.journalTitle}</h3>
               <p className="text-manuscript-light/60 text-sm">
-                {progress.journalEntries.length} entradas registradas
+                {progress.journalEntries.length} {t.entriesRecorded}
               </p>
             </div>
             <ChevronRight className="w-5 h-5 text-manuscript-light/30" />
@@ -291,8 +294,8 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
               <Sparkles className="w-6 h-6 text-manuscript-gold" />
             </div>
             <div className="flex-1">
-              <h3 className="font-heading text-manuscript-light text-lg">Biblioteca de Reflexões</h3>
-              <p className="text-manuscript-light/60 text-sm">10 textos para contemplação</p>
+              <h3 className="font-heading text-manuscript-light text-lg">{t.reflectionsLibrary}</h3>
+              <p className="text-manuscript-light/60 text-sm">{t.textsForContemplation}</p>
             </div>
             <ChevronRight className="w-5 h-5 text-manuscript-light/30" />
           </div>
@@ -311,8 +314,8 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
               <Calendar className="w-6 h-6 text-manuscript-purple" />
             </div>
             <div className="flex-1">
-              <h3 className="font-heading text-manuscript-light text-lg">Planos de Prática</h3>
-              <p className="text-manuscript-light/60 text-sm">Jornadas de 7, 14 e 21 dias</p>
+              <h3 className="font-heading text-manuscript-light text-lg">{t.practicePlans}</h3>
+              <p className="text-manuscript-light/60 text-sm">{t.journeysOf}</p>
             </div>
             <ChevronRight className="w-5 h-5 text-manuscript-light/30" />
           </div>
@@ -323,15 +326,15 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry }: JourneyHubPr
       <div className="mt-8 grid grid-cols-3 gap-4">
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
           <span className="text-2xl font-heading text-manuscript-gold">{progress.currentStreak}</span>
-          <p className="text-manuscript-light/60 text-xs mt-1">Dias seguidos</p>
+          <p className="text-manuscript-light/60 text-xs mt-1">{t.consecutiveDays}</p>
         </div>
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
           <span className="text-2xl font-heading text-manuscript-gold">{progress.completedDays.length}</span>
-          <p className="text-manuscript-light/60 text-xs mt-1">Práticas</p>
+          <p className="text-manuscript-light/60 text-xs mt-1">{t.practicesLabel}</p>
         </div>
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
           <span className="text-2xl font-heading text-manuscript-gold">{progress.badges.length}</span>
-          <p className="text-manuscript-light/60 text-xs mt-1">Conquistas</p>
+          <p className="text-manuscript-light/60 text-xs mt-1">{t.achievementsLabel}</p>
         </div>
       </div>
     </div>
