@@ -15,10 +15,10 @@ export const ArchangelKeyLogo = ({
   className = '' 
 }: ArchangelKeyLogoProps) => {
   const sizes = {
-    sm: { img: 32, text: 'text-sm' },
-    md: { img: 48, text: 'text-lg' },
-    lg: { img: 64, text: 'text-xl' },
-    xl: { img: 96, text: 'text-3xl' },
+    sm: { img: 40, text: 'text-sm' },
+    md: { img: 56, text: 'text-lg' },
+    lg: { img: 80, text: 'text-xl' },
+    xl: { img: 120, text: 'text-3xl' },
   };
 
   const { img: imgSize, text: textSize } = sizes[size];
