@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { QuizResult as QuizResultType } from "@/data/quizQuestions";
-import { Shield, Heart, RotateCcw, Check, Star } from "lucide-react";
+import { Shield, Heart, RotateCcw, Check } from "lucide-react";
+import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
+
 interface QuizResultProps {
   result: QuizResultType;
 }
+
 const iconMap = {
   protection: Shield,
   healing: Heart,
@@ -142,9 +145,11 @@ export const QuizResult = ({
           delay: 2,
           duration: 0.5
         }}>
-            <Star className="w-8 h-8 text-primary mx-auto mb-4" />
+            <div className="mb-4">
+              <ArchangelKeyLogo size="md" animate />
+            </div>
             <h2 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
-              The Sacred Manuscript of the Archangel
+              Unlock Your Archangel Key
             </h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
               Your quiz results reveal a spiritual need that can only be fulfilled through divine intervention.

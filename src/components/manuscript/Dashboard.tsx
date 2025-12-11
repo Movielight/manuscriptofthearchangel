@@ -5,6 +5,7 @@ import { AppView } from './BottomNavigation';
 import { modules } from '@/data/manuscriptContent';
 import { lessons } from '@/data/lessonsContent';
 import { getTranslation } from '@/data/translations';
+import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 
 interface DashboardProps {
   progress: ManuscriptProgress;
@@ -24,9 +25,12 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
     <div className="min-h-screen pb-24 px-4">
       {/* Header */}
       <div className="pt-8 pb-6 flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-heading text-manuscript-light">{t.title}</h1>
-          <p className="text-manuscript-light/60 text-sm mt-1">{t.subtitle}</p>
+        <div className="flex items-center gap-3">
+          <ArchangelKeyLogo size="sm" animate={false} />
+          <div>
+            <h1 className="text-2xl font-heading text-manuscript-light">Archangel Key</h1>
+            <p className="text-manuscript-light/60 text-sm mt-1">{t.subtitle}</p>
+          </div>
         </div>
         {onOpenSettings && (
           <button

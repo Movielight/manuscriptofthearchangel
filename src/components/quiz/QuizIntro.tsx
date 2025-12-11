@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
 
 interface QuizIntroProps {
   onStart: () => void;
@@ -23,15 +23,15 @@ export const QuizIntro = ({ onStart }: QuizIntroProps) => {
         transition={{ delay: 0.3, duration: 0.8 }}
         className="text-center max-w-2xl relative z-10"
       >
-        {/* Sacred symbol */}
+        {/* Logo */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
           className="mb-8 flex justify-center"
         >
-          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-gold-dark flex items-center justify-center floating">
-            <Sparkles className="w-12 h-12 text-primary-foreground" />
+          <div className="floating">
+            <ArchangelKeyLogo size="xl" showText animate />
           </div>
         </motion.div>
 

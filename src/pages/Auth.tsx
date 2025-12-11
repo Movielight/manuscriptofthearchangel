@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
-import { Sparkles, Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 import { z } from 'zod';
 
 const emailSchema = z.string().email('Please enter a valid email address');
@@ -75,7 +76,7 @@ const Auth = () => {
             toast.error(error.message);
           }
         } else {
-          toast.success('Account created successfully! Welcome to the Sacred Manuscript.');
+          toast.success('Account created successfully! Welcome to Archangel Key.');
           navigate('/manuscrito');
         }
       }
@@ -92,7 +93,7 @@ const Auth = () => {
           animate={{ opacity: 1, scale: 1 }}
           className="flex flex-col items-center gap-4"
         >
-          <Sparkles className="w-12 h-12 text-primary animate-pulse" />
+          <ArchangelKeyLogo size="lg" animate />
           <p className="text-muted-foreground">Loading...</p>
         </motion.div>
       </div>
@@ -124,9 +125,9 @@ const Auth = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring' }}
-            className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4"
+            className="inline-flex items-center justify-center mb-4"
           >
-            <Sparkles className="w-8 h-8 text-primary" />
+            <ArchangelKeyLogo size="lg" showText animate />
           </motion.div>
           <h1 className="text-2xl font-serif font-bold text-foreground mb-2">
             {isLogin ? 'Welcome Back' : 'Begin Your Journey'}
@@ -202,13 +203,12 @@ const Auth = () => {
               className="w-full"
               disabled={isSubmitting}
             >
-              {isSubmitting ? (
+            {isSubmitting ? (
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                >
-                  <Sparkles className="w-4 h-4" />
-                </motion.div>
+                  className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full"
+                />
               ) : (
                 isLogin ? 'Sign In' : 'Create Account'
               )}
