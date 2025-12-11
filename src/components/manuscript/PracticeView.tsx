@@ -22,12 +22,12 @@ const dayContent = [
   { day: 7, focus: "Completion", task: "Perform the full ritual with complete devotion. Write a letter of gratitude to the Archangel. Seal your commitment." },
 ];
 
-export const PracticeView = ({ progress, onCompleteDay }: PracticeViewProps) => {
+export const PracticeView = ({ progress, onCompleteDay, language }: PracticeViewProps) => {
   const [showTimer, setShowTimer] = useState(false);
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
   if (showTimer) {
-    return <MeditationTimer onClose={() => setShowTimer(false)} />;
+    return <MeditationTimer language={language} onClose={() => setShowTimer(false)} />;
   }
 
   return (
