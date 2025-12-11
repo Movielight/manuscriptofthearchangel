@@ -24,20 +24,11 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
 
   return (
     <div className="min-h-screen pb-24 px-4">
-      {/* Header */}
-      <div className="pt-8 pb-6 flex items-center justify-between">
+      {/* Header with Logo */}
+      <div className="pt-8 pb-2 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <ArchangelKeyLogo size="sm" animate={false} />
-          <div>
-            <h1 className="text-2xl font-heading text-foreground">
-              {firstName ? `${firstName},` : progress.language === 'pt-BR' ? 'Bem-vindo,' : 'Welcome,'}
-            </h1>
-            <p className="text-muted-foreground text-sm mt-1">
-              {progress.language === 'pt-BR' 
-                ? 'sua jornada de autodescoberta começa aqui.'
-                : 'your journey of self-discovery begins here.'}
-            </p>
-          </div>
+          <h1 className="text-2xl font-heading text-foreground">Archangel Key</h1>
         </div>
         {onOpenSettings && (
           <button
@@ -47,6 +38,18 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
             <Settings className="w-5 h-5" />
           </button>
         )}
+      </div>
+
+      {/* Personalized Greeting */}
+      <div className="pb-6">
+        <h2 className="text-xl font-heading text-manuscript-gold">
+          {firstName ? `${firstName},` : progress.language === 'pt-BR' ? 'Bem-vindo,' : 'Welcome,'}
+        </h2>
+        <p className="text-muted-foreground text-sm">
+          {progress.language === 'pt-BR' 
+            ? 'sua jornada de autodescoberta começa aqui.'
+            : 'your journey of self-discovery begins here.'}
+        </p>
       </div>
 
       {/* Progress Card */}
