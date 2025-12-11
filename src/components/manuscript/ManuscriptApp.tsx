@@ -13,6 +13,7 @@ import { JourneyHub } from './JourneyHub';
 import { SettingsPanel } from './SettingsPanel';
 import { CelebrationOverlay } from './CelebrationOverlay';
 import { OnboardingTutorial } from './OnboardingTutorial';
+import { AIAssistant } from './AIAssistant';
 import { Sparkles } from 'lucide-react';
 
 const ONBOARDING_KEY = 'sacred-manuscript-onboarding-complete';
@@ -187,7 +188,10 @@ export const ManuscriptApp = () => {
       </div>
       
       {!showSettings && (
-        <BottomNavigation currentView={currentView} onViewChange={setCurrentView} language={progress.language} />
+        <>
+          <AIAssistant context={currentView} language={progress.language} />
+          <BottomNavigation currentView={currentView} onViewChange={setCurrentView} language={progress.language} />
+        </>
       )}
       
       <CelebrationOverlay
