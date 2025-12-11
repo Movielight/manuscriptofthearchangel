@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useManuscriptProgress } from '@/hooks/useManuscriptProgress';
+import { useAuth } from '@/hooks/useAuth';
+import { useCloudProgress } from '@/hooks/useCloudProgress';
 import { useCelebration } from '@/hooks/useCelebration';
 import { BottomNavigation, AppView } from './BottomNavigation';
 import { Dashboard } from './Dashboard';
@@ -11,16 +13,20 @@ import { JourneyHub } from './JourneyHub';
 import { SettingsPanel } from './SettingsPanel';
 import { CelebrationOverlay } from './CelebrationOverlay';
 import { OnboardingTutorial } from './OnboardingTutorial';
+import { Sparkles } from 'lucide-react';
 
 const ONBOARDING_KEY = 'sacred-manuscript-onboarding-complete';
 
 export const ManuscriptApp = () => {
+  const navigate = useNavigate();
+  const { user, loading: authLoading, signOut } = useAuth();
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   
   const {
     progress,
+    loading: progressLoading,
     completeSection,
     completeDay,
     addJournalEntry,
@@ -30,9 +36,16 @@ export const ManuscriptApp = () => {
     setTheme,
     setLanguage,
     resetProgress,
-  } = useManuscriptProgress();
+  } = useCloudProgress();
 
   const { celebration, closeCelebration } = useCelebration(progress);
+
+  // Redirect to auth if not logged in
+  useEffect(() => {
+    if (!authLoading && !user) {
+      navigate('/auth');
+    }
+  }, [user, authLoading, navigate]);
 
   useEffect(() => {
     const hasCompletedOnboarding = localStorage.getItem(ONBOARDING_KEY);
@@ -62,6 +75,11 @@ export const ManuscriptApp = () => {
     }
   };
 
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/auth');
+  };
+
   const renderView = () => {
     if (showSettings) {
       return (
@@ -71,6 +89,7 @@ export const ManuscriptApp = () => {
           onSetTheme={setTheme}
           onSetLanguage={setLanguage}
           onResetProgress={resetProgress}
+          onSignOut={handleSignOut}
           onClose={() => setShowSettings(false)}
         />
       );
@@ -128,6 +147,22 @@ export const ManuscriptApp = () => {
         );
     }
   };
+
+  // Show loading state
+  if (authLoading || progressLoading) {
+    return (
+      <div className="min-h-screen bg-manuscript-dark flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="flex flex-col items-center gap-4"
+        >
+          <Sparkles className="w-12 h-12 text-manuscript-gold animate-pulse" />
+          <p className="text-manuscript-light/70 font-body">Loading your journey...</p>
+        </motion.div>
+      </div>
+    );
+  }
 
   if (showOnboarding) {
     return <OnboardingTutorial onComplete={handleOnboardingComplete} language={progress.language} />;
