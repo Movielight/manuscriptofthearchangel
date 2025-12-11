@@ -173,7 +173,7 @@ Structure your environment to support your practice. Visual reminders, establish
 Don't try to change everything at once. Choose one area of life to focus on first. When that becomes more natural, expand.
 
 The path of self-knowledge has no end. You will not reach a point of conclusion where there is no more work to do. The goal is not perfection, but continuous growth and increasingly consistent presence.`,
-    videoUrl: null
+    videoUrl: "https://youtu.be/dftyJ8QVfBc"
   }
 ];
 
