@@ -9,11 +9,12 @@ import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 
 interface DashboardProps {
   progress: ManuscriptProgress;
+  firstName?: string | null;
   onNavigate: (view: AppView) => void;
   onOpenSettings?: () => void;
 }
 
-export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardProps) => {
+export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: DashboardProps) => {
   const t = getTranslation(progress.language).dashboard;
   const completedModules = progress.completedSections.filter(s => s.startsWith('module-')).length;
   const completedLessons = progress.completedSections.filter(s => s.startsWith('lesson-')).length;
@@ -28,8 +29,14 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
         <div className="flex items-center gap-3">
           <ArchangelKeyLogo size="sm" animate={false} />
           <div>
-            <h1 className="text-2xl font-heading text-foreground">Archangel Key</h1>
-            <p className="text-muted-foreground text-sm mt-1">{t.subtitle}</p>
+            <h1 className="text-2xl font-heading text-foreground">
+              {firstName ? `${firstName},` : progress.language === 'pt-BR' ? 'Bem-vindo,' : 'Welcome,'}
+            </h1>
+            <p className="text-muted-foreground text-sm mt-1">
+              {progress.language === 'pt-BR' 
+                ? 'sua jornada de autodescoberta começa aqui.'
+                : 'your journey of self-discovery begins here.'}
+            </p>
           </div>
         </div>
         {onOpenSettings && (
