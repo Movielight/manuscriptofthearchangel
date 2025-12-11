@@ -96,7 +96,7 @@ In this lesson, we will teach specific techniques:
 These tools are simple but not easy. They require practice and patience. The results, however, are transformative when you commit to the process.
 
 Remember: we do not offer magical solutions. What we offer are proven methods that work when applied consistently.`,
-    videoUrl: null
+    videoUrl: "https://youtu.be/jn4x6CJKE20"
   },
   {
     id: "lesson-4",
