@@ -4,6 +4,7 @@ import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { AppView } from './BottomNavigation';
 import { modules } from '@/data/manuscriptContent';
 import { lessons } from '@/data/lessonsContent';
+import { getTranslation } from '@/data/translations';
 
 interface DashboardProps {
   progress: ManuscriptProgress;
@@ -12,6 +13,7 @@ interface DashboardProps {
 }
 
 export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardProps) => {
+  const t = getTranslation(progress.language).dashboard;
   const completedModules = progress.completedSections.filter(s => s.startsWith('module-')).length;
   const completedLessons = progress.completedSections.filter(s => s.startsWith('lesson-')).length;
   const totalProgress = Math.round(
@@ -23,8 +25,8 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
       {/* Header */}
       <div className="pt-8 pb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-heading text-manuscript-light">Manuscrito Sagrado</h1>
-          <p className="text-manuscript-light/60 text-sm mt-1">Sua jornada de autoconhecimento</p>
+          <h1 className="text-2xl font-heading text-manuscript-light">{t.title}</h1>
+          <p className="text-manuscript-light/60 text-sm mt-1">{t.subtitle}</p>
         </div>
         {onOpenSettings && (
           <button
@@ -44,13 +46,13 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
       >
         <div className="flex items-center justify-between mb-4">
           <div>
-            <p className="text-manuscript-light/60 text-sm">Progresso Geral</p>
+            <p className="text-manuscript-light/60 text-sm">{t.overallProgress}</p>
             <p className="text-3xl font-heading text-manuscript-gold">{totalProgress}%</p>
           </div>
           <div className="flex items-center gap-2 bg-manuscript-dark/30 rounded-xl px-3 py-2">
             <Flame className="w-5 h-5 text-orange-400" />
             <span className="text-manuscript-light font-medium">{progress.currentStreak}</span>
-            <span className="text-manuscript-light/60 text-sm">dias</span>
+            <span className="text-manuscript-light/60 text-sm">{t.days}</span>
           </div>
         </div>
         <div className="h-2 bg-manuscript-dark/50 rounded-full overflow-hidden">
@@ -68,22 +70,22 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
           <BookOpen className="w-5 h-5 text-manuscript-gold mx-auto mb-2" />
           <span className="text-xl font-heading text-manuscript-light">{completedModules}</span>
-          <p className="text-manuscript-light/40 text-xs">Módulos</p>
+          <p className="text-manuscript-light/40 text-xs">{t.modules}</p>
         </div>
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
           <Video className="w-5 h-5 text-manuscript-gold mx-auto mb-2" />
           <span className="text-xl font-heading text-manuscript-light">{completedLessons}</span>
-          <p className="text-manuscript-light/40 text-xs">Aulas</p>
+          <p className="text-manuscript-light/40 text-xs">{t.lessons}</p>
         </div>
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
           <Award className="w-5 h-5 text-manuscript-gold mx-auto mb-2" />
           <span className="text-xl font-heading text-manuscript-light">{progress.badges.length}</span>
-          <p className="text-manuscript-light/40 text-xs">Conquistas</p>
+          <p className="text-manuscript-light/40 text-xs">{t.achievements}</p>
         </div>
       </div>
 
       {/* Quick Actions */}
-      <h2 className="text-lg font-heading text-manuscript-light mb-4">Continuar Jornada</h2>
+      <h2 className="text-lg font-heading text-manuscript-light mb-4">{t.continueJourney}</h2>
       <div className="space-y-3">
         <motion.button
           initial={{ opacity: 0, x: -20 }}
@@ -97,10 +99,10 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
           </div>
           <div className="flex-1 text-left">
             <h3 className="font-heading text-manuscript-light group-hover:text-manuscript-gold transition-colors">
-              Módulos do Manuscrito
+              {t.manuscriptModules}
             </h3>
             <p className="text-manuscript-light/60 text-sm">
-              {completedModules}/{modules.length} concluídos
+              {completedModules}/{modules.length} {t.completed}
             </p>
           </div>
           <ChevronRight className="w-5 h-5 text-manuscript-light/30 group-hover:text-manuscript-gold transition-colors" />
@@ -118,10 +120,10 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
           </div>
           <div className="flex-1 text-left">
             <h3 className="font-heading text-manuscript-light group-hover:text-manuscript-gold transition-colors">
-              Aulas em Vídeo
+              {t.videoLessons}
             </h3>
             <p className="text-manuscript-light/60 text-sm">
-              {completedLessons}/{lessons.length} concluídas
+              {completedLessons}/{lessons.length} {t.completed}
             </p>
           </div>
           <ChevronRight className="w-5 h-5 text-manuscript-light/30 group-hover:text-manuscript-gold transition-colors" />
@@ -139,10 +141,10 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
           </div>
           <div className="flex-1 text-left">
             <h3 className="font-heading text-manuscript-light group-hover:text-manuscript-gold transition-colors">
-              Práticas Diárias
+              {t.dailyPractices}
             </h3>
             <p className="text-manuscript-light/60 text-sm">
-              Meditações e exercícios
+              {t.meditationsAndExercises}
             </p>
           </div>
           <ChevronRight className="w-5 h-5 text-manuscript-light/30 group-hover:text-manuscript-gold transition-colors" />
@@ -156,11 +158,11 @@ export const Dashboard = ({ progress, onNavigate, onOpenSettings }: DashboardPro
         transition={{ delay: 0.4 }}
         className="mt-6 bg-gradient-to-br from-manuscript-dark/50 to-manuscript-purple/10 rounded-2xl p-5 border border-manuscript-gold/10"
       >
-        <p className="text-manuscript-light/40 text-xs uppercase tracking-wider mb-2">Reflexão do Dia</p>
+        <p className="text-manuscript-light/40 text-xs uppercase tracking-wider mb-2">{t.dailyReflection}</p>
         <p className="text-manuscript-light/80 font-heading text-lg italic leading-relaxed">
-          "A jornada de autoconhecimento não tem destino final - cada passo é simultaneamente caminho e chegada."
+          {t.quote}
         </p>
-        <p className="text-manuscript-gold/60 text-sm mt-3 text-right">— Manuscrito Sagrado</p>
+        <p className="text-manuscript-gold/60 text-sm mt-3 text-right">{t.quoteAuthor}</p>
       </motion.div>
     </div>
   );

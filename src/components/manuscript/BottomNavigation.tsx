@@ -1,22 +1,26 @@
 import { motion } from 'framer-motion';
 import { Home, BookOpen, Video, Sparkles, Compass } from 'lucide-react';
+import { getTranslation, Language } from '@/data/translations';
 
 export type AppView = 'dashboard' | 'modules' | 'lessons' | 'practices' | 'journey' | 'settings';
 
 interface BottomNavigationProps {
   currentView: AppView;
   onViewChange: (view: AppView) => void;
+  language: Language;
 }
 
-const navItems: { view: AppView; icon: typeof Home; label: string }[] = [
-  { view: 'dashboard', icon: Home, label: 'Início' },
-  { view: 'modules', icon: BookOpen, label: 'Módulos' },
-  { view: 'lessons', icon: Video, label: 'Aulas' },
-  { view: 'practices', icon: Sparkles, label: 'Práticas' },
-  { view: 'journey', icon: Compass, label: 'Jornada' },
-];
+export const BottomNavigation = ({ currentView, onViewChange, language }: BottomNavigationProps) => {
+  const t = getTranslation(language).nav;
 
-export const BottomNavigation = ({ currentView, onViewChange }: BottomNavigationProps) => {
+  const navItems: { view: AppView; icon: typeof Home; label: string }[] = [
+    { view: 'dashboard', icon: Home, label: t.home },
+    { view: 'modules', icon: BookOpen, label: t.modules },
+    { view: 'lessons', icon: Video, label: t.lessons },
+    { view: 'practices', icon: Sparkles, label: t.practices },
+    { view: 'journey', icon: Compass, label: t.journey },
+  ];
+
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50">
       {/* Gradient blur background */}
