@@ -4,15 +4,18 @@ import { Video, Play, Clock, CheckCircle, ChevronRight, BookOpen, ArrowLeft } fr
 import { lessons, lessonsIntroduction } from '@/data/lessonsContent';
 import { Button } from '@/components/ui/button';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
+import { Language, getTranslation } from '@/data/translations';
 
 interface LessonsViewProps {
   progress: ManuscriptProgress;
   onCompleteLesson: (lessonId: string) => void;
+  language: Language;
 }
 
-export const LessonsView = ({ progress, onCompleteLesson }: LessonsViewProps) => {
+export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsViewProps) => {
   const [selectedLesson, setSelectedLesson] = useState<string | null>(null);
   
+  const t = getTranslation(language).lessons;
   const currentLesson = lessons.find(l => l.id === selectedLesson);
   const completedLessons = progress.completedSections.filter(s => s.startsWith('lesson-'));
 
@@ -31,14 +34,14 @@ export const LessonsView = ({ progress, onCompleteLesson }: LessonsViewProps) =>
             className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm">Voltar às aulas</span>
+            <span className="text-sm">{t.backToLessons}</span>
           </button>
           
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-xl bg-manuscript-gold/20 flex items-center justify-center">
               <Video className="w-5 h-5 text-manuscript-gold" />
             </div>
-            <span className="text-manuscript-gold font-medium">Aula {currentLesson.number}</span>
+            <span className="text-manuscript-gold font-medium">{t.lesson} {currentLesson.number}</span>
           </div>
           
           <h1 className="text-2xl font-heading text-manuscript-light mb-2">
@@ -65,14 +68,14 @@ export const LessonsView = ({ progress, onCompleteLesson }: LessonsViewProps) =>
               <div className="w-16 h-16 rounded-full bg-manuscript-gold/20 flex items-center justify-center mb-4">
                 <Play className="w-8 h-8 text-manuscript-gold ml-1" />
               </div>
-              <p className="text-manuscript-light/60 text-sm">Vídeo será adicionado em breve</p>
+              <p className="text-manuscript-light/60 text-sm">{t.videoComingSoon}</p>
             </div>
           )}
         </div>
 
         {/* Introduction */}
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 mb-6">
-          <h3 className="text-lg font-heading text-manuscript-light mb-3">Introdução</h3>
+          <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.introduction}</h3>
           <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">
             {currentLesson.introduction}
           </p>
@@ -82,7 +85,7 @@ export const LessonsView = ({ progress, onCompleteLesson }: LessonsViewProps) =>
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 mb-6">
           <h3 className="text-lg font-heading text-manuscript-light mb-3 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-manuscript-gold" />
-            O que você vai aprender
+            {t.whatYouWillLearn}
           </h3>
           <ul className="space-y-3">
             {currentLesson.whatYouWillLearn.map((item, index) => (
@@ -96,7 +99,7 @@ export const LessonsView = ({ progress, onCompleteLesson }: LessonsViewProps) =>
 
         {/* Deep Content */}
         <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 mb-6">
-          <h3 className="text-lg font-heading text-manuscript-light mb-3">Conteúdo Aprofundado</h3>
+          <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.deepContent}</h3>
           <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">
             {currentLesson.deepContent}
           </p>
@@ -114,10 +117,10 @@ export const LessonsView = ({ progress, onCompleteLesson }: LessonsViewProps) =>
           {completedLessons.includes(currentLesson.id) ? (
             <span className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5" />
-              Aula Concluída
+              {t.lessonCompleted}
             </span>
           ) : (
-            'Marcar como Concluída'
+            t.markAsComplete
           )}
         </Button>
       </motion.div>

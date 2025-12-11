@@ -4,9 +4,12 @@ import { Calendar, Sparkles, Wind, CheckCircle2, Circle, Flame, Trophy } from 'l
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { MeditationTimer } from './MeditationTimer';
 
+import { Language } from '@/data/translations';
+
 interface PracticeViewProps {
   progress: ManuscriptProgress;
   onCompleteDay: (day: number) => void;
+  language: Language;
 }
 
 const dayContent = [
