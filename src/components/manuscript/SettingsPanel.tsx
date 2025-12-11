@@ -17,13 +17,15 @@ interface SettingsPanelProps {
   onSetFontSize: (size: ManuscriptProgress['fontSize']) => void;
   onSetTheme: (theme: ManuscriptProgress['theme']) => void;
   onResetProgress: () => void;
+  onClose?: () => void;
 }
 
 export const SettingsPanel = ({ 
   progress, 
   onSetFontSize, 
   onSetTheme, 
-  onResetProgress 
+  onResetProgress,
+  onClose
 }: SettingsPanelProps) => {
   const [showResetConfirm, setShowResetConfirm] = useState(false);
 
@@ -45,8 +47,17 @@ export const SettingsPanel = ({
   };
 
   return (
-    <div className="min-h-screen pb-24 px-4 pt-8">
+    <div className="min-h-screen pb-24 px-4 pt-6">
       {/* Header */}
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span className="text-sm">Voltar</span>
+        </button>
+      )}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,13 +65,13 @@ export const SettingsPanel = ({
       >
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-manuscript-gold/10 border border-manuscript-gold/30 rounded-full mb-4">
           <Settings className="w-4 h-4 text-manuscript-gold" />
-          <span className="text-manuscript-gold text-sm font-body">Preferences</span>
+          <span className="text-manuscript-gold text-sm font-body">Configurações</span>
         </div>
         <h1 className="font-heading text-4xl text-manuscript-gold mb-3">
-          Settings
+          Configurações
         </h1>
         <p className="text-manuscript-light font-body">
-          Customize your experience
+          Personalize sua experiência
         </p>
       </motion.div>
 
