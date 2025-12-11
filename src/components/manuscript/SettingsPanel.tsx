@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Globe, LogOut } from 'lucide-react';
+import { ArrowLeft, Globe, LogOut, User } from 'lucide-react';
 import { 
   Type, 
   Palette, 
@@ -12,9 +12,15 @@ import {
 import { ManuscriptProgress } from '@/hooks/useCloudProgress';
 import { Language, getTranslation } from '@/data/translations';
 import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import { Profile } from '@/hooks/useProfile';
 
 interface SettingsPanelProps {
   progress: ManuscriptProgress;
+  profile: Profile | null;
+  onUpdateProfile: (updates: { first_name?: string }) => Promise<{ error: Error | null }>;
   onSetFontSize: (size: ManuscriptProgress['fontSize']) => void;
   onSetTheme: (theme: ManuscriptProgress['theme']) => void;
   onSetLanguage: (language: Language) => void;
@@ -24,7 +30,9 @@ interface SettingsPanelProps {
 }
 
 export const SettingsPanel = ({ 
-  progress, 
+  progress,
+  profile,
+  onUpdateProfile,
   onSetFontSize, 
   onSetTheme, 
   onSetLanguage,
@@ -33,6 +41,8 @@ export const SettingsPanel = ({
   onClose
 }: SettingsPanelProps) => {
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [editName, setEditName] = useState(profile?.first_name || '');
+  const [isSavingProfile, setIsSavingProfile] = useState(false);
   const t = getTranslation(progress.language).settings;
 
   const fontSizes: { value: ManuscriptProgress['fontSize']; label: string; sample: string }[] = [
@@ -55,6 +65,18 @@ export const SettingsPanel = ({
   const handleReset = () => {
     onResetProgress();
     setShowResetConfirm(false);
+  };
+
+  const handleSaveProfile = async () => {
+    if (!editName.trim()) return;
+    setIsSavingProfile(true);
+    const { error } = await onUpdateProfile({ first_name: editName.trim() });
+    setIsSavingProfile(false);
+    if (error) {
+      toast.error('Failed to update profile');
+    } else {
+      toast.success(t.profileUpdated);
+    }
   };
 
   return (
@@ -83,6 +105,38 @@ export const SettingsPanel = ({
         <p className="text-foreground font-body">
           {t.personalize}
         </p>
+      </motion.div>
+
+      {/* Profile Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-8"
+      >
+        <div className="flex items-center gap-3 mb-5">
+          <div className="bg-manuscript-gold/20 p-2 rounded-lg">
+            <User className="w-5 h-5 text-manuscript-gold" />
+          </div>
+          <h2 className="text-foreground font-heading text-xl">{t.yourProfile}</h2>
+        </div>
+        <div className="bg-gradient-to-br from-white/80 to-primary/10 rounded-2xl p-5 border border-primary/20">
+          <label className="text-muted-foreground font-body text-sm mb-2 block">{t.name}</label>
+          <div className="flex gap-3">
+            <Input
+              placeholder={t.namePlaceholder}
+              value={editName}
+              onChange={(e) => setEditName(e.target.value)}
+              className="flex-1"
+            />
+            <Button 
+              onClick={handleSaveProfile}
+              disabled={isSavingProfile || !editName.trim() || editName.trim() === profile?.first_name}
+              className="bg-manuscript-gold hover:bg-manuscript-gold/90 text-white"
+            >
+              {t.saveProfile}
+            </Button>
+          </div>
+        </div>
       </motion.div>
 
       {/* Language */}

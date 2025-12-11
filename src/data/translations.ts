@@ -56,6 +56,11 @@ export const translations = {
       cancel: 'Cancel',
       resetEverything: 'Reset Everything',
       version: 'Archangel Key v1.0',
+      yourProfile: 'Your Profile',
+      name: 'Name',
+      namePlaceholder: 'How should we call you?',
+      saveProfile: 'Save',
+      profileUpdated: 'Profile updated!',
     },
     modules: {
       backToModules: 'Back to modules',
@@ -229,6 +234,11 @@ export const translations = {
       cancel: 'Cancelar',
       resetEverything: 'Resetar Tudo',
       version: 'Archangel Key v1.0',
+      yourProfile: 'Seu Perfil',
+      name: 'Nome',
+      namePlaceholder: 'Como devemos chamá-lo?',
+      saveProfile: 'Salvar',
+      profileUpdated: 'Perfil atualizado!',
     },
     modules: {
       backToModules: 'Voltar aos módulos',

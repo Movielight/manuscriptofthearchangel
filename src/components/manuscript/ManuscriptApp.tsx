@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAuth } from '@/hooks/useAuth';
+import { useProfile } from '@/hooks/useProfile';
 import { useCloudProgress } from '@/hooks/useCloudProgress';
 import { useCelebration } from '@/hooks/useCelebration';
 import { BottomNavigation, AppView } from './BottomNavigation';
@@ -21,6 +22,7 @@ const ONBOARDING_KEY = 'sacred-manuscript-onboarding-complete';
 export const ManuscriptApp = () => {
   const navigate = useNavigate();
   const { user, loading: authLoading, signOut } = useAuth();
+  const { profile, updateProfile, loading: profileLoading } = useProfile();
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -86,6 +88,8 @@ export const ManuscriptApp = () => {
       return (
         <SettingsPanel
           progress={progress}
+          profile={profile}
+          onUpdateProfile={updateProfile}
           onSetFontSize={setFontSize}
           onSetTheme={setTheme}
           onSetLanguage={setLanguage}
@@ -100,7 +104,8 @@ export const ManuscriptApp = () => {
       case 'dashboard':
         return (
           <Dashboard 
-            progress={progress} 
+            progress={progress}
+            firstName={profile?.first_name}
             onNavigate={setCurrentView}
             onOpenSettings={() => setShowSettings(true)}
           />
@@ -141,7 +146,8 @@ export const ManuscriptApp = () => {
       default:
         return (
           <Dashboard 
-            progress={progress} 
+            progress={progress}
+            firstName={profile?.first_name}
             onNavigate={setCurrentView}
             onOpenSettings={() => setShowSettings(true)}
           />
@@ -150,7 +156,7 @@ export const ManuscriptApp = () => {
   };
 
   // Show loading state
-  if (authLoading || progressLoading) {
+  if (authLoading || progressLoading || profileLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-white via-background to-primary/10 flex items-center justify-center">
         <motion.div
