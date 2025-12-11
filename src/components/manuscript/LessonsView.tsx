@@ -12,6 +12,24 @@ interface LessonsViewProps {
   language: Language;
 }
 
+// Convert YouTube URLs to embed format
+const convertToEmbedUrl = (url: string): string => {
+  // Handle youtu.be short URLs
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (shortMatch) {
+    return `https://www.youtube.com/embed/${shortMatch[1]}`;
+  }
+  
+  // Handle youtube.com/watch URLs
+  const watchMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/);
+  if (watchMatch) {
+    return `https://www.youtube.com/embed/${watchMatch[1]}`;
+  }
+  
+  // Already embed URL or other format
+  return url;
+};
+
 export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsViewProps) => {
   const [selectedLesson, setSelectedLesson] = useState<string | null>(null);
   
@@ -54,11 +72,11 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
           </div>
         </div>
 
-        {/* Video Placeholder */}
+        {/* Video Player */}
         <div className="relative aspect-video bg-manuscript-dark/50 rounded-2xl border border-manuscript-gold/20 overflow-hidden mb-6">
           {currentLesson.videoUrl ? (
             <iframe
-              src={currentLesson.videoUrl}
+              src={convertToEmbedUrl(currentLesson.videoUrl)}
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
