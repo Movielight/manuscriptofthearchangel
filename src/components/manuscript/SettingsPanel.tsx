@@ -7,11 +7,11 @@ import {
   RotateCcw, 
   Info, 
   Check,
-  AlertTriangle,
-  Settings
+  AlertTriangle
 } from 'lucide-react';
 import { ManuscriptProgress } from '@/hooks/useCloudProgress';
 import { Language, getTranslation } from '@/data/translations';
+import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 
 interface SettingsPanelProps {
   progress: ManuscriptProgress;
@@ -74,9 +74,8 @@ export const SettingsPanel = ({
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-8"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-manuscript-gold/10 border border-manuscript-gold/30 rounded-full mb-4">
-          <Settings className="w-4 h-4 text-manuscript-gold" />
-          <span className="text-manuscript-gold text-sm font-body">{t.title}</span>
+        <div className="mb-4">
+          <ArchangelKeyLogo size="md" animate={false} />
         </div>
         <h1 className="font-heading text-4xl text-manuscript-gold mb-3">
           {t.title}
@@ -307,9 +306,12 @@ export const SettingsPanel = ({
       )}
 
       {/* Version */}
-      <p className="text-center text-manuscript-light/50 text-sm mt-10 font-body">
-        {t.version}
-      </p>
+      <div className="text-center mt-10">
+        <ArchangelKeyLogo size="sm" animate={false} className="mx-auto mb-2" />
+        <p className="text-manuscript-light/50 text-sm font-body">
+          Archangel Key v1.0
+        </p>
+      </div>
     </div>
   );
 };

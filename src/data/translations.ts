@@ -10,7 +10,7 @@ export const translations = {
       journey: 'Journey',
     },
     dashboard: {
-      title: 'Sacred Manuscript',
+      title: 'Archangel Key',
       subtitle: 'Your self-knowledge journey',
       overallProgress: 'Overall Progress',
       days: 'days',
@@ -25,7 +25,7 @@ export const translations = {
       meditationsAndExercises: 'Meditations and exercises',
       dailyReflection: 'Daily Reflection',
       quote: '"The journey of self-knowledge has no final destination - each step is simultaneously path and arrival."',
-      quoteAuthor: '— Sacred Manuscript',
+      quoteAuthor: '— Archangel Key',
     },
     settings: {
       title: 'Settings',
@@ -55,7 +55,7 @@ export const translations = {
       resetConfirmMessage: 'This will delete all your progress, journal entries, and badges. This cannot be undone.',
       cancel: 'Cancel',
       resetEverything: 'Reset Everything',
-      version: 'Sacred Manuscript App v1.0',
+      version: 'Archangel Key v1.0',
     },
     modules: {
       backToModules: 'Back to modules',
@@ -154,8 +154,8 @@ export const translations = {
       continue: 'Continue',
     },
     onboarding: {
-      welcomeTitle: 'Welcome, Seeker',
-      welcomeDesc: 'You have been chosen to receive the Sacred Manuscript. This app will guide you through your journey of self-knowledge and transformation.',
+      welcomeTitle: 'Welcome to Archangel Key',
+      welcomeDesc: 'You have been chosen to receive sacred wisdom. This app will guide you through your journey of self-knowledge and transformation.',
       welcomeHighlight: 'Your journey begins now.',
       readingsTitle: 'Sacred Readings',
       readingsDesc: 'Discover educational content, meditations, exercises and reflections. Each section brings you closer to a deeper understanding of yourself.',
@@ -183,7 +183,7 @@ export const translations = {
       journey: 'Jornada',
     },
     dashboard: {
-      title: 'Manuscrito Sagrado',
+      title: 'Archangel Key',
       subtitle: 'Sua jornada de autoconhecimento',
       overallProgress: 'Progresso Geral',
       days: 'dias',
@@ -198,7 +198,7 @@ export const translations = {
       meditationsAndExercises: 'Meditações e exercícios',
       dailyReflection: 'Reflexão do Dia',
       quote: '"A jornada de autoconhecimento não tem destino final - cada passo é simultaneamente caminho e chegada."',
-      quoteAuthor: '— Manuscrito Sagrado',
+      quoteAuthor: '— Archangel Key',
     },
     settings: {
       title: 'Configurações',
@@ -228,7 +228,7 @@ export const translations = {
       resetConfirmMessage: 'Isso excluirá todo o seu progresso, entradas do diário e conquistas. Isso não pode ser desfeito.',
       cancel: 'Cancelar',
       resetEverything: 'Resetar Tudo',
-      version: 'Manuscrito Sagrado App v1.0',
+      version: 'Archangel Key v1.0',
     },
     modules: {
       backToModules: 'Voltar aos módulos',
@@ -327,8 +327,8 @@ export const translations = {
       continue: 'Continuar',
     },
     onboarding: {
-      welcomeTitle: 'Bem-vindo, Buscador',
-      welcomeDesc: 'Você foi escolhido para receber o Manuscrito Sagrado. Este app irá guiá-lo em sua jornada de autoconhecimento e transformação.',
+      welcomeTitle: 'Bem-vindo ao Archangel Key',
+      welcomeDesc: 'Você foi escolhido para receber sabedoria sagrada. Este app irá guiá-lo em sua jornada de autoconhecimento e transformação.',
       welcomeHighlight: 'Sua jornada começa agora.',
       readingsTitle: 'Leituras Sagradas',
       readingsDesc: 'Descubra conteúdos educacionais, meditações, exercícios e reflexões. Cada seção o aproxima de uma compreensão mais profunda de si mesmo.',

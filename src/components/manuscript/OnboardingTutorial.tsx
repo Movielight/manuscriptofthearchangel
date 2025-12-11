@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Sparkles, NotebookPen, Star, ArrowRight, X } from 'lucide-react';
+import { BookOpen, Sparkles, NotebookPen, ArrowRight, X } from 'lucide-react';
 import { Language, getTranslation } from '@/data/translations';
+import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 
 interface OnboardingTutorialProps {
   onComplete: () => void;
@@ -15,28 +16,32 @@ export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialP
 
   const steps = [
     {
-      icon: Star,
+      icon: null, // Will show logo instead
       title: t.welcomeTitle,
       description: t.welcomeDesc,
       highlight: t.welcomeHighlight,
+      isLogoStep: true,
     },
     {
       icon: BookOpen,
       title: t.readingsTitle,
       description: t.readingsDesc,
       highlight: t.readingsHighlight,
+      isLogoStep: false,
     },
     {
       icon: Sparkles,
       title: t.pathTitle,
       description: t.pathDesc,
       highlight: t.pathHighlight,
+      isLogoStep: false,
     },
     {
       icon: NotebookPen,
       title: t.journalTitle,
       description: t.journalDesc,
       highlight: t.journalHighlight,
+      isLogoStep: false,
     },
   ];
 
@@ -102,15 +107,26 @@ export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialP
             transition={{ duration: 0.3 }}
             className="text-center"
           >
-            {/* Icon */}
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: 'spring', damping: 12, delay: 0.1 }}
-              className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-manuscript-gold/30 to-manuscript-gold/10 border border-manuscript-gold/40 mb-8 shadow-lg"
-            >
-              <Icon className="w-12 h-12 text-manuscript-gold" />
-            </motion.div>
+            {/* Icon or Logo */}
+            {step.isLogoStep ? (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', damping: 12, delay: 0.1 }}
+                className="mb-8"
+              >
+                <ArchangelKeyLogo size="xl" showText animate />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', damping: 12, delay: 0.1 }}
+                className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-manuscript-gold/30 to-manuscript-gold/10 border border-manuscript-gold/40 mb-8 shadow-lg"
+              >
+                {Icon && <Icon className="w-12 h-12 text-manuscript-gold" />}
+              </motion.div>
+            )}
 
             {/* Title */}
             <motion.h1
