@@ -1,5 +1,5 @@
-// Conteúdo das Aulas em Vídeo do Manuscrito Sagrado
-// Cada aula tem texto introdutório e espaço para link de vídeo
+// Video Lesson Content for the Sacred Manuscript
+// Each lesson has introductory text and space for video link
 
 export interface Lesson {
   id: string;
@@ -10,186 +10,186 @@ export interface Lesson {
   introduction: string;
   whatYouWillLearn: string[];
   deepContent: string;
-  videoUrl: string | null; // null = vídeo ainda não adicionado
+  videoUrl: string | null; // null = video not yet added
 }
 
 export const lessons: Lesson[] = [
   {
     id: "lesson-1",
     number: 1,
-    title: "Introdução ao Manuscrito e à Jornada Interior",
-    subtitle: "Fundamentos para sua transformação consciente",
+    title: "Introduction to the Manuscript and the Inner Journey",
+    subtitle: "Foundations for your conscious transformation",
     duration: "~20 min",
-    introduction: `Nesta primeira aula, você será apresentado à essência do Manuscrito Sagrado e ao caminho de autoconhecimento que se abre diante de você.
+    introduction: `In this first lesson, you will be introduced to the essence of the Sacred Manuscript and the path of self-discovery that opens before you.
 
-Antes de mergulhar nos conteúdos específicos, é fundamental compreender o propósito desta jornada e como aproveitar ao máximo cada ensinamento. Esta não é uma promessa de mudança instantânea, mas um convite para um trabalho interno genuíno e gradual.`,
+Before diving into specific content, it is essential to understand the purpose of this journey and how to make the most of each teaching. This is not a promise of instant change, but an invitation for genuine and gradual inner work.`,
     whatYouWillLearn: [
-      "O propósito e a filosofia por trás do Manuscrito Sagrado",
-      "Como esta jornada difere de abordagens superficiais de autoajuda",
-      "A importância da consistência e paciência no processo",
-      "Como criar o ambiente mental adequado para o aprendizado",
-      "Os primeiros passos práticos para iniciar sua transformação"
+      "The purpose and philosophy behind the Sacred Manuscript",
+      "How this journey differs from superficial self-help approaches",
+      "The importance of consistency and patience in the process",
+      "How to create the right mental environment for learning",
+      "The first practical steps to begin your transformation"
     ],
-    deepContent: `A jornada interior é, talvez, a mais desafiadora e gratificante que um ser humano pode empreender. Diferente de viagens externas, onde o destino é conhecido e o caminho pode ser mapeado, a exploração da própria consciência revela territórios que não podem ser descritos completamente por palavras.
+    deepContent: `The inner journey is perhaps the most challenging and rewarding that a human being can undertake. Unlike external travels, where the destination is known and the path can be mapped, the exploration of one's own consciousness reveals territories that cannot be fully described by words.
 
-O Manuscrito Sagrado serve como um guia nesta exploração. Ele não oferece respostas prontas, mas ferramentas para que você descubra suas próprias respostas. Cada insight que você terá será genuinamente seu.
+The Sacred Manuscript serves as a guide in this exploration. It does not offer ready-made answers, but tools for you to discover your own answers. Every insight you have will be genuinely yours.
 
-Nesta aula introdutória, estabelecemos as bases para tudo que virá. Você aprenderá a cultivar a disposição mental adequada - uma combinação de abertura, humildade e discernimento crítico. Esta disposição é mais importante que qualquer técnica específica.
+In this introductory lesson, we establish the foundations for everything that follows. You will learn to cultivate the appropriate mental disposition - a combination of openness, humility, and critical discernment. This disposition is more important than any specific technique.
 
-Lembre-se: o valor desta jornada não está em acumular informações, mas em transformar sua relação consigo mesmo e com a vida.`,
+Remember: the value of this journey is not in accumulating information, but in transforming your relationship with yourself and with life.`,
     videoUrl: null
   },
   {
     id: "lesson-2",
     number: 2,
-    title: "Simbologia Espiritual e Arquétipos",
-    subtitle: "A linguagem universal do inconsciente",
+    title: "Spiritual Symbolism and Archetypes",
+    subtitle: "The universal language of the unconscious",
     duration: "~25 min",
-    introduction: `Os símbolos são a linguagem mais antiga da humanidade. Antes da escrita, antes mesmo da linguagem verbal estruturada, os seres humanos se comunicavam através de símbolos - em pinturas rupestres, rituais e mitos.
+    introduction: `Symbols are humanity's oldest language. Before writing, before even structured verbal language, human beings communicated through symbols - in cave paintings, rituals, and myths.
 
-Esta aula explora como os símbolos funcionam em nossa psique e como podemos utilizá-los conscientemente para acessar camadas mais profundas de compreensão.`,
+This lesson explores how symbols work in our psyche and how we can consciously use them to access deeper layers of understanding.`,
     whatYouWillLearn: [
-      "O que são arquétipos e como eles influenciam sua vida",
-      "A diferença entre interpretação literal e simbólica",
-      "Os principais símbolos universais e seus significados",
-      "Como trabalhar com símbolos de forma prática e segura",
-      "A conexão entre símbolos pessoais e universais"
+      "What archetypes are and how they influence your life",
+      "The difference between literal and symbolic interpretation",
+      "The main universal symbols and their meanings",
+      "How to work with symbols in a practical and safe way",
+      "The connection between personal and universal symbols"
     ],
-    deepContent: `Carl Jung revolucionou a psicologia ao identificar padrões universais que se repetem em mitos, sonhos e religiões de todas as culturas. Ele chamou esses padrões de arquétipos.
+    deepContent: `Carl Jung revolutionized psychology by identifying universal patterns that repeat in myths, dreams, and religions across all cultures. He called these patterns archetypes.
 
-Os arquétipos não são conceitos abstratos - eles operam em você constantemente. Quando você admira um herói em um filme, está ressonando com o arquétipo do herói. Quando você sente nostalgia por um tempo mais simples, pode estar conectado ao arquétipo do paraíso perdido.
+Archetypes are not abstract concepts - they operate in you constantly. When you admire a hero in a movie, you are resonating with the hero archetype. When you feel nostalgia for a simpler time, you may be connected to the archetype of paradise lost.
 
-Compreender a linguagem simbólica não é aprender um código secreto. É reconhecer uma linguagem que você já fala inconscientemente. Esta aula tornará esse conhecimento consciente.
+Understanding symbolic language is not learning a secret code. It is recognizing a language you already speak unconsciously. This lesson will make that knowledge conscious.
 
-Trabalharemos com símbolos de forma prática: como interpretá-los em seus sonhos, como reconhecê-los nas situações da vida, e como utilizá-los intencionalmente em práticas contemplativas.
+We will work with symbols practically: how to interpret them in your dreams, how to recognize them in life situations, and how to use them intentionally in contemplative practices.
 
-Importante: esta é uma abordagem educacional e psicológica, não religiosa. Os símbolos são ferramentas de autoconhecimento, não objetos de adoração.`,
+Important: this is an educational and psychological approach, not religious. Symbols are tools for self-knowledge, not objects of worship.`,
     videoUrl: null
   },
   {
     id: "lesson-3",
     number: 3,
-    title: "Técnicas de Introspecção e Alinhamento Emocional",
-    subtitle: "Ferramentas práticas para clareza interior",
+    title: "Introspection and Emotional Alignment Techniques",
+    subtitle: "Practical tools for inner clarity",
     duration: "~30 min",
-    introduction: `A introspecção é a capacidade de olhar para dentro - observar seus pensamentos, emoções e padrões. O alinhamento emocional é o resultado natural de uma introspecção sincera e consistente.
+    introduction: `Introspection is the ability to look inward - to observe your thoughts, emotions, and patterns. Emotional alignment is the natural result of sincere and consistent introspection.
 
-Esta aula oferece técnicas concretas que você pode aplicar imediatamente em sua vida. Não são teorias abstratas, mas práticas testadas que produzem resultados quando aplicadas com regularidade.`,
+This lesson offers concrete techniques you can apply immediately in your life. These are not abstract theories, but tested practices that produce results when applied regularly.`,
     whatYouWillLearn: [
-      "Técnicas específicas de auto-observação",
-      "Como identificar e nomear emoções com precisão",
-      "Práticas de respiração para regulação emocional",
-      "O método do questionamento socrático aplicado",
-      "Como integrar introspecção na rotina diária"
+      "Specific self-observation techniques",
+      "How to identify and name emotions precisely",
+      "Breathing practices for emotional regulation",
+      "The Socratic questioning method applied",
+      "How to integrate introspection into daily routine"
     ],
-    deepContent: `A maioria das pessoas vive no modo automático. Pensamentos surgem, emoções acontecem, comportamentos se repetem - tudo sem que haja uma testemunha consciente observando o processo.
+    deepContent: `Most people live on autopilot. Thoughts arise, emotions happen, behaviors repeat - all without a conscious witness observing the process.
 
-A introspecção quebra esse automatismo. Quando você observa um pensamento, você não é mais apenas o pensamento - há você e o pensamento. Este pequeno espaço de consciência é revolucionário.
+Introspection breaks this automatism. When you observe a thought, you are no longer just the thought - there is you and the thought. This small space of consciousness is revolutionary.
 
-Nesta aula, ensinaremos técnicas específicas:
+In this lesson, we will teach specific techniques:
 
-1. A prática da pausa consciente - como criar espaços de observação ao longo do dia
-2. O diário de emoções - um método estruturado para rastrear seus estados internos
-3. Respiração reguladora - técnicas simples que acalmam o sistema nervoso
-4. Questionamento socrático - como desafiar crenças limitantes
+1. The practice of conscious pause - how to create spaces for observation throughout the day
+2. The emotion journal - a structured method for tracking your internal states
+3. Regulatory breathing - simple techniques that calm the nervous system
+4. Socratic questioning - how to challenge limiting beliefs
 
-Estas ferramentas são simples, mas não são fáceis. Requerem prática e paciência. Os resultados, porém, são transformadores quando você se compromete com o processo.
+These tools are simple but not easy. They require practice and patience. The results, however, are transformative when you commit to the process.
 
-Lembre-se: não oferecemos soluções mágicas. O que oferecemos são métodos comprovados que funcionam quando aplicados consistentemente.`,
+Remember: we do not offer magical solutions. What we offer are proven methods that work when applied consistently.`,
     videoUrl: null
   },
   {
     id: "lesson-4",
     number: 4,
-    title: "Práticas Simbólicas de Foco e Intenção",
-    subtitle: "Rituais conscientes para o dia a dia",
+    title: "Symbolic Practices of Focus and Intention",
+    subtitle: "Conscious rituals for daily life",
     duration: "~25 min",
-    introduction: `Esta aula apresenta práticas simbólicas que podem ajudar a estruturar sua experiência e fortalecer sua intenção. São rituais no sentido psicológico - ações carregadas de significado pessoal que auxiliam no processo de transformação.
+    introduction: `This lesson presents symbolic practices that can help structure your experience and strengthen your intention. These are rituals in the psychological sense - actions charged with personal meaning that assist in the transformation process.
 
-É importante esclarecer: estas práticas não têm poder mágico ou sobrenatural. Seu valor está em como elas organizam sua mente e direcionam sua atenção. Os resultados vêm do seu trabalho interno, não de forças externas.`,
+It is important to clarify: these practices have no magical or supernatural power. Their value lies in how they organize your mind and direct your attention. Results come from your inner work, not from external forces.`,
     whatYouWillLearn: [
-      "O que são rituais simbólicos e como eles funcionam psicologicamente",
-      "Criação de rituais matinais e noturnos personalizados",
-      "Uso de objetos simbólicos como âncoras de atenção",
-      "Práticas de definição e fortalecimento de intenções",
-      "Como adaptar rituais tradicionais ao contexto moderno"
+      "What symbolic rituals are and how they work psychologically",
+      "Creation of personalized morning and evening rituals",
+      "Use of symbolic objects as attention anchors",
+      "Practices for defining and strengthening intentions",
+      "How to adapt traditional rituals to the modern context"
     ],
-    deepContent: `Rituais são parte fundamental da experiência humana. Desde os rituais de passagem em culturas tradicionais até a simples rotina de tomar café pela manhã, ações repetidas com significado estruturam nossa experiência do tempo e da vida.
+    deepContent: `Rituals are a fundamental part of human experience. From rites of passage in traditional cultures to the simple routine of having morning coffee, repeated actions with meaning structure our experience of time and life.
 
-O que torna um ritual efetivo não é magia, mas psicologia. Quando você realiza uma ação conscientemente, com atenção plena e significado atribuído, você está:
+What makes a ritual effective is not magic, but psychology. When you perform an action consciously, with full attention and attributed meaning, you are:
 
-1. Treinando sua mente para foco
-2. Criando associações neurais que reforçam comportamentos desejados
-3. Marcando transições de maneira significativa
-4. Conectando-se com algo maior que o momento presente
+1. Training your mind for focus
+2. Creating neural associations that reinforce desired behaviors
+3. Marking transitions meaningfully
+4. Connecting with something greater than the present moment
 
-Nesta aula, oferecemos práticas seguras e não-religiosas:
+In this lesson, we offer safe and non-religious practices:
 
-- Ritual de intenção matinal: uma sequência de ações que preparam sua mente para o dia
-- Prática do fechamento consciente: como encerrar o dia de forma equilibrada
-- Uso de objetos-âncora: como utilizar itens físicos para recordar estados mentais desejados
-- Ritual de transição: como marcar mudanças importantes em sua vida
+- Morning intention ritual: a sequence of actions that prepare your mind for the day
+- Conscious closing practice: how to end the day in a balanced way
+- Use of anchor objects: how to use physical items to recall desired mental states
+- Transition ritual: how to mark important changes in your life
 
-Estas práticas são sugestões. Encorajamos você a adaptá-las ao seu contexto e criar seus próprios rituais significativos.
+These practices are suggestions. We encourage you to adapt them to your context and create your own meaningful rituals.
 
-Importante: Não prometemos que estas práticas trarão resultados específicos. Seu valor está no processo, não em garantias de resultados.`,
+Important: We do not promise that these practices will bring specific results. Their value lies in the process, not in outcome guarantees.`,
     videoUrl: null
   },
   {
     id: "lesson-5",
     number: 5,
-    title: "Como Aplicar os Ensinamentos no Dia a Dia",
-    subtitle: "Da teoria à prática cotidiana",
+    title: "How to Apply the Teachings in Daily Life",
+    subtitle: "From theory to everyday practice",
     duration: "~30 min",
-    introduction: `O verdadeiro teste de qualquer ensinamento está em sua aplicação prática. Esta aula final da série foca em como integrar tudo o que você aprendeu no fluxo real da vida cotidiana - no trabalho, nos relacionamentos, nos desafios diários.
+    introduction: `The true test of any teaching is in its practical application. This final lesson in the series focuses on how to integrate everything you have learned into the real flow of daily life - at work, in relationships, in daily challenges.
 
-A sabedoria que permanece nas páginas de um livro (ou em um app) não tem valor real. Apenas quando se torna ação vivida é que transforma.`,
+Wisdom that remains on the pages of a book (or in an app) has no real value. Only when it becomes lived action does it transform.`,
     whatYouWillLearn: [
-      "Estratégias para manter a prática quando a vida está agitada",
-      "Como aplicar consciência em situações desafiadoras",
-      "Práticas invisíveis que podem ser feitas em qualquer lugar",
-      "Como lidar com recaídas e períodos de desmotivação",
-      "Construindo uma vida alinhada com seus valores essenciais"
+      "Strategies for maintaining practice when life is busy",
+      "How to apply consciousness in challenging situations",
+      "Invisible practices that can be done anywhere",
+      "How to deal with relapses and periods of demotivation",
+      "Building a life aligned with your core values"
     ],
-    deepContent: `É fácil sentir-se equilibrado e consciente durante uma meditação tranquila. O desafio é manter essa qualidade quando o chefe está estressado, o trânsito está parado, ou um relacionamento está em crise.
+    deepContent: `It is easy to feel balanced and conscious during a quiet meditation. The challenge is maintaining that quality when the boss is stressed, traffic is stopped, or a relationship is in crisis.
 
-Esta aula é sobre levar os ensinamentos para o campo de batalha da vida real.
+This lesson is about taking the teachings to the battlefield of real life.
 
-Alguns princípios fundamentais:
+Some fundamental principles:
 
-**1. Micro-práticas são mais importantes que práticas longas**
-Três respirações conscientes várias vezes ao dia superam uma hora de meditação seguida de 23 horas de inconsciência.
+**1. Micro-practices are more important than long practices**
+Three conscious breaths several times a day surpass one hour of meditation followed by 23 hours of unconsciousness.
 
-**2. Situações difíceis são oportunidades**
-Cada momento de frustração, raiva ou ansiedade é uma chance de praticar o que você aprendeu. Não trate esses momentos como falhas, mas como treino.
+**2. Difficult situations are opportunities**
+Every moment of frustration, anger, or anxiety is a chance to practice what you learned. Don't treat these moments as failures, but as training.
 
-**3. Progresso não é linear**
-Haverá dias melhores e piores. Haverá períodos de grande clareza e períodos de confusão. Isso é normal. O importante é a tendência de longo prazo, não as flutuações diárias.
+**3. Progress is not linear**
+There will be better and worse days. There will be periods of great clarity and periods of confusion. This is normal. What matters is the long-term trend, not daily fluctuations.
 
-**4. Ambiente importa**
-Estruture seu ambiente para apoiar sua prática. Lembretes visuais, rotinas estabelecidas, e pessoas que compartilham valores similares fazem diferença.
+**4. Environment matters**
+Structure your environment to support your practice. Visual reminders, established routines, and people who share similar values make a difference.
 
-**5. Seja realista**
-Não tente mudar tudo de uma vez. Escolha uma área da vida para focar primeiro. Quando essa se tornar mais natural, expanda.
+**5. Be realistic**
+Don't try to change everything at once. Choose one area of life to focus on first. When that becomes more natural, expand.
 
-O caminho do autoconhecimento não tem fim. Você não chegará a um ponto de conclusão onde não há mais trabalho a fazer. O objetivo não é perfeição, mas crescimento contínuo e presença cada vez mais consistente.`,
+The path of self-knowledge has no end. You will not reach a point of conclusion where there is no more work to do. The goal is not perfection, but continuous growth and increasingly consistent presence.`,
     videoUrl: null
   }
 ];
 
 export const lessonsIntroduction = {
-  title: "Aulas em Vídeo",
-  subtitle: "Aprofunde seu conhecimento com conteúdo visual",
-  description: `Esta seção contém videoaulas que complementam e aprofundam os módulos escritos do Manuscrito Sagrado.
+  title: "Video Lessons",
+  subtitle: "Deepen your knowledge with visual content",
+  description: `This section contains video lessons that complement and deepen the written modules of the Sacred Manuscript.
 
-Cada aula foi desenvolvida para oferecer uma experiência imersiva de aprendizado, combinando explicações detalhadas com demonstrações práticas.
+Each lesson was developed to offer an immersive learning experience, combining detailed explanations with practical demonstrations.
 
-Recomendamos que você assista às aulas na ordem apresentada, e que reserve um tempo adequado para reflexão após cada uma.`,
+We recommend that you watch the lessons in the order presented, and that you set aside adequate time for reflection after each one.`,
   howToUse: [
-    "Assista em um ambiente tranquilo, sem distrações",
-    "Tenha seu diário por perto para anotações",
-    "Pause quando necessário para absorver o conteúdo",
-    "Pratique os exercícios sugeridos antes de avançar",
-    "Reassista aulas que ressoaram especialmente com você"
+    "Watch in a quiet environment, without distractions",
+    "Keep your journal nearby for notes",
+    "Pause when necessary to absorb the content",
+    "Practice the suggested exercises before advancing",
+    "Rewatch lessons that resonated especially with you"
   ]
 };

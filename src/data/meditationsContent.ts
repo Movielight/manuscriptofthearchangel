@@ -1,10 +1,10 @@
-// Conteúdo das Meditações Guiadas do Manuscrito Sagrado
+// Guided Meditation Content for the Sacred Manuscript
 
 export interface Meditation {
   id: string;
   title: string;
   subtitle: string;
-  duration: number; // em minutos
+  duration: number; // in minutes
   icon: string;
   preparation: string;
   purpose: string;
@@ -15,130 +15,130 @@ export interface Meditation {
 export const meditations: Meditation[] = [
   {
     id: "meditation-clarity",
-    title: "Meditação da Clareza Mental",
-    subtitle: "Dissolva a neblina dos pensamentos",
+    title: "Mental Clarity Meditation",
+    subtitle: "Dissolve the fog of thoughts",
     duration: 10,
     icon: "brain",
-    preparation: `Antes de iniciar esta meditação, prepare seu ambiente:
+    preparation: `Before starting this meditation, prepare your environment:
 
-• Escolha um local tranquilo onde você não será interrompido
-• Silencie dispositivos eletrônicos
-• Sente-se confortavelmente - pode ser em uma cadeira com os pés no chão ou em uma almofada no solo
-• Mantenha a coluna ereta, mas sem rigidez
-• Solte os ombros e relaxe as mãos sobre as coxas ou colo`,
-    purpose: `A Meditação da Clareza Mental tem como objetivo acalmar a agitação mental e criar espaço entre você e seus pensamentos.
+• Choose a quiet place where you won't be interrupted
+• Silence electronic devices
+• Sit comfortably - it can be on a chair with feet on the floor or on a cushion on the ground
+• Keep your spine erect, but without rigidity
+• Release your shoulders and relax your hands on your thighs or lap`,
+    purpose: `The Mental Clarity Meditation aims to calm mental agitation and create space between you and your thoughts.
 
-Quando a mente está agitada, é como olhar para um lago com a superfície turbulenta - não conseguimos ver o que está abaixo. Esta prática permite que a agitação se acalme, revelando clareza natural.
+When the mind is agitated, it's like looking at a lake with a turbulent surface - we cannot see what is below. This practice allows the agitation to calm, revealing natural clarity.
 
-Esta não é uma prática para "esvaziar a mente" - isso é um mito. Pensamentos continuarão surgindo. O objetivo é mudar sua relação com eles: de envolvimento automático para observação consciente.`,
+This is not a practice to "empty the mind" - that is a myth. Thoughts will continue to arise. The goal is to change your relationship with them: from automatic involvement to conscious observation.`,
     instructions: [
-      "Feche os olhos e tome três respirações profundas, soltando o ar lentamente",
-      "Permita que sua respiração encontre seu ritmo natural - não tente controlá-la",
-      "Direcione sua atenção para a sensação do ar entrando e saindo pelas narinas",
-      "Quando perceber que se distraiu com pensamentos, simplesmente note isso e retorne gentilmente à respiração",
-      "Não julgue a si mesmo por se distrair - isso é natural e faz parte do processo",
-      "Imagine que seus pensamentos são nuvens passando em um céu vasto - você é o céu, não as nuvens",
-      "Continue por 10 minutos, sempre retornando à respiração quando se perder",
-      "Nos minutos finais, expanda sua atenção para incluir todo o corpo",
-      "Gradualmente, retorne sua atenção ao ambiente externo antes de abrir os olhos"
+      "Close your eyes and take three deep breaths, exhaling slowly",
+      "Allow your breathing to find its natural rhythm - don't try to control it",
+      "Direct your attention to the sensation of air entering and leaving through the nostrils",
+      "When you notice you've been distracted by thoughts, simply note this and gently return to the breath",
+      "Don't judge yourself for getting distracted - this is natural and part of the process",
+      "Imagine that your thoughts are clouds passing in a vast sky - you are the sky, not the clouds",
+      "Continue for 10 minutes, always returning to the breath when you get lost",
+      "In the final minutes, expand your attention to include the whole body",
+      "Gradually return your attention to the external environment before opening your eyes"
     ],
-    closingGuidance: `Ao finalizar, não se levante imediatamente. Permita alguns momentos de transição.
+    closingGuidance: `When finishing, don't get up immediately. Allow a few moments of transition.
 
-Observe a qualidade de sua mente agora comparada ao início. Pode haver mais espaço, mais calma. Ou pode não haver - e isso também está bem. Os benefícios da meditação se acumulam com a prática regular, não necessariamente em cada sessão individual.
+Observe the quality of your mind now compared to the beginning. There may be more space, more calm. Or there may not be - and that's also fine. The benefits of meditation accumulate with regular practice, not necessarily in each individual session.
 
-Carregue consigo a lembrança de que você pode acessar este espaço de clareza a qualquer momento, mesmo brevemente, através de algumas respirações conscientes.`
+Carry with you the reminder that you can access this space of clarity at any time, even briefly, through a few conscious breaths.`
   },
   {
     id: "meditation-gratitude",
-    title: "Meditação da Gratidão",
-    subtitle: "Cultive apreciação pelo momento presente",
+    title: "Gratitude Meditation",
+    subtitle: "Cultivate appreciation for the present moment",
     duration: 12,
     icon: "heart",
-    preparation: `Para esta prática de gratidão, crie um ambiente acolhedor:
+    preparation: `For this gratitude practice, create a welcoming environment:
 
-• Escolha um momento do dia em que você não esteja apressado
-• Se desejar, acenda uma vela ou utilize iluminação suave
-• Sente-se de maneira confortável e digna
-• Você pode ter seu diário por perto para registrar insights após a prática
-• Respire algumas vezes para fazer a transição do modo "fazer" para o modo "ser"`,
-    purpose: `A gratidão é uma das práticas mais pesquisadas em psicologia positiva, com benefícios comprovados para bem-estar mental e físico.
+• Choose a time of day when you are not rushed
+• If you wish, light a candle or use soft lighting
+• Sit in a comfortable and dignified manner
+• You may have your journal nearby to record insights after the practice
+• Breathe a few times to transition from "doing" mode to "being" mode`,
+    purpose: `Gratitude is one of the most researched practices in positive psychology, with proven benefits for mental and physical well-being.
 
-Esta meditação não é sobre forçar sentimentos positivos ou negar dificuldades. É sobre treinar sua atenção para também perceber o que está funcionando, o que é bom, o que sustenta sua vida - elementos que frequentemente passam despercebidos.
+This meditation is not about forcing positive feelings or denying difficulties. It's about training your attention to also perceive what is working, what is good, what sustains your life - elements that often go unnoticed.
 
-O cérebro humano evoluiu para focar em problemas e ameaças. Isso era útil para sobrevivência, mas pode nos deixar cronicamente focados no negativo. A prática da gratidão oferece um contrapeso consciente.`,
+The human brain evolved to focus on problems and threats. This was useful for survival, but can leave us chronically focused on the negative. Gratitude practice offers a conscious counterbalance.`,
     instructions: [
-      "Feche os olhos e estabeleça-se na posição sentada com algumas respirações profundas",
-      "Traga à mente algo simples pelo qual você é grato - pode ser algo óbvio como saúde, ou algo sutil como o ar que respira",
-      "Não apenas pense sobre isso - sinta a gratidão em seu corpo. Onde ela reside? Talvez no peito, no rosto?",
-      "Permaneça com esta sensação por alguns momentos, saboreando-a",
-      "Agora, traga à mente uma pessoa pela qual você é grato. Visualize-a claramente",
-      "Sinta a gratidão por esta pessoa estar em sua vida. Que qualidades dela você aprecia?",
-      "Em seguida, considere um desafio recente e busque algo nele pelo qual ser grato - talvez um aprendizado ou força que descobriu em si",
-      "Expanda sua gratidão para incluir seu corpo, que sustenta sua vida a cada momento",
-      "Finalmente, sinta gratidão por você mesmo - por estar aqui, praticando, buscando crescimento",
-      "Permita que a sensação de gratidão se irradie pelo seu corpo inteiro",
-      "Gradualmente, traga sua atenção de volta ao ambiente e abra os olhos"
+      "Close your eyes and settle into the seated position with a few deep breaths",
+      "Bring to mind something simple you are grateful for - it can be something obvious like health, or something subtle like the air you breathe",
+      "Don't just think about it - feel the gratitude in your body. Where does it reside? Perhaps in the chest, the face?",
+      "Stay with this sensation for a few moments, savoring it",
+      "Now, bring to mind a person you are grateful for. Visualize them clearly",
+      "Feel gratitude for this person being in your life. What qualities of theirs do you appreciate?",
+      "Next, consider a recent challenge and look for something in it to be grateful for - perhaps a learning or strength you discovered in yourself",
+      "Expand your gratitude to include your body, which sustains your life every moment",
+      "Finally, feel gratitude for yourself - for being here, practicing, seeking growth",
+      "Allow the feeling of gratitude to radiate throughout your entire body",
+      "Gradually bring your attention back to the environment and open your eyes"
     ],
-    closingGuidance: `A gratidão cultivada em meditação pode se estender para sua vida diária.
+    closingGuidance: `Gratitude cultivated in meditation can extend into your daily life.
 
-Considere estabelecer um pequeno ritual: três coisas pelas quais você é grato ao acordar ou antes de dormir. Escrever amplifica o efeito.
+Consider establishing a small ritual: three things you're grateful for when waking up or before sleeping. Writing amplifies the effect.
 
-Lembre-se: gratidão autêntica não nega dificuldades. É possível estar grato e enfrentar desafios simultaneamente. A gratidão não é escapismo - é uma perspectiva equilibrada.`
+Remember: authentic gratitude does not deny difficulties. It's possible to be grateful and face challenges simultaneously. Gratitude is not escapism - it's a balanced perspective.`
   },
   {
     id: "meditation-focus",
-    title: "Meditação do Foco e Presença",
-    subtitle: "Ancore-se no aqui e agora",
+    title: "Focus and Presence Meditation",
+    subtitle: "Anchor yourself in the here and now",
     duration: 15,
     icon: "target",
-    preparation: `Esta meditação trabalha com presença sensorial. Prepare-se assim:
+    preparation: `This meditation works with sensory presence. Prepare yourself like this:
 
-• Escolha um ambiente relativamente silencioso
-• Vista roupas confortáveis que não restrinjam
-• Remova óculos, relógios ou outros itens que possam distrair
-• Certifique-se de que não está com fome excessiva nem acabou de comer muito
-• Sente-se com a coluna ereta, permitindo que a respiração flua livremente`,
-    purpose: `A presença plena - estar completamente aqui, agora - é simultaneamente simples e profunda. Simples porque não exige nada especial. Profunda porque raramente a experimentamos plenamente.
+• Choose a relatively quiet environment
+• Wear comfortable clothes that don't restrict
+• Remove glasses, watches, or other items that might distract
+• Make sure you're not excessively hungry or just ate too much
+• Sit with your spine erect, allowing breath to flow freely`,
+    purpose: `Full presence - being completely here, now - is simultaneously simple and profound. Simple because it requires nothing special. Profound because we rarely experience it fully.
 
-A maioria do tempo vivemos em pensamentos sobre passado ou futuro. Mesmo quando o corpo está aqui, a mente está em outro lugar. Esta meditação treina a capacidade de reunir atenção no momento presente.
+Most of the time we live in thoughts about the past or future. Even when the body is here, the mind is elsewhere. This meditation trains the ability to gather attention in the present moment.
 
-O foco desenvolvido aqui tem aplicações práticas: melhor concentração no trabalho, presença mais genuína em relacionamentos, e maior capacidade de responder (em vez de reagir) às situações da vida.`,
+The focus developed here has practical applications: better concentration at work, more genuine presence in relationships, and greater ability to respond (rather than react) to life situations.`,
     instructions: [
-      "Feche os olhos e tome algumas respirações profundas para fazer a transição",
-      "Sinta o peso do seu corpo na superfície em que está sentado - a solidez que te sustenta",
-      "Percorra mentalmente seu corpo da cabeça aos pés, notando sensações sem tentar mudá-las",
-      "Agora, foque toda sua atenção nas sensações de suas mãos. O que você percebe? Temperatura, formigamento, pulsação?",
-      "Expanda o foco para incluir os sons ao seu redor. Não os rotule - apenas ouça",
-      "Perceba sons distantes, sons próximos, e o silêncio entre eles",
-      "Traga a atenção para o ritmo de sua respiração. Siga cada inspiração do início ao fim",
-      "Siga cada expiração, notando a pequena pausa antes da próxima inspiração",
-      "Se pensamentos surgirem, note-os brevemente e retorne às sensações do momento",
-      "Nos minutos finais, permita que sua atenção se expanda para incluir todo o campo de experiência: corpo, sons, respiração, espaço",
-      "Sinta-se presente, vivo, aqui",
-      "Lentamente, mova os dedos das mãos e dos pés antes de abrir os olhos"
+      "Close your eyes and take a few deep breaths to make the transition",
+      "Feel the weight of your body on the surface you're sitting on - the solidity that supports you",
+      "Mentally scan your body from head to toe, noticing sensations without trying to change them",
+      "Now, focus all your attention on the sensations in your hands. What do you perceive? Temperature, tingling, pulsation?",
+      "Expand the focus to include sounds around you. Don't label them - just listen",
+      "Notice distant sounds, nearby sounds, and the silence between them",
+      "Bring attention to the rhythm of your breathing. Follow each inhalation from beginning to end",
+      "Follow each exhalation, noticing the small pause before the next inhalation",
+      "If thoughts arise, note them briefly and return to the sensations of the moment",
+      "In the final minutes, allow your attention to expand to include the entire field of experience: body, sounds, breath, space",
+      "Feel yourself present, alive, here",
+      "Slowly move your fingers and toes before opening your eyes"
     ],
-    closingGuidance: `A presença cultivada nesta meditação está sempre disponível para você - não apenas na almofada de meditação.
+    closingGuidance: `The presence cultivated in this meditation is always available to you - not just on the meditation cushion.
 
-Durante o dia, você pode praticar "micro-presenças": alguns segundos de atenção plena às sensações das mãos, ou três respirações conscientes. Estas mini-práticas acumulam-se e fortalecem sua capacidade de presença.
+Throughout the day, you can practice "micro-presences": a few seconds of full attention to the sensations in your hands, or three conscious breaths. These mini-practices accumulate and strengthen your capacity for presence.
 
-Observe como você se sente ao estar presente versus quando está perdido em pensamentos. Esta observação direta é mais valiosa que qualquer teoria.`
+Observe how you feel when present versus when lost in thoughts. This direct observation is more valuable than any theory.`
   }
 ];
 
 export const meditationsIntroduction = {
-  title: "Meditações Guiadas",
-  subtitle: "Práticas contemplativas para seu desenvolvimento",
-  description: `As meditações oferecidas aqui são práticas seguras, baseadas em tradições contemplativas reconhecidas e adaptadas para o contexto contemporâneo.
+  title: "Guided Meditations",
+  subtitle: "Contemplative practices for your development",
+  description: `The meditations offered here are safe practices, based on recognized contemplative traditions and adapted for the contemporary context.
 
-Elas não requerem crenças específicas e podem ser praticadas por qualquer pessoa, independente de background religioso ou espiritual.
+They do not require specific beliefs and can be practiced by anyone, regardless of religious or spiritual background.
 
-Os benefícios da meditação regular incluem redução de estresse, melhora no foco, e maior autoconsciência. Estes benefícios são apoiados por pesquisa científica, embora os resultados individuais variem.`,
+The benefits of regular meditation include stress reduction, improved focus, and greater self-awareness. These benefits are supported by scientific research, although individual results vary.`,
   tips: [
-    "Comece com sessões curtas e aumente gradualmente",
-    "Regularidade é mais importante que duração",
-    "Não existe meditação 'perfeita' - pensamentos fazem parte do processo",
-    "Use o timer integrado ou defina um alarme suave",
-    "Se possível, pratique no mesmo horário cada dia"
+    "Start with short sessions and gradually increase",
+    "Regularity is more important than duration",
+    "There is no 'perfect' meditation - thoughts are part of the process",
+    "Use the built-in timer or set a gentle alarm",
+    "If possible, practice at the same time each day"
   ],
-  disclaimer: "Se você tem condições de saúde mental, consulte um profissional antes de iniciar uma prática meditativa regular."
+  disclaimer: "If you have mental health conditions, consult a professional before starting a regular meditative practice."
 };
