@@ -64,7 +64,7 @@ Understanding symbolic language is not learning a secret code. It is recognizing
 We will work with symbols practically: how to interpret them in your dreams, how to recognize them in life situations, and how to use them intentionally in contemplative practices.
 
 Important: this is an educational and psychological approach, not religious. Symbols are tools for self-knowledge, not objects of worship.`,
-    videoUrl: null
+    videoUrl: "https://youtu.be/NdIp_rZ1oiw"
   },
   {
     id: "lesson-3",
