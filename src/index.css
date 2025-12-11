@@ -47,17 +47,22 @@
     --sacred-glow: 38 80% 60%;
     --sacred-teal: 175 60% 45%;
 
-    /* Manuscript colors */
-    --manuscript-dark: 270 25% 8%;
-    --manuscript-light: 45 25% 92%;
-    --manuscript-gold: 43 85% 58%;
-    --manuscript-purple: 270 55% 50%;
+    /* Manuscript colors - Premium Light Theme */
+    --manuscript-dark: 40 30% 20%;
+    --manuscript-light: 40 30% 97%;
+    --manuscript-gold: 43 85% 45%;
+    --manuscript-purple: 270 55% 45%;
+    --manuscript-surface: 40 35% 96%;
+    --manuscript-text: 30 25% 15%;
+    --manuscript-text-muted: 30 20% 40%;
 
-    /* Gradients */
+    /* Premium Gradients */
     --gradient-sacred: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(35 75% 35%) 100%);
     --gradient-divine: linear-gradient(180deg, hsl(40 30% 97%) 0%, hsl(40 40% 90%) 100%);
     --gradient-celestial: linear-gradient(135deg, hsl(180 25% 25%) 0%, hsl(180 20% 35%) 50%, hsl(38 70% 50%) 100%);
     --gradient-mystical: radial-gradient(ellipse at center, hsl(38 80% 60% / 0.2) 0%, transparent 70%);
+    --gradient-premium: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 50% 98%) 40%, hsl(38 45% 92%) 75%, hsl(38 55% 85%) 100%);
+    --gradient-premium-subtle: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(40 40% 96%) 50%, hsl(38 45% 90%) 100%);
 
     /* Shadows */
     --shadow-sacred: 0 4px 30px hsl(38 70% 50% / 0.15);
@@ -114,24 +119,29 @@
     --sacred-teal: 175 55% 40%;
   }
 
-  /* Theme classes for manuscript app */
+  /* Theme classes for manuscript app - Premium Light Themes */
   .theme-default {
-    --app-bg: 270 25% 8%;
-    --app-surface: 270 20% 12%;
+    --app-bg: 0 0% 100%;
+    --app-surface: 40 35% 96%;
+    --manuscript-surface: 40 35% 96%;
+    --manuscript-text: 30 25% 15%;
+    --manuscript-text-muted: 30 20% 40%;
   }
   
   .theme-sepia {
-    --app-bg: 35 30% 12%;
-    --app-surface: 35 25% 16%;
-    --manuscript-dark: 35 30% 12%;
-    --manuscript-light: 40 35% 88%;
+    --app-bg: 38 40% 95%;
+    --app-surface: 38 35% 92%;
+    --manuscript-surface: 38 35% 92%;
+    --manuscript-text: 30 30% 12%;
+    --manuscript-text-muted: 30 25% 35%;
   }
   
   .theme-dark {
-    --app-bg: 0 0% 4%;
-    --app-surface: 0 0% 8%;
-    --manuscript-dark: 0 0% 4%;
-    --manuscript-light: 0 0% 90%;
+    --app-bg: 270 25% 8%;
+    --app-surface: 270 20% 12%;
+    --manuscript-surface: 270 20% 12%;
+    --manuscript-text: 45 25% 92%;
+    --manuscript-text-muted: 45 20% 70%;
   }
 
   /* Font size classes */

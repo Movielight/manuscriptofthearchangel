@@ -66,7 +66,7 @@ export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialP
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-manuscript-dark"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-white via-background to-primary/10"
     >
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden">
@@ -91,7 +91,7 @@ export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialP
       {/* Skip button */}
       <button
         onClick={handleSkip}
-        className="absolute top-6 right-6 p-2 text-manuscript-light/60 hover:text-manuscript-light transition-colors z-10"
+        className="absolute top-6 right-6 p-2 text-muted-foreground hover:text-foreground transition-colors z-10"
       >
         <X className="w-6 h-6" />
       </button>
@@ -143,7 +143,7 @@ export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialP
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="font-body text-manuscript-light text-lg leading-relaxed mb-4"
+              className="font-body text-foreground text-lg leading-relaxed mb-4"
             >
               {step.description}
             </motion.p>
@@ -185,7 +185,7 @@ export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialP
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={handleNext}
-          className="w-full py-4 px-6 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-manuscript-dark font-heading text-lg rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-manuscript-gold/20"
+          className="w-full py-4 px-6 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-white font-heading text-lg rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-manuscript-gold/20"
         >
           {isLastStep ? t.beginJourney : t.continue}
           <ArrowRight className="w-5 h-5" />
@@ -198,7 +198,7 @@ export const OnboardingTutorial = ({ onComplete, language }: OnboardingTutorialP
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             onClick={handleSkip}
-            className="w-full mt-4 text-manuscript-light/60 font-body hover:text-manuscript-light transition-colors"
+            className="w-full mt-4 text-muted-foreground font-body hover:text-foreground transition-colors"
           >
             {t.skipTutorial}
           </motion.button>

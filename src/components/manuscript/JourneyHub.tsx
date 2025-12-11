@@ -32,7 +32,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
         <div className="px-4 pt-6 pb-4">
           <button
             onClick={() => setCurrentView('hub')}
-            className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
+            className="flex items-center gap-2 text-muted-foreground hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{t.back}</span>
@@ -54,7 +54,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
         <div className="pt-6 pb-4">
           <button
             onClick={() => setSelectedReflection(null)}
-            className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
+            className="flex items-center gap-2 text-muted-foreground hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{t.backToReflections}</span>
@@ -65,16 +65,16 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
           </div>
           
           <span className="text-manuscript-gold text-sm font-medium">{currentReflection.theme}</span>
-          <h1 className="text-2xl font-heading text-manuscript-light mt-1">
+          <h1 className="text-2xl font-heading text-foreground mt-1">
             {currentReflection.title}
           </h1>
         </div>
 
-        <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-6">
-          <p className="text-manuscript-light/80 leading-relaxed whitespace-pre-line font-body text-lg">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-6">
+          <p className="text-muted-foreground leading-relaxed whitespace-pre-line font-body text-lg">
             {currentReflection.content}
           </p>
-          <p className="text-manuscript-gold/60 text-sm mt-6 text-right italic">
+          <p className="text-manuscript-gold/80 text-sm mt-6 text-right italic">
             — {currentReflection.author}
           </p>
         </div>
@@ -89,17 +89,17 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
         <div className="pt-6 pb-4">
           <button
             onClick={() => setCurrentView('hub')}
-            className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
+            className="flex items-center gap-2 text-muted-foreground hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{t.back}</span>
           </button>
           
-          <h1 className="text-2xl font-heading text-manuscript-light">{reflectionsIntroduction.title}</h1>
-          <p className="text-manuscript-light/60 text-sm mt-1">{reflectionsIntroduction.subtitle}</p>
+          <h1 className="text-2xl font-heading text-foreground">{reflectionsIntroduction.title}</h1>
+          <p className="text-muted-foreground text-sm mt-1">{reflectionsIntroduction.subtitle}</p>
         </div>
 
-        <p className="text-manuscript-light/60 text-sm mb-6">{reflectionsIntroduction.description}</p>
+        <p className="text-muted-foreground text-sm mb-6">{reflectionsIntroduction.description}</p>
 
         <div className="space-y-3">
           {reflections.map((reflection, index) => (
@@ -109,10 +109,10 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               onClick={() => setSelectedReflection(reflection.id)}
-              className="w-full text-left bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 hover:border-manuscript-gold/30 transition-all"
+              className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all"
             >
               <span className="text-manuscript-gold text-xs font-medium">{reflection.theme}</span>
-              <h3 className="font-heading text-manuscript-light mt-1">{reflection.title}</h3>
+              <h3 className="font-heading text-foreground mt-1">{reflection.title}</h3>
             </motion.button>
           ))}
         </div>
@@ -131,7 +131,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
         <div className="pt-6 pb-4">
           <button
             onClick={() => setSelectedPlan(null)}
-            className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
+            className="flex items-center gap-2 text-muted-foreground hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{t.backToPlans}</span>
@@ -144,51 +144,51 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
             <span className="text-manuscript-purple font-medium">{currentPlan.duration} {t.days}</span>
           </div>
           
-          <h1 className="text-2xl font-heading text-manuscript-light">{currentPlan.title}</h1>
-          <p className="text-manuscript-light/60 text-sm mt-1">{currentPlan.subtitle}</p>
+          <h1 className="text-2xl font-heading text-foreground">{currentPlan.title}</h1>
+          <p className="text-muted-foreground text-sm mt-1">{currentPlan.subtitle}</p>
         </div>
 
         <div className="space-y-4 mb-6">
-          <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="font-heading text-manuscript-light mb-3">{t.aboutThisPlan}</h3>
-            <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">{currentPlan.introduction}</p>
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5">
+            <h3 className="font-heading text-foreground mb-3">{t.aboutThisPlan}</h3>
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{currentPlan.introduction}</p>
           </div>
 
-          <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="font-heading text-manuscript-light mb-3">{t.objective}</h3>
-            <p className="text-manuscript-light/70">{currentPlan.objective}</p>
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5">
+            <h3 className="font-heading text-foreground mb-3">{t.objective}</h3>
+            <p className="text-muted-foreground">{currentPlan.objective}</p>
           </div>
 
-          <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5">
-            <h3 className="font-heading text-manuscript-light mb-3">{t.whatYouWillNeed}</h3>
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5">
+            <h3 className="font-heading text-foreground mb-3">{t.whatYouWillNeed}</h3>
             <ul className="space-y-2">
               {currentPlan.whatYouWillNeed.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-manuscript-gold mt-0.5" />
-                  <span className="text-manuscript-light/70">{item}</span>
+                  <span className="text-muted-foreground">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <h3 className="font-heading text-manuscript-light text-lg mt-6 mb-4">{t.dailySchedule}</h3>
+          <h3 className="font-heading text-foreground text-lg mt-6 mb-4">{t.dailySchedule}</h3>
           
           {currentPlan.days.slice(0, 7).map((day) => (
-            <div key={day.day} className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4">
+            <div key={day.day} className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4">
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-8 h-8 rounded-full bg-manuscript-gold/20 text-manuscript-gold flex items-center justify-center font-medium">
                   {day.day}
                 </span>
                 <div>
-                  <h4 className="font-heading text-manuscript-light">{day.title}</h4>
-                  <p className="text-manuscript-light/60 text-sm">{day.objective}</p>
+                  <h4 className="font-heading text-foreground">{day.title}</h4>
+                  <p className="text-muted-foreground text-sm">{day.objective}</p>
                 </div>
               </div>
             </div>
           ))}
           
           {currentPlan.days.length > 7 && (
-            <p className="text-manuscript-light/40 text-center text-sm">
+            <p className="text-muted-foreground text-center text-sm">
               + {currentPlan.days.length - 7} {t.daysRemaining}
             </p>
           )}
@@ -204,17 +204,17 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
         <div className="pt-6 pb-4">
           <button
             onClick={() => setCurrentView('hub')}
-            className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
+            className="flex items-center gap-2 text-muted-foreground hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{t.back}</span>
           </button>
           
-          <h1 className="text-2xl font-heading text-manuscript-light">{practicePlansIntroduction.title}</h1>
-          <p className="text-manuscript-light/60 text-sm mt-1">{practicePlansIntroduction.subtitle}</p>
+          <h1 className="text-2xl font-heading text-foreground">{practicePlansIntroduction.title}</h1>
+          <p className="text-muted-foreground text-sm mt-1">{practicePlansIntroduction.subtitle}</p>
         </div>
 
-        <p className="text-manuscript-light/60 text-sm mb-6">{practicePlansIntroduction.description}</p>
+        <p className="text-muted-foreground text-sm mb-6">{practicePlansIntroduction.description}</p>
 
         <div className="space-y-4">
           {practicePlans.map((plan, index) => (
@@ -224,7 +224,7 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               onClick={() => setSelectedPlan(plan.id)}
-              className="w-full text-left bg-manuscript-dark/30 rounded-xl border border-manuscript-purple/10 p-4 hover:border-manuscript-purple/30 transition-all"
+              className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-manuscript-purple/20 p-4 hover:border-manuscript-purple/40 hover:bg-white/90 transition-all"
             >
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-xl bg-manuscript-purple/20 flex flex-col items-center justify-center">
@@ -232,10 +232,10 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
                   <span className="text-xs text-manuscript-purple/60">{t.days}</span>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-heading text-manuscript-light">{plan.title}</h3>
-                  <p className="text-manuscript-light/60 text-sm">{plan.subtitle}</p>
+                  <h3 className="font-heading text-foreground">{plan.title}</h3>
+                  <p className="text-muted-foreground text-sm">{plan.subtitle}</p>
                 </div>
-                <ChevronRight className="w-5 h-5 text-manuscript-light/30" />
+                <ChevronRight className="w-5 h-5 text-muted-foreground" />
               </div>
             </motion.button>
           ))}
@@ -249,12 +249,12 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
     <div className="min-h-screen pb-24 px-4">
       <div className="pt-8 pb-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-manuscript-gold/30 to-manuscript-purple/30 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-manuscript-gold/30 to-primary/20 flex items-center justify-center">
             <Compass className="w-6 h-6 text-manuscript-gold" />
           </div>
           <div>
-            <h1 className="text-2xl font-heading text-manuscript-light">{t.title}</h1>
-            <p className="text-manuscript-light/60 text-sm">{t.subtitle}</p>
+            <h1 className="text-2xl font-heading text-foreground">{t.title}</h1>
+            <p className="text-muted-foreground text-sm">{t.subtitle}</p>
           </div>
         </div>
       </div>
@@ -265,19 +265,19 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           onClick={() => setCurrentView('journal')}
-          className="w-full text-left bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 hover:border-manuscript-gold/30 transition-all"
+          className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all"
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-manuscript-gold/20 flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-manuscript-gold" />
             </div>
             <div className="flex-1">
-              <h3 className="font-heading text-manuscript-light text-lg">{t.journalTitle}</h3>
-              <p className="text-manuscript-light/60 text-sm">
+              <h3 className="font-heading text-foreground text-lg">{t.journalTitle}</h3>
+              <p className="text-muted-foreground text-sm">
                 {progress.journalEntries.length} {t.entriesRecorded}
               </p>
             </div>
-            <ChevronRight className="w-5 h-5 text-manuscript-light/30" />
+            <ChevronRight className="w-5 h-5 text-muted-foreground" />
           </div>
         </motion.button>
 
@@ -287,17 +287,17 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           onClick={() => setCurrentView('reflections')}
-          className="w-full text-left bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 hover:border-manuscript-gold/30 transition-all"
+          className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all"
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-manuscript-gold/20 flex items-center justify-center">
               <Sparkles className="w-6 h-6 text-manuscript-gold" />
             </div>
             <div className="flex-1">
-              <h3 className="font-heading text-manuscript-light text-lg">{t.reflectionsLibrary}</h3>
-              <p className="text-manuscript-light/60 text-sm">{t.textsForContemplation}</p>
+              <h3 className="font-heading text-foreground text-lg">{t.reflectionsLibrary}</h3>
+              <p className="text-muted-foreground text-sm">{t.textsForContemplation}</p>
             </div>
-            <ChevronRight className="w-5 h-5 text-manuscript-light/30" />
+            <ChevronRight className="w-5 h-5 text-muted-foreground" />
           </div>
         </motion.button>
 
@@ -307,34 +307,34 @@ export const JourneyHub = ({ progress, onAddEntry, onDeleteEntry, language }: Jo
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           onClick={() => setCurrentView('plans')}
-          className="w-full text-left bg-manuscript-dark/30 rounded-xl border border-manuscript-purple/10 p-5 hover:border-manuscript-purple/30 transition-all"
+          className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-manuscript-purple/20 p-5 hover:border-manuscript-purple/40 hover:bg-white/90 transition-all"
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-manuscript-purple/20 flex items-center justify-center">
               <Calendar className="w-6 h-6 text-manuscript-purple" />
             </div>
             <div className="flex-1">
-              <h3 className="font-heading text-manuscript-light text-lg">{t.practicePlans}</h3>
-              <p className="text-manuscript-light/60 text-sm">{t.journeysOf}</p>
+              <h3 className="font-heading text-foreground text-lg">{t.practicePlans}</h3>
+              <p className="text-muted-foreground text-sm">{t.journeysOf}</p>
             </div>
-            <ChevronRight className="w-5 h-5 text-manuscript-light/30" />
+            <ChevronRight className="w-5 h-5 text-muted-foreground" />
           </div>
         </motion.button>
       </div>
 
       {/* Stats */}
       <div className="mt-8 grid grid-cols-3 gap-4">
-        <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 text-center">
           <span className="text-2xl font-heading text-manuscript-gold">{progress.currentStreak}</span>
-          <p className="text-manuscript-light/60 text-xs mt-1">{t.consecutiveDays}</p>
+          <p className="text-muted-foreground text-xs mt-1">{t.consecutiveDays}</p>
         </div>
-        <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 text-center">
           <span className="text-2xl font-heading text-manuscript-gold">{progress.completedDays.length}</span>
-          <p className="text-manuscript-light/60 text-xs mt-1">{t.practicesLabel}</p>
+          <p className="text-muted-foreground text-xs mt-1">{t.practicesLabel}</p>
         </div>
-        <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 text-center">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 text-center">
           <span className="text-2xl font-heading text-manuscript-gold">{progress.badges.length}</span>
-          <p className="text-manuscript-light/60 text-xs mt-1">{t.achievementsLabel}</p>
+          <p className="text-muted-foreground text-xs mt-1">{t.achievementsLabel}</p>
         </div>
       </div>
     </div>

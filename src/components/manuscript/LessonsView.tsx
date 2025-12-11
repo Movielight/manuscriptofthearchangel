@@ -49,7 +49,7 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
         <div className="pt-6 pb-4">
           <button
             onClick={() => setSelectedLesson(null)}
-            className="flex items-center gap-2 text-manuscript-light/60 hover:text-manuscript-gold transition-colors mb-4"
+            className="flex items-center gap-2 text-muted-foreground hover:text-manuscript-gold transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">{t.backToLessons}</span>
@@ -62,18 +62,18 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
             <span className="text-manuscript-gold font-medium">{t.lesson} {currentLesson.number}</span>
           </div>
           
-          <h1 className="text-2xl font-heading text-manuscript-light mb-2">
+          <h1 className="text-2xl font-heading text-foreground mb-2">
             {currentLesson.title}
           </h1>
-          <p className="text-manuscript-light/60">{currentLesson.subtitle}</p>
-          <div className="flex items-center gap-2 mt-2 text-sm text-manuscript-light/40">
+          <p className="text-muted-foreground">{currentLesson.subtitle}</p>
+          <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
             <Clock className="w-4 h-4" />
             <span>{currentLesson.duration}</span>
           </div>
         </div>
 
         {/* Video Player */}
-        <div className="relative aspect-video bg-manuscript-dark/50 rounded-2xl border border-manuscript-gold/20 overflow-hidden mb-6">
+        <div className="relative aspect-video bg-white/50 rounded-2xl border border-primary/20 overflow-hidden mb-6">
           {currentLesson.videoUrl ? (
             <iframe
               src={convertToEmbedUrl(currentLesson.videoUrl)}
@@ -86,22 +86,22 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
               <div className="w-16 h-16 rounded-full bg-manuscript-gold/20 flex items-center justify-center mb-4">
                 <Play className="w-8 h-8 text-manuscript-gold ml-1" />
               </div>
-              <p className="text-manuscript-light/60 text-sm">{t.videoComingSoon}</p>
+              <p className="text-muted-foreground text-sm">{t.videoComingSoon}</p>
             </div>
           )}
         </div>
 
         {/* Introduction */}
-        <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 mb-6">
-          <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.introduction}</h3>
-          <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5 mb-6">
+          <h3 className="text-lg font-heading text-foreground mb-3">{t.introduction}</h3>
+          <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
             {currentLesson.introduction}
           </p>
         </div>
 
         {/* What you'll learn */}
-        <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 mb-6">
-          <h3 className="text-lg font-heading text-manuscript-light mb-3 flex items-center gap-2">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5 mb-6">
+          <h3 className="text-lg font-heading text-foreground mb-3 flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-manuscript-gold" />
             {t.whatYouWillLearn}
           </h3>
@@ -109,16 +109,16 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
             {currentLesson.whatYouWillLearn.map((item, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-manuscript-gold mt-2 flex-shrink-0" />
-                <span className="text-manuscript-light/70">{item}</span>
+                <span className="text-muted-foreground">{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Deep Content */}
-        <div className="bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-5 mb-6">
-          <h3 className="text-lg font-heading text-manuscript-light mb-3">{t.deepContent}</h3>
-          <p className="text-manuscript-light/70 leading-relaxed whitespace-pre-line">
+        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-5 mb-6">
+          <h3 className="text-lg font-heading text-foreground mb-3">{t.deepContent}</h3>
+          <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
             {currentLesson.deepContent}
           </p>
         </div>
@@ -130,7 +130,7 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
             setSelectedLesson(null);
           }}
           disabled={completedLessons.includes(currentLesson.id)}
-          className="w-full py-6 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-manuscript-dark font-medium rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="w-full py-6 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-white font-medium rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
         >
           {completedLessons.includes(currentLesson.id) ? (
             <span className="flex items-center gap-2">
@@ -150,28 +150,28 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
       {/* Header */}
       <div className="pt-8 pb-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-manuscript-gold/30 to-manuscript-purple/30 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-manuscript-gold/30 to-primary/20 flex items-center justify-center">
             <Video className="w-6 h-6 text-manuscript-gold" />
           </div>
           <div>
-            <h1 className="text-2xl font-heading text-manuscript-light">{lessonsIntroduction.title}</h1>
-            <p className="text-manuscript-light/60 text-sm">{lessonsIntroduction.subtitle}</p>
+            <h1 className="text-2xl font-heading text-foreground">{lessonsIntroduction.title}</h1>
+            <p className="text-muted-foreground text-sm">{lessonsIntroduction.subtitle}</p>
           </div>
         </div>
         
-        <p className="text-manuscript-light/70 leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed">
           {lessonsIntroduction.description}
         </p>
 
         {/* Progress */}
         <div className="mt-4 flex items-center gap-3">
-          <div className="flex-1 h-2 bg-manuscript-dark/50 rounded-full overflow-hidden">
+          <div className="flex-1 h-2 bg-white/50 rounded-full overflow-hidden">
             <div 
               className="h-full bg-gradient-to-r from-manuscript-gold to-manuscript-gold/70 rounded-full transition-all duration-500"
               style={{ width: `${(completedLessons.length / lessons.length) * 100}%` }}
             />
           </div>
-          <span className="text-sm text-manuscript-light/60">
+          <span className="text-sm text-muted-foreground">
             {completedLessons.length}/{lessons.length}
           </span>
         </div>
@@ -189,35 +189,35 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               onClick={() => setSelectedLesson(lesson.id)}
-              className="w-full text-left bg-manuscript-dark/30 rounded-xl border border-manuscript-gold/10 p-4 hover:border-manuscript-gold/30 transition-all group"
+              className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all group"
             >
               <div className="flex items-start gap-4">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
                   isCompleted 
                     ? 'bg-manuscript-gold/20' 
-                    : 'bg-manuscript-dark/50'
+                    : 'bg-muted'
                 }`}>
                   {isCompleted ? (
                     <CheckCircle className="w-6 h-6 text-manuscript-gold" />
                   ) : (
-                    <span className="text-xl font-heading text-manuscript-light/60">{lesson.number}</span>
+                    <span className="text-xl font-heading text-muted-foreground">{lesson.number}</span>
                   )}
                 </div>
                 
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-heading text-manuscript-light group-hover:text-manuscript-gold transition-colors">
+                  <h3 className="text-lg font-heading text-foreground group-hover:text-manuscript-gold transition-colors">
                     {lesson.title}
                   </h3>
-                  <p className="text-manuscript-light/60 text-sm mt-1 line-clamp-2">
+                  <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
                     {lesson.subtitle}
                   </p>
-                  <div className="flex items-center gap-2 mt-2 text-xs text-manuscript-light/40">
+                  <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
                     <Clock className="w-3 h-3" />
                     <span>{lesson.duration}</span>
                   </div>
                 </div>
                 
-                <ChevronRight className="w-5 h-5 text-manuscript-light/30 group-hover:text-manuscript-gold transition-colors" />
+                <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-manuscript-gold transition-colors" />
               </div>
             </motion.button>
           );

@@ -143,7 +143,7 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
       {/* Floating Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 right-4 z-40 flex items-center gap-2 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-manuscript-dark px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+        className="fixed bottom-24 right-4 z-40 flex items-center gap-2 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -165,26 +165,26 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="w-full max-w-md bg-manuscript-dark border border-manuscript-gold/20 rounded-2xl shadow-2xl flex flex-col max-h-[85vh] sm:max-h-[80vh]"
+              className="w-full max-w-md bg-white border border-primary/20 rounded-2xl shadow-2xl flex flex-col max-h-[85vh] sm:max-h-[80vh]"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-manuscript-gold/10">
+              <div className="flex items-center justify-between p-4 border-b border-primary/10">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-manuscript-gold/20 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-manuscript-gold" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-manuscript-light">{t.title}</h3>
+                    <h3 className="font-heading text-foreground">{t.title}</h3>
                     {context && (
-                      <p className="text-xs text-manuscript-light/50">{context}</p>
+                      <p className="text-xs text-muted-foreground">{context}</p>
                     )}
                   </div>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-lg hover:bg-manuscript-gold/10 transition-colors"
+                  className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
                 >
-                  <X className="w-5 h-5 text-manuscript-light/60" />
+                  <X className="w-5 h-5 text-muted-foreground" />
                 </button>
               </div>
 
@@ -193,7 +193,7 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
                 {messages.length === 0 && (
                   <div className="text-center py-8">
                     <Sparkles className="w-12 h-12 text-manuscript-gold/30 mx-auto mb-4" />
-                    <p className="text-manuscript-light/60 text-sm">{t.welcome}</p>
+                    <p className="text-muted-foreground text-sm">{t.welcome}</p>
                   </div>
                 )}
                 
@@ -205,8 +205,8 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
                     <div
                       className={`max-w-[85%] px-4 py-3 rounded-2xl ${
                         msg.role === 'user'
-                          ? 'bg-manuscript-gold text-manuscript-dark'
-                          : 'bg-manuscript-dark/50 border border-manuscript-gold/10 text-manuscript-light'
+                          ? 'bg-manuscript-gold text-white'
+                          : 'bg-muted border border-primary/10 text-foreground'
                       }`}
                     >
                       <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
@@ -216,7 +216,7 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
                 
                 {isLoading && messages[messages.length - 1]?.role === 'user' && (
                   <div className="flex justify-start">
-                    <div className="bg-manuscript-dark/50 border border-manuscript-gold/10 px-4 py-3 rounded-2xl">
+                    <div className="bg-muted border border-primary/10 px-4 py-3 rounded-2xl">
                       <Loader2 className="w-5 h-5 text-manuscript-gold animate-spin" />
                     </div>
                   </div>
@@ -226,20 +226,20 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
               </div>
 
               {/* Input */}
-              <div className="p-4 border-t border-manuscript-gold/10">
+              <div className="p-4 border-t border-primary/10">
                 <div className="flex gap-2">
                   <Textarea
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder={t.placeholder}
-                    className="flex-1 min-h-[44px] max-h-[120px] resize-none bg-manuscript-dark/50 border-manuscript-gold/20 text-manuscript-light placeholder:text-manuscript-light/40 focus:border-manuscript-gold/40"
+                    className="flex-1 min-h-[44px] max-h-[120px] resize-none bg-muted border-primary/20 text-foreground placeholder:text-muted-foreground focus:border-manuscript-gold/40"
                     rows={1}
                   />
                   <Button
                     onClick={handleSend}
                     disabled={!input.trim() || isLoading}
-                    className="bg-manuscript-gold hover:bg-manuscript-gold/90 text-manuscript-dark px-4"
+                    className="bg-manuscript-gold hover:bg-manuscript-gold/90 text-white px-4"
                   >
                     <Send className="w-4 h-4" />
                   </Button>

@@ -152,14 +152,14 @@ export const ManuscriptApp = () => {
   // Show loading state
   if (authLoading || progressLoading) {
     return (
-      <div className="min-h-screen bg-manuscript-dark flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-white via-background to-primary/10 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="flex flex-col items-center gap-4"
         >
           <Sparkles className="w-12 h-12 text-manuscript-gold animate-pulse" />
-          <p className="text-manuscript-light/70 font-body">Loading your journey...</p>
+          <p className="text-manuscript-text-muted font-body">Loading your journey...</p>
         </motion.div>
       </div>
     );
@@ -170,8 +170,8 @@ export const ManuscriptApp = () => {
   }
 
   return (
-    <div className={`min-h-screen bg-manuscript-dark ${getThemeClass()} ${getFontSizeClass()}`}>
-      <div className="fixed inset-0 bg-gradient-to-b from-manuscript-dark via-manuscript-dark to-manuscript-purple/20 pointer-events-none" />
+    <div className={`min-h-screen bg-gradient-to-b from-white via-background to-primary/10 ${getThemeClass()} ${getFontSizeClass()}`}>
+      <div className="fixed inset-0 bg-gradient-to-b from-white/80 via-transparent to-primary/5 pointer-events-none" />
       
       <div className="relative z-10">
         <AnimatePresence mode="wait">

@@ -101,7 +101,7 @@ export const CelebrationOverlay = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-manuscript-dark/90 backdrop-blur-md overflow-hidden"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/90 backdrop-blur-md overflow-hidden"
           onClick={onClose}
         >
           {/* Confetti */}
@@ -126,7 +126,7 @@ export const CelebrationOverlay = ({
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0, y: 50 }}
             transition={{ type: 'spring', damping: 15, stiffness: 300 }}
-            className="relative bg-gradient-to-br from-manuscript-dark via-manuscript-purple/20 to-manuscript-dark border-2 border-manuscript-gold/50 rounded-3xl p-8 text-center max-w-sm mx-4 shadow-2xl"
+            className="relative bg-gradient-to-br from-white via-primary/10 to-white border-2 border-manuscript-gold/50 rounded-3xl p-8 text-center max-w-sm mx-4 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Icon container with glow */}
@@ -166,7 +166,7 @@ export const CelebrationOverlay = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="font-body text-manuscript-light text-lg mb-6"
+              className="font-body text-foreground text-lg mb-6"
             >
               {message}
             </motion.p>
@@ -190,7 +190,7 @@ export const CelebrationOverlay = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.6 }}
               transition={{ delay: 1 }}
-              className="text-manuscript-light/50 text-sm mt-6 font-body"
+              className="text-muted-foreground text-sm mt-6 font-body"
             >
               Tap anywhere to continue
             </motion.p>
