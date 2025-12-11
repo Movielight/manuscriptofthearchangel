@@ -158,14 +158,14 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
             onClick={(e) => e.target === e.currentTarget && setIsOpen(false)}
           >
             <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 100, opacity: 0 }}
-              className="w-full max-w-md bg-manuscript-dark border border-manuscript-gold/20 rounded-2xl shadow-2xl flex flex-col max-h-[80vh]"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="w-full max-w-md bg-manuscript-dark border border-manuscript-gold/20 rounded-2xl shadow-2xl flex flex-col max-h-[85vh] sm:max-h-[80vh]"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-manuscript-gold/10">
