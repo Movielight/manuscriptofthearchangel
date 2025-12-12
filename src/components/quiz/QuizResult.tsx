@@ -223,9 +223,14 @@ export const QuizResult = ({
                     <span>{item}</span>
                   </li>)}
               </ul>
-              <button className="divine-button w-full">
+              <a 
+                href="https://checkout.usecloverr.com/checkout/204424356:1?subscription=3530"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="divine-button w-full block text-center"
+              >
                 Join the Sacred Circle
-              </button>
+              </a>
             </motion.div>
           </div>
         </motion.div>
