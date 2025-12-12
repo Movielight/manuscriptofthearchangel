@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, memo } from 'react';
 import { Award, Sparkles, Star, PartyPopper } from 'lucide-react';
 
 interface CelebrationOverlayProps {
@@ -10,74 +10,69 @@ interface CelebrationOverlayProps {
   onClose: () => void;
 }
 
-const Confetti = ({ delay }: { delay: number }) => {
-  const colors = ['#D4AF37', '#8B5CF6', '#14B8A6', '#F59E0B', '#EC4899'];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  const randomX = Math.random() * 100;
-  const randomRotation = Math.random() * 360;
+// Optimized: Pre-computed confetti data, reduced from 50 to 15 particles
+const CONFETTI_COUNT = 15;
+const CONFETTI_COLORS = ['#D4AF37', '#8B5CF6', '#14B8A6', '#F59E0B', '#EC4899'];
+
+const ConfettiParticle = memo(({ index }: { index: number }) => {
+  // Pre-compute random values based on index for consistency
+  const color = CONFETTI_COLORS[index % CONFETTI_COLORS.length];
+  const left = (index * 7) % 100;
+  const delay = index * 0.08;
   
   return (
     <motion.div
-      initial={{ 
-        top: '-10%', 
-        left: `${randomX}%`, 
-        rotate: 0,
-        opacity: 1 
-      }}
-      animate={{ 
-        top: '110%', 
-        rotate: randomRotation + 360,
-        opacity: [1, 1, 0]
-      }}
-      transition={{ 
-        duration: 2.5 + Math.random(), 
-        delay,
-        ease: 'easeIn'
-      }}
-      className="absolute w-3 h-3 rounded-sm"
-      style={{ backgroundColor: randomColor }}
+      initial={{ top: '-5%', left: `${left}%`, opacity: 1 }}
+      animate={{ top: '105%', rotate: 360, opacity: 0 }}
+      transition={{ duration: 2, delay, ease: 'linear' }}
+      className="absolute w-2 h-2 rounded-sm"
+      style={{ backgroundColor: color }}
     />
   );
-};
+});
 
-const StarBurst = () => (
+// Simplified StarBurst - reduced from 8 to 4 stars
+const StarBurst = memo(() => (
   <motion.div
     initial={{ scale: 0, opacity: 0 }}
-    animate={{ scale: [0, 1.5, 1], opacity: [0, 1, 0.8] }}
-    transition={{ duration: 0.6 }}
+    animate={{ scale: 1, opacity: 0.8 }}
+    transition={{ duration: 0.4 }}
     className="absolute inset-0 flex items-center justify-center pointer-events-none"
   >
-    {[...Array(8)].map((_, i) => (
+    {[0, 90, 180, 270].map((angle) => (
       <motion.div
-        key={i}
+        key={angle}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ 
-          scale: [0, 1, 0.5],
-          opacity: [0, 1, 0],
-          x: Math.cos((i * 45 * Math.PI) / 180) * 100,
-          y: Math.sin((i * 45 * Math.PI) / 180) * 100
+          scale: 1,
+          opacity: 0,
+          x: Math.cos((angle * Math.PI) / 180) * 80,
+          y: Math.sin((angle * Math.PI) / 180) * 80
         }}
-        transition={{ duration: 0.8, delay: 0.1 + i * 0.05 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
         className="absolute"
       >
-        <Star className="w-6 h-6 text-manuscript-gold fill-manuscript-gold" />
+        <Star className="w-5 h-5 text-manuscript-gold fill-manuscript-gold" />
       </motion.div>
     ))}
   </motion.div>
-);
+));
 
-export const CelebrationOverlay = ({ 
+export const CelebrationOverlay = memo(({ 
   isVisible, 
   type, 
   title, 
   message, 
   onClose 
 }: CelebrationOverlayProps) => {
-  const [confetti, setConfetti] = useState<number[]>([]);
+  // Pre-generate confetti indices
+  const confettiIndices = useMemo(() => 
+    Array.from({ length: CONFETTI_COUNT }, (_, i) => i), 
+    []
+  );
 
   useEffect(() => {
     if (isVisible) {
-      setConfetti(Array.from({ length: 50 }, (_, i) => i));
       const timer = setTimeout(onClose, 4000);
       return () => clearTimeout(timer);
     }
@@ -86,11 +81,11 @@ export const CelebrationOverlay = ({
   const getIcon = () => {
     switch (type) {
       case 'badge':
-        return <Award className="w-16 h-16 text-manuscript-gold" />;
+        return <Award className="w-14 h-14 text-manuscript-gold" />;
       case 'milestone':
-        return <PartyPopper className="w-16 h-16 text-manuscript-gold" />;
+        return <PartyPopper className="w-14 h-14 text-manuscript-gold" />;
       case 'streak':
-        return <Sparkles className="w-16 h-16 text-manuscript-gold" />;
+        return <Sparkles className="w-14 h-14 text-manuscript-gold" />;
     }
   };
 
@@ -101,102 +96,82 @@ export const CelebrationOverlay = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-white/90 backdrop-blur-md overflow-hidden"
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 overflow-hidden"
           onClick={onClose}
         >
-          {/* Confetti */}
-          {confetti.map((i) => (
-            <Confetti key={i} delay={i * 0.03} />
+          {/* Optimized Confetti - fewer particles */}
+          {confettiIndices.map((i) => (
+            <ConfettiParticle key={i} index={i} />
           ))}
 
           {/* Star burst effect */}
           <StarBurst />
 
-          {/* Glowing background */}
+          {/* Simplified background glow - no blur */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: [0, 1.5, 1.2], opacity: [0, 0.3, 0.2] }}
-            transition={{ duration: 0.8 }}
-            className="absolute w-96 h-96 rounded-full bg-manuscript-gold/30 blur-3xl"
+            animate={{ scale: 1.2, opacity: 0.2 }}
+            transition={{ duration: 0.4 }}
+            className="absolute w-72 h-72 rounded-full bg-manuscript-gold/30"
           />
 
           {/* Main celebration card */}
           <motion.div
-            initial={{ scale: 0, y: 50 }}
+            initial={{ scale: 0.8, y: 30 }}
             animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0, y: 50 }}
-            transition={{ type: 'spring', damping: 15, stiffness: 300 }}
-            className="relative bg-gradient-to-br from-white via-primary/10 to-white border-2 border-manuscript-gold/50 rounded-3xl p-8 text-center max-w-sm mx-4 shadow-2xl"
+            exit={{ scale: 0.8, y: 30 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            className="relative bg-gradient-to-br from-white to-primary/10 border-2 border-manuscript-gold/50 rounded-3xl p-8 text-center max-w-sm mx-4 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Icon container with glow */}
+            {/* Icon container */}
             <motion.div
-              initial={{ rotate: -180, scale: 0 }}
-              animate={{ rotate: 0, scale: 1 }}
-              transition={{ type: 'spring', damping: 10, stiffness: 200, delay: 0.2 }}
-              className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-manuscript-gold/30 to-manuscript-gold/10 border border-manuscript-gold/50 mb-6 shadow-lg"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: 'spring', damping: 15, delay: 0.1 }}
+              className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-manuscript-gold/30 to-manuscript-gold/10 border border-manuscript-gold/50 mb-5 shadow-lg"
             >
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity,
-                  repeatType: 'reverse'
-                }}
-              >
-                {getIcon()}
-              </motion.div>
+              {getIcon()}
             </motion.div>
 
             {/* Title */}
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="font-heading text-3xl text-manuscript-gold mb-3"
+              transition={{ delay: 0.2 }}
+              className="font-heading text-2xl text-manuscript-gold mb-2"
             >
               {title}
             </motion.h2>
 
             {/* Message */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="font-body text-foreground text-lg mb-6"
+              transition={{ delay: 0.3 }}
+              className="font-body text-foreground text-base mb-5"
             >
               {message}
             </motion.p>
 
-            {/* Decorative sparkles */}
-            <motion.div
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="flex justify-center gap-3"
-            >
-              {[...Array(5)].map((_, i) => (
+            {/* Static decorative stars */}
+            <div className="flex justify-center gap-2">
+              {[...Array(3)].map((_, i) => (
                 <Star 
                   key={i} 
-                  className="w-4 h-4 text-manuscript-gold/60 fill-manuscript-gold/30" 
+                  className="w-3 h-3 text-manuscript-gold/60 fill-manuscript-gold/30" 
                 />
               ))}
-            </motion.div>
+            </div>
 
             {/* Tap to close hint */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ delay: 1 }}
-              className="text-muted-foreground text-sm mt-6 font-body"
-            >
+            <p className="text-muted-foreground text-sm mt-5 font-body opacity-60">
               Tap anywhere to continue
-            </motion.p>
+            </p>
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   );
-};
+});
