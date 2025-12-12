@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Video, Play, Clock, Check, ChevronRight, BookOpen, ArrowLeft, Sparkles } from 'lucide-react';
 import { lessons, lessonsIntroduction } from '@/data/lessonsContent';
@@ -31,10 +31,84 @@ const convertToEmbedUrl = (url: string): string => {
   return url;
 };
 
-export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsViewProps) => {
+// Memoized lesson card
+const LessonCard = memo(({ 
+  lesson, 
+  isCompleted, 
+  onClick, 
+  t,
+  tMeditation
+}: { 
+  lesson: typeof lessons[0]; 
+  isCompleted: boolean; 
+  onClick: () => void;
+  t: ReturnType<typeof getTranslation>['lessons'];
+  tMeditation: ReturnType<typeof getTranslation>['meditation'];
+}) => {
+  const lessonIllustration = illustrations.lessons[lesson.id as keyof typeof illustrations.lessons];
+  
+  return (
+    <button
+      onClick={onClick}
+      className={`w-full text-left rounded-2xl p-5 transition-all duration-200 group shadow-sm hover:shadow-md ${
+        isCompleted 
+          ? 'bg-gradient-to-r from-manuscript-gold/10 to-amber-50/60 border-2 border-manuscript-gold/40' 
+          : 'bg-white/80 border border-primary/20 hover:border-manuscript-gold/40 hover:bg-white/90 hover:scale-[1.01] hover:-translate-y-1'
+      }`}
+    >
+      <div className="flex items-start gap-4">
+        <div className={`relative w-16 h-16 rounded-xl overflow-hidden shadow-md flex-shrink-0 ${
+          isCompleted ? 'ring-2 ring-manuscript-gold/50' : 'ring-1 ring-manuscript-gold/20'
+        }`}>
+          <img 
+            src={lessonIllustration} 
+            alt={lesson.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute bottom-0 left-0 w-6 h-6 rounded-tr-lg bg-gradient-to-br from-manuscript-gold to-amber-500 flex items-center justify-center">
+            <span className="text-xs font-bold text-white">{lesson.number}</span>
+          </div>
+          {isCompleted && (
+            <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-gradient-to-br from-manuscript-gold to-amber-500 shadow-lg flex items-center justify-center border-2 border-white z-10">
+              <Check className="w-3.5 h-3.5 text-white" />
+            </div>
+          )}
+        </div>
+        
+        <div className="flex-1 min-w-0">
+          <h3 className={`text-lg font-heading transition-colors ${
+            isCompleted 
+              ? 'text-manuscript-gold' 
+              : 'text-foreground group-hover:text-manuscript-gold'
+          }`}>
+            {lesson.title}
+          </h3>
+          <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
+            {lesson.subtitle}
+          </p>
+          <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
+            <Clock className="w-3.5 h-3.5 text-manuscript-gold/70" />
+            <span>{lesson.duration}</span>
+          </div>
+        </div>
+        
+        <ChevronRight className={`w-5 h-5 transition-colors ${
+          isCompleted 
+            ? 'text-manuscript-gold' 
+            : 'text-muted-foreground group-hover:text-manuscript-gold'
+        }`} />
+      </div>
+    </button>
+  );
+});
+
+export const LessonsView = memo(({ progress, onCompleteLesson, language }: LessonsViewProps) => {
   const [selectedLesson, setSelectedLesson] = useState<string | null>(null);
   
   const t = getTranslation(language).lessons;
+  const tMeditation = getTranslation(language).meditation;
   const currentLesson = lessons.find(l => l.id === selectedLesson);
   const completedLessons = progress.completedSections.filter(s => s.startsWith('lesson-'));
 
@@ -122,18 +196,15 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
           </h3>
           <ul className="space-y-3">
             {currentLesson.whatYouWillLearn.map((item, index) => (
-              <motion.li 
+              <li 
                 key={index} 
                 className="flex items-start gap-3 bg-white/50 rounded-lg p-3 border border-manuscript-gold/10"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
               >
                 <div className="w-6 h-6 rounded-full bg-gradient-to-br from-manuscript-gold to-amber-500 flex items-center justify-center flex-shrink-0 shadow-sm">
                   <span className="text-xs font-bold text-white">{index + 1}</span>
                 </div>
                 <span className="text-muted-foreground">{item}</span>
-              </motion.li>
+              </li>
             ))}
           </ul>
         </div>
@@ -206,75 +277,19 @@ export const LessonsView = ({ progress, onCompleteLesson, language }: LessonsVie
         </div>
       </div>
 
-      {/* Lessons List */}
+      {/* Lessons List - Optimized */}
       <div className="space-y-4">
-        {lessons.map((lesson, index) => {
-          const isCompleted = completedLessons.includes(lesson.id);
-          const lessonIllustration = illustrations.lessons[lesson.id as keyof typeof illustrations.lessons];
-          
-          return (
-            <motion.button
-              key={lesson.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, y: -4 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setSelectedLesson(lesson.id)}
-              className={`w-full text-left backdrop-blur-sm rounded-2xl p-5 transition-all group shadow-sm hover:shadow-md ${
-                isCompleted 
-                  ? 'bg-gradient-to-r from-manuscript-gold/10 to-amber-50/60 border-2 border-manuscript-gold/40' 
-                  : 'bg-white/80 border border-primary/20 hover:border-manuscript-gold/40 hover:bg-white/90'
-              }`}
-            >
-              <div className="flex items-start gap-4">
-                <div className={`relative w-16 h-16 rounded-xl overflow-hidden shadow-md flex-shrink-0 ${
-                  isCompleted ? 'ring-2 ring-manuscript-gold/50' : 'ring-1 ring-manuscript-gold/20'
-                }`}>
-                  <img 
-                    src={lessonIllustration} 
-                    alt={lesson.title}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Lesson number badge */}
-                  <div className="absolute bottom-0 left-0 w-6 h-6 rounded-tr-lg bg-gradient-to-br from-manuscript-gold to-amber-500 flex items-center justify-center">
-                    <span className="text-xs font-bold text-white">{lesson.number}</span>
-                  </div>
-                  {/* Completion badge */}
-                  {isCompleted && (
-                    <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-gradient-to-br from-manuscript-gold to-amber-500 shadow-lg flex items-center justify-center border-2 border-white z-10">
-                      <Check className="w-3.5 h-3.5 text-white" />
-                    </div>
-                  )}
-                </div>
-                
-                <div className="flex-1 min-w-0">
-                  <h3 className={`text-lg font-heading transition-colors ${
-                    isCompleted 
-                      ? 'text-manuscript-gold' 
-                      : 'text-foreground group-hover:text-manuscript-gold'
-                  }`}>
-                    {lesson.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
-                    {lesson.subtitle}
-                  </p>
-                  <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
-                    <Clock className="w-3.5 h-3.5 text-manuscript-gold/70" />
-                    <span>{lesson.duration}</span>
-                  </div>
-                </div>
-                
-                <ChevronRight className={`w-5 h-5 transition-colors ${
-                  isCompleted 
-                    ? 'text-manuscript-gold' 
-                    : 'text-muted-foreground group-hover:text-manuscript-gold'
-                }`} />
-              </div>
-            </motion.button>
-          );
-        })}
+        {lessons.map((lesson) => (
+          <LessonCard
+            key={lesson.id}
+            lesson={lesson}
+            isCompleted={completedLessons.includes(lesson.id)}
+            onClick={() => setSelectedLesson(lesson.id)}
+            t={t}
+            tMeditation={tMeditation}
+          />
+        ))}
       </div>
     </div>
   );
-};
+});

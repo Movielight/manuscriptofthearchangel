@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
 import { Language } from '@/data/translations';
@@ -47,6 +47,8 @@ export const useCloudProgress = () => {
   const { user } = useAuth();
   const [progress, setProgress] = useState<ManuscriptProgress>(defaultProgress);
   const [loading, setLoading] = useState(true);
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingProgressRef = useRef<ManuscriptProgress | null>(null);
 
   // Load progress from database
   useEffect(() => {
@@ -96,28 +98,39 @@ export const useCloudProgress = () => {
     loadProgress();
   }, [user]);
 
-  // Save progress to database
-  const saveProgress = useCallback(async (newProgress: ManuscriptProgress) => {
+  // Debounced save to database (500ms delay)
+  const saveProgress = useCallback((newProgress: ManuscriptProgress) => {
     if (!user) return;
 
-    try {
-      await supabase
-        .from('user_progress')
-        .update({
-          completed_sections: newProgress.completedSections as unknown as Json,
-          journal_entries: newProgress.journalEntries as unknown as Json,
-          badges: newProgress.badges as unknown as Json,
-          streak: newProgress.currentStreak,
-          longest_streak: newProgress.longestStreak,
-          last_activity_date: newProgress.lastPracticeDate,
-          font_size: newProgress.fontSize,
-          theme: newProgress.theme,
-          language: newProgress.language,
-        })
-        .eq('user_id', user.id);
-    } catch (err) {
-      console.error('Error saving progress:', err);
+    pendingProgressRef.current = newProgress;
+
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
     }
+
+    saveTimeoutRef.current = setTimeout(async () => {
+      const progressToSave = pendingProgressRef.current;
+      if (!progressToSave) return;
+
+      try {
+        await supabase
+          .from('user_progress')
+          .update({
+            completed_sections: progressToSave.completedSections as unknown as Json,
+            journal_entries: progressToSave.journalEntries as unknown as Json,
+            badges: progressToSave.badges as unknown as Json,
+            streak: progressToSave.currentStreak,
+            longest_streak: progressToSave.longestStreak,
+            last_activity_date: progressToSave.lastPracticeDate,
+            font_size: progressToSave.fontSize,
+            theme: progressToSave.theme,
+            language: progressToSave.language,
+          })
+          .eq('user_id', user.id);
+      } catch (err) {
+        console.error('Error saving progress:', err);
+      }
+    }, 500);
   }, [user]);
 
   const completeSection = useCallback((sectionId: string) => {
