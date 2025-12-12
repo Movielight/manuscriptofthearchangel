@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Settings, Flame, BookOpen, Video, Sparkles, Award, ChevronRight } from 'lucide-react';
+import { Settings, Flame, BookOpen, Video, Award, ChevronRight } from 'lucide-react';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { AppView } from './BottomNavigation';
 import { modules } from '@/data/manuscriptContent';
@@ -124,8 +124,12 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
           onClick={() => onNavigate('modules')}
           className="w-full bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 flex items-center gap-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all group"
         >
-          <div className="w-12 h-12 rounded-xl bg-manuscript-gold/20 flex items-center justify-center">
-            <BookOpen className="w-6 h-6 text-manuscript-gold" />
+          <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-manuscript-gold/20">
+            <img 
+              src={illustrations.modules['module-1']} 
+              alt="Modules" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex-1 text-left">
             <h3 className="font-heading text-foreground group-hover:text-manuscript-gold transition-colors">
@@ -145,8 +149,12 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
           onClick={() => onNavigate('lessons')}
           className="w-full bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 flex items-center gap-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all group"
         >
-          <div className="w-12 h-12 rounded-xl bg-manuscript-purple/20 flex items-center justify-center">
-            <Video className="w-6 h-6 text-manuscript-purple" />
+          <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-manuscript-gold/20">
+            <img 
+              src={illustrations.videoLessons} 
+              alt="Video Lessons" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex-1 text-left">
             <h3 className="font-heading text-foreground group-hover:text-manuscript-gold transition-colors">
@@ -166,8 +174,12 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
           onClick={() => onNavigate('practices')}
           className="w-full bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 flex items-center gap-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all group"
         >
-          <div className="w-12 h-12 rounded-xl bg-manuscript-gold/20 flex items-center justify-center">
-            <Sparkles className="w-6 h-6 text-manuscript-gold" />
+          <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-manuscript-gold/20">
+            <img 
+              src={illustrations.meditation} 
+              alt="Practices" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex-1 text-left">
             <h3 className="font-heading text-foreground group-hover:text-manuscript-gold transition-colors">

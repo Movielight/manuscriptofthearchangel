@@ -7,6 +7,7 @@ import moduleVirtues from '@/assets/illustrations/module-virtues.png';
 import modulePractices from '@/assets/illustrations/module-practices.png';
 import meditationIllustration from '@/assets/illustrations/meditation.png';
 import exercisesIllustration from '@/assets/illustrations/exercises.png';
+import videoLessonsIllustration from '@/assets/illustrations/video-lessons.png';
 
 export const illustrations = {
   heroDashboard,
@@ -19,6 +20,7 @@ export const illustrations = {
   },
   meditation: meditationIllustration,
   exercises: exercisesIllustration,
+  videoLessons: videoLessonsIllustration,
 } as const;
 
 // Module illustration mapping by icon type
