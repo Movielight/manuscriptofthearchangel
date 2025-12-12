@@ -6,6 +6,7 @@ import { modules } from '@/data/manuscriptContent';
 import { lessons } from '@/data/lessonsContent';
 import { getTranslation } from '@/data/translations';
 import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
+import { illustrations } from '@/data/illustrationAssets';
 
 interface DashboardProps {
   progress: ManuscriptProgress;
@@ -41,7 +42,7 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
       </div>
 
       {/* Personalized Greeting */}
-      <div className="pb-6">
+      <div className="pb-4">
         <h2 className="text-xl font-heading text-manuscript-gold">
           {firstName ? `${firstName},` : progress.language === 'pt-BR' ? 'Bem-vindo,' : 'Welcome,'}
         </h2>
@@ -51,6 +52,21 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
             : 'your journey of self-discovery begins here.'}
         </p>
       </div>
+
+      {/* Hero Illustration Banner */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1 }}
+        className="relative h-32 mb-6 rounded-2xl overflow-hidden"
+      >
+        <img 
+          src={illustrations.heroDashboard} 
+          alt="Archangel Key" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+      </motion.div>
 
       {/* Progress Card */}
       <motion.div
