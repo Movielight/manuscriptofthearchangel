@@ -31,6 +31,14 @@ import exerciseJournalingIllustration from '@/assets/illustrations/exercise-jour
 import exerciseIntentionIllustration from '@/assets/illustrations/exercise-intention.png';
 import exerciseObservationIllustration from '@/assets/illustrations/exercise-observation.png';
 import exerciseSilenceIllustration from '@/assets/illustrations/exercise-silence.png';
+// Journey illustrations
+import journeyHubIllustration from '@/assets/illustrations/journey-hub.png';
+import journeyJournalIllustration from '@/assets/illustrations/journey-journal.png';
+import journeyReflectionsIllustration from '@/assets/illustrations/journey-reflections.png';
+import journeyPlansIllustration from '@/assets/illustrations/journey-plans.png';
+import plan7DaysIllustration from '@/assets/illustrations/plan-7-days.png';
+import plan14DaysIllustration from '@/assets/illustrations/plan-14-days.png';
+import plan21DaysIllustration from '@/assets/illustrations/plan-21-days.png';
 
 export const illustrations = {
   heroDashboard,
@@ -76,7 +84,17 @@ export const illustrations = {
     'exercise-observation': exerciseObservationIllustration,
     'exercise-silence': exerciseSilenceIllustration,
   } as { [key: string]: string },
-} as const;
+  // Journey section illustrations
+  journey: {
+    hub: journeyHubIllustration,
+    journal: journeyJournalIllustration,
+    reflections: journeyReflectionsIllustration,
+    plans: journeyPlansIllustration,
+    plan7: plan7DaysIllustration,
+    plan14: plan14DaysIllustration,
+    plan21: plan21DaysIllustration,
+  },
+};
 
 // Module illustration mapping by icon type
 export const moduleIllustrationMap: { [key: string]: string } = {
