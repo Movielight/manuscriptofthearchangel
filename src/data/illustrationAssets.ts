@@ -12,6 +12,9 @@ import achievementsIllustration from '@/assets/illustrations/achievements.png';
 import statsModulesIllustration from '@/assets/illustrations/stats-modules.png';
 import statsLessonsIllustration from '@/assets/illustrations/stats-lessons.png';
 import statsAchievementsIllustration from '@/assets/illustrations/stats-achievements.png';
+import actionModulesIllustration from '@/assets/illustrations/action-modules.png';
+import actionLessonsIllustration from '@/assets/illustrations/action-lessons.png';
+import actionPracticesIllustration from '@/assets/illustrations/action-practices.png';
 
 export const illustrations = {
   heroDashboard,
@@ -30,6 +33,11 @@ export const illustrations = {
     modules: statsModulesIllustration,
     lessons: statsLessonsIllustration,
     achievements: statsAchievementsIllustration,
+  },
+  actions: {
+    modules: actionModulesIllustration,
+    lessons: actionLessonsIllustration,
+    practices: actionPracticesIllustration,
   },
 } as const;
 

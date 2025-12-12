@@ -141,7 +141,7 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
         >
           <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-manuscript-gold/20">
             <img 
-              src={illustrations.modules['module-1']} 
+              src={illustrations.actions.modules} 
               alt="Modules" 
               className="w-full h-full object-cover"
             />
@@ -164,9 +164,9 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
           onClick={() => onNavigate('lessons')}
           className="w-full bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 flex items-center gap-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all group"
         >
-          <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-manuscript-gold/20">
+          <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-manuscript-purple/20">
             <img 
-              src={illustrations.videoLessons} 
+              src={illustrations.actions.lessons} 
               alt="Video Lessons" 
               className="w-full h-full object-cover"
             />
@@ -191,7 +191,7 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
         >
           <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-manuscript-gold/20">
             <img 
-              src={illustrations.meditation} 
+              src={illustrations.actions.practices} 
               alt="Practices" 
               className="w-full h-full object-cover"
             />
