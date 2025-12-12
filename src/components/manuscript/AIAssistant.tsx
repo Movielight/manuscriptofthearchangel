@@ -140,15 +140,15 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Minimalist Floating Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 right-4 z-40 flex items-center gap-2 bg-gradient-to-r from-manuscript-gold to-manuscript-gold/80 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow"
-        whileHover={{ scale: 1.05 }}
+        className="fixed bottom-28 right-4 z-40 w-11 h-11 bg-white/80 backdrop-blur-sm border border-manuscript-gold/30 text-manuscript-gold rounded-full shadow-md hover:shadow-lg hover:bg-manuscript-gold hover:text-white transition-all flex items-center justify-center"
+        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
+        title={t.askQuestion}
       >
         <MessageCircle className="w-5 h-5" />
-        <span className="font-medium text-sm">{t.askQuestion}</span>
       </motion.button>
 
       {/* Chat Modal */}
