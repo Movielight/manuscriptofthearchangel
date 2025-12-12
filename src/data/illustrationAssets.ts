@@ -21,6 +21,16 @@ import lesson2Illustration from '@/assets/illustrations/lesson-2.png';
 import lesson3Illustration from '@/assets/illustrations/lesson-3.png';
 import lesson4Illustration from '@/assets/illustrations/lesson-4.png';
 import lesson5Illustration from '@/assets/illustrations/lesson-5.png';
+// Meditation illustrations
+import meditationClarityIllustration from '@/assets/illustrations/meditation-clarity.png';
+import meditationGratitudeIllustration from '@/assets/illustrations/meditation-gratitude.png';
+import meditationFocusIllustration from '@/assets/illustrations/meditation-focus.png';
+// Exercise illustrations
+import exerciseBreathingIllustration from '@/assets/illustrations/exercise-breathing.png';
+import exerciseJournalingIllustration from '@/assets/illustrations/exercise-journaling.png';
+import exerciseIntentionIllustration from '@/assets/illustrations/exercise-intention.png';
+import exerciseObservationIllustration from '@/assets/illustrations/exercise-observation.png';
+import exerciseSilenceIllustration from '@/assets/illustrations/exercise-silence.png';
 
 export const illustrations = {
   heroDashboard,
@@ -52,6 +62,20 @@ export const illustrations = {
     lessons: actionLessonsIllustration,
     practices: actionPracticesIllustration,
   },
+  // Meditation items with individual illustrations
+  meditationItems: {
+    'meditation-clarity': meditationClarityIllustration,
+    'meditation-gratitude': meditationGratitudeIllustration,
+    'meditation-focus': meditationFocusIllustration,
+  } as { [key: string]: string },
+  // Exercise items with individual illustrations
+  exerciseItems: {
+    'exercise-breathing': exerciseBreathingIllustration,
+    'exercise-journaling': exerciseJournalingIllustration,
+    'exercise-intention': exerciseIntentionIllustration,
+    'exercise-observation': exerciseObservationIllustration,
+    'exercise-silence': exerciseSilenceIllustration,
+  } as { [key: string]: string },
 } as const;
 
 // Module illustration mapping by icon type
