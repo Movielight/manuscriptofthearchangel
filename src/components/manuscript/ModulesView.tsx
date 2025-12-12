@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Scroll, Feather, Eye, Scale, Flower2, ArrowLeft, CheckCircle, ChevronRight, BookOpen } from 'lucide-react';
+import { Scroll, Feather, Eye, Scale, Flower2, ArrowLeft, Check, ChevronRight, BookOpen } from 'lucide-react';
 import { modules } from '@/data/manuscriptContent';
 import { Button } from '@/components/ui/button';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
@@ -215,40 +215,49 @@ export const ModulesView = ({ progress, onCompleteSection, language }: ModulesVi
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedModule(module.id)}
-              className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all group"
+              className={`w-full text-left backdrop-blur-sm rounded-2xl p-5 transition-all group ${
+                isCompleted 
+                  ? 'bg-gradient-to-r from-manuscript-gold/10 to-amber-50/50 border border-manuscript-gold/30 shadow-md' 
+                  : 'bg-white/80 border border-primary/20 hover:border-manuscript-gold/40 hover:bg-white/90 shadow-sm hover:shadow-md'
+              }`}
             >
               <div className="flex items-start gap-4">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden ${
+                <div className={`relative w-16 h-16 rounded-xl flex-shrink-0 overflow-hidden ${
                   isCompleted 
-                    ? 'ring-2 ring-manuscript-gold/40' 
-                    : 'bg-muted/30'
+                    ? 'ring-2 ring-manuscript-gold/40 shadow-md' 
+                    : 'shadow-inner border border-manuscript-gold/10'
                 }`}>
-                  {isCompleted ? (
-                    <div className="relative w-full h-full">
-                      <img 
-                        src={moduleIllustrationMap[module.icon]} 
-                        alt={module.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-manuscript-gold/20 flex items-center justify-center">
-                        <CheckCircle className="w-6 h-6 text-manuscript-gold" />
-                      </div>
+                  <img 
+                    src={moduleIllustrationMap[module.icon]} 
+                    alt={module.title}
+                    className={`w-full h-full object-cover ${isCompleted ? '' : 'opacity-80'}`}
+                  />
+                  
+                  {/* Premium completion badge */}
+                  {isCompleted && (
+                    <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-gradient-to-br from-manuscript-gold to-amber-500 shadow-lg flex items-center justify-center border-2 border-white z-10">
+                      <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
                     </div>
-                  ) : (
-                    <img 
-                      src={moduleIllustrationMap[module.icon]} 
-                      alt={module.title}
-                      className="w-full h-full object-cover opacity-70"
-                    />
                   )}
                 </div>
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs text-manuscript-gold/70">{t.module} {module.number}</span>
+                    <span className={`text-xs font-medium ${isCompleted ? 'text-manuscript-gold' : 'text-manuscript-gold/70'}`}>
+                      {t.module} {module.number}
+                    </span>
+                    {isCompleted && (
+                      <span className="text-xs text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded-full">
+                        ✓ Completed
+                      </span>
+                    )}
                   </div>
-                  <h3 className="text-lg font-heading text-foreground group-hover:text-manuscript-gold transition-colors">
+                  <h3 className={`text-lg font-heading transition-colors ${
+                    isCompleted ? 'text-manuscript-gold' : 'text-foreground group-hover:text-manuscript-gold'
+                  }`}>
                     {module.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
@@ -256,7 +265,9 @@ export const ModulesView = ({ progress, onCompleteSection, language }: ModulesVi
                   </p>
                 </div>
                 
-                <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-manuscript-gold transition-colors" />
+                <ChevronRight className={`w-5 h-5 transition-colors ${
+                  isCompleted ? 'text-manuscript-gold' : 'text-muted-foreground group-hover:text-manuscript-gold'
+                }`} />
               </div>
             </motion.button>
           );
