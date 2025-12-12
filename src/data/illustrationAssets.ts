@@ -9,6 +9,9 @@ import meditationIllustration from '@/assets/illustrations/meditation.png';
 import exercisesIllustration from '@/assets/illustrations/exercises.png';
 import videoLessonsIllustration from '@/assets/illustrations/video-lessons.png';
 import achievementsIllustration from '@/assets/illustrations/achievements.png';
+import statsModulesIllustration from '@/assets/illustrations/stats-modules.png';
+import statsLessonsIllustration from '@/assets/illustrations/stats-lessons.png';
+import statsAchievementsIllustration from '@/assets/illustrations/stats-achievements.png';
 
 export const illustrations = {
   heroDashboard,
@@ -23,6 +26,11 @@ export const illustrations = {
   exercises: exercisesIllustration,
   videoLessons: videoLessonsIllustration,
   achievements: achievementsIllustration,
+  stats: {
+    modules: statsModulesIllustration,
+    lessons: statsLessonsIllustration,
+    achievements: statsAchievementsIllustration,
+  },
 } as const;
 
 // Module illustration mapping by icon type
