@@ -15,6 +15,12 @@ import statsAchievementsIllustration from '@/assets/illustrations/stats-achievem
 import actionModulesIllustration from '@/assets/illustrations/action-modules.png';
 import actionLessonsIllustration from '@/assets/illustrations/action-lessons.png';
 import actionPracticesIllustration from '@/assets/illustrations/action-practices.png';
+// Lesson illustrations
+import lesson1Illustration from '@/assets/illustrations/lesson-1.png';
+import lesson2Illustration from '@/assets/illustrations/lesson-2.png';
+import lesson3Illustration from '@/assets/illustrations/lesson-3.png';
+import lesson4Illustration from '@/assets/illustrations/lesson-4.png';
+import lesson5Illustration from '@/assets/illustrations/lesson-5.png';
 
 export const illustrations = {
   heroDashboard,
@@ -24,6 +30,13 @@ export const illustrations = {
     'module-3': moduleClarity,
     'module-4': moduleVirtues,
     'module-5': modulePractices,
+  },
+  lessons: {
+    'lesson-1': lesson1Illustration,
+    'lesson-2': lesson2Illustration,
+    'lesson-3': lesson3Illustration,
+    'lesson-4': lesson4Illustration,
+    'lesson-5': lesson5Illustration,
   },
   meditation: meditationIllustration,
   exercises: exercisesIllustration,
