@@ -1,7 +1,7 @@
-import { SacredQuiz } from "@/components/quiz/SacredQuiz";
+import { ManuscriptApp } from "@/components/manuscript/ManuscriptApp";
 
 const Index = () => {
-  return <SacredQuiz />;
+  return <ManuscriptApp />;
 };
 
 export default Index;

@@ -28,7 +28,7 @@ const Auth = () => {
 
   useEffect(() => {
     if (user && !loading) {
-      navigate('/manuscrito');
+      navigate('/');
     }
   }, [user, loading, navigate]);
 
@@ -74,7 +74,7 @@ const Auth = () => {
           }
         } else {
           toast.success('Welcome back!');
-          navigate('/manuscrito');
+          navigate('/');
         }
       } else {
         const { error } = await signUp(email, password, name);
@@ -86,7 +86,7 @@ const Auth = () => {
           }
         } else {
           toast.success('Account created successfully! Welcome to Archangel Key.');
-          navigate('/manuscrito');
+          navigate('/');
         }
       }
     } finally {
@@ -121,11 +121,11 @@ const Auth = () => {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/quiz')}
           className="mb-6 text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back
+          Back to Quiz
         </Button>
 
         {/* Header */}
