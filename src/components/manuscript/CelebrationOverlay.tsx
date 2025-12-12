@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useMemo, memo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Award, Sparkles, Star, PartyPopper } from 'lucide-react';
 
 interface CelebrationOverlayProps {
@@ -14,8 +14,7 @@ interface CelebrationOverlayProps {
 const CONFETTI_COUNT = 15;
 const CONFETTI_COLORS = ['#D4AF37', '#8B5CF6', '#14B8A6', '#F59E0B', '#EC4899'];
 
-const ConfettiParticle = memo(({ index }: { index: number }) => {
-  // Pre-compute random values based on index for consistency
+const ConfettiParticle = ({ index }: { index: number }) => {
   const color = CONFETTI_COLORS[index % CONFETTI_COLORS.length];
   const left = (index * 7) % 100;
   const delay = index * 0.08;
@@ -29,10 +28,9 @@ const ConfettiParticle = memo(({ index }: { index: number }) => {
       style={{ backgroundColor: color }}
     />
   );
-});
+};
 
-// Simplified StarBurst - reduced from 8 to 4 stars
-const StarBurst = memo(() => (
+const StarBurst = () => (
   <motion.div
     initial={{ scale: 0, opacity: 0 }}
     animate={{ scale: 1, opacity: 0.8 }}
@@ -56,16 +54,15 @@ const StarBurst = memo(() => (
       </motion.div>
     ))}
   </motion.div>
-));
+);
 
-export const CelebrationOverlay = memo(({ 
+export const CelebrationOverlay = ({ 
   isVisible, 
   type, 
   title, 
   message, 
   onClose 
 }: CelebrationOverlayProps) => {
-  // Pre-generate confetti indices
   const confettiIndices = useMemo(() => 
     Array.from({ length: CONFETTI_COUNT }, (_, i) => i), 
     []
@@ -100,15 +97,12 @@ export const CelebrationOverlay = memo(({
           className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 overflow-hidden"
           onClick={onClose}
         >
-          {/* Optimized Confetti - fewer particles */}
           {confettiIndices.map((i) => (
             <ConfettiParticle key={i} index={i} />
           ))}
 
-          {/* Star burst effect */}
           <StarBurst />
 
-          {/* Simplified background glow - no blur */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1.2, opacity: 0.2 }}
@@ -116,7 +110,6 @@ export const CelebrationOverlay = memo(({
             className="absolute w-72 h-72 rounded-full bg-manuscript-gold/30"
           />
 
-          {/* Main celebration card */}
           <motion.div
             initial={{ scale: 0.8, y: 30 }}
             animate={{ scale: 1, y: 0 }}
@@ -125,7 +118,6 @@ export const CelebrationOverlay = memo(({
             className="relative bg-gradient-to-br from-white to-primary/10 border-2 border-manuscript-gold/50 rounded-3xl p-8 text-center max-w-sm mx-4 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Icon container */}
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -135,7 +127,6 @@ export const CelebrationOverlay = memo(({
               {getIcon()}
             </motion.div>
 
-            {/* Title */}
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -145,7 +136,6 @@ export const CelebrationOverlay = memo(({
               {title}
             </motion.h2>
 
-            {/* Message */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -155,9 +145,8 @@ export const CelebrationOverlay = memo(({
               {message}
             </motion.p>
 
-            {/* Static decorative stars */}
             <div className="flex justify-center gap-2">
-              {[...Array(3)].map((_, i) => (
+              {[0, 1, 2].map((i) => (
                 <Star 
                   key={i} 
                   className="w-3 h-3 text-manuscript-gold/60 fill-manuscript-gold/30" 
@@ -165,7 +154,6 @@ export const CelebrationOverlay = memo(({
               ))}
             </div>
 
-            {/* Tap to close hint */}
             <p className="text-muted-foreground text-sm mt-5 font-body opacity-60">
               Tap anywhere to continue
             </p>
@@ -174,4 +162,4 @@ export const CelebrationOverlay = memo(({
       )}
     </AnimatePresence>
   );
-});
+};
