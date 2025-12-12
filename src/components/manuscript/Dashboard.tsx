@@ -102,7 +102,7 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
           className="bg-gradient-to-br from-white/90 to-manuscript-gold/5 backdrop-blur-sm rounded-2xl border border-manuscript-gold/20 p-3 text-center shadow-sm hover:shadow-md hover:border-manuscript-gold/40 transition-all cursor-default"
         >
           <div className="w-10 h-10 mx-auto mb-2 rounded-xl overflow-hidden">
-            <img src={illustrations.modules['module-1']} alt="Modules" className="w-full h-full object-cover" />
+            <img src={illustrations.stats.modules} alt="Modules" className="w-full h-full object-cover" />
           </div>
           <span className="text-2xl font-heading text-manuscript-gold">{completedModules}</span>
           <p className="text-muted-foreground text-xs mt-0.5">{t.modules}</p>
@@ -112,7 +112,7 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
           className="bg-gradient-to-br from-white/90 to-manuscript-purple/5 backdrop-blur-sm rounded-2xl border border-manuscript-purple/20 p-3 text-center shadow-sm hover:shadow-md hover:border-manuscript-purple/40 transition-all cursor-default"
         >
           <div className="w-10 h-10 mx-auto mb-2 rounded-xl overflow-hidden">
-            <img src={illustrations.videoLessons} alt="Lessons" className="w-full h-full object-cover" />
+            <img src={illustrations.stats.lessons} alt="Lessons" className="w-full h-full object-cover" />
           </div>
           <span className="text-2xl font-heading text-manuscript-purple">{completedLessons}</span>
           <p className="text-muted-foreground text-xs mt-0.5">{t.lessons}</p>
@@ -122,7 +122,7 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
           className="bg-gradient-to-br from-white/90 to-amber-500/5 backdrop-blur-sm rounded-2xl border border-amber-400/20 p-3 text-center shadow-sm hover:shadow-md hover:border-amber-400/40 transition-all cursor-default"
         >
           <div className="w-10 h-10 mx-auto mb-2 rounded-xl overflow-hidden">
-            <img src={illustrations.achievements} alt="Achievements" className="w-full h-full object-cover" />
+            <img src={illustrations.stats.achievements} alt="Achievements" className="w-full h-full object-cover" />
           </div>
           <span className="text-2xl font-heading text-amber-500">{progress.badges.length}</span>
           <p className="text-muted-foreground text-xs mt-0.5">{t.achievements}</p>
