@@ -5,6 +5,7 @@ import { modules } from '@/data/manuscriptContent';
 import { Button } from '@/components/ui/button';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { Language, getTranslation } from '@/data/translations';
+import { moduleIllustrationMap } from '@/data/illustrationAssets';
 
 interface ModulesViewProps {
   progress: ManuscriptProgress;
@@ -52,11 +53,18 @@ export const ModulesView = ({ progress, onCompleteSection, language }: ModulesVi
             <span className="text-sm">{t.backToModules}</span>
           </button>
           
+          {/* Module Illustration Header */}
+          <div className="relative h-28 -mx-4 mb-4 overflow-hidden rounded-b-2xl">
+            <img 
+              src={moduleIllustrationMap[currentModule.icon]} 
+              alt={currentModule.title}
+              className="w-full h-full object-contain bg-gradient-to-br from-manuscript-gold/10 to-primary/5"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+          </div>
+
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-xl bg-manuscript-gold/20 flex items-center justify-center text-manuscript-gold">
-              {iconMap[currentModule.icon]}
-            </div>
-            <span className="text-manuscript-gold font-medium">{t.module} {currentModule.number}</span>
+            <span className="text-manuscript-gold font-medium text-sm">{t.module} {currentModule.number}</span>
           </div>
           
           <h1 className="text-2xl font-heading text-foreground mb-2">
@@ -211,15 +219,28 @@ export const ModulesView = ({ progress, onCompleteSection, language }: ModulesVi
               className="w-full text-left bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 hover:border-manuscript-gold/40 hover:bg-white/90 transition-all group"
             >
               <div className="flex items-start gap-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden ${
                   isCompleted 
-                    ? 'bg-manuscript-gold/20 text-manuscript-gold' 
-                    : 'bg-muted text-muted-foreground'
+                    ? 'ring-2 ring-manuscript-gold/40' 
+                    : 'bg-muted/30'
                 }`}>
                   {isCompleted ? (
-                    <CheckCircle className="w-6 h-6" />
+                    <div className="relative w-full h-full">
+                      <img 
+                        src={moduleIllustrationMap[module.icon]} 
+                        alt={module.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-manuscript-gold/20 flex items-center justify-center">
+                        <CheckCircle className="w-6 h-6 text-manuscript-gold" />
+                      </div>
+                    </div>
                   ) : (
-                    iconMap[module.icon]
+                    <img 
+                      src={moduleIllustrationMap[module.icon]} 
+                      alt={module.title}
+                      className="w-full h-full object-cover opacity-70"
+                    />
                   )}
                 </div>
                 

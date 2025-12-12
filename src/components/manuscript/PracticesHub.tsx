@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Brain, Heart, Target, Wind, PenTool, Compass, Eye, Moon, ArrowLeft, Clock, Play } from 'lucide-react';
+import { Sparkles, Brain, Heart, Target, Wind, PenTool, Compass, Eye, Moon, ArrowLeft, Clock, Play, Lightbulb } from 'lucide-react';
 import { meditations, meditationsIntroduction } from '@/data/meditationsContent';
 import { exercises, exercisesIntroduction } from '@/data/exercisesContent';
 import { MeditationTimer } from './MeditationTimer';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { Language, getTranslation } from '@/data/translations';
+import { illustrations } from '@/data/illustrationAssets';
 
 interface PracticesHubProps {
   progress: ManuscriptProgress;
@@ -192,7 +193,10 @@ export const PracticesHub = ({ progress, onCompleteDay, language }: PracticesHub
                   </div>
                   <p className="text-muted-foreground ml-10">{step.instruction}</p>
                   {step.tip && (
-                    <p className="text-manuscript-gold/70 text-sm ml-10 italic">💡 {step.tip}</p>
+                    <div className="flex items-start gap-2 ml-10 text-manuscript-gold/80">
+                      <Lightbulb className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm italic">{step.tip}</p>
+                    </div>
                   )}
                 </li>
               ))}
@@ -212,11 +216,15 @@ export const PracticesHub = ({ progress, onCompleteDay, language }: PracticesHub
   // Main Hub View
   return (
     <div className="min-h-screen pb-24 px-4">
-      {/* Header */}
-      <div className="pt-8 pb-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-manuscript-gold/30 to-primary/20 flex items-center justify-center">
-            <Sparkles className="w-6 h-6 text-manuscript-gold" />
+      {/* Header with Illustration */}
+      <div className="pt-8 pb-4">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-16 h-16 rounded-xl overflow-hidden bg-gradient-to-br from-manuscript-gold/20 to-primary/10 flex items-center justify-center">
+            <img 
+              src={activeTab === 'meditations' ? illustrations.meditation : illustrations.exercises} 
+              alt={t.title}
+              className="w-14 h-14 object-contain"
+            />
           </div>
           <div>
             <h1 className="text-2xl font-heading text-foreground">{t.title}</h1>
