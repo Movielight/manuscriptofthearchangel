@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Settings, Flame, BookOpen, Video, Award, ChevronRight } from 'lucide-react';
+import { Settings, Flame, ChevronRight } from 'lucide-react';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { AppView } from './BottomNavigation';
 import { modules } from '@/data/manuscriptContent';
@@ -97,21 +97,36 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
 
       {/* Quick Stats */}
       <div className="grid grid-cols-3 gap-3 mb-6">
-        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 text-center">
-          <BookOpen className="w-5 h-5 text-manuscript-gold mx-auto mb-2" />
-          <span className="text-xl font-heading text-foreground">{completedModules}</span>
-          <p className="text-muted-foreground text-xs">{t.modules}</p>
-        </div>
-        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 text-center">
-          <Video className="w-5 h-5 text-manuscript-gold mx-auto mb-2" />
-          <span className="text-xl font-heading text-foreground">{completedLessons}</span>
-          <p className="text-muted-foreground text-xs">{t.lessons}</p>
-        </div>
-        <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-primary/20 p-4 text-center">
-          <Award className="w-5 h-5 text-manuscript-gold mx-auto mb-2" />
-          <span className="text-xl font-heading text-foreground">{progress.badges.length}</span>
-          <p className="text-muted-foreground text-xs">{t.achievements}</p>
-        </div>
+        <motion.div 
+          whileHover={{ scale: 1.02, y: -2 }}
+          className="bg-gradient-to-br from-white/90 to-manuscript-gold/5 backdrop-blur-sm rounded-2xl border border-manuscript-gold/20 p-3 text-center shadow-sm hover:shadow-md hover:border-manuscript-gold/40 transition-all cursor-default"
+        >
+          <div className="w-10 h-10 mx-auto mb-2 rounded-xl overflow-hidden">
+            <img src={illustrations.modules['module-1']} alt="Modules" className="w-full h-full object-cover" />
+          </div>
+          <span className="text-2xl font-heading text-manuscript-gold">{completedModules}</span>
+          <p className="text-muted-foreground text-xs mt-0.5">{t.modules}</p>
+        </motion.div>
+        <motion.div 
+          whileHover={{ scale: 1.02, y: -2 }}
+          className="bg-gradient-to-br from-white/90 to-manuscript-purple/5 backdrop-blur-sm rounded-2xl border border-manuscript-purple/20 p-3 text-center shadow-sm hover:shadow-md hover:border-manuscript-purple/40 transition-all cursor-default"
+        >
+          <div className="w-10 h-10 mx-auto mb-2 rounded-xl overflow-hidden">
+            <img src={illustrations.videoLessons} alt="Lessons" className="w-full h-full object-cover" />
+          </div>
+          <span className="text-2xl font-heading text-manuscript-purple">{completedLessons}</span>
+          <p className="text-muted-foreground text-xs mt-0.5">{t.lessons}</p>
+        </motion.div>
+        <motion.div 
+          whileHover={{ scale: 1.02, y: -2 }}
+          className="bg-gradient-to-br from-white/90 to-amber-500/5 backdrop-blur-sm rounded-2xl border border-amber-400/20 p-3 text-center shadow-sm hover:shadow-md hover:border-amber-400/40 transition-all cursor-default"
+        >
+          <div className="w-10 h-10 mx-auto mb-2 rounded-xl overflow-hidden">
+            <img src={illustrations.achievements} alt="Achievements" className="w-full h-full object-cover" />
+          </div>
+          <span className="text-2xl font-heading text-amber-500">{progress.badges.length}</span>
+          <p className="text-muted-foreground text-xs mt-0.5">{t.achievements}</p>
+        </motion.div>
       </div>
 
       {/* Quick Actions */}
