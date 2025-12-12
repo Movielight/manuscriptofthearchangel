@@ -1,4 +1,4 @@
-import { useState, memo, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Check, ChevronRight, BookOpen } from 'lucide-react';
 import { modules } from '@/data/manuscriptContent';
@@ -13,8 +13,8 @@ interface ModulesViewProps {
   language: Language;
 }
 
-// Memoized module card for better performance
-const ModuleCard = memo(({ 
+// Module card component
+const ModuleCard = ({ 
   module, 
   isCompleted, 
   onClick, 
@@ -69,9 +69,9 @@ const ModuleCard = memo(({
       <ChevronRight className={`w-5 h-5 transition-colors ${isCompleted ? 'text-manuscript-gold' : 'text-muted-foreground group-hover:text-manuscript-gold'}`} />
     </div>
   </button>
-));
+);
 
-export const ModulesView = memo(({ progress, onCompleteSection, language }: ModulesViewProps) => {
+export const ModulesView = ({ progress, onCompleteSection, language }: ModulesViewProps) => {
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   
@@ -197,4 +197,4 @@ export const ModulesView = memo(({ progress, onCompleteSection, language }: Modu
       </div>
     </div>
   );
-});
+};
