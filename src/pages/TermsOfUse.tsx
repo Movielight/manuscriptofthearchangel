@@ -116,7 +116,10 @@ const TermsOfUse = () => {
             <h2 className="font-heading text-2xl mb-4 text-primary">9. Owner Information</h2>
             <div className="text-muted-foreground leading-relaxed space-y-2">
               <p><strong className="text-foreground">App Name:</strong> Archangel Key</p>
-              <p><strong className="text-foreground">Creator:</strong> Vinícius Carlos Barbosa</p>
+              <p><strong className="text-foreground">Owner:</strong> Kaike Alves Gibertoni Snyder</p>
+              <p><strong className="text-foreground">CPF:</strong> 03503610103</p>
+              <p><strong className="text-foreground">Company:</strong> Movielight LTDA</p>
+              <p><strong className="text-foreground">CNPJ:</strong> 48.108.988/0001-33</p>
               <p><strong className="text-foreground">Contact:</strong> support@archangelkey.com</p>
             </div>
           </section>
