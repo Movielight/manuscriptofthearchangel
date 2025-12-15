@@ -37,7 +37,7 @@ The Sacred Manuscript serves as a guide in this exploration. It does not offer r
 In this introductory lesson, we establish the foundations for everything that follows. You will learn to cultivate the appropriate mental disposition - a combination of openness, humility, and critical discernment. This disposition is more important than any specific technique.
 
 Remember: the value of this journey is not in accumulating information, but in transforming your relationship with yourself and with life.`,
-    videoUrl: "https://youtu.be/Xa7abA-3w2o"
+    videoUrl: "https://youtu.be/Ft_a9NmJAao"
   },
   {
     id: "lesson-2",
@@ -64,7 +64,7 @@ Understanding symbolic language is not learning a secret code. It is recognizing
 We will work with symbols practically: how to interpret them in your dreams, how to recognize them in life situations, and how to use them intentionally in contemplative practices.
 
 Important: this is an educational and psychological approach, not religious. Symbols are tools for self-knowledge, not objects of worship.`,
-    videoUrl: "https://youtu.be/NdIp_rZ1oiw"
+    videoUrl: "https://youtu.be/YqhysZrStRU"
   },
   {
     id: "lesson-3",
@@ -96,7 +96,7 @@ In this lesson, we will teach specific techniques:
 These tools are simple but not easy. They require practice and patience. The results, however, are transformative when you commit to the process.
 
 Remember: we do not offer magical solutions. What we offer are proven methods that work when applied consistently.`,
-    videoUrl: "https://youtu.be/jn4x6CJKE20"
+    videoUrl: "https://youtu.be/Y5LtD17blcU"
   },
   {
     id: "lesson-4",
@@ -133,7 +133,7 @@ In this lesson, we offer safe and non-religious practices:
 These practices are suggestions. We encourage you to adapt them to your context and create your own meaningful rituals.
 
 Important: We do not promise that these practices will bring specific results. Their value lies in the process, not in outcome guarantees.`,
-    videoUrl: "https://youtu.be/d_nAiwgSlhk"
+    videoUrl: "https://youtu.be/ZiFbIO5TnXg"
   },
   {
     id: "lesson-5",
@@ -173,7 +173,7 @@ Structure your environment to support your practice. Visual reminders, establish
 Don't try to change everything at once. Choose one area of life to focus on first. When that becomes more natural, expand.
 
 The path of self-knowledge has no end. You will not reach a point of conclusion where there is no more work to do. The goal is not perfection, but continuous growth and increasingly consistent presence.`,
-    videoUrl: "https://youtu.be/dftyJ8QVfBc"
+    videoUrl: "https://youtu.be/Bi2jPGtfIIU"
   }
 ];
 
