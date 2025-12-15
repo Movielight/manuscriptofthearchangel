@@ -19,7 +19,7 @@ export const lessons: Lesson[] = [
     number: 1,
     title: "Introduction to the Manuscript and the Inner Journey",
     subtitle: "Foundations for your conscious transformation",
-    duration: "~20 min",
+    duration: "2:47",
     introduction: `In this first lesson, you will be introduced to the essence of the Sacred Manuscript and the path of self-discovery that opens before you.
 
 Before diving into specific content, it is essential to understand the purpose of this journey and how to make the most of each teaching. This is not a promise of instant change, but an invitation for genuine and gradual inner work.`,
@@ -44,7 +44,7 @@ Remember: the value of this journey is not in accumulating information, but in t
     number: 2,
     title: "Spiritual Symbolism and Archetypes",
     subtitle: "The universal language of the unconscious",
-    duration: "~25 min",
+    duration: "2:21",
     introduction: `Symbols are humanity's oldest language. Before writing, before even structured verbal language, human beings communicated through symbols - in cave paintings, rituals, and myths.
 
 This lesson explores how symbols work in our psyche and how we can consciously use them to access deeper layers of understanding.`,
@@ -71,7 +71,7 @@ Important: this is an educational and psychological approach, not religious. Sym
     number: 3,
     title: "Introspection and Emotional Alignment Techniques",
     subtitle: "Practical tools for inner clarity",
-    duration: "~30 min",
+    duration: "2:32",
     introduction: `Introspection is the ability to look inward - to observe your thoughts, emotions, and patterns. Emotional alignment is the natural result of sincere and consistent introspection.
 
 This lesson offers concrete techniques you can apply immediately in your life. These are not abstract theories, but tested practices that produce results when applied regularly.`,
@@ -103,7 +103,7 @@ Remember: we do not offer magical solutions. What we offer are proven methods th
     number: 4,
     title: "Symbolic Practices of Focus and Intention",
     subtitle: "Conscious rituals for daily life",
-    duration: "~25 min",
+    duration: "2:52",
     introduction: `This lesson presents symbolic practices that can help structure your experience and strengthen your intention. These are rituals in the psychological sense - actions charged with personal meaning that assist in the transformation process.
 
 It is important to clarify: these practices have no magical or supernatural power. Their value lies in how they organize your mind and direct your attention. Results come from your inner work, not from external forces.`,
@@ -140,7 +140,7 @@ Important: We do not promise that these practices will bring specific results. T
     number: 5,
     title: "How to Apply the Teachings in Daily Life",
     subtitle: "From theory to everyday practice",
-    duration: "~30 min",
+    duration: "2:54",
     introduction: `The true test of any teaching is in its practical application. This final lesson in the series focuses on how to integrate everything you have learned into the real flow of daily life - at work, in relationships, in daily challenges.
 
 Wisdom that remains on the pages of a book (or in an app) has no real value. Only when it becomes lived action does it transform.`,
