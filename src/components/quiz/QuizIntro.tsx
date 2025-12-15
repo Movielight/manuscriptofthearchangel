@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
+import { SocialProofCounter } from "./SocialProofCounter";
+import { TrustBadges } from "./TrustBadges";
 
 interface QuizIntroProps {
   onStart: () => void;
@@ -101,6 +103,19 @@ export const QuizIntro = ({ onStart }: QuizIntroProps) => {
         >
           ✦ Takes only 3 minutes ✦ Deeply personal results ✦
         </motion.p>
+
+        {/* Social Proof Counter */}
+        <SocialProofCounter variant="intro" />
+
+        {/* Trust Badges */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.1 }}
+          className="mt-8"
+        >
+          <TrustBadges />
+        </motion.div>
       </motion.div>
     </motion.div>
   );
