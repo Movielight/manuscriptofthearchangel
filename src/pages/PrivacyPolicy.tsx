@@ -143,7 +143,10 @@ const PrivacyPolicy = () => {
           <section className="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-border/50">
             <h2 className="font-heading text-2xl mb-4 text-primary">11. Owner Information</h2>
             <div className="text-muted-foreground leading-relaxed space-y-2">
-              <p><strong className="text-foreground">Data Controller:</strong> Vinícius Carlos Barbosa</p>
+              <p><strong className="text-foreground">Data Controller:</strong> Kaike Alves Gibertoni Snyder</p>
+              <p><strong className="text-foreground">CPF:</strong> 03503610103</p>
+              <p><strong className="text-foreground">Company:</strong> Movielight LTDA</p>
+              <p><strong className="text-foreground">CNPJ:</strong> 48.108.988/0001-33</p>
               <p><strong className="text-foreground">App Name:</strong> Archangel Key</p>
               <p><strong className="text-foreground">Contact Email:</strong> support@archangelkey.com</p>
             </div>

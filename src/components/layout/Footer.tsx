@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground text-center md:text-left">
             <p>© {currentYear} Archangel Key. All rights reserved.</p>
-            <p className="text-xs mt-1">Created by Vinícius Carlos Barbosa</p>
+            <p className="text-xs mt-1">Movielight LTDA - CNPJ: 48.108.988/0001-33</p>
           </div>
           
           <nav className="flex items-center gap-6 text-sm">
