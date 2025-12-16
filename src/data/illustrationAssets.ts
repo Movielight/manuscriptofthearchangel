@@ -39,9 +39,12 @@ import journeyPlansIllustration from '@/assets/illustrations/journey-plans.png';
 import plan7DaysIllustration from '@/assets/illustrations/plan-7-days.png';
 import plan14DaysIllustration from '@/assets/illustrations/plan-14-days.png';
 import plan21DaysIllustration from '@/assets/illustrations/plan-21-days.png';
+// Quiz illustrations
+import happyFamilyIllustration from '@/assets/illustrations/happy-family.png';
 
 export const illustrations = {
   heroDashboard,
+  happyFamily: happyFamilyIllustration,
   modules: {
     'module-1': moduleOrigin,
     'module-2': moduleSymbolism,

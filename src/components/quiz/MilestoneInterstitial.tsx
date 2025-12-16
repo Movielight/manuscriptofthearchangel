@@ -13,6 +13,13 @@ const milestones = [
     progress: 25,
   },
   {
+    image: illustrations.happyFamily,
+    title: "Families Transformed",
+    subtitle: "Real Stories of Divine Connection",
+    message: "Thousands of families have found peace, purpose, and unity through this sacred journey",
+    progress: 50,
+  },
+  {
     image: illustrations.heroDashboard,
     title: "Almost There",
     subtitle: "Your Message is Being Prepared",

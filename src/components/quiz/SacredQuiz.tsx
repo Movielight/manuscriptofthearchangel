@@ -50,9 +50,9 @@ export const SacredQuiz = () => {
       setStage("bibleVerse");
       setSelectedOption(null);
     }
-    // Show milestone after questions 2 and 5
-    else if ([2, 5].includes(questionNumber)) {
-      setMilestoneIndex(questionNumber === 2 ? 0 : 1);
+    // Show milestone after questions 2, 5, and 8
+    else if ([2, 5, 8].includes(questionNumber)) {
+      setMilestoneIndex(questionNumber === 2 ? 0 : questionNumber === 5 ? 1 : 2);
       setStage("milestone");
       setSelectedOption(null);
     }
@@ -75,8 +75,13 @@ export const SacredQuiz = () => {
   };
 
   const handleMilestoneContinue = () => {
-    setCurrentQuestionIndex((prev) => prev + 1);
-    setStage("questions");
+    const nextIndex = currentQuestionIndex + 1;
+    if (nextIndex < quizQuestions.length) {
+      setCurrentQuestionIndex(nextIndex);
+      setStage("questions");
+    } else {
+      setStage("loading");
+    }
   };
 
   const handleTestimonialContinue = () => {
