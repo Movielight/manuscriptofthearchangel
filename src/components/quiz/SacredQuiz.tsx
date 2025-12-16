@@ -4,6 +4,7 @@ import { QuizIntro } from "./QuizIntro";
 import { QuizQuestion } from "./QuizQuestion";
 import { QuizLoading } from "./QuizLoading";
 import { QuizResult } from "./QuizResult";
+import { TestimonialInterstitial } from "./TestimonialInterstitial";
 import {
   quizQuestions,
   quizResults,
@@ -11,7 +12,7 @@ import {
   ResultType,
 } from "@/data/quizQuestions";
 
-type QuizStage = "intro" | "questions" | "loading" | "result";
+type QuizStage = "intro" | "questions" | "testimonial" | "loading" | "result";
 
 export const SacredQuiz = () => {
   const [stage, setStage] = useState<QuizStage>("intro");
@@ -19,6 +20,7 @@ export const SacredQuiz = () => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [resultType, setResultType] = useState<ResultType | null>(null);
+  const [testimonialSetIndex, setTestimonialSetIndex] = useState(0);
 
   const handleStart = () => {
     setStage("questions");
@@ -35,12 +37,24 @@ export const SacredQuiz = () => {
     const newAnswers = { ...answers, [currentQuestion.id]: selectedOption };
     setAnswers(newAnswers);
 
-    if (currentQuestionIndex < quizQuestions.length - 1) {
-      setCurrentQuestionIndex((prev) => prev + 1);
+    const nextIndex = currentQuestionIndex + 1;
+
+    // Show testimonials after questions 3 and 6 (indices 2 and 5)
+    if ((currentQuestionIndex + 1) % 3 === 0 && currentQuestionIndex < quizQuestions.length - 1) {
+      setTestimonialSetIndex(Math.floor(currentQuestionIndex / 3));
+      setStage("testimonial");
+      setSelectedOption(null);
+    } else if (nextIndex < quizQuestions.length) {
+      setCurrentQuestionIndex(nextIndex);
       setSelectedOption(null);
     } else {
       setStage("loading");
     }
+  };
+
+  const handleTestimonialContinue = () => {
+    setCurrentQuestionIndex((prev) => prev + 1);
+    setStage("questions");
   };
 
   const handleLoadingComplete = useCallback(() => {
@@ -63,6 +77,14 @@ export const SacredQuiz = () => {
             selectedOption={selectedOption}
             onSelect={handleSelectOption}
             onNext={handleNext}
+          />
+        )}
+
+        {stage === "testimonial" && (
+          <TestimonialInterstitial
+            key={`testimonial-${testimonialSetIndex}`}
+            setIndex={testimonialSetIndex}
+            onContinue={handleTestimonialContinue}
           />
         )}
 
