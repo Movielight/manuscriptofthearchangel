@@ -7,6 +7,7 @@ import { QuizResult } from "./QuizResult";
 import { TestimonialInterstitial } from "./TestimonialInterstitial";
 import { BibleVerseInterstitial } from "./BibleVerseInterstitial";
 import { MilestoneInterstitial } from "./MilestoneInterstitial";
+import { LiveNotifications } from "./LiveNotifications";
 import {
   quizQuestions,
   quizResults,
@@ -95,8 +96,14 @@ export const SacredQuiz = () => {
     setStage("result");
   }, [answers]);
 
+  // Show live notifications during quiz stages
+  const showNotifications = stage === "questions" || stage === "testimonial" || stage === "milestone" || stage === "bibleVerse";
+
   return (
     <div className="min-h-screen">
+      {/* Live notifications component */}
+      {showNotifications && <LiveNotifications />}
+
       <AnimatePresence mode="wait">
         {stage === "intro" && <QuizIntro key="intro" onStart={handleStart} />}
 
