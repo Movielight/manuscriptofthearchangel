@@ -5,6 +5,7 @@ import { QuizQuestion } from "./QuizQuestion";
 import { QuizLoading } from "./QuizLoading";
 import { QuizResult } from "./QuizResult";
 import { TestimonialInterstitial } from "./TestimonialInterstitial";
+import { BibleVerseInterstitial } from "./BibleVerseInterstitial";
 import {
   quizQuestions,
   quizResults,
@@ -12,7 +13,7 @@ import {
   ResultType,
 } from "@/data/quizQuestions";
 
-type QuizStage = "intro" | "questions" | "testimonial" | "loading" | "result";
+type QuizStage = "intro" | "questions" | "testimonial" | "bibleVerse" | "loading" | "result";
 
 export const SacredQuiz = () => {
   const [stage, setStage] = useState<QuizStage>("intro");
@@ -21,6 +22,7 @@ export const SacredQuiz = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [resultType, setResultType] = useState<ResultType | null>(null);
   const [testimonialSetIndex, setTestimonialSetIndex] = useState(0);
+  const [bibleVerseIndex, setBibleVerseIndex] = useState(0);
 
   const handleStart = () => {
     setStage("questions");
@@ -37,11 +39,18 @@ export const SacredQuiz = () => {
     const newAnswers = { ...answers, [currentQuestion.id]: selectedOption };
     setAnswers(newAnswers);
 
+    const questionNumber = currentQuestionIndex + 1;
     const nextIndex = currentQuestionIndex + 1;
 
-    // Show testimonials after questions 3 and 6 (indices 2 and 5)
-    if ((currentQuestionIndex + 1) % 3 === 0 && currentQuestionIndex < quizQuestions.length - 1) {
-      setTestimonialSetIndex(Math.floor(currentQuestionIndex / 3));
+    // Show Bible verse after questions 1, 4, 7
+    if ([1, 4, 7].includes(questionNumber)) {
+      setBibleVerseIndex(Math.floor(questionNumber / 3));
+      setStage("bibleVerse");
+      setSelectedOption(null);
+    }
+    // Show testimonials after questions 3 and 6
+    else if ([3, 6].includes(questionNumber) && nextIndex < quizQuestions.length) {
+      setTestimonialSetIndex(questionNumber === 3 ? 0 : 1);
       setStage("testimonial");
       setSelectedOption(null);
     } else if (nextIndex < quizQuestions.length) {
@@ -50,6 +59,11 @@ export const SacredQuiz = () => {
     } else {
       setStage("loading");
     }
+  };
+
+  const handleBibleVerseContinue = () => {
+    setCurrentQuestionIndex((prev) => prev + 1);
+    setStage("questions");
   };
 
   const handleTestimonialContinue = () => {
@@ -77,6 +91,14 @@ export const SacredQuiz = () => {
             selectedOption={selectedOption}
             onSelect={handleSelectOption}
             onNext={handleNext}
+          />
+        )}
+
+        {stage === "bibleVerse" && (
+          <BibleVerseInterstitial
+            key={`bible-${bibleVerseIndex}`}
+            verseIndex={bibleVerseIndex}
+            onContinue={handleBibleVerseContinue}
           />
         )}
 
