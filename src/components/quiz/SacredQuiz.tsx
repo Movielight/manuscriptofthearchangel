@@ -6,6 +6,7 @@ import { QuizLoading } from "./QuizLoading";
 import { QuizResult } from "./QuizResult";
 import { TestimonialInterstitial } from "./TestimonialInterstitial";
 import { BibleVerseInterstitial } from "./BibleVerseInterstitial";
+import { MilestoneInterstitial } from "./MilestoneInterstitial";
 import {
   quizQuestions,
   quizResults,
@@ -13,7 +14,7 @@ import {
   ResultType,
 } from "@/data/quizQuestions";
 
-type QuizStage = "intro" | "questions" | "testimonial" | "bibleVerse" | "loading" | "result";
+type QuizStage = "intro" | "questions" | "testimonial" | "bibleVerse" | "milestone" | "loading" | "result";
 
 export const SacredQuiz = () => {
   const [stage, setStage] = useState<QuizStage>("intro");
@@ -23,6 +24,7 @@ export const SacredQuiz = () => {
   const [resultType, setResultType] = useState<ResultType | null>(null);
   const [testimonialSetIndex, setTestimonialSetIndex] = useState(0);
   const [bibleVerseIndex, setBibleVerseIndex] = useState(0);
+  const [milestoneIndex, setMilestoneIndex] = useState(0);
 
   const handleStart = () => {
     setStage("questions");
@@ -48,6 +50,12 @@ export const SacredQuiz = () => {
       setStage("bibleVerse");
       setSelectedOption(null);
     }
+    // Show milestone after questions 2 and 5
+    else if ([2, 5].includes(questionNumber)) {
+      setMilestoneIndex(questionNumber === 2 ? 0 : 1);
+      setStage("milestone");
+      setSelectedOption(null);
+    }
     // Show testimonials after questions 3 and 6
     else if ([3, 6].includes(questionNumber) && nextIndex < quizQuestions.length) {
       setTestimonialSetIndex(questionNumber === 3 ? 0 : 1);
@@ -62,6 +70,11 @@ export const SacredQuiz = () => {
   };
 
   const handleBibleVerseContinue = () => {
+    setCurrentQuestionIndex((prev) => prev + 1);
+    setStage("questions");
+  };
+
+  const handleMilestoneContinue = () => {
     setCurrentQuestionIndex((prev) => prev + 1);
     setStage("questions");
   };
@@ -99,6 +112,14 @@ export const SacredQuiz = () => {
             key={`bible-${bibleVerseIndex}`}
             verseIndex={bibleVerseIndex}
             onContinue={handleBibleVerseContinue}
+          />
+        )}
+
+        {stage === "milestone" && (
+          <MilestoneInterstitial
+            key={`milestone-${milestoneIndex}`}
+            milestoneIndex={milestoneIndex}
+            onContinue={handleMilestoneContinue}
           />
         )}
 
