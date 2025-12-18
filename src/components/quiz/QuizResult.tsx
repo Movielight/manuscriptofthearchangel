@@ -231,7 +231,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
                 Unlock divine guidance forever
               </p>
               <div className="mb-6">
-                <span className="text-4xl font-heading text-primary">5x $7.68</span>
+                <span className="text-4xl font-heading text-primary">$5</span>
                 <span className="text-muted-foreground"> / month</span>
               </div>
               <ul className="text-left space-y-3 mb-6">
