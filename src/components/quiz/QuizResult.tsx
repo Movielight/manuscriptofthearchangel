@@ -225,14 +225,14 @@ export const QuizResult = ({ result }: QuizResultProps) => {
                 Sacred Investment
               </div>
               <h4 className="font-heading text-2xl text-foreground mb-2">
-                Monthly Blessing
+                Sacred Blessing
               </h4>
               <p className="text-muted-foreground mb-4">
-                Unlock divine guidance each month
+                Unlock divine guidance forever
               </p>
               <div className="mb-6">
-                <span className="text-4xl font-heading text-primary">$38,38</span>
-                <span className="text-muted-foreground"> / per month</span>
+                <span className="text-4xl font-heading text-primary">5x $7.68</span>
+                <span className="text-muted-foreground"> / month</span>
               </div>
               <ul className="text-left space-y-3 mb-6">
                 {[
