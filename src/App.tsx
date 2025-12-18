@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import TermsOfUse from "./pages/TermsOfUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Upsell1 from "./pages/Upsell1";
+import Upsell2 from "./pages/Upsell2";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/up1" element={<Upsell1 />} />
+          <Route path="/up2" element={<Upsell2 />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
