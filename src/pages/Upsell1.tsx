@@ -1,29 +1,16 @@
 import { useGeoLocation } from "@/hooks/useGeoLocation";
+import { useIsMobile } from "@/hooks/use-mobile";
 import Upsell1US from "@/components/upsell/Upsell1US";
 import Upsell1International from "@/components/upsell/Upsell1International";
-import { motion } from "framer-motion";
 
 const Upsell1 = () => {
-  const { isUS, loading } = useGeoLocation();
+  const { isUS } = useGeoLocation();
+  const isMobile = useIsMobile();
 
-  // Show loading state while detecting location
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center"
-        >
-          <div className="w-12 h-12 border-2 border-amber-500/30 border-t-amber-500 rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-amber-100/60 text-sm">Loading...</p>
-        </motion.div>
-      </div>
-    );
-  }
+  // Show US version only for US users on mobile devices
+  const showUSVersion = isUS && isMobile;
 
-  // Show US version for US users, International version for others
-  return isUS ? <Upsell1US /> : <Upsell1International />;
+  return showUSVersion ? <Upsell1US /> : <Upsell1International />;
 };
 
 export default Upsell1;
