@@ -12,14 +12,16 @@ import {
   Users,
   Zap,
   Heart,
-  Award
+  Award,
+  RefreshCw,
+  Infinity as InfinityIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LiveNotifications } from "@/components/quiz/LiveNotifications";
 
 const Upsell1 = () => {
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
-  const [spotsLeft, setSpotsLeft] = useState(7);
+  const [spotsLeft] = useState(7);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,74 +41,92 @@ const Upsell1 = () => {
   const days = [
     {
       day: 1,
-      title: "O Despertar da Mente",
-      description: "Leitura de Salmo 1 + Exercício de clareza mental (5 min)",
+      title: "Awakening the Mind",
+      description: "Daily Scripture Reading + Mental Clarity Exercise (5 min)",
       icon: BookOpen
     },
     {
       day: 2,
-      title: "Ancorado na Palavra",
-      description: "Provérbios 3:5-6 + Técnica de memorização sagrada",
+      title: "Anchored in the Word",
+      description: "Wisdom Verse + Sacred Memorization Technique",
       icon: Target
     },
     {
       day: 3,
-      title: "Silenciando o Ruído",
-      description: "Salmo 46:10 + Prática de silêncio contemplativo",
+      title: "Silencing the Noise",
+      description: "Peace Scripture + Contemplative Silence Practice",
       icon: Heart
     },
     {
       day: 4,
-      title: "Foco Inabalável",
-      description: "Filipenses 4:8 + Exercício de concentração profunda",
+      title: "Unshakable Focus",
+      description: "Focus Verse + Deep Concentration Exercise",
       icon: Zap
     },
     {
       day: 5,
-      title: "Renovação da Mente",
-      description: "Romanos 12:2 + Técnica de renovação mental",
+      title: "Renewing the Mind",
+      description: "Transformation Scripture + Mental Renewal Technique",
       icon: Flame
     },
     {
       day: 6,
-      title: "Sabedoria Divina",
-      description: "Tiago 1:5 + Prática de discernimento",
+      title: "Divine Wisdom",
+      description: "Wisdom Verse + Discernment Practice",
       icon: Star
     },
     {
       day: 7,
-      title: "Transformação Completa",
-      description: "2 Coríntios 5:17 + Celebração e compromisso",
+      title: "Complete Transformation",
+      description: "Victory Scripture + Celebration & Commitment",
       icon: Award
     }
   ];
 
   const benefits = [
-    "Mais clareza mental em apenas 7 dias",
-    "Técnicas de foco baseadas em princípios bíblicos",
-    "Leituras curtas de 5-10 minutos por dia",
-    "Exercícios práticos e fáceis de aplicar",
-    "Sensação de progresso diário",
-    "Comunidade de apoio exclusiva"
+    "New verses & exercises every single week",
+    "Biblical focus techniques that actually work",
+    "Short 5-10 minute daily readings",
+    "Practical exercises easy to apply",
+    "Daily sense of spiritual progress",
+    "Exclusive community of believers"
+  ];
+
+  const subscriptionFeatures = [
+    {
+      icon: RefreshCw as React.ElementType,
+      title: "Fresh Content Weekly",
+      description: "New verses and exercises every 7 days"
+    },
+    {
+      icon: InfinityIcon,
+      title: "Unlimited Access",
+      description: "All past and future challenges included"
+    },
+    {
+      icon: Users as React.ElementType,
+      title: "Community Support",
+      description: "Connect with thousands of believers"
+    }
   ];
 
   const testimonials = [
     {
-      name: "Maria S.",
-      location: "São Paulo, BR",
-      text: "Em apenas 7 dias, minha concentração durante a oração melhorou 100%. Incrível!",
+      name: "Sarah M.",
+      location: "Texas, USA",
+      text: "After just 2 weeks, my focus during prayer improved dramatically. This app changed my spiritual life!",
       avatar: "👩"
     },
     {
-      name: "João P.",
-      location: "Lisboa, PT",
-      text: "O desafio mudou minha rotina matinal. Agora começo o dia com foco e paz.",
+      name: "Michael R.",
+      location: "London, UK",
+      text: "The weekly challenges keep me engaged. I've never stuck with a devotional this long!",
       avatar: "👨"
     },
     {
-      name: "Ana L.",
-      location: "Rio de Janeiro, BR",
-      text: "Simples, prático e transformador. Recomendo a todos!",
+      name: "Emily K.",
+      location: "Sydney, AU",
+      text: "Simple, practical, and transformative. The new verses each week keep it fresh and exciting.",
       avatar: "👩‍🦱"
     }
   ];
@@ -123,8 +143,8 @@ const Upsell1 = () => {
             key={i}
             className="absolute w-1 h-1 rounded-full bg-primary/30"
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
             }}
             animate={{
               y: [null, -20, 20],
@@ -144,10 +164,10 @@ const Upsell1 = () => {
         <div className="flex items-center justify-center gap-3 flex-wrap">
           <Clock className="w-5 h-5 animate-pulse" />
           <span className="font-semibold">
-            OFERTA ESPECIAL EXPIRA EM: {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+            SPECIAL OFFER EXPIRES IN: {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
           </span>
           <span className="bg-background/20 px-2 py-1 rounded text-sm">
-            Apenas {spotsLeft} vagas restantes
+            Only {spotsLeft} spots left
           </span>
         </div>
       </div>
@@ -161,25 +181,31 @@ const Upsell1 = () => {
         >
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
             <Flame className="w-4 h-4" />
-            <span className="text-sm font-medium">Oferta Exclusiva Pós-Quiz</span>
+            <span className="text-sm font-medium">Exclusive Post-Quiz Offer</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-4 leading-tight">
-            Desafio de 7 Dias de{" "}
-            <span className="text-primary">Foco Bíblico</span>
+            7-Day Biblical{" "}
+            <span className="text-primary">Focus Challenge</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Transforme sua concentração e clareza mental com leituras bíblicas curtas 
-            e exercícios práticos de foco em apenas uma semana.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
+            Transform your concentration and mental clarity with short biblical readings 
+            and practical focus exercises — renewed every single week.
           </p>
+
+          {/* Subscription Highlight */}
+          <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-600 px-4 py-2 rounded-full mb-8">
+            <RefreshCw className="w-4 h-4" />
+            <span className="text-sm font-medium">New Challenge Every Week • Different Verses</span>
+          </div>
 
           {/* Social Proof */}
           <div className="flex items-center justify-center gap-6 flex-wrap mb-8">
             <div className="flex items-center gap-2">
               <Users className="w-5 h-5 text-primary" />
               <span className="text-sm text-muted-foreground">
-                <strong className="text-foreground">2,847</strong> pessoas completaram
+                <strong className="text-foreground">12,847</strong> active members
               </span>
             </div>
             <div className="flex items-center gap-1">
@@ -191,16 +217,50 @@ const Upsell1 = () => {
           </div>
         </motion.div>
 
-        {/* 7 Days Timeline */}
+        {/* How It Works - Subscription Model */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="bg-gradient-to-r from-primary/5 via-card to-primary/5 rounded-2xl p-6 md:p-8 border border-primary/20 mb-12"
+        >
+          <h2 className="text-2xl font-heading font-semibold text-center mb-6">
+            How It Works
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {subscriptionFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
+                  <feature.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 7 Days Timeline - Sample Week */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border mb-12"
         >
-          <h2 className="text-2xl font-heading font-semibold text-center mb-8">
-            Sua Jornada de 7 Dias
-          </h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-heading font-semibold mb-2">
+              Your Weekly Journey
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Sample week structure • New verses each week
+            </p>
+          </div>
 
           <div className="space-y-4">
             {days.map((day, index) => (
@@ -217,7 +277,7 @@ const Upsell1 = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
-                      DIA {day.day}
+                      DAY {day.day}
                     </span>
                     <h3 className="font-semibold text-foreground">{day.title}</h3>
                   </div>
@@ -229,6 +289,14 @@ const Upsell1 = () => {
               </motion.div>
             ))}
           </div>
+
+          <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/20 text-center">
+            <RefreshCw className="w-5 h-5 text-primary mx-auto mb-2" />
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Then it resets!</strong> A brand new 7-day challenge 
+              with completely different verses and exercises begins.
+            </p>
+          </div>
         </motion.div>
 
         {/* Benefits Section */}
@@ -239,7 +307,7 @@ const Upsell1 = () => {
           className="mb-12"
         >
           <h2 className="text-2xl font-heading font-semibold text-center mb-8">
-            O Que Você Vai Conquistar
+            What You'll Achieve
           </h2>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -266,7 +334,7 @@ const Upsell1 = () => {
           className="mb-12"
         >
           <h2 className="text-2xl font-heading font-semibold text-center mb-8">
-            O Que Dizem Nossos Alunos
+            What Our Members Say
           </h2>
 
           <div className="grid md:grid-cols-3 gap-4">
@@ -288,7 +356,7 @@ const Upsell1 = () => {
                   </div>
                   <div className="ml-auto">
                     <span className="text-xs bg-green-500/10 text-green-600 px-2 py-1 rounded-full">
-                      ✓ Verificado
+                      ✓ Verified
                     </span>
                   </div>
                 </div>
@@ -315,38 +383,47 @@ const Upsell1 = () => {
           
           <div className="relative z-10 text-center">
             <span className="inline-block bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold mb-4">
-              OFERTA POR TEMPO LIMITADO
+              LIMITED TIME OFFER
             </span>
 
             <h3 className="text-2xl font-heading font-bold text-foreground mb-2">
-              Desafio de 7 Dias de Foco Bíblico
+              7-Day Biblical Focus Challenge
             </h3>
 
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="text-2xl text-muted-foreground line-through">R$ 97</span>
-              <span className="text-5xl font-bold text-primary">R$ 27</span>
+            <p className="text-sm text-muted-foreground mb-4">
+              Weekly challenges • New verses every week • Cancel anytime
+            </p>
+
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <span className="text-2xl text-muted-foreground line-through">$47</span>
+              <span className="text-5xl font-bold text-primary">$27</span>
+              <span className="text-lg text-muted-foreground">/month</span>
             </div>
 
-            <p className="text-sm text-muted-foreground mb-6">
-              Pagamento único • Acesso vitalício • Garantia de 7 dias
+            <p className="text-xs text-muted-foreground mb-6">
+              That's less than $1 per day for spiritual transformation
             </p>
 
             <Button
               size="lg"
               className="w-full md:w-auto px-12 py-6 text-lg font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all group"
             >
-              QUERO COMEÇAR AGORA
+              START MY JOURNEY NOW
               <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
 
             <div className="flex items-center justify-center gap-6 mt-6 flex-wrap">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Shield className="w-4 h-4 text-green-500" />
-                <span>Compra Segura</span>
+                <span>Secure Payment</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4 text-primary" />
-                <span>Acesso Imediato</span>
+                <span>Instant Access</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <RefreshCw className="w-4 h-4 text-primary" />
+                <span>Cancel Anytime</span>
               </div>
             </div>
           </div>
@@ -363,21 +440,56 @@ const Upsell1 = () => {
             <Shield className="w-8 h-8 text-green-500" />
           </div>
           <h3 className="text-lg font-semibold text-foreground mb-2">
-            Garantia de 7 Dias
+            30-Day Money-Back Guarantee
           </h3>
           <p className="text-sm text-muted-foreground max-w-md mx-auto">
-            Se você não sentir uma mudança real na sua concentração e clareza mental 
-            em 7 dias, devolvemos 100% do seu investimento. Sem perguntas.
+            If you don't experience a real change in your focus and mental clarity 
+            within 30 days, we'll refund 100% of your investment. No questions asked.
           </p>
+        </motion.div>
+
+        {/* FAQ Preview */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+          className="mb-8"
+        >
+          <h2 className="text-xl font-heading font-semibold text-center mb-6">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            <div className="bg-card rounded-xl p-4 border border-border">
+              <h4 className="font-semibold text-foreground mb-2">What happens after 7 days?</h4>
+              <p className="text-sm text-muted-foreground">
+                A brand new 7-day challenge begins automatically with completely different Bible verses 
+                and exercises. You'll never repeat the same content!
+              </p>
+            </div>
+            <div className="bg-card rounded-xl p-4 border border-border">
+              <h4 className="font-semibold text-foreground mb-2">Can I cancel anytime?</h4>
+              <p className="text-sm text-muted-foreground">
+                Yes! You can cancel your subscription at any time with just one click. 
+                No hidden fees, no hassle.
+              </p>
+            </div>
+            <div className="bg-card rounded-xl p-4 border border-border">
+              <h4 className="font-semibold text-foreground mb-2">How much time do I need each day?</h4>
+              <p className="text-sm text-muted-foreground">
+                Just 5-10 minutes per day. The exercises are designed to fit into even 
+                the busiest schedules.
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Secondary CTA */}
         <div className="text-center">
           <p className="text-sm text-muted-foreground mb-4">
-            Ainda tem dúvidas? Fale conosco pelo WhatsApp
+            Still have questions? We're here to help.
           </p>
           <Button variant="outline" size="sm">
-            Falar com Suporte
+            Contact Support
           </Button>
         </div>
       </div>
