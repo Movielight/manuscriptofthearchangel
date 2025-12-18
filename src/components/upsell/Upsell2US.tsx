@@ -3,15 +3,14 @@ import { Gift, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const bibleVerses = [
-  { reference: "Jeremias 33:3", text: "Clama a mim, e responder-te-ei..." },
-  { reference: "Salmos 91:15", text: "Ele me invocará, e eu lhe responderei..." },
-  { reference: "João 15:7", text: "Pedireis o que quiserdes, e vos será feito." },
-  { reference: "Jeremias 29:12", text: "Então me invocareis... e eu vos ouvirei." }
+  { reference: "Jeremiah 33:3", text: "Call to me and I will answer you..." },
+  { reference: "Psalm 91:15", text: "He will call on me, and I will answer him..." },
+  { reference: "John 15:7", text: "Ask whatever you wish, and it will be done." },
+  { reference: "Jeremiah 29:12", text: "Then you will call on me... and I will listen." }
 ];
 
 const Upsell2US = () => {
   const handleAccept = () => console.log("User accepted bonus");
-  const handleDecline = () => console.log("User declined bonus");
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 py-12">
@@ -34,12 +33,12 @@ const Upsell2US = () => {
         transition={{ delay: 0.2 }}
         className="text-center mb-8"
       >
-        <p className="text-amber-400 font-semibold text-sm mb-2">PARABÉNS!</p>
+        <p className="text-amber-400 font-semibold text-sm mb-2">CONGRATULATIONS!</p>
         <h1 className="text-2xl font-serif font-bold mb-3">
-          Você ganhou um bônus especial
+          You've unlocked a special bonus
         </h1>
         <p className="text-white/70 text-base">
-          Agora você pode <span className="text-amber-400">falar diretamente com Deus</span> pelo seu celular.
+          Now you can <span className="text-amber-400">speak directly with God</span> through your phone.
         </p>
       </motion.div>
 
@@ -66,18 +65,11 @@ const Upsell2US = () => {
       >
         <Button
           onClick={handleAccept}
-          className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-5 rounded-xl mb-3"
+          className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-5 rounded-xl"
         >
-          Ativar Bônus
+          Activate Bonus
           <ArrowRight className="ml-2 w-4 h-4" />
         </Button>
-
-        <button
-          onClick={handleDecline}
-          className="w-full text-white/30 hover:text-white/50 text-sm transition-colors"
-        >
-          Não, obrigado
-        </button>
       </motion.div>
     </div>
   );
