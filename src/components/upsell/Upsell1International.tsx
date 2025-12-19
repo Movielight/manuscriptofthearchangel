@@ -8,7 +8,6 @@ import {
   Flame, 
   Star, 
   Shield, 
-  ChevronRight,
   Users,
   Zap,
   Heart,
@@ -16,12 +15,27 @@ import {
   RefreshCw,
   Infinity as InfinityIcon
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { LiveNotifications } from "@/components/quiz/LiveNotifications";
 
 const Upsell1International = () => {
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
   const [spotsLeft] = useState(7);
+
+  useEffect(() => {
+    // Add MundPay script to head
+    const script = document.createElement("script");
+    script.src = "https://upsell.mundpay.com/script-v2.js";
+    script.defer = true;
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -419,13 +433,7 @@ const Upsell1International = () => {
               That's less than $1 per day for spiritual transformation
             </p>
 
-            <Button
-              size="lg"
-              className="w-full md:w-auto px-12 py-6 text-lg font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all group"
-            >
-              START MY JOURNEY NOW
-              <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <div data-mndpay-render="019b374c-54f2-72f7-bdac-1e54a0e36414"></div>
 
             <div className="flex items-center justify-center gap-6 mt-6 flex-wrap">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -483,17 +491,6 @@ const Upsell1International = () => {
           </div>
         </motion.div>
 
-        {/* No Thanks Option */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
-          className="text-center"
-        >
-          <button className="text-sm text-muted-foreground hover:text-foreground transition-colors underline">
-            No thanks, I'll pass on this opportunity
-          </button>
-        </motion.div>
       </div>
     </div>
   );
