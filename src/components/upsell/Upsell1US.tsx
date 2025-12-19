@@ -90,16 +90,28 @@ const Upsell1US = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            {/* CSS to hide MundPay extra elements */}
-            <style>{`
-              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > div:first-child,
-              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > div:nth-child(2),
-              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > a,
-              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > p {
-                display: none !important;
-              }
-            `}</style>
-            <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
+            {/* MundPay area */}
+            <div className="relative">
+              <style>{`
+                /* Cover everything, then bring ONLY the accept button above the cover */
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] :is(button, a, [role="button"]):first-of-type {
+                  position: relative !important;
+                  z-index: 2147483647 !important;
+                }
+                /* Hide the decline button if it exists */
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] :is(button, a, [role="button"]):nth-of-type(2) {
+                  display: none !important;
+                }
+              `}</style>
+
+              {/* Black cover over MundPay content */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-[2147483646] bg-black"
+              />
+
+              <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
+            </div>
             
             {showFallback && (
               <div className="mt-6 space-y-4">
