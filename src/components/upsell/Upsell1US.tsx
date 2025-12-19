@@ -89,12 +89,12 @@ const Upsell1US = () => {
             transition={{ delay: 0.2, duration: 0.4 }}
           >
             {/* MundPay area with black overlays covering title/price and decline/terms */}
-            <div className="relative">
+            <div className="relative w-full max-w-sm mx-auto">
               {/* Black overlay covering title and price (top area) */}
-              <div className="absolute top-0 left-0 right-0 h-[90px] md:h-[72px] bg-black z-10 pointer-events-none" />
+              <div className="absolute top-0 left-0 right-0 h-[85px] md:h-[70px] bg-black z-10 pointer-events-none" />
               
               {/* Black overlay covering decline button and terms (bottom area) */}
-              <div className="absolute bottom-0 left-0 right-0 h-[100px] md:h-[115px] bg-black z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[95px] md:h-[85px] bg-black z-10 pointer-events-none" />
 
               <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
             </div>
