@@ -1,23 +1,43 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const Upsell1US = () => {
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
+
   useEffect(() => {
     // Add MundPay script to head
     const script = document.createElement("script");
     script.src = "https://upsell.mundpay.com/script-v2.js";
     script.defer = true;
     script.async = true;
+    
+    script.onload = () => {
+      setScriptLoaded(true);
+    };
+    
+    script.onerror = () => {
+      setShowFallback(true);
+    };
+    
     document.head.appendChild(script);
 
+    // Show fallback after 5 seconds if script hasn't loaded
+    const timeout = setTimeout(() => {
+      if (!scriptLoaded) {
+        setShowFallback(true);
+      }
+    }, 5000);
+
     return () => {
-      // Cleanup script on unmount
+      clearTimeout(timeout);
       const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
       if (existingScript) {
         existingScript.remove();
       }
     };
-  }, []);
+  }, [scriptLoaded]);
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
@@ -70,6 +90,24 @@ const Upsell1US = () => {
           transition={{ delay: 0.8, duration: 0.6 }}
         >
           <div data-mndpay-render="019b374c-54f2-72f7-bdac-1e54a0e36414"></div>
+          
+          {showFallback && (
+            <div className="mt-6 space-y-4">
+              <Button
+                size="lg"
+                className="w-full px-8 py-4 text-lg font-semibold bg-amber-500 hover:bg-amber-600 text-black"
+                onClick={() => window.location.href = '/manuscript'}
+              >
+                Accept Offer
+              </Button>
+              <button
+                className="text-amber-100/60 hover:text-amber-100 text-sm underline"
+                onClick={() => window.location.href = '/up2'}
+              >
+                No thanks, continue
+              </button>
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </div>
