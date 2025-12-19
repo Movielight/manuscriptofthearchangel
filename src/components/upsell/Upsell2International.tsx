@@ -139,8 +139,10 @@ const Upsell2 = () => {
             <MessageCircle className="w-4 h-4 text-amber-600" />
             <span className="text-sm text-amber-700 font-medium">AI Biblical Assistant</span>
           </div>
-          
-      
+
+          {/* Headline */}
+          <h1 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
+            Christ-Centered Guidance AI
           </h1>
 
           {/* Subheadline */}
