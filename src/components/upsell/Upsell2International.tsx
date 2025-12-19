@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, BookOpen, ArrowRight, X, Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MessageCircle, BookOpen, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import angelicImage from "@/assets/illustrations/angelic-guidance.png";
 
@@ -46,13 +45,20 @@ const Upsell2 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const handleAccept = () => {
-    console.log("User accepted monthly guidance");
-  };
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://upsell.mundpay.com/script-v2.js";
+    script.defer = true;
+    script.async = true;
+    document.head.appendChild(script);
 
-  const handleDecline = () => {
-    console.log("User declined monthly guidance");
-  };
+    return () => {
+      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   const nextTestimonial = () => {
     setDirection(1);
@@ -138,7 +144,7 @@ const Upsell2 = () => {
             </span>
           </div>
 
-          {/* Pricing Card */}
+          {/* MundPay Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -151,24 +157,8 @@ const Upsell2 = () => {
             </div>
             <p className="text-slate-500 text-sm mb-6">Unlimited guidance • No commitment</p>
             
-            <Button 
-              onClick={handleAccept}
-              size="lg"
-              className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 text-lg rounded-xl shadow-lg shadow-amber-200"
-            >
-              Add Monthly Guidance
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <div data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"></div>
           </motion.div>
-
-          {/* Decline Option */}
-          <button
-            onClick={handleDecline}
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-600 text-sm transition-colors"
-          >
-            <X className="w-4 h-4" />
-            No thanks, continue without
-          </button>
         </motion.div>
       </main>
 

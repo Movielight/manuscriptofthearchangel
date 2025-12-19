@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Gift, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Gift } from "lucide-react";
 
 const bibleVerses = [
   { reference: "Jeremiah 33:3", text: "Call to me and I will answer you..." },
@@ -10,7 +10,20 @@ const bibleVerses = [
 ];
 
 const Upsell2US = () => {
-  const handleAccept = () => console.log("User accepted bonus");
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://upsell.mundpay.com/script-v2.js";
+    script.defer = true;
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 py-12">
@@ -63,13 +76,7 @@ const Upsell2US = () => {
         transition={{ delay: 0.6 }}
         className="w-full max-w-sm"
       >
-        <Button
-          onClick={handleAccept}
-          className="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-5 rounded-xl"
-        >
-          Activate Bonus
-          <ArrowRight className="ml-2 w-4 h-4" />
-        </Button>
+        <div data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"></div>
       </motion.div>
     </div>
   );
