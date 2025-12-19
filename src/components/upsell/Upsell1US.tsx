@@ -47,14 +47,14 @@ const Upsell1US = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center px-6 relative z-10"
         >
           {/* Logo/Symbol */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.05, duration: 0.4 }}
             className="mb-8"
           >
             <div className="w-20 h-20 mx-auto rounded-full border border-amber-500/30 flex items-center justify-center bg-amber-500/5">
@@ -66,7 +66,7 @@ const Upsell1US = () => {
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
             className="text-3xl md:text-4xl font-heading font-bold text-white mb-4"
           >
             Archangel Raphael's Manuscript
@@ -76,7 +76,7 @@ const Upsell1US = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
             className="text-amber-100/60 text-lg mb-12 max-w-md mx-auto"
           >
             Your path to divine healing and spiritual wisdom awaits
@@ -86,7 +86,7 @@ const Upsell1US = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
           >
             {/* MundPay area with black overlays covering title/price and decline/terms */}
             <div className="relative">
