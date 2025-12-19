@@ -433,7 +433,7 @@ const Upsell1International = () => {
               That's less than $1 per day for spiritual transformation
             </p>
 
-            <div data-mndpay-render="019b374c-54f2-72f7-bdac-1e54a0e36414"></div>
+            <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
 
             <div className="flex items-center justify-center gap-6 mt-6 flex-wrap">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">

@@ -88,7 +88,7 @@ const Upsell1US = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <div data-mndpay-render="019b374c-54f2-72f7-bdac-1e54a0e36414"></div>
+          <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
           
           {showFallback && (
             <div className="mt-6 space-y-4">
