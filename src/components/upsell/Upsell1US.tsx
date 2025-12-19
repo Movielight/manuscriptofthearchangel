@@ -93,10 +93,10 @@ const Upsell1US = () => {
             {/* MundPay area with black overlays covering title/price and decline/terms */}
             <div className="relative">
               {/* Black overlay covering title and price (top area) */}
-              <div className="absolute top-0 left-0 right-0 h-[100px] md:h-[80px] bg-black z-10 pointer-events-none" />
+              <div className="absolute top-0 left-0 right-0 h-[90px] md:h-[72px] bg-black z-10 pointer-events-none" />
               
               {/* Black overlay covering decline button and terms (bottom area) */}
-              <div className="absolute bottom-0 left-0 right-0 h-[120px] md:h-[100px] bg-black z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[100px] md:h-[90px] bg-black z-10 pointer-events-none" />
 
               <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
             </div>
