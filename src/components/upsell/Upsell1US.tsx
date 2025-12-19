@@ -90,25 +90,37 @@ const Upsell1US = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            {/* MundPay area */}
-            <div className="relative">
+            {/* MundPay area with selective visibility */}
+            <div className="relative overflow-visible">
               <style>{`
-                /* Cover everything, then bring ONLY the accept button above the cover */
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] :is(button, a, [role="button"]):first-of-type {
+                /* Hide all content inside MundPay */
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div {
                   position: relative !important;
-                  z-index: 2147483647 !important;
                 }
-                /* Hide the decline button if it exists */
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] :is(button, a, [role="button"]):nth-of-type(2) {
+                
+                /* Hide text elements (title, price, terms) */
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > div,
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > p,
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > span {
                   display: none !important;
                 }
+                
+                /* Hide decline/refuse link */
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > a:not(:first-of-type),
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a[href*="recused"],
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a:contains("don't"),
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a:contains("No") {
+                  display: none !important;
+                }
+                
+                /* Show ONLY the accept button */
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] button,
+                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a:first-of-type:not([href*="recused"]) {
+                  display: block !important;
+                  visibility: visible !important;
+                  opacity: 1 !important;
+                }
               `}</style>
-
-              {/* Black cover over MundPay content */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-[2147483646] bg-black"
-              />
 
               <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
             </div>
