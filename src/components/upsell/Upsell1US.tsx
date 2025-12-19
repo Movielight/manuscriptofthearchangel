@@ -90,37 +90,13 @@ const Upsell1US = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            {/* MundPay area with selective visibility */}
-            <div className="relative overflow-visible">
-              <style>{`
-                /* Hide all content inside MundPay */
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div {
-                  position: relative !important;
-                }
-                
-                /* Hide text elements (title, price, terms) */
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > div,
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > p,
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > span {
-                  display: none !important;
-                }
-                
-                /* Hide decline/refuse link */
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > a:not(:first-of-type),
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a[href*="recused"],
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a:contains("don't"),
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a:contains("No") {
-                  display: none !important;
-                }
-                
-                /* Show ONLY the accept button */
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] button,
-                [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] a:first-of-type:not([href*="recused"]) {
-                  display: block !important;
-                  visibility: visible !important;
-                  opacity: 1 !important;
-                }
-              `}</style>
+            {/* MundPay area with black overlays covering title/price and decline/terms */}
+            <div className="relative">
+              {/* Black overlay covering title and price (top area) */}
+              <div className="absolute top-0 left-0 right-0 h-[60px] bg-black z-10 pointer-events-none" />
+              
+              {/* Black overlay covering decline button and terms (bottom area) */}
+              <div className="absolute bottom-0 left-0 right-0 h-[80px] bg-black z-10 pointer-events-none" />
 
               <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
             </div>
