@@ -416,7 +416,8 @@ const Upsell1International = () => {
               LIMITED TIME OFFER
             </span>
 
-            
+            <h3 className="text-2xl font-heading font-bold text-foreground mb-2">
+              7-Day Biblical Focus Challenge
             </h3>
 
             <p className="text-sm text-muted-foreground mb-4">
