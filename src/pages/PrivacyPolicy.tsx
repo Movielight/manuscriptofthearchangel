@@ -1,7 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Footer from "@/components/layout/Footer";
+import { QuizFooter } from "@/components/quiz/QuizFooter";
 import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
 
 const PrivacyPolicy = () => {
@@ -162,7 +162,7 @@ const PrivacyPolicy = () => {
         </motion.div>
       </div>
       
-      <Footer />
+      <QuizFooter />
     </div>
   );
 };

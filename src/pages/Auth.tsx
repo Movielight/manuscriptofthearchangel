@@ -9,6 +9,7 @@ import { toast } from 'sonner';
 import { Mail, Lock, Eye, EyeOff, ArrowLeft, User } from 'lucide-react';
 import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 import { z } from 'zod';
+import { QuizFooter } from '@/components/quiz/QuizFooter';
 
 const emailSchema = z.string().email('Please enter a valid email address');
 const passwordSchema = z.string().min(6, 'Password must be at least 6 characters');
@@ -110,7 +111,8 @@ const Auth = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -266,6 +268,8 @@ const Auth = () => {
           </div>
         </motion.div>
       </motion.div>
+      </div>
+      <QuizFooter />
     </div>
   );
 };

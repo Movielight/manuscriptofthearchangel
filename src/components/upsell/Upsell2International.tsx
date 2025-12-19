@@ -3,6 +3,7 @@ import { MessageCircle, BookOpen, Star, ChevronLeft, ChevronRight, ArrowRight, X
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import angelicImage from "@/assets/illustrations/angelic-guidance.png";
+import { QuizFooter } from "@/components/quiz/QuizFooter";
 
 const testimonials = [
   {
@@ -286,6 +287,8 @@ const Upsell2 = () => {
           </p>
         </div>
       </section>
+      
+      <QuizFooter />
     </div>
   );
 };

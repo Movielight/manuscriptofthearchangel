@@ -16,6 +16,7 @@ import {
   Infinity as InfinityIcon
 } from "lucide-react";
 import { LiveNotifications } from "@/components/quiz/LiveNotifications";
+import { QuizFooter } from "@/components/quiz/QuizFooter";
 
 const Upsell1International = () => {
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
@@ -491,6 +492,7 @@ const Upsell1International = () => {
           </div>
         </motion.div>
 
+        <QuizFooter />
       </div>
     </div>
   );
