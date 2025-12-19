@@ -1,14 +1,23 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 
 const Upsell1US = () => {
-  const navigate = useNavigate();
+  useEffect(() => {
+    // Add MundPay script to head
+    const script = document.createElement("script");
+    script.src = "https://upsell.mundpay.com/script-v2.js";
+    script.defer = true;
+    script.async = true;
+    document.head.appendChild(script);
 
-  const handleAccess = () => {
-    navigate("/auth");
-  };
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
@@ -54,20 +63,13 @@ const Upsell1US = () => {
           Your path to divine healing and spiritual wisdom awaits
         </motion.p>
 
-        {/* CTA Button */}
+        {/* MundPay Accept/Decline Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <Button
-            onClick={handleAccess}
-            size="lg"
-            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-semibold px-10 py-6 text-lg rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition-all duration-300 group"
-          >
-            Access the Manuscript
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <div data-mndpay-render="019b374c-54f2-72f7-bdac-1e54a0e36414"></div>
         </motion.div>
       </motion.div>
     </div>
