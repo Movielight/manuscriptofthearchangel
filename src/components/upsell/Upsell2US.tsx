@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { QuizFooter } from "@/components/quiz/QuizFooter";
+
 
 const bibleVerses = [
   { reference: "Jeremiah 33:3", text: "Call to me and I will answer you..." },
@@ -120,7 +120,7 @@ const Upsell2US = () => {
         </motion.div>
       </div>
       
-      <QuizFooter />
+      
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { QuizFooter } from "@/components/quiz/QuizFooter";
+
 
 const Upsell1US = () => {
   const [showFallback, setShowFallback] = useState(false);
@@ -113,7 +113,7 @@ const Upsell1US = () => {
         </motion.div>
       </div>
       
-      <QuizFooter />
+      
     </div>
   );
 };
