@@ -96,7 +96,7 @@ const Upsell1US = () => {
               <div className="absolute top-0 left-0 right-0 h-[90px] md:h-[72px] bg-black z-10 pointer-events-none" />
               
               {/* Black overlay covering decline button and terms (bottom area) */}
-              <div className="absolute bottom-0 left-0 right-0 h-[100px] md:h-[90px] bg-black z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[100px] md:h-[115px] bg-black z-10 pointer-events-none" />
 
               <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
             </div>
