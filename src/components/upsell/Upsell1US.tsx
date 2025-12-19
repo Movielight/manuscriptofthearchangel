@@ -6,35 +6,58 @@ const Upsell1US = () => {
   const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {
-    let scriptLoaded = false;
-    
+    const renderId = "019b37bd-defb-7108-bd7e-b3d0399fd6b6";
+    const renderSelector = `div[data-mndpay-render="${renderId}"]`;
+
+    let cancelled = false;
+    let renderCheckInterval: number | undefined;
+
+    const hasRendered = () => {
+      const container = document.querySelector(renderSelector) as HTMLElement | null;
+      if (!container) return false;
+      // Most providers inject an iframe/button inside the container.
+      const hasKnownChild = !!container.querySelector("iframe, button, a, [role='button']");
+      const hasAnyHtml = container.innerHTML.trim().length > 0;
+      return hasKnownChild || hasAnyHtml;
+    };
+
+    const showButtonsFallback = () => {
+      if (!cancelled) setShowFallback(true);
+    };
+
+    // Always run a render watchdog: script can load but not render anything (inactive/blocked offer).
+    const startedAt = Date.now();
+    renderCheckInterval = window.setInterval(() => {
+      if (hasRendered()) {
+        if (renderCheckInterval) window.clearInterval(renderCheckInterval);
+        return;
+      }
+
+      if (Date.now() - startedAt > 6500) {
+        if (renderCheckInterval) window.clearInterval(renderCheckInterval);
+        showButtonsFallback();
+      }
+    }, 250);
+
     const script = document.createElement("script");
     script.src = "https://upsell.mundpay.com/script-v2.js";
     script.defer = true;
     script.async = true;
-    
-    script.onload = () => {
-      scriptLoaded = true;
-    };
-    
+
     script.onerror = () => {
-      setShowFallback(true);
+      showButtonsFallback();
     };
-    
+
     document.head.appendChild(script);
 
-    const timeout = setTimeout(() => {
-      if (!scriptLoaded) {
-        setShowFallback(true);
-      }
-    }, 5000);
-
     return () => {
-      clearTimeout(timeout);
-      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
+      cancelled = true;
+      if (renderCheckInterval) window.clearInterval(renderCheckInterval);
+
+      const existingScript = document.querySelector(
+        'script[src="https://upsell.mundpay.com/script-v2.js"]'
+      );
+      if (existingScript) existingScript.remove();
     };
   }, []);
 
