@@ -40,9 +40,8 @@ const Upsell1US = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black flex flex-col relative overflow-hidden">
-      {/* Subtle glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl" />
+    <div className="min-h-screen bg-[#000000] flex flex-col relative overflow-hidden">
+      {/* No glow effect for pure black background */}
       
       {/* Content */}
       <div className="flex-1 flex items-center justify-center">
@@ -93,10 +92,10 @@ const Upsell1US = () => {
             {/* MundPay area with black overlays covering title/price and decline/terms */}
             <div className="relative">
               {/* Black overlay covering title and price (top area) */}
-              <div className="absolute top-0 left-0 right-0 h-[100px] md:h-[80px] bg-black z-10 pointer-events-none" />
+              <div className="absolute top-0 left-0 right-0 h-[85px] md:h-[70px] bg-[#000000] z-10 pointer-events-none" />
               
               {/* Black overlay covering decline button and terms (bottom area) */}
-              <div className="absolute bottom-0 left-0 right-0 h-[120px] md:h-[100px] bg-black z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-[95px] md:h-[85px] bg-[#000000] z-10 pointer-events-none" />
 
               <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
             </div>
