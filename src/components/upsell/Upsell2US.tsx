@@ -98,6 +98,15 @@ const Upsell2US = () => {
           transition={{ delay: 0.6 }}
           className="w-full max-w-sm"
         >
+          {/* CSS to hide MundPay extra elements */}
+          <style>{`
+            [data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"] > div > div:first-child,
+            [data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"] > div > div:nth-child(2),
+            [data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"] > div > a,
+            [data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"] > div > p {
+              display: none !important;
+            }
+          `}</style>
           <div data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"></div>
           
           {showFallback && (

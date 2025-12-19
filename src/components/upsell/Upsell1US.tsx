@@ -90,6 +90,15 @@ const Upsell1US = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
+            {/* CSS to hide MundPay extra elements */}
+            <style>{`
+              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > div:first-child,
+              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > div:nth-child(2),
+              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > a,
+              [data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"] > div > p {
+                display: none !important;
+              }
+            `}</style>
             <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
             
             {showFallback && (
