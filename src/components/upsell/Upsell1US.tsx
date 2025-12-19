@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const Upsell1US = () => {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {
-    // Add MundPay script to head
+    let scriptLoaded = false;
+    
     const script = document.createElement("script");
     script.src = "https://upsell.mundpay.com/script-v2.js";
     script.defer = true;
     script.async = true;
     
     script.onload = () => {
-      setScriptLoaded(true);
+      scriptLoaded = true;
     };
     
     script.onerror = () => {
@@ -23,7 +23,6 @@ const Upsell1US = () => {
     
     document.head.appendChild(script);
 
-    // Show fallback after 5 seconds if script hasn't loaded
     const timeout = setTimeout(() => {
       if (!scriptLoaded) {
         setShowFallback(true);
@@ -37,7 +36,7 @@ const Upsell1US = () => {
         existingScript.remove();
       }
     };
-  }, [scriptLoaded]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
