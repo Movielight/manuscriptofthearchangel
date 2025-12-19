@@ -84,6 +84,11 @@ export const QuizFooter = () => {
           Terms of Use
         </Link>
       </div>
+      
+      <div className="max-w-md mx-auto mt-3 text-center text-[10px] text-muted-foreground/70">
+        <p>Movielight LTDA • CNPJ: 48.108.988/0001-33</p>
+        <p>Kaike Alves Gibertoni Snyder • CPF: 035.036.101-03</p>
+      </div>
     </footer>
   );
 };
