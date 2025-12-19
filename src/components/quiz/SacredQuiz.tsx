@@ -8,6 +8,7 @@ import { TestimonialInterstitial } from "./TestimonialInterstitial";
 import { BibleVerseInterstitial } from "./BibleVerseInterstitial";
 import { MilestoneInterstitial } from "./MilestoneInterstitial";
 import { LiveNotifications } from "./LiveNotifications";
+import { QuizFooter } from "./QuizFooter";
 import {
   quizQuestions,
   quizResults,
@@ -100,57 +101,61 @@ export const SacredQuiz = () => {
   const showNotifications = stage === "questions" || stage === "testimonial" || stage === "milestone" || stage === "bibleVerse";
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       {/* Live notifications component */}
       {showNotifications && <LiveNotifications />}
 
-      <AnimatePresence mode="wait">
-        {stage === "intro" && <QuizIntro key="intro" onStart={handleStart} />}
+      <div className="flex-1">
+        <AnimatePresence mode="wait">
+          {stage === "intro" && <QuizIntro key="intro" onStart={handleStart} />}
 
-        {stage === "questions" && (
-          <QuizQuestion
-            key={`question-${currentQuestionIndex}`}
-            question={quizQuestions[currentQuestionIndex]}
-            currentIndex={currentQuestionIndex}
-            totalQuestions={quizQuestions.length}
-            selectedOption={selectedOption}
-            onSelect={handleSelectOption}
-            onNext={handleNext}
-          />
-        )}
+          {stage === "questions" && (
+            <QuizQuestion
+              key={`question-${currentQuestionIndex}`}
+              question={quizQuestions[currentQuestionIndex]}
+              currentIndex={currentQuestionIndex}
+              totalQuestions={quizQuestions.length}
+              selectedOption={selectedOption}
+              onSelect={handleSelectOption}
+              onNext={handleNext}
+            />
+          )}
 
-        {stage === "bibleVerse" && (
-          <BibleVerseInterstitial
-            key={`bible-${bibleVerseIndex}`}
-            verseIndex={bibleVerseIndex}
-            onContinue={handleBibleVerseContinue}
-          />
-        )}
+          {stage === "bibleVerse" && (
+            <BibleVerseInterstitial
+              key={`bible-${bibleVerseIndex}`}
+              verseIndex={bibleVerseIndex}
+              onContinue={handleBibleVerseContinue}
+            />
+          )}
 
-        {stage === "milestone" && (
-          <MilestoneInterstitial
-            key={`milestone-${milestoneIndex}`}
-            milestoneIndex={milestoneIndex}
-            onContinue={handleMilestoneContinue}
-          />
-        )}
+          {stage === "milestone" && (
+            <MilestoneInterstitial
+              key={`milestone-${milestoneIndex}`}
+              milestoneIndex={milestoneIndex}
+              onContinue={handleMilestoneContinue}
+            />
+          )}
 
-        {stage === "testimonial" && (
-          <TestimonialInterstitial
-            key={`testimonial-${testimonialSetIndex}`}
-            setIndex={testimonialSetIndex}
-            onContinue={handleTestimonialContinue}
-          />
-        )}
+          {stage === "testimonial" && (
+            <TestimonialInterstitial
+              key={`testimonial-${testimonialSetIndex}`}
+              setIndex={testimonialSetIndex}
+              onContinue={handleTestimonialContinue}
+            />
+          )}
 
-        {stage === "loading" && (
-          <QuizLoading key="loading" onComplete={handleLoadingComplete} />
-        )}
+          {stage === "loading" && (
+            <QuizLoading key="loading" onComplete={handleLoadingComplete} />
+          )}
 
-        {stage === "result" && resultType && (
-          <QuizResult key="result" result={quizResults[resultType]} />
-        )}
-      </AnimatePresence>
+          {stage === "result" && resultType && (
+            <QuizResult key="result" result={quizResults[resultType]} />
+          )}
+        </AnimatePresence>
+      </div>
+
+      <QuizFooter />
     </div>
   );
 };
