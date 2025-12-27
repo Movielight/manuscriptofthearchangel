@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Check, ChevronRight, BookOpen } from 'lucide-react';
+import { ArrowLeft, Check, ChevronRight, BookOpen, Sparkles, ScrollText } from 'lucide-react';
 import { modules } from '@/data/manuscriptContent';
 import { Button } from '@/components/ui/button';
 import { ManuscriptProgress } from '@/hooks/useManuscriptProgress';
 import { Language, getTranslation } from '@/data/translations';
 import { moduleIllustrationMap } from '@/data/illustrationAssets';
+import angelicGuidance from '@/assets/illustrations/angelic-guidance.png';
 
 interface ModulesViewProps {
   progress: ManuscriptProgress;
@@ -52,12 +53,16 @@ const ModuleCard = ({
       </div>
       
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-1">
+        <div className="flex items-center gap-2 mb-1 flex-wrap">
+          <span className="inline-flex items-center gap-1 text-xs font-medium bg-gradient-to-r from-emerald-500/20 to-manuscript-gold/20 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-500/30">
+            <ScrollText className="w-3 h-3" />
+            {t.sacredManuscript}
+          </span>
           <span className={`text-xs font-medium ${isCompleted ? 'text-manuscript-gold' : 'text-manuscript-gold/70'}`}>
             {t.module} {module.number}
           </span>
           {isCompleted && (
-            <span className="text-xs text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded-full">✓ Completed</span>
+            <span className="text-xs text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded-full">✓</span>
           )}
         </div>
         <h3 className={`text-lg font-heading transition-colors ${isCompleted ? 'text-manuscript-gold' : 'text-foreground group-hover:text-manuscript-gold'}`}>
@@ -171,30 +176,103 @@ export const ModulesView = ({ progress, onCompleteSection, language }: ModulesVi
 
   return (
     <div className="min-h-screen pb-24 px-4">
-      <div className="pt-8 pb-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-manuscript-gold/30 to-primary/20 flex items-center justify-center">
-            <BookOpen className="w-6 h-6 text-manuscript-gold" />
+      {/* Premium Header */}
+      <div className="pt-6 pb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900/90 via-emerald-800/80 to-manuscript-gold/40 p-5 mb-6 border border-emerald-500/30 shadow-lg"
+        >
+          {/* Background glow effect */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-manuscript-gold/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-400/20 rounded-full blur-2xl" />
+          
+          <div className="relative z-10 flex items-start gap-4">
+            <div className="w-20 h-20 rounded-xl overflow-hidden border-2 border-manuscript-gold/50 shadow-lg flex-shrink-0">
+              <img 
+                src={angelicGuidance} 
+                alt="Archangel Raphael"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-2">
+                <Sparkles className="w-4 h-4 text-manuscript-gold" />
+                <span className="text-xs font-medium text-manuscript-gold uppercase tracking-wider">
+                  {t.sacredTeachings}
+                </span>
+              </div>
+              
+              <h1 className="text-xl font-heading text-white mb-1">
+                {t.manuscriptModules}
+              </h1>
+              <p className="text-emerald-100/80 text-sm">
+                {t.modulesOfWisdom}
+              </p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-2xl font-heading text-foreground">{t.manuscriptModules}</h1>
-            <p className="text-muted-foreground text-sm">{t.modulesOfWisdom}</p>
+          
+          {/* Sacred seal */}
+          <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-gradient-to-br from-manuscript-gold to-amber-600 flex items-center justify-center shadow-lg border-2 border-white/20">
+            <ScrollText className="w-5 h-5 text-white" />
           </div>
-        </div>
+        </motion.div>
         
-        <div className="flex items-center gap-3">
-          <div className="flex-1 h-2 bg-white/50 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-manuscript-gold to-manuscript-gold/70 rounded-full transition-all duration-300" style={{ width: `${(completedModules.length / modules.length) * 100}%` }} />
+        {/* Description card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="bg-gradient-to-r from-emerald-50/80 to-manuscript-gold/10 rounded-xl p-4 mb-6 border border-emerald-200/50"
+        >
+          <p className="text-sm text-emerald-800 leading-relaxed">
+            {t.sacredManuscriptsDesc}
+          </p>
+        </motion.div>
+        
+        {/* Progress section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="flex items-center gap-3 mb-2"
+        >
+          <span className="text-sm font-medium text-foreground">{t.yourProgress}</span>
+          <div className="flex-1 h-2.5 bg-white/50 rounded-full overflow-hidden border border-manuscript-gold/20">
+            <div 
+              className="h-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-manuscript-gold rounded-full transition-all duration-500" 
+              style={{ width: `${(completedModules.length / modules.length) * 100}%` }} 
+            />
           </div>
-          <span className="text-sm text-muted-foreground">{completedModules.length}/{modules.length}</span>
-        </div>
+          <span className="text-sm font-medium text-manuscript-gold">{completedModules.length}/{modules.length}</span>
+        </motion.div>
       </div>
 
-      <div className="space-y-4">
-        {modules.map((module) => (
-          <ModuleCard key={module.id} module={module} isCompleted={completedModules.includes(module.id)} onClick={() => setSelectedModule(module.id)} t={t} />
+      {/* Module cards */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+        className="space-y-4"
+      >
+        {modules.map((module, index) => (
+          <motion.div
+            key={module.id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.35 + index * 0.05 }}
+          >
+            <ModuleCard 
+              module={module} 
+              isCompleted={completedModules.includes(module.id)} 
+              onClick={() => setSelectedModule(module.id)} 
+              t={t} 
+            />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
