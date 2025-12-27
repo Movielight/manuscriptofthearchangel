@@ -4,7 +4,7 @@ export const translations = {
   en: {
     nav: {
       home: 'Home',
-      modules: 'Modules',
+      modules: 'Manuscripts',
       lessons: 'Lessons',
       practices: 'Practices',
       journey: 'Journey',
@@ -186,7 +186,7 @@ export const translations = {
   'pt-BR': {
     nav: {
       home: 'Início',
-      modules: 'Módulos',
+      modules: 'Manuscritos',
       lessons: 'Aulas',
       practices: 'Práticas',
       journey: 'Jornada',
