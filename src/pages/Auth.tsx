@@ -250,6 +250,21 @@ const Auth = () => {
             </Button>
           </form>
 
+          {/* First time user notice */}
+          {isLogin && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-4 p-3 bg-primary/10 border border-primary/20 rounded-lg"
+            >
+              <p className="text-sm text-center text-muted-foreground">
+                <span className="font-medium text-foreground">First time here?</span>{' '}
+                Click on <span className="font-semibold text-primary">"Sign up"</span> below to create your account, then sign in with your email and password.
+              </p>
+            </motion.div>
+          )}
+
           <div className="mt-6 text-center">
             <button
               type="button"
