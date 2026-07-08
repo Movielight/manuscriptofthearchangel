@@ -1,4 +1,12 @@
-export type Language = 'en' | 'pt-BR';
+export type Language = 'en' | 'pt-BR' | 'fr';
+
+export const localeMap: Record<Language, string> = {
+  en: 'en-US',
+  'pt-BR': 'pt-BR',
+  fr: 'fr-FR',
+};
+
+export const getLocale = (language: Language) => localeMap[language];
 
 export const translations = {
   en: {
