@@ -204,6 +204,7 @@ export const translations = {
     },
   },
   'pt-BR': {
+    locale: 'pt-BR',
     nav: {
       home: 'Início',
       modules: 'Manuscritos',
