@@ -60,6 +60,7 @@ export const SettingsPanel = ({
   const languages: { value: Language; label: string; flag: string }[] = [
     { value: 'en', label: 'English', flag: '🇺🇸' },
     { value: 'pt-BR', label: 'Português', flag: '🇧🇷' },
+    { value: 'fr', label: 'Français', flag: '🇫🇷' },
   ];
 
   const handleReset = () => {
