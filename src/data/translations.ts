@@ -35,6 +35,8 @@ export const translations = {
       dailyReflection: 'Daily Reflection',
       quote: '"The journey of self-knowledge has no final destination - each step is simultaneously path and arrival."',
       quoteAuthor: '— Archangel Key',
+      welcome: 'Welcome,',
+      welcomeMessage: 'your journey of self-discovery begins here.',
     },
     settings: {
       title: 'Settings',
