@@ -266,6 +266,15 @@ export const translations = {
       namePlaceholder: 'Como devemos chamá-lo?',
       saveProfile: 'Salvar',
       profileUpdated: 'Perfil atualizado!',
+      signOut: 'Sair da conta',
+      days: 'dias',
+    },
+    aiAssistant: {
+      title: 'Assistente do Manuscrito',
+      placeholder: 'Faça sua pergunta sobre o manuscrito...',
+      welcome: 'Olá! Sou seu assistente do Manuscrito Sagrado. Como posso ajudá-lo hoje?',
+      error: 'Desculpe, ocorreu um erro. Tente novamente.',
+      askQuestion: 'Tirar Dúvidas',
     },
     modules: {
       backToModules: 'Voltar aos módulos',
