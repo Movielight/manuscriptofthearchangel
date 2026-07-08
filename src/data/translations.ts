@@ -72,6 +72,15 @@ export const translations = {
       namePlaceholder: 'How should we call you?',
       saveProfile: 'Save',
       profileUpdated: 'Profile updated!',
+      signOut: 'Sign Out',
+      days: 'days',
+    },
+    aiAssistant: {
+      title: 'Manuscript Assistant',
+      placeholder: 'Ask a question about the manuscript...',
+      welcome: 'Hello! I am your Sacred Manuscript assistant. How can I help you today?',
+      error: 'Sorry, an error occurred. Please try again.',
+      askQuestion: 'Ask Questions',
     },
     modules: {
       backToModules: 'Back to modules',
