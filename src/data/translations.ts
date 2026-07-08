@@ -229,6 +229,8 @@ export const translations = {
       dailyReflection: 'Reflexão do Dia',
       quote: '"A jornada de autoconhecimento não tem destino final - cada passo é simultaneamente caminho e chegada."',
       quoteAuthor: '— Archangel Key',
+      welcome: 'Bem-vindo,',
+      welcomeMessage: 'sua jornada de autodescoberta começa aqui.',
     },
     settings: {
       title: 'Configurações',
