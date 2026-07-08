@@ -10,6 +10,7 @@ export const getLocale = (language: Language) => localeMap[language];
 
 export const translations = {
   en: {
+    locale: 'en-US',
     nav: {
       home: 'Home',
       modules: 'Manuscripts',
