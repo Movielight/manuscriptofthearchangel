@@ -10,7 +10,7 @@ import {
   AlertTriangle
 } from 'lucide-react';
 import { ManuscriptProgress } from '@/hooks/useCloudProgress';
-import { Language, getTranslation } from '@/data/translations';
+import { Language, getTranslation, getLocale } from '@/data/translations';
 import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
