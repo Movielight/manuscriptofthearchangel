@@ -681,3 +681,23 @@ export const translations = {
 };
 
 export const getTranslation = (language: Language) => translations[language];
+
+const LANG_STORAGE_KEY = 'archangel-language';
+
+export const detectBrowserLanguage = (): Language => {
+  if (typeof window === 'undefined') return 'en';
+  try {
+    const stored = window.localStorage.getItem(LANG_STORAGE_KEY);
+    if (stored === 'en' || stored === 'pt-BR' || stored === 'fr') return stored;
+  } catch {}
+  const nav = (navigator.language || 'en').toLowerCase();
+  if (nav.startsWith('pt')) return 'pt-BR';
+  if (nav.startsWith('fr')) return 'fr';
+  return 'en';
+};
+
+export const persistLanguage = (language: Language) => {
+  try {
+    window.localStorage.setItem(LANG_STORAGE_KEY, language);
+  } catch {}
+};
