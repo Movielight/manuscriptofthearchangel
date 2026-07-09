@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Sparkles, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { Language } from '@/data/translations';
+import { Language, getTranslation } from '@/data/translations';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Message {
