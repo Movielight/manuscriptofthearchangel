@@ -152,7 +152,7 @@ export const SettingsPanel = ({
           </div>
           <h2 className="text-foreground font-heading text-xl">{t.language}</h2>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {languages.map(({ value, label, flag }) => (
             <button
               key={value}
