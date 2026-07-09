@@ -269,7 +269,7 @@ export const SettingsPanel = ({
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground font-body">{t.started}</span>
             <span className="text-foreground font-body font-medium">
-              {new Date(progress.firstVisit).toLocaleDateString(progress.language === 'pt-BR' ? 'pt-BR' : 'en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              {new Date(progress.firstVisit).toLocaleDateString(getLocale(progress.language), { month: 'short', day: 'numeric', year: 'numeric' })}
             </span>
           </div>
           <div className="h-px bg-primary/10" />
