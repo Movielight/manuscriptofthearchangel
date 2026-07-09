@@ -12,7 +12,7 @@ import {
   PenLine
 } from 'lucide-react';
 import { ManuscriptProgress, JournalEntry } from '@/hooks/useManuscriptProgress';
-import { Language, getTranslation } from '@/data/translations';
+import { Language, getTranslation, getLocale } from '@/data/translations';
 import { illustrations } from '@/data/illustrationAssets';
 
 interface JournalViewProps {
