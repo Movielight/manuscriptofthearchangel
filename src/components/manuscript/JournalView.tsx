@@ -60,7 +60,7 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry, language }: J
 
     if (date.toDateString() === today.toDateString()) return t.today;
     if (date.toDateString() === yesterday.toDateString()) return t.yesterday;
-    return date.toLocaleDateString(language === 'pt-BR' ? 'pt-BR' : 'en-US', { month: 'short', day: 'numeric' });
+    return date.toLocaleDateString(getLocale(language), { month: 'short', day: 'numeric' });
   };
 
   return (
