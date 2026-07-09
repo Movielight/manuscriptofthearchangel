@@ -12,7 +12,7 @@ import {
   PenLine
 } from 'lucide-react';
 import { ManuscriptProgress, JournalEntry } from '@/hooks/useManuscriptProgress';
-import { Language, getTranslation } from '@/data/translations';
+import { Language, getTranslation, getLocale } from '@/data/translations';
 import { illustrations } from '@/data/illustrationAssets';
 
 interface JournalViewProps {
@@ -60,7 +60,7 @@ export const JournalView = ({ progress, onAddEntry, onDeleteEntry, language }: J
 
     if (date.toDateString() === today.toDateString()) return t.today;
     if (date.toDateString() === yesterday.toDateString()) return t.yesterday;
-    return date.toLocaleDateString(language === 'pt-BR' ? 'pt-BR' : 'en-US', { month: 'short', day: 'numeric' });
+    return date.toLocaleDateString(getLocale(language), { month: 'short', day: 'numeric' });
   };
 
   return (

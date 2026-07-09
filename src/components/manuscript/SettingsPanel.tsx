@@ -10,7 +10,7 @@ import {
   AlertTriangle
 } from 'lucide-react';
 import { ManuscriptProgress } from '@/hooks/useCloudProgress';
-import { Language, getTranslation } from '@/data/translations';
+import { Language, getTranslation, getLocale } from '@/data/translations';
 import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -60,6 +60,7 @@ export const SettingsPanel = ({
   const languages: { value: Language; label: string; flag: string }[] = [
     { value: 'en', label: 'English', flag: '🇺🇸' },
     { value: 'pt-BR', label: 'Português', flag: '🇧🇷' },
+    { value: 'fr', label: 'Français', flag: '🇫🇷' },
   ];
 
   const handleReset = () => {
@@ -151,7 +152,7 @@ export const SettingsPanel = ({
           </div>
           <h2 className="text-foreground font-heading text-xl">{t.language}</h2>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {languages.map(({ value, label, flag }) => (
             <button
               key={value}
@@ -268,7 +269,7 @@ export const SettingsPanel = ({
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground font-body">{t.started}</span>
             <span className="text-foreground font-body font-medium">
-              {new Date(progress.firstVisit).toLocaleDateString(progress.language === 'pt-BR' ? 'pt-BR' : 'en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              {new Date(progress.firstVisit).toLocaleDateString(getLocale(progress.language), { month: 'short', day: 'numeric', year: 'numeric' })}
             </span>
           </div>
           <div className="h-px bg-primary/10" />
@@ -291,7 +292,7 @@ export const SettingsPanel = ({
           </div>
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground font-body">{t.bestStreak}</span>
-            <span className="text-manuscript-gold font-body font-medium">{progress.longestStreak} {progress.language === 'pt-BR' ? 'dias' : 'days'}</span>
+            <span className="text-manuscript-gold font-body font-medium">{progress.longestStreak} {t.days}</span>
           </div>
         </div>
       </motion.div>
@@ -354,7 +355,7 @@ export const SettingsPanel = ({
             className="w-full py-4 rounded-2xl border-2 border-primary/30 text-foreground font-body font-medium flex items-center justify-center gap-3 hover:bg-primary/10 transition-all duration-200"
           >
             <LogOut className="w-5 h-5" />
-            {progress.language === 'pt-BR' ? 'Sair da conta' : 'Sign Out'}
+            {t.signOut}
           </button>
         </motion.div>
       )}

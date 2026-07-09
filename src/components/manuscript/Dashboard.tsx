@@ -44,12 +44,10 @@ export const Dashboard = ({ progress, firstName, onNavigate, onOpenSettings }: D
       {/* Personalized Greeting */}
       <div className="pb-4">
         <h2 className="text-xl font-heading text-manuscript-gold">
-          {firstName ? `${firstName},` : progress.language === 'pt-BR' ? 'Bem-vindo,' : 'Welcome,'}
+          {firstName ? `${firstName},` : t.welcome}
         </h2>
         <p className="text-muted-foreground text-sm">
-          {progress.language === 'pt-BR' 
-            ? 'sua jornada de autodescoberta começa aqui.'
-            : 'your journey of self-discovery begins here.'}
+          {t.welcomeMessage}
         </p>
       </div>
 
