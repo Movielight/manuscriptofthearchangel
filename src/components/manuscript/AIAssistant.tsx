@@ -25,19 +25,7 @@ export const AIAssistant = ({ context, language }: AIAssistantProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const t = language === 'pt-BR' ? {
-    title: 'Assistente do Manuscrito',
-    placeholder: 'Faça sua pergunta sobre o manuscrito...',
-    welcome: 'Olá! Sou seu assistente do Manuscrito Sagrado. Como posso ajudá-lo hoje?',
-    error: 'Desculpe, ocorreu um erro. Tente novamente.',
-    askQuestion: 'Tirar Dúvidas',
-  } : {
-    title: 'Manuscript Assistant',
-    placeholder: 'Ask a question about the manuscript...',
-    welcome: 'Hello! I am your Sacred Manuscript assistant. How can I help you today?',
-    error: 'Sorry, an error occurred. Please try again.',
-    askQuestion: 'Ask Questions',
-  };
+  const t = getTranslation(language).aiAssistant;
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
