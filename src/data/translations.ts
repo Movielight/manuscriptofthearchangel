@@ -202,6 +202,35 @@ export const translations = {
     common: {
       back: 'Back',
     },
+    auth: {
+      backToQuiz: 'Back to Quiz',
+      welcomeBack: 'Welcome Back',
+      beginJourney: 'Begin Your Journey',
+      signInSubtitle: 'Sign in to continue your sacred journey',
+      signUpSubtitle: 'Create an account to save your progress',
+      yourName: 'Your Name',
+      namePlaceholder: 'How should we call you?',
+      email: 'Email',
+      emailPlaceholder: 'your@email.com',
+      password: 'Password',
+      signIn: 'Sign In',
+      createAccount: 'Create Account',
+      firstTimeTitle: 'First time here?',
+      firstTimeMessage: 'Click on "Sign up" below to create your account, then sign in with your email and password.',
+      signUpLink: 'Sign up',
+      noAccount: "Don't have an account? Sign up",
+      hasAccount: 'Already have an account? Sign in',
+      loading: 'Loading...',
+      invalidCredentials: 'Invalid email or password',
+      welcomeToast: 'Welcome back!',
+      alreadyRegistered: 'This email is already registered. Please sign in.',
+      accountCreated: 'Account created successfully! Welcome to Archangel Key.',
+      invalidEmail: 'Please enter a valid email address',
+      passwordTooShort: 'Password must be at least 6 characters',
+      nameTooShort: 'Name must be at least 2 characters',
+      nameTooLong: 'Name must be less than 50 characters',
+      language: 'Language',
+    },
   },
   'pt-BR': {
     locale: 'pt-BR',
@@ -395,6 +424,35 @@ export const translations = {
     },
     common: {
       back: 'Voltar',
+    },
+    auth: {
+      backToQuiz: 'Voltar ao Quiz',
+      welcomeBack: 'Bem-vindo de Volta',
+      beginJourney: 'Comece Sua Jornada',
+      signInSubtitle: 'Entre para continuar sua jornada sagrada',
+      signUpSubtitle: 'Crie uma conta para salvar seu progresso',
+      yourName: 'Seu Nome',
+      namePlaceholder: 'Como devemos te chamar?',
+      email: 'E-mail',
+      emailPlaceholder: 'seu@email.com',
+      password: 'Senha',
+      signIn: 'Entrar',
+      createAccount: 'Criar Conta',
+      firstTimeTitle: 'Primeira vez aqui?',
+      firstTimeMessage: 'Clique em "Cadastre-se" abaixo para criar sua conta, depois entre com seu e-mail e senha.',
+      signUpLink: 'Cadastre-se',
+      noAccount: 'Não tem uma conta? Cadastre-se',
+      hasAccount: 'Já tem uma conta? Entrar',
+      loading: 'Carregando...',
+      invalidCredentials: 'E-mail ou senha inválidos',
+      welcomeToast: 'Bem-vindo de volta!',
+      alreadyRegistered: 'Este e-mail já está cadastrado. Faça login.',
+      accountCreated: 'Conta criada com sucesso! Bem-vindo ao Archangel Key.',
+      invalidEmail: 'Por favor insira um e-mail válido',
+      passwordTooShort: 'A senha deve ter pelo menos 6 caracteres',
+      nameTooShort: 'O nome deve ter pelo menos 2 caracteres',
+      nameTooLong: 'O nome deve ter menos de 50 caracteres',
+      language: 'Idioma',
     },
   },
   fr: {
@@ -590,7 +648,56 @@ export const translations = {
     common: {
       back: 'Retour',
     },
+    auth: {
+      backToQuiz: 'Retour au Quiz',
+      welcomeBack: 'Bon Retour',
+      beginJourney: 'Commencez Votre Voyage',
+      signInSubtitle: 'Connectez-vous pour continuer votre voyage sacré',
+      signUpSubtitle: 'Créez un compte pour sauvegarder votre progression',
+      yourName: 'Votre Nom',
+      namePlaceholder: 'Comment devons-nous vous appeler ?',
+      email: 'E-mail',
+      emailPlaceholder: 'votre@email.com',
+      password: 'Mot de passe',
+      signIn: 'Se connecter',
+      createAccount: 'Créer un compte',
+      firstTimeTitle: 'Première fois ici ?',
+      firstTimeMessage: 'Cliquez sur "S\'inscrire" ci-dessous pour créer votre compte, puis connectez-vous avec votre e-mail et mot de passe.',
+      signUpLink: "S'inscrire",
+      noAccount: "Pas encore de compte ? S'inscrire",
+      hasAccount: 'Vous avez déjà un compte ? Se connecter',
+      loading: 'Chargement...',
+      invalidCredentials: 'E-mail ou mot de passe invalide',
+      welcomeToast: 'Bon retour !',
+      alreadyRegistered: 'Cet e-mail est déjà enregistré. Veuillez vous connecter.',
+      accountCreated: 'Compte créé avec succès ! Bienvenue chez Archangel Key.',
+      invalidEmail: 'Veuillez saisir une adresse e-mail valide',
+      passwordTooShort: 'Le mot de passe doit contenir au moins 6 caractères',
+      nameTooShort: 'Le nom doit contenir au moins 2 caractères',
+      nameTooLong: 'Le nom doit contenir moins de 50 caractères',
+      language: 'Langue',
+    },
   },
 };
 
 export const getTranslation = (language: Language) => translations[language];
+
+const LANG_STORAGE_KEY = 'archangel-language';
+
+export const detectBrowserLanguage = (): Language => {
+  if (typeof window === 'undefined') return 'en';
+  try {
+    const stored = window.localStorage.getItem(LANG_STORAGE_KEY);
+    if (stored === 'en' || stored === 'pt-BR' || stored === 'fr') return stored;
+  } catch {}
+  const nav = (navigator.language || 'en').toLowerCase();
+  if (nav.startsWith('pt')) return 'pt-BR';
+  if (nav.startsWith('fr')) return 'fr';
+  return 'en';
+};
+
+export const persistLanguage = (language: Language) => {
+  try {
+    window.localStorage.setItem(LANG_STORAGE_KEY, language);
+  } catch {}
+};

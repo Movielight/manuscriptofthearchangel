@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/hooks/useAuth';
@@ -6,16 +6,28 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
-import { Mail, Lock, Eye, EyeOff, ArrowLeft, User } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, ArrowLeft, User, Globe } from 'lucide-react';
 import { ArchangelKeyLogo } from '@/components/brand/ArchangelKeyLogo';
 import { z } from 'zod';
 import { QuizFooter } from '@/components/quiz/QuizFooter';
-
-const emailSchema = z.string().email('Please enter a valid email address');
-const passwordSchema = z.string().min(6, 'Password must be at least 6 characters');
-const nameSchema = z.string().min(2, 'Name must be at least 2 characters').max(50, 'Name must be less than 50 characters');
+import {
+  detectBrowserLanguage,
+  persistLanguage,
+  getTranslation,
+  type Language,
+} from '@/data/translations';
 
 const Auth = () => {
+  const [language, setLanguageState] = useState<Language>(() => detectBrowserLanguage());
+  const t = useMemo(() => getTranslation(language).auth, [language]);
+
+  const emailSchema = useMemo(() => z.string().email(t.invalidEmail), [t]);
+  const passwordSchema = useMemo(() => z.string().min(6, t.passwordTooShort), [t]);
+  const nameSchema = useMemo(
+    () => z.string().min(2, t.nameTooShort).max(50, t.nameTooLong),
+    [t]
+  );
+
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,9 +35,14 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string; name?: string }>({});
-  
+
   const { user, loading, signIn, signUp } = useAuth();
   const navigate = useNavigate();
+
+  const changeLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    persistLanguage(lang);
+  };
 
   useEffect(() => {
     if (user && !loading) {
@@ -35,12 +52,12 @@ const Auth = () => {
 
   const validateForm = () => {
     const newErrors: { email?: string; password?: string; name?: string } = {};
-    
+
     const emailResult = emailSchema.safeParse(email);
     if (!emailResult.success) {
       newErrors.email = emailResult.error.errors[0].message;
     }
-    
+
     const passwordResult = passwordSchema.safeParse(password);
     if (!passwordResult.success) {
       newErrors.password = passwordResult.error.errors[0].message;
@@ -52,16 +69,16 @@ const Auth = () => {
         newErrors.name = nameResult.error.errors[0].message;
       }
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
 
     try {
@@ -69,24 +86,24 @@ const Auth = () => {
         const { error } = await signIn(email, password);
         if (error) {
           if (error.message.includes('Invalid login credentials')) {
-            toast.error('Invalid email or password');
+            toast.error(t.invalidCredentials);
           } else {
             toast.error(error.message);
           }
         } else {
-          toast.success('Welcome back!');
+          toast.success(t.welcomeToast);
           navigate('/');
         }
       } else {
         const { error } = await signUp(email, password, name);
         if (error) {
           if (error.message.includes('already registered')) {
-            toast.error('This email is already registered. Please sign in.');
+            toast.error(t.alreadyRegistered);
           } else {
             toast.error(error.message);
           }
         } else {
-          toast.success('Account created successfully! Welcome to Archangel Key.');
+          toast.success(t.accountCreated);
           navigate('/');
         }
       }
@@ -104,11 +121,17 @@ const Auth = () => {
           className="flex flex-col items-center gap-4"
         >
           <ArchangelKeyLogo size="lg" animate />
-          <p className="text-muted-foreground">Loading...</p>
+          <p className="text-muted-foreground">{t.loading}</p>
         </motion.div>
       </div>
     );
   }
+
+  const languageOptions: { code: Language; label: string }[] = [
+    { code: 'en', label: 'EN' },
+    { code: 'pt-BR', label: 'PT' },
+    { code: 'fr', label: 'FR' },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex flex-col">
@@ -119,16 +142,36 @@ const Auth = () => {
         transition={{ duration: 0.6 }}
         className="w-full max-w-md"
       >
-        {/* Back button */}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => navigate('/quiz')}
-          className="mb-6 text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Quiz
-        </Button>
+        {/* Top bar: back + language switcher */}
+        <div className="flex items-center justify-between mb-6">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate('/quiz')}
+            className="text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            {t.backToQuiz}
+          </Button>
+
+          <div className="flex items-center gap-1 bg-card border border-border rounded-full px-2 py-1" aria-label={t.language}>
+            <Globe className="w-3.5 h-3.5 text-muted-foreground ml-1" />
+            {languageOptions.map((opt) => (
+              <button
+                key={opt.code}
+                type="button"
+                onClick={() => changeLanguage(opt.code)}
+                className={`text-xs font-medium px-2 py-0.5 rounded-full transition-colors ${
+                  language === opt.code
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Header */}
         <div className="text-center mb-8">
@@ -141,12 +184,10 @@ const Auth = () => {
             <ArchangelKeyLogo size="lg" showText animate />
           </motion.div>
           <h1 className="text-2xl font-serif font-bold text-foreground mb-2">
-            {isLogin ? 'Welcome Back' : 'Begin Your Journey'}
+            {isLogin ? t.welcomeBack : t.beginJourney}
           </h1>
           <p className="text-muted-foreground">
-            {isLogin 
-              ? 'Sign in to continue your sacred journey' 
-              : 'Create an account to save your progress'}
+            {isLogin ? t.signInSubtitle : t.signUpSubtitle}
           </p>
         </div>
 
@@ -160,13 +201,13 @@ const Auth = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground">Your Name</Label>
+                <Label htmlFor="name" className="text-foreground">{t.yourName}</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="name"
                     type="text"
-                    placeholder="How should we call you?"
+                    placeholder={t.namePlaceholder}
                     value={name}
                     onChange={(e) => {
                       setName(e.target.value);
@@ -183,13 +224,13 @@ const Auth = () => {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-foreground">Email</Label>
+              <Label htmlFor="email" className="text-foreground">{t.email}</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
                   id="email"
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder={t.emailPlaceholder}
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -205,7 +246,7 @@ const Auth = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-foreground">Password</Label>
+              <Label htmlFor="password" className="text-foreground">{t.password}</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
@@ -245,7 +286,7 @@ const Auth = () => {
                   className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full"
                 />
               ) : (
-                isLogin ? 'Sign In' : 'Create Account'
+                isLogin ? t.signIn : t.createAccount
               )}
             </Button>
           </form>
@@ -259,8 +300,15 @@ const Auth = () => {
               className="mt-4 p-3 bg-primary/10 border border-primary/20 rounded-lg"
             >
               <p className="text-sm text-center text-muted-foreground">
-                <span className="font-medium text-foreground">First time here?</span>{' '}
-                Click on <span className="font-semibold text-primary">"Sign up"</span> below to create your account, then sign in with your email and password.
+                <span className="font-medium text-foreground">{t.firstTimeTitle}</span>{' '}
+                {t.firstTimeMessage.split(`"${t.signUpLink}"`).map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <span className="font-semibold text-primary">"{t.signUpLink}"</span>
+                    )}
+                  </span>
+                ))}
               </p>
             </motion.div>
           )}
@@ -276,9 +324,7 @@ const Auth = () => {
               className="text-sm text-primary hover:underline"
               disabled={isSubmitting}
             >
-              {isLogin 
-                ? "Don't have an account? Sign up" 
-                : 'Already have an account? Sign in'}
+              {isLogin ? t.noAccount : t.hasAccount}
             </button>
           </div>
         </motion.div>
