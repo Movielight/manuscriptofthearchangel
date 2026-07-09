@@ -292,7 +292,7 @@ export const SettingsPanel = ({
           </div>
           <div className="flex justify-between items-center">
             <span className="text-muted-foreground font-body">{t.bestStreak}</span>
-            <span className="text-manuscript-gold font-body font-medium">{progress.longestStreak} {progress.language === 'pt-BR' ? 'dias' : 'days'}</span>
+            <span className="text-manuscript-gold font-body font-medium">{progress.longestStreak} {t.days}</span>
           </div>
         </div>
       </motion.div>
