@@ -336,7 +336,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
           className="text-center mb-10"
         >
           <a
-            href="https://checkout.usecloverr.com/checkout/204424356:1?subscription=3530"
+            href="https://pay.mycheckoutt.com/019b3712-b06b-73fe-a01b-73270510a4c3?ref="
             target="_blank"
             rel="noopener noreferrer"
             className="divine-button text-lg inline-block"
