@@ -231,7 +231,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
                 Unlock divine guidance forever
               </p>
               <div className="mb-6">
-                <span className="text-4xl font-heading text-primary">$5</span>
+                <span className="text-4xl font-heading text-primary">$39</span>
                 <span className="text-muted-foreground"> / month</span>
               </div>
               <ul className="text-left space-y-3 mb-6">
@@ -249,7 +249,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
                 ))}
               </ul>
               <a
-                href="https://checkout.usecloverr.com/checkout/204424356:1?subscription=3530"
+                href="https://pay.mycheckoutt.com/019b3712-b06b-73fe-a01b-73270510a4c3?ref="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="divine-button w-full block text-center text-lg animate-pulse"
