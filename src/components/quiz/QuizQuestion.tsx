@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { QuizQuestion as QuizQuestionType } from "@/data/quizQuestions";
-import { Shield, Heart, Sparkles, Sun, Star, Compass, Eye, Flame, Clock } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Shield, Heart, Sparkles, Sun, Star, Compass, Eye, Flame } from "lucide-react";
 
 // Question icons based on theme
 const questionIcons: Record<number, React.ReactNode> = {
@@ -34,23 +33,6 @@ export const QuizQuestion = ({
   onNext,
 }: QuizQuestionProps) => {
   const progress = ((currentIndex + 1) / totalQuestions) * 100;
-  const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 59 });
-
-  // Countdown timer effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { minutes: prev.minutes - 1, seconds: 59 };
-        }
-        return prev;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <motion.div
@@ -88,16 +70,16 @@ export const QuizQuestion = ({
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[80px] pointer-events-none" />
 
       <div className="w-full max-w-2xl relative z-10">
-        {/* Urgency Banner */}
+        {/* Guarantee Banner */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-6 flex justify-center"
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/10 via-orange-500/10 to-red-500/10 border border-red-500/20 rounded-full px-4 py-2">
-            <Clock className="w-4 h-4 text-red-500" />
-            <span className="text-sm text-red-500 font-medium">
-              Your sacred message expires in {timeLeft.minutes}:{timeLeft.seconds.toString().padStart(2, '0')}
+          <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/20 rounded-full px-4 py-2">
+            <Shield className="w-4 h-4 text-primary" />
+            <span className="text-sm text-primary font-medium">
+              Protected by our 60-Day Money-Back Guarantee
             </span>
           </div>
         </motion.div>

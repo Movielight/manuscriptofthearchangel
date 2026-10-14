@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: "What if this doesn't work for me?",
-    answer: "We offer a 7-day satisfaction guarantee. If you don't feel a genuine connection with the teachings, simply contact us for a full refund. Your spiritual journey should feel right.",
+    answer: "We offer a 60-day satisfaction guarantee. If you don't feel a genuine connection with the teachings, simply contact us for a full refund. Your spiritual journey should feel right.",
   },
   {
     question: "How is this different from other spiritual programs?",

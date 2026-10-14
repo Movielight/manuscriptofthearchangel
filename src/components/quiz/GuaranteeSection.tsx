@@ -12,13 +12,13 @@ export const GuaranteeSection = () => {
       <div className="flex items-center justify-center gap-3 mb-4">
         <ShieldCheck className="w-8 h-8 text-primary" />
         <h3 className="font-heading text-xl text-foreground">
-          7-Day Divine Guarantee
+          60-Day Divine Guarantee
         </h3>
       </div>
       
       <p className="text-center text-foreground/80 mb-6">
         We believe so deeply in the transformative power of this sacred journey that we offer 
-        a complete satisfaction guarantee. If you don't feel the divine connection within 7 days, 
+        a complete satisfaction guarantee. If you don't feel the divine connection within 60 days, 
         we will refund 100% of your investment—no questions asked.
       </p>
 

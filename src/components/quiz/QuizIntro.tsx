@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ShieldCheck } from "lucide-react";
 import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
 import { SocialProofCounter } from "./SocialProofCounter";
 import { TrustBadges } from "./TrustBadges";
@@ -102,6 +103,16 @@ export const QuizIntro = ({ onStart }: QuizIntroProps) => {
           className="mt-8 text-muted-foreground text-sm"
         >
           ✦ Takes only 3 minutes ✦ Deeply personal results ✦
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.9, duration: 0.6 }}
+          className="mt-3 flex items-center justify-center gap-2 text-primary text-sm font-medium"
+        >
+          <ShieldCheck className="w-4 h-4 flex-shrink-0" />
+          60-Day Money-Back Guarantee — full refund, no questions asked
         </motion.p>
 
         {/* Social Proof Counter */}
