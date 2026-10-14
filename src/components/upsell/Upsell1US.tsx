@@ -119,8 +119,10 @@ const Upsell1US = () => {
           </motion.div>
         </motion.div>
       </div>
-      
-      
+
+      <p className="px-4 pb-10 text-center text-sm text-amber-100/70">
+        60-Day Money-Back Guarantee — full refund, no questions asked
+      </p>
     </div>
   );
 };
