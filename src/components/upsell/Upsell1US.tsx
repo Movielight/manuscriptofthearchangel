@@ -1,43 +1,8 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 
 const Upsell1US = () => {
-  const [showFallback, setShowFallback] = useState(false);
-
-  useEffect(() => {
-    let scriptLoaded = false;
-    
-    const script = document.createElement("script");
-    script.src = "https://upsell.mundpay.com/script-v2.js";
-    script.defer = true;
-    script.async = true;
-    
-    script.onload = () => {
-      scriptLoaded = true;
-    };
-    
-    script.onerror = () => {
-      setShowFallback(true);
-    };
-    
-    document.head.appendChild(script);
-
-    const timeout = setTimeout(() => {
-      if (!scriptLoaded) {
-        setShowFallback(true);
-      }
-    }, 5000);
-
-    return () => {
-      clearTimeout(timeout);
-      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-black flex flex-col relative overflow-hidden">
@@ -82,40 +47,37 @@ const Upsell1US = () => {
             Your path to divine healing and spiritual wisdom awaits
           </motion.p>
 
-          {/* MundPay Accept/Decline Buttons */}
+          {/* One-Time Payment */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
+            className="mb-10"
           >
-            {/* MundPay area with black overlays covering title/price and decline/terms */}
-            <div className="relative">
-              {/* Black overlay covering title and price (top area) */}
-              <div className="absolute top-0 left-0 right-0 h-[90px] md:h-[72px] bg-black z-10 pointer-events-none" />
-              
-              {/* Black overlay covering decline button and terms (bottom area) */}
-              <div className="absolute bottom-0 left-0 right-0 h-[100px] md:h-[115px] bg-black z-10 pointer-events-none" />
+            <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">$53.00</div>
+            <p className="text-amber-100/70 text-sm">One-time payment — no subscription, no recurring charges</p>
+          </motion.div>
 
-              <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
-            </div>
-            
-            {showFallback && (
-              <div className="mt-6 space-y-4">
-                <Button
-                  size="lg"
-                  className="w-full px-8 py-4 text-lg font-semibold bg-amber-500 hover:bg-amber-600 text-black"
-                  onClick={() => window.location.href = '/manuscript'}
-                >
-                  Accept Offer
-                </Button>
-                <button
-                  className="text-amber-100/60 hover:text-amber-100 text-sm underline"
-                  onClick={() => window.location.href = '/up2'}
-                >
-                  No thanks, continue
-                </button>
-              </div>
-            )}
+          {/* Accept / Decline Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.4 }}
+            className="w-full max-w-sm mx-auto space-y-4"
+          >
+            <Button
+              size="lg"
+              className="w-full px-8 py-4 text-lg font-semibold bg-amber-500 hover:bg-amber-600 text-black"
+              onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/yes?template=light'}
+            >
+              Yes, I want to buy it.
+            </Button>
+            <button
+              className="text-amber-100/60 hover:text-amber-100 text-sm underline"
+              onClick={() => window.location.href = '/up2'}
+            >
+              I don't want
+            </button>
           </motion.div>
         </motion.div>
       </div>
