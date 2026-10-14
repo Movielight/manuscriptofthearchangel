@@ -74,7 +74,7 @@ const Upsell1US = () => {
             </Button>
             <button
               className="text-amber-100/60 hover:text-amber-100 text-sm underline"
-              onClick={() => window.location.href = '/up2'}
+              onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/no'}
             >
               I don't want
             </button>
