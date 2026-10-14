@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useGeoLocation } from "@/hooks/useGeoLocation";
 import Upsell1US from "@/components/upsell/Upsell1US";
 import Upsell1International from "@/components/upsell/Upsell1International";
@@ -7,6 +7,19 @@ import ProgressLoader from "@/components/upsell/ProgressLoader";
 const Upsell1 = () => {
   const { isUS, loading } = useGeoLocation();
   const [loadingComplete, setLoadingComplete] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.digistore24-scripts.com/service/digistore.js";
+    script.async = true;
+    script.onload = () => {
+      (window as any).digistoreUpsell?.();
+    };
+    document.body.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   const handleLoadingComplete = useCallback(() => {
     setLoadingComplete(true);
