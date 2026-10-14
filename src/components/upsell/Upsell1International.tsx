@@ -391,11 +391,11 @@ const Upsell1International = () => {
             <Shield className="w-8 h-8 text-green-500" />
           </div>
           <h3 className="text-lg font-semibold text-foreground mb-2">
-            30-Day Money-Back Guarantee
+            60-Day Money-Back Guarantee
           </h3>
           <p className="text-sm text-muted-foreground max-w-md mx-auto">
             If you don't experience a real change in your focus and mental clarity 
-            within 30 days, we'll refund 100% of your investment. No questions asked.
+            within 60 days, we'll refund 100% of your investment. No questions asked.
           </p>
         </motion.div>
 

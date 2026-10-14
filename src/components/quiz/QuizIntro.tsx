@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ShieldCheck } from "lucide-react";
 import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
 import { SocialProofCounter } from "./SocialProofCounter";
 import { TrustBadges } from "./TrustBadges";
