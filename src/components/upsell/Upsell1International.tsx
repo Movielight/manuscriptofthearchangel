@@ -4,11 +4,6 @@ import { CheckCircle2, Clock, BookOpen, Target, Flame, Star, Shield, Users, Zap,
 import { LiveNotifications } from "@/components/quiz/LiveNotifications";
 import { QuizFooter } from "@/components/quiz/QuizFooter";
 const Upsell1International = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    minutes: 14,
-    seconds: 59
-  });
-  const [spotsLeft] = useState(7);
   useEffect(() => {
     // Add MundPay script to head
     const script = document.createElement("script");
@@ -22,25 +17,6 @@ const Upsell1International = () => {
         existingScript.remove();
       }
     };
-  }, []);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return {
-            ...prev,
-            seconds: prev.seconds - 1
-          };
-        } else if (prev.minutes > 0) {
-          return {
-            minutes: prev.minutes - 1,
-            seconds: 59
-          };
-        }
-        return prev;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
   }, []);
   const days = [{
     day: 1,
@@ -137,15 +113,12 @@ const Upsell1International = () => {
       }} />)}
       </div>
 
-      {/* Urgency Banner */}
-      <div className="bg-destructive text-destructive-foreground py-3 px-4 text-center relative z-10">
+      {/* Guarantee Banner */}
+      <div className="bg-primary/10 border-b border-primary/20 text-primary py-3 px-4 text-center relative z-10">
         <div className="flex items-center justify-center gap-3 flex-wrap">
-          <Clock className="w-5 h-5 animate-pulse" />
+          <Shield className="w-5 h-5" />
           <span className="font-semibold">
-            SPECIAL OFFER EXPIRES IN: {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
-          </span>
-          <span className="bg-background/20 px-2 py-1 rounded text-sm">
-            Only {spotsLeft} spots left
+            60-Day Money-Back Guarantee — try it risk-free
           </span>
         </div>
       </div>

@@ -4,7 +4,6 @@ import { Shield, Heart, RotateCcw, Check } from "lucide-react";
 import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
 import { TrustBadges } from "./TrustBadges";
 import { Testimonials } from "./Testimonials";
-import { CountdownTimer } from "./CountdownTimer";
 import { SocialProofCounter } from "./SocialProofCounter";
 import { GuaranteeSection } from "./GuaranteeSection";
 import { FAQSection } from "./FAQSection";
@@ -125,15 +124,6 @@ export const QuizResult = ({ result }: QuizResultProps) => {
           </p>
         </motion.div>
 
-        {/* Countdown Timer */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.6 }}
-          className="mb-10"
-        >
-          <CountdownTimer initialMinutes={15} />
-        </motion.div>
 
         {/* Manuscript Reveal */}
         <motion.div
@@ -257,7 +247,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
                 Unlock My Divine Access Now
               </a>
               <p className="text-xs text-muted-foreground mt-3">
-                Instant access after confirmation
+                Instant access after confirmation • 60-day money-back guarantee
               </p>
             </motion.div>
           </div>

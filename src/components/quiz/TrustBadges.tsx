@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { Shield, Lock, CreditCard, CheckCircle } from "lucide-react";
+import { Shield, Lock, CreditCard, CheckCircle, ShieldCheck } from "lucide-react";
 
 export const TrustBadges = () => {
   const badges = [
+    { icon: ShieldCheck, label: "60-Day Guarantee" },
     { icon: Lock, label: "SSL Encrypted" },
     { icon: Shield, label: "100% Secure" },
     { icon: CreditCard, label: "Safe Payment" },
