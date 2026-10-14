@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ShieldCheck } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -11,6 +11,14 @@ import {
 export const QuizFooter = () => {
   return (
     <footer className="w-full py-4 px-4 mt-auto">
+      {/* 60-Day Guarantee — shown on every quiz page */}
+      <div className="max-w-md mx-auto mb-3 flex items-center justify-center gap-2 text-xs font-medium text-primary">
+        <ShieldCheck className="w-4 h-4 flex-shrink-0" />
+        <span className="text-center">
+          60-Day Money-Back Guarantee — full refund, no questions asked
+        </span>
+      </div>
+
       <div className="max-w-md mx-auto flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
         {/* Support */}
         <Dialog>
@@ -52,13 +60,25 @@ export const QuizFooter = () => {
             </DialogHeader>
             <div className="py-4 space-y-4 text-muted-foreground">
               <p>
-                We offer a <span className="text-foreground font-medium">7-day money-back guarantee</span> on all purchases.
+                We offer a{" "}
+                <span className="text-foreground font-medium">
+                  60-day money-back guarantee
+                </span>{" "}
+                on all purchases.
               </p>
               <p>
-                If you're not completely satisfied with your purchase, simply contact us within 7 days of your purchase date and we'll process a full refund.
+                If you're not completely satisfied with your purchase, simply
+                contact us within 60 days of your purchase date and we'll
+                process a full refund.
               </p>
               <p className="text-sm">
-                Contact: <a href="mailto:contatomovielight@gmail.com" className="text-primary hover:underline">contatomovielight@gmail.com</a>
+                Contact:{" "}
+                <a
+                  href="mailto:contatomovielight@gmail.com"
+                  className="text-primary hover:underline"
+                >
+                  contatomovielight@gmail.com
+                </a>
               </p>
             </div>
           </DialogContent>
