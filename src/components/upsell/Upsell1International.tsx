@@ -332,9 +332,6 @@ const Upsell1International = () => {
           <div className="absolute top-0 right-0 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
           
           <div className="relative z-10 text-center">
-            <span className="inline-block bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold mb-4">
-              LIMITED TIME OFFER
-            </span>
 
             <div className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-2">$53.00</div>
             <p className="text-muted-foreground text-sm mb-8">One-time payment — no subscription, no recurring charges</p>
@@ -343,7 +340,7 @@ const Upsell1International = () => {
               <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg rounded-xl" onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/yes?template=light'}>
                 Yes, I want to buy it.
               </Button>
-              <button className="w-full text-muted-foreground hover:text-foreground text-sm underline transition-colors" onClick={() => window.location.href = '/up2'}>
+              <button className="w-full text-muted-foreground hover:text-foreground text-sm underline transition-colors" onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/no'}>
                 I don't want
               </button>
             </div>
