@@ -64,7 +64,10 @@ const Upsell2US = () => {
           transition={{ delay: 0.6 }}
           className="w-full max-w-sm"
         >
-          <p className="text-center text-sm text-amber-100/80 mb-4">One-time payment — no subscription, no recurring charges</p>
+          <div className="text-center mb-6">
+            <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">$57.00</div>
+            <p className="text-amber-100/70 text-sm">One-time payment — no subscription, no recurring charges</p>
+          </div>
           <div className="space-y-4">
             <Button asChild size="lg" className="w-full px-8 py-4 text-lg font-semibold bg-amber-500 hover:bg-amber-600 text-black">
               <a href="https://www.checkout-ds24.com/answer/yes?template=light">Yes, I want to buy it.</a>

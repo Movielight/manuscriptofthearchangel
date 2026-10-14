@@ -130,7 +130,8 @@ const Upsell2 = () => {
           delay: 0.3,
           duration: 0.5
         }} className="bg-white rounded-2xl p-6 shadow-xl shadow-amber-100/50 border border-amber-100 mb-6">
-            <p className="text-sm text-slate-600 mb-4">One-time payment — no subscription, no recurring charges</p>
+            <div className="text-4xl md:text-5xl font-heading font-bold text-slate-800 mb-2">$57.00</div>
+            <p className="text-sm text-slate-600 mb-6">One-time payment — no subscription, no recurring charges</p>
             <div className="space-y-4">
               <Button asChild size="lg" className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 text-lg rounded-xl shadow-lg shadow-amber-200">
                 <a href="https://www.checkout-ds24.com/answer/yes?template=light">Yes, I want to buy it.<ArrowRight className="ml-2 w-5 h-5" /></a>
