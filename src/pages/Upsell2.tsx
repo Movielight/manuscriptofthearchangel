@@ -2,11 +2,24 @@ import { useGeoLocation } from "@/hooks/useGeoLocation";
 import Upsell2US from "@/components/upsell/Upsell2US";
 import Upsell2International from "@/components/upsell/Upsell2International";
 import ProgressLoader from "@/components/upsell/ProgressLoader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Upsell2 = () => {
   const { isUS, loading } = useGeoLocation();
   const [loadingComplete, setLoadingComplete] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.digistore24-scripts.com/service/digistore.js";
+    script.async = true;
+    script.onload = () => {
+      (window as any).digistoreUpsell?.();
+    };
+    document.body.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   // Show loading while detecting geolocation
   if (loading) {
