@@ -1,23 +1,9 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, Clock, BookOpen, Target, Flame, Star, Shield, Users, Zap, Heart, Award, RefreshCw, Infinity as InfinityIcon } from "lucide-react";
 import { LiveNotifications } from "@/components/quiz/LiveNotifications";
 import { QuizFooter } from "@/components/quiz/QuizFooter";
+import { Button } from "@/components/ui/button";
 const Upsell1International = () => {
-  useEffect(() => {
-    // Add MundPay script to head
-    const script = document.createElement("script");
-    script.src = "https://upsell.mundpay.com/script-v2.js";
-    script.defer = true;
-    script.async = true;
-    document.head.appendChild(script);
-    return () => {
-      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
   const days = [{
     day: 1,
     title: "Awakening the Mind",
@@ -88,11 +74,11 @@ const Upsell1International = () => {
     question: "How does the weekly renewal work?",
     answer: "Every 7 days, you receive a completely new set of Bible verses and focus exercises. The structure stays the same, but the content is fresh and different."
   }, {
-    question: "Can I cancel anytime?",
-    answer: "Absolutely! There's no long-term commitment. You can cancel your subscription at any time with just one click."
+    question: "Is this a one-time payment?",
+    answer: "Yes! You pay once — $53.00 — and get full access. No subscription, no recurring charges, no hidden fees."
   }, {
     question: "What if I miss a day?",
-    answer: "No problem! You can always go back and complete previous days. The content remains available throughout your subscription."
+    answer: "No problem! You can always go back and complete previous days. The content remains available with your one-time purchase."
   }];
   return <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Live Notifications */}
@@ -147,10 +133,10 @@ const Upsell1International = () => {
             and practical focus exercises — renewed every single week.
           </p>
 
-          {/* Subscription Highlight */}
+          {/* One-Time Payment Highlight */}
           <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-600 px-4 py-2 rounded-full mb-8">
-            <RefreshCw className="w-4 h-4" />
-            <span className="text-sm font-medium">New Challenge Every Week • Different Verses</span>
+            <Shield className="w-4 h-4" />
+            <span className="text-sm font-medium">One-Time Payment • No Subscription • Lifetime Access</span>
           </div>
 
           {/* Social Proof */}
@@ -350,15 +336,17 @@ const Upsell1International = () => {
               LIMITED TIME OFFER
             </span>
 
-            
+            <div className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-2">$53.00</div>
+            <p className="text-muted-foreground text-sm mb-8">One-time payment — no subscription, no recurring charges</p>
 
-            
-
-            
-
-            
-
-            <div data-mndpay-render="019b37bd-defb-7108-bd7e-b3d0399fd6b6"></div>
+            <div className="space-y-3 max-w-md mx-auto mb-8">
+              <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg rounded-xl" onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/yes?template=light'}>
+                Yes, I want to buy it.
+              </Button>
+              <button className="w-full text-muted-foreground hover:text-foreground text-sm underline transition-colors" onClick={() => window.location.href = '/up2'}>
+                I don't want
+              </button>
+            </div>
 
             <div className="flex items-center justify-center gap-6 mt-6 flex-wrap">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -370,8 +358,8 @@ const Upsell1International = () => {
                 <span>Instant Access</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <RefreshCw className="w-4 h-4 text-primary" />
-                <span>Cancel Anytime</span>
+                <Shield className="w-4 h-4 text-primary" />
+                <span>One-Time Payment</span>
               </div>
             </div>
           </div>
