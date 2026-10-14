@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,39 +11,6 @@ const bibleVerses = [
 ];
 
 const Upsell2US = () => {
-  const [showFallback, setShowFallback] = useState(false);
-
-  useEffect(() => {
-    let scriptLoaded = false;
-    const script = document.createElement("script");
-    script.src = "https://upsell.mundpay.com/script-v2.js";
-    script.defer = true;
-    script.async = true;
-    
-    script.onload = () => {
-      scriptLoaded = true;
-    };
-    
-    script.onerror = () => {
-      setShowFallback(true);
-    };
-    
-    document.head.appendChild(script);
-
-    const timeout = setTimeout(() => {
-      if (!scriptLoaded) {
-        setShowFallback(true);
-      }
-    }, 5000);
-
-    return () => {
-      clearTimeout(timeout);
-      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
@@ -98,33 +64,13 @@ const Upsell2US = () => {
           transition={{ delay: 0.6 }}
           className="w-full max-w-sm"
         >
-          {/* MundPay area with black overlays covering title/price and decline/terms */}
-          <div className="relative">
-            {/* Black overlay covering title and price (top area) */}
-            <div className="absolute top-0 left-0 right-0 h-[85px] md:h-[70px] bg-black z-10 pointer-events-none" />
-            
-            {/* Black overlay covering decline button and terms (bottom area) */}
-            <div className="absolute bottom-0 left-0 right-0 h-[95px] md:h-[85px] bg-black z-10 pointer-events-none" />
-
-            <div data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"></div>
+          <p className="text-center text-sm text-amber-100/80 mb-4">One-time payment — no subscription, no recurring charges</p>
+          <div className="space-y-4">
+            <Button asChild size="lg" className="w-full px-8 py-4 text-lg font-semibold bg-amber-500 hover:bg-amber-600 text-black">
+              <a href="https://www.checkout-ds24.com/answer/yes?template=light">Yes, I want to buy it.</a>
+            </Button>
+            <a href="https://www.checkout-ds24.com/answer/no" className="block w-full text-center text-amber-100/60 hover:text-amber-100 text-sm underline">I don't want</a>
           </div>
-          {showFallback && (
-            <div className="mt-6 space-y-4">
-              <Button
-                size="lg"
-                className="w-full px-8 py-4 text-lg font-semibold bg-amber-500 hover:bg-amber-600 text-black"
-                onClick={() => window.location.href = '/manuscript'}
-              >
-                Accept Offer
-              </Button>
-              <button
-                className="w-full text-amber-100/60 hover:text-amber-100 text-sm underline"
-                onClick={() => window.location.href = '/manuscript'}
-              >
-                No thanks, continue
-              </button>
-            </div>
-          )}
         </motion.div>
       </div>
 

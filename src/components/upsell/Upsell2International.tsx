@@ -38,33 +38,6 @@ const testimonials = [{
 const Upsell2 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [showFallback, setShowFallback] = useState(false);
-  useEffect(() => {
-    let scriptLoaded = false;
-    const script = document.createElement("script");
-    script.src = "https://upsell.mundpay.com/script-v2.js";
-    script.defer = true;
-    script.async = true;
-    script.onload = () => {
-      scriptLoaded = true;
-    };
-    script.onerror = () => {
-      setShowFallback(true);
-    };
-    document.head.appendChild(script);
-    const timeout = setTimeout(() => {
-      if (!scriptLoaded) {
-        setShowFallback(true);
-      }
-    }, 5000);
-    return () => {
-      clearTimeout(timeout);
-      const existingScript = document.querySelector('script[src="https://upsell.mundpay.com/script-v2.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
   const nextTestimonial = () => {
     setDirection(1);
     setCurrentIndex(prev => (prev + 1) % testimonials.length);
@@ -142,7 +115,7 @@ const Upsell2 = () => {
               Available 24/7
             </span>
             <span className="bg-white border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-600">
-              Cancel anytime
+              One-time payment
             </span>
           </div>
 
@@ -157,21 +130,16 @@ const Upsell2 = () => {
           delay: 0.3,
           duration: 0.5
         }} className="bg-white rounded-2xl p-6 shadow-xl shadow-amber-100/50 border border-amber-100 mb-6">
-            
-            
-            
-            <div data-mndpay-render="019b3773-3b03-73c3-ac03-13b39b6509c2"></div>
-            
-            {showFallback && <div className="mt-6 space-y-4">
-                <Button size="lg" className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 text-lg rounded-xl shadow-lg shadow-amber-200" onClick={() => window.location.href = '/manuscript'}>
-                  Add Monthly Guidance
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <button className="w-full inline-flex items-center justify-center gap-2 text-slate-400 hover:text-slate-600 text-sm transition-colors" onClick={() => window.location.href = '/manuscript'}>
-                  <X className="w-4 h-4" />
-                  No thanks, continue without
-                </button>
-              </div>}
+            <p className="text-sm text-slate-600 mb-4">One-time payment — no subscription, no recurring charges</p>
+            <div className="space-y-4">
+              <Button asChild size="lg" className="w-full bg-amber-500 hover:bg-amber-600 text-white py-6 text-lg rounded-xl shadow-lg shadow-amber-200">
+                <a href="https://www.checkout-ds24.com/answer/yes?template=light">Yes, I want to buy it.<ArrowRight className="ml-2 w-5 h-5" /></a>
+              </Button>
+              <a href="https://www.checkout-ds24.com/answer/no" className="w-full inline-flex items-center justify-center gap-2 text-slate-400 hover:text-slate-600 text-sm transition-colors">
+                <X className="w-4 h-4" />
+                I don't want
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       </main>
