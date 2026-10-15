@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Inbox, ShieldCheck, CreditCard, LifeBuoy, CheckCircle2 } from "lucide-react";
+import { Mail, Inbox, CreditCard, LifeBuoy, CheckCircle2 } from "lucide-react";
 import { QuizFooter } from "@/components/quiz/QuizFooter";
 import { ArchangelKeyLogo } from "@/components/brand/ArchangelKeyLogo";
 
@@ -143,17 +143,6 @@ const ThankYou = () => {
             Need a hand with the email or your login? Our support team answers
             every message — use the Support link below and we will get you in.
           </p>
-        </motion.div>
-
-        {/* Guarantee reminder */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-10 flex items-center gap-2 text-sm font-medium text-primary"
-        >
-          <ShieldCheck className="w-4 h-4 flex-shrink-0" />
-          <span>60-Day Money-Back Guarantee — full refund, no questions asked</span>
         </motion.div>
       </main>
 
