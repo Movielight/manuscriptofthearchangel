@@ -124,6 +124,19 @@ const PrivacyPolicy = () => {
           </section>
 
           <section className="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-border/50">
+            <h2 className="font-heading text-2xl mb-4 text-primary">Unsubscribing from Emails and Newsletters</h2>
+            <div className="text-muted-foreground leading-relaxed space-y-3">
+              <p>You can stop receiving marketing emails and newsletters from us at any time, free of charge:</p>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>Click the "Unsubscribe" link at the bottom of any email we send you; or</li>
+                <li>Reply to any of our emails with the word "Unsubscribe"; or</li>
+                <li>Write to <a href="mailto:contatomovielight@gmail.com" className="text-primary hover:underline">contatomovielight@gmail.com</a> asking to be removed from our mailing list.</li>
+              </ul>
+              <p>We will process your request within 10 business days. Even after unsubscribing, you may still receive essential transactional messages related to your purchase or account (such as access instructions, receipts, or security notices).</p>
+            </div>
+          </section>
+
+          <section className="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-border/50">
             <h2 className="font-heading text-2xl mb-4 text-primary">9. Children's Privacy</h2>
             <p className="text-muted-foreground leading-relaxed">
               The App is not intended for children under the age of 13. We do not knowingly collect 
