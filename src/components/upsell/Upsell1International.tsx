@@ -337,12 +337,12 @@ const Upsell1International = () => {
             <p className="text-muted-foreground text-sm mb-8">One-time payment — no subscription, no recurring charges</p>
 
             <div className="space-y-3 max-w-md mx-auto mb-8">
-              <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg rounded-xl" onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/yes?template=light'}>
-                Yes, I want to buy it.
+              <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg rounded-xl">
+                <a href="https://www.checkout-ds24.com/answer/yes?template=light">Yes, I want to buy it.</a>
               </Button>
-              <button className="w-full text-muted-foreground hover:text-foreground text-sm underline transition-colors" onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/no'}>
+              <a href="https://www.checkout-ds24.com/answer/no" className="block w-full text-center text-muted-foreground hover:text-foreground text-sm underline transition-colors">
                 I don't want
-              </button>
+              </a>
             </div>
 
             <div className="flex items-center justify-center gap-6 mt-6 flex-wrap">

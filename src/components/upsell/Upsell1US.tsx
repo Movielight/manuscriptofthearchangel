@@ -66,18 +66,18 @@ const Upsell1US = () => {
             className="w-full max-w-sm mx-auto space-y-4"
           >
             <Button
+              asChild
               size="lg"
               className="w-full px-8 py-4 text-lg font-semibold bg-amber-500 hover:bg-amber-600 text-black"
-              onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/yes?template=light'}
             >
-              Yes, I want to buy it.
+              <a href="https://www.checkout-ds24.com/answer/yes?template=light">Yes, I want to buy it.</a>
             </Button>
-            <button
-              className="text-amber-100/60 hover:text-amber-100 text-sm underline"
-              onClick={() => window.location.href = 'https://www.checkout-ds24.com/answer/no'}
+            <a
+              href="https://www.checkout-ds24.com/answer/no"
+              className="block text-center text-amber-100/60 hover:text-amber-100 text-sm underline"
             >
               I don't want
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
