@@ -65,7 +65,7 @@ const Upsell2US = () => {
           className="w-full max-w-sm"
         >
           <div className="text-center mb-6">
-            <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">$57.00</div>
+            <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">$67.00</div>
             <p className="text-amber-100/70 text-sm">One-time payment — no subscription, no recurring charges</p>
           </div>
           <div className="space-y-4">
