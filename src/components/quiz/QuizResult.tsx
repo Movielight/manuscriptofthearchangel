@@ -239,7 +239,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
                 ))}
               </ul>
               <a
-                href="https://pay.mycheckoutt.com/019b3712-b06b-73fe-a01b-73270510a4c3?ref="
+                href="https://www.checkout-ds24.com/product/755909"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="divine-button w-full block text-center text-lg animate-pulse"
@@ -326,7 +326,7 @@ export const QuizResult = ({ result }: QuizResultProps) => {
           className="text-center mb-10"
         >
           <a
-            href="https://pay.mycheckoutt.com/019b3712-b06b-73fe-a01b-73270510a4c3?ref="
+            href="https://www.checkout-ds24.com/product/755909"
             target="_blank"
             rel="noopener noreferrer"
             className="divine-button text-lg inline-block"
